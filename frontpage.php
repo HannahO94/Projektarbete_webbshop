@@ -1,6 +1,6 @@
 <?php
 // Denna sida hämtar och ritar ut aktuella kategorier från databasen
-    require_once 'db.php';
+    //require_once 'db.php';
 ?>    
 
 <!--detta ska vara skalet för en startsida, förstasida för webbshoppen--> 
