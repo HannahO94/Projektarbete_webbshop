@@ -11,6 +11,7 @@
     <img class="img-container__img" src="logo.jpg" alt="Spelshoppen">
     </div>
  </section>
+ 
  <section class="frontpage_categories">
  <!--här hämtas kategorier från databas-->
  </section>  
