@@ -20,6 +20,7 @@ require_once 'header.php';
     </ul>
 </nav>
 
+<section class="page-title-container">
 
 <h1 class="page-title">Lägg till en ny produkt</h1>
 
