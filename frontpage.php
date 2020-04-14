@@ -1,7 +1,8 @@
 <?php
 // Denna sida hämtar och ritar ut aktuella kategorier från databasen
 require_once 'config/db.php';
-$stmt = $db->prepare("SELECT category FROM webshop_categories");
+
+$stmt = $db->prepare("SELECT * FROM webshop_categories");
 $stmt->execute();
 
 ?>
@@ -19,10 +20,12 @@ $stmt->execute();
     <?php
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) :
         $category = htmlspecialchars($row['category']);
+        $categoryid = htmlspecialchars($row['categoryid']);
 
         echo
             "<div class='category_card'>
-                <h2 class='category_title'>$category</h2>
+            <a href= 'categorypage.php? id=$categoryid' 
+            class='category_title'>$category</a>
         </div>";
 
     endwhile;
