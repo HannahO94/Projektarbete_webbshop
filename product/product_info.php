@@ -18,7 +18,6 @@ echo "<div class='product-info'>";
 
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    // $product_id = htmlspecialchars($row['productid']);
     $title = htmlspecialchars($row['title']);
     $description = htmlspecialchars($row['description']);
     $quantity = htmlspecialchars($row['quantity']);
@@ -46,7 +45,6 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 <span>Pris: <?= $price ?> kr</span>
 
 <?php 
-// Finns i lager - Finns EJ i lager
     echo "<span class='inventory'>" . $any_items . "<span>";
 
 echo "</div>";
