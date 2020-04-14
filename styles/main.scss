@@ -1,0 +1,10 @@
+/*importera partials, fonter, variabler, mixins, extends etc. */
+@import "frontpage";
+
+/*ok att nedan ligger här eller kan vi lägga det ngn
+annanstans så att det fortfarande är med överallt?*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
