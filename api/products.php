@@ -34,6 +34,7 @@ if ($stmt->rowCount() > 0) {
       "price" => htmlspecialchars($row["price"]),
       "quantity" => htmlspecialchars($row["quantity"]),
     );
+
     $products[] = $product;
 
   endwhile;

@@ -30,6 +30,7 @@ if ($stmt->rowCount() > 0) {
       "category" => htmlspecialchars($row["category"]),
       "image" => htmlspecialchars($row["image"])
     );
+
     $categories[] = $category;
 
   endwhile;
