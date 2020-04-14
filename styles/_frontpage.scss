@@ -15,11 +15,19 @@
 .category_card {
   margin: 2em;
   background-color: lightgrey;
+  text-align: center;
   height: 200px;
   width: 200px;
 }
 
 .category_title {
-  text-align: center;
+  display: inline-block;
   margin-top: 40%;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
+  @media (min-width: 800px) {
+    font-size: 24px;
+  }
 }
