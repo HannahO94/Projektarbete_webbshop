@@ -43,6 +43,69 @@
   width: 200px;
 }
 
+.category_title {
+  text-align: center;
+  margin-top: 40%;
+}
+
+.categorypage_products {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media (min-width: 600px) {
+  .categorypage_products {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+.product_card {
+  margin: 2em;
+  background-color: lightgrey;
+  height: 200px;
+  width: 200px;
+}
+
+.product_title {
+  text-align: center;
+  margin-top: 40%;
+}
+
+.category_name {
+  text-align: center;
+}
+
+@media (min-width: 600px) {
+  .category_name {
+    display: none;
+  }
+}
+
 /*ok att nedan ligger här eller kan vi lägga det ngn
 annanstans så att det fortfarande är med överallt?*/
 * {
