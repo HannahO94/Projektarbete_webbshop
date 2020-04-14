@@ -10,8 +10,8 @@ error_reporting(E_ALL);
 $db_server = "localhost"; //mysql:host (se new PDO i try-catch-satsen) är nästan alltid localhost (90% av fallen)
 $db_database = "webshop";
 $db_username = "root";
-$db_password = ""; //password för XAMPP
-// $db_password = "root"; //password för MAMP
+//$db_password = ""; //password för XAMPP
+$db_password = "root"; //password för MAMP
 
 
 //Skapar ny uppkoppling mot databasen
