@@ -1,4 +1,36 @@
-<h1>Spelnamn</h1>
+<?php
+
+require_once "../config/db.php";
+
+$id = htmlspecialchars($_GET['productid']);
+
+$stmt = $db->prepare("SELECT  
+                    `title`, 
+                    `description`, 
+                    `quantity`, 
+                    `price` 
+                    FROM `webshop_products` 
+                    WHERE productid=:productid");
+$stmt->bindParam(':productid', $id);
+$stmt->execute();
+
+echo "<div class='product-info'>";
+
+$row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    $title = htmlspecialchars($row['title']);
+    $description = htmlspecialchars($row['description']);
+    $quantity = htmlspecialchars($row['quantity']);
+    $price = htmlspecialchars($row['price']);
+
+    if ($quantity == "0") {
+        $any_items = "Finns EJ i lager";
+    } else {
+        $any_items = "Finns i lager";
+    }
+?>
+
+<h1><?= $title ?></h1>
 
 <div class="img-container">
     <img src="" alt="Bild på spelet" class="img-container__img">
@@ -7,19 +39,15 @@
 <h2>Beskrivning</h2>
 
 <p class="description">
-Bitters fixie 8-bit, offal man braid palo santo thundercats butcher vapor ware 
-fanny pack vegan pinterest mixtape retro twee. Air plant cloud bread narwhal 
-ramps sriracha hoodie celiac DIY. Food truck adaptogen fam, microdosing letterpress 
-hell of slow-carb. Fashion axe tilde try-hard you probably haven't heard of 
-them mixtape microdosing poke knausgaard shaman seitan quinoa chicharrones drinking 
-vinegar butcher. 90's whatever chambray blog man braid craft beer jean shorts 
-dreamcatcher cray.
+<?= $description ?>
 </p>
 
-<span>Pris: 500 kr</span>
+<span>Pris: <?= $price ?> kr</span>
 
 <?php 
-// Finns i lager - Finns EJ i lager
+    echo "<span class='inventory'>" . $any_items . "<span>";
+
+echo "</div>";
 ?>
 
 <button class="cart-btn">Lägg i varukorgen</button>
