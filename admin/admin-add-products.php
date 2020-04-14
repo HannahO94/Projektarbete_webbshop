@@ -7,7 +7,7 @@ require_once '../config/db.php';
 
 $msg = "";
 
-        $sql = "SELECT * FROM categories";
+        $sql = "SELECT * FROM webshop_categories";
         $stmt = $db->prepare($sql);
         $stmt->execute();
 
@@ -22,8 +22,8 @@ $msg = "";
 
     if($_SERVER['REQUEST_METHOD'] === 'POST') :
         
-        $sql = "INSERT INTO products (title, description, categoryid, price)
-                VALUES (:title, :description, :categoryid, :price) ";
+        $sql = "INSERT INTO webshop_products (title, description, categoryid, price, quantity)
+                VALUES (:title, :description, :categoryid, :price, :quantity) ";
            
         $stmt = $db->prepare($sql);
 
@@ -31,6 +31,7 @@ $msg = "";
         $title = htmlspecialchars($_POST['title']);
         $description = htmlspecialchars($_POST['description']);
         $price = htmlspecialchars($_POST['price']);
+        $quantity = htmlspecialchars($_POST['quantity']);
         $categoryid = $_POST['category'];
 
         // $image = $_FILES['image']['name'];
@@ -42,6 +43,7 @@ $msg = "";
         $stmt->bindParam(':title', $title);
         $stmt->bindParam(':description', $description);
         $stmt->bindParam(':price', $price);
+        $stmt->bindParam(':quantity', $quantity);
         $stmt->bindParam(':categoryid', $categoryid);
 
 
@@ -83,9 +85,9 @@ $msg = "";
 <input type="text" name="price">
 </div>
 
-<div class="product_field-instock">
-<label for="instock">Ange lagerstatus: <br>
-<input type="number" min="0" max="500" name="instock">
+<div class="product_field-quantity">
+<label for="quantity">Ange lagerstatus: <br>
+<input type="number" min="0" max="500" name="quantity">
 </div>
 
 <div class="product_field-category">
