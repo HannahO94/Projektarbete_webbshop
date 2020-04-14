@@ -9,7 +9,8 @@ require_once('../config/db.php');
 //Hämta data från databasen via SQL-query
 $sql = "SELECT 
             categoryid, 
-            category
+            category,
+            image
         FROM 
             webshop_categories";
 
@@ -27,6 +28,7 @@ if ($stmt->rowCount() > 0) {
     $category = array(
       "categoryid" => htmlspecialchars($row["categoryid"]),
       "category" => htmlspecialchars($row["category"]),
+      "image" => htmlspecialchars($row["image"])
     );
     $categories[] = $category;
 
