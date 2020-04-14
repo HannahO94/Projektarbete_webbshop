@@ -16,13 +16,13 @@ $sql = "SELECT
 $stmt = $db->prepare($sql);
 $stmt->execute();
 
-//Om det finns några produkter(tabellrader) i databasen
+//Om det finns några kategorier (tabellrader) i databasen
 if ($stmt->rowCount() > 0) {
 
   //Skapa tom PHP-array
   $categories = [];
 
-  //Lägg till varje produkt i PHP-arrayen 
+  //Lägg till varje kategori i PHP-arrayen 
   while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) :
     $category = array(
       "categoryid" => htmlspecialchars($row["categoryid"]),
