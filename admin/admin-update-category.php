@@ -53,6 +53,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') :
     
 endif;
 ?>
+
 <form action="#" method="POST" enctype="multipart/form-data">
     <div class="">
         <input type="text" placeholder="Namn på kategori" value='<?php echo $category; ?>' name="category" class="">
@@ -67,12 +68,14 @@ endif;
     </div>
 <input type="hidden" name="id" value="<?php echo $id ?>"> 
 </form>
+
 <?php 
 if (!$imageold === false){
     echo "<img src='../images/$imageold' width='200px' class=''><br>
     ";
 }
 ?>
-
+<br><br>
+<button><a href="admin-category.php">Tillbaka</a></button>
 <?php  require_once 'footer.php'; ?>
 <!-- <a href='delete-img.php?id=$id' class='btn btn-danger'>Ta bort bild</a> -->
