@@ -2,9 +2,10 @@
 require_once '../header_extern.php';
 require_once "../config/db.php";
 
-$id = htmlspecialchars($_GET['productid']);
+$id = htmlspecialchars($_GET['id']);
 
 $stmt = $db->prepare("SELECT  
+                    `categoryid`,
                     `title`, 
                     `description`, 
                     `quantity`, 
@@ -18,6 +19,7 @@ echo "<div class='product-info'>";
 
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
+    $categoryid = htmlspecialchars($row['categoryid']);
     $title = htmlspecialchars($row['title']);
     $description = htmlspecialchars($row['description']);
     $quantity = htmlspecialchars($row['quantity']);
@@ -53,5 +55,8 @@ echo "</div>";
 <button class="cart-btn">Lägg i varukorgen</button>
 
 <?php 
+
+echo "<a href='../categorypage.php?id=" . $categoryid ."'>Tillbaka</a>";
+
 require_once '../footer_extern.php';
 ?>
