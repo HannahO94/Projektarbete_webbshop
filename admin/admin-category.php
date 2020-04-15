@@ -78,29 +78,17 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
 
 </form>
 
-<script>
+ <script>
     function myFunction() {
-        <?php 
-            $query = "SELECT * FROM webshop_products WHERE categoryid = :id" ;
-            $id = htmlspecialchars($_GET['id']);
-            $statement = $db->prepare($query);
-            $statement->bindParam(':id', $id);
-            $statement->execute(); 
-            if($statement->fetch(PDO::FETCH_ASSOC) == 0){
-                ?> let remove = confirm("Är du säker på att du vill radera inlägget");
+        
+                let remove = confirm("Är du säker på att du vill radera inlägget");
                 if (remove == false) {
                     return false;
                 } 
-                <?php
-            }
-            else {
                 
-                echo "<h2>Du måste ta bort alla produkter från kategorin innan du raderar</h2>";
             }
-        ?>
-        
-    
-
-}
+           
+           
 </script> 
-<?php require_once "footer.php";?>
+
+    <?php require_once "footer.php";?>
