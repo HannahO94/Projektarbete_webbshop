@@ -5,7 +5,7 @@ require_once '../config/db.php';
 
 
 
-$msg = "";
+//$msg = "";
 
         $sql = "SELECT * FROM webshop_categories";
         $stmt = $db->prepare($sql);
@@ -22,8 +22,8 @@ $msg = "";
 
     if($_SERVER['REQUEST_METHOD'] === 'POST') :
         
-        $sql = "INSERT INTO webshop_products (title, description, categoryid, price, quantity)
-                VALUES (:title, :description, :categoryid, :price, :quantity) ";
+        $sql = "INSERT INTO webshop_products (title, description, categoryid, price, quantity, productimg)
+                VALUES (:title, :description, :categoryid, :price, :quantity, :productimg) ";
            
         $stmt = $db->prepare($sql);
 
@@ -34,28 +34,34 @@ $msg = "";
         $quantity = htmlspecialchars($_POST['quantity']);
         $categoryid = $_POST['category'];
 
-        // $image = $_FILES['image']['name'];
-        // $link = $_POST['link'];
-        // $target = "../images/".basename($image);
         
+        $uploadFolder = '../images/';
+        
+        $imageData = array();
 
+        foreach ($_FILES['productimg']['tmp_name'] as $key => $image) {
+            $imageTmpName = $_FILES['productimg']['tmp_name'][$key];
+            $imageName = $_FILES['productimg']['name'][$key];
+            $result = move_uploaded_file($imageTmpName,$uploadFolder.$imageName);
+            array_push($imageData, $imageName);
+        };
+
+         $imageUpload = serialize($imageData);
         
         $stmt->bindParam(':title', $title);
         $stmt->bindParam(':description', $description);
         $stmt->bindParam(':price', $price);
         $stmt->bindParam(':quantity', $quantity);
         $stmt->bindParam(':categoryid', $categoryid);
+        $stmt->bindParam(':productimg', $imageUpload);
 
-
-        // $stmt->bindParam(':image', $image);
-        // $stmt->bindParam(':link', $link);
-        // $stmt->bindParam(':published', $published);
+ 
        
        
         $stmt->execute(); 
 
         
-        // if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
+        // if (move_uploaded_file($_FILES['productimg[]']['tmp_name'], $target)) {
         //     $msg = "Bilden är uppladdad!";
         // }else{
         //     $msg = "Ingen bild är uppladdad!";
@@ -100,8 +106,8 @@ $msg = "";
 </div>
 
 <div class="product_field-img">
-<label for="product_upload-img">Ladda upp en produktbild: </label><br>
-<input type="file" name="product_upload-img">
+<label for="product-img">Ladda upp en produktbild: </label><br>
+<input type="file" name="productimg[]" multiple="multiple">
 </div>
 
 <div class="product_field-description">
