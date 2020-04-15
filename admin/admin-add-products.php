@@ -36,6 +36,7 @@ require_once '../config/db.php';
 
         
         $uploadFolder = '../images/';
+
         
         $imageData = array();
 
