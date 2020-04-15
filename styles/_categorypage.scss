@@ -32,6 +32,12 @@
   }
 }
 
+.product_card-btn {
+  display: block;
+  margin-left: 5px;
+  margin-top: 40px; /*inte bra, måste hitta bättre lösning*/
+}
+
 .category_name {
   text-align: center;
   @media (min-width: 600px) {
