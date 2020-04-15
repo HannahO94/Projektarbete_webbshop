@@ -4,11 +4,11 @@ require_once 'config/db.php';
 require_once 'footer_extern.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-  $currentCategory = htmlspecialchars($_GET['categoryid']);
+  $currentCategory = htmlspecialchars($_GET['id']);
 }
 
 //måste även lägga till ett WHERE-villkor som matchar den aktuella kategorin, variabeln ovan
-$stmt = $db->prepare("SELECT title FROM webshop_products WHERE categoryid = $currentCategory");
+$stmt = $db->prepare("SELECT * FROM webshop_products WHERE categoryid = $currentCategory");
 $stmt->execute();
 
 ?>
@@ -30,10 +30,12 @@ $stmt->execute();
     <?php
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) :
       $title = htmlspecialchars($row['title']);
+      $productid = htmlspecialchars($row['productid']);
 
       echo
         "<div class='product_card'>
-                  <h2 class='product_title'>$title</h2>
+                  <a href= 'product/product_info.php? id=$productid' 
+            class='category_title'>$title</a>
           </div>";
 
     endwhile;

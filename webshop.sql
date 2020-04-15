@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Värd: 127.0.0.1
--- Tid vid skapande: 14 apr 2020 kl 15:17
+-- Tid vid skapande: 14 apr 2020 kl 16:18
 -- Serverversion: 10.4.11-MariaDB
 -- PHP-version: 7.4.2
 
@@ -30,18 +30,19 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `webshop_categories` (
   `categoryid` int(11) NOT NULL,
-  `category` varchar(100) NOT NULL
+  `category` varchar(100) NOT NULL,
+  `image` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumpning av Data i tabell `webshop_categories`
 --
 
-INSERT INTO `webshop_categories` (`categoryid`, `category`) VALUES
-(1, 'familjespel'),
-(2, 'barnspel'),
-(3, 'strategispel'),
-(4, 'partyspel');
+INSERT INTO `webshop_categories` (`categoryid`, `category`, `image`) VALUES
+(1, 'familjespel', 'familjespel.jpg'),
+(2, 'barnspel', 'barnspel.jpg'),
+(3, 'strategispel', 'strategispel.jpg'),
+(4, 'partyspel', 'partyspel.jpg');
 
 -- --------------------------------------------------------
 
@@ -52,7 +53,7 @@ INSERT INTO `webshop_categories` (`categoryid`, `category`) VALUES
 CREATE TABLE `webshop_productimages` (
   `imageid` int(11) NOT NULL,
   `productid` int(11) NOT NULL,
-  `image` varchar(500) NOT NULL
+  `image` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
