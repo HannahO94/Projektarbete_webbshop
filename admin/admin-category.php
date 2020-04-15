@@ -15,7 +15,7 @@ $list = '<ul>';
 while($row = $stmt->fetch(PDO::FETCH_ASSOC)){  
     $category = htmlspecialchars($row['category']);
     $id = htmlspecialchars($row['categoryid']);
-    $list .= "<li> $category <button><a href='admin-update-category.php?id=$id'>Uppdatera</a></button><button>Ta bort</button></li>";
+    $list .= "<li> $category <button><a href='admin-update-category.php?id=$id'>Uppdatera</a></button><button><a href='admin-delete-category.php?id=$id' onclick='return myFunction()' id='delete'>Ta bort</a></button></li>";
 
     }
     $list .= '</ul>';  
@@ -78,18 +78,29 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
 
 </form>
 
-
-<?php require_once "footer.php";?>
-
-
-
-
-<!-- <script>
+<script>
     function myFunction() {
-    let remove = confirm("Är du säker på att du vill radera inlägget");
-    if (remove == false) {
-        return false;
-    } 
+        <?php 
+            $query = "SELECT * FROM webshop_products WHERE categoryid = :id" ;
+            $id = htmlspecialchars($_GET['id']);
+            $statement = $db->prepare($query);
+            $statement->bindParam(':id', $id);
+            $statement->execute(); 
+            if($statement->fetch(PDO::FETCH_ASSOC) == 0){
+                ?> let remove = confirm("Är du säker på att du vill radera inlägget");
+                if (remove == false) {
+                    return false;
+                } 
+                <?php
+            }
+            else {
+                
+                echo "<h2>Du måste ta bort alla produkter från kategorin innan du raderar</h2>";
+            }
+        ?>
+        
+    
 
 }
-</script> -->
+</script> 
+<?php require_once "footer.php";?>
