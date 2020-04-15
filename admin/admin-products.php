@@ -21,15 +21,17 @@ $output .="</ul>";
 echo $output;
 
 ?>
-
-
 <script>
     function myFunction() {
-        let remove = confirm("Är du säker på att du vill radera inlägget");
-        if (remove == false) {
-            return false;
-        } 
-    }  
+        
+                let remove = confirm("Är du säker på att du vill radera produkten?");
+                if (remove == false) {
+                    return false;
+                } 
+                
+            }
+                    
+
 </script> 
 
 <button><a href="admin-add-products.php">Lägg till produkt</a></button>

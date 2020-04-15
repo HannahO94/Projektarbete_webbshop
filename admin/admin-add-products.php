@@ -125,8 +125,9 @@ require_once '../config/db.php';
 </form>
 </section>
 
-<br><br>
+
 <button><a href="admin-products.php">Tillbaka</a></button>
+
 
 
 
