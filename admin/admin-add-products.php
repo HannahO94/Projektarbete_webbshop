@@ -36,6 +36,7 @@ require_once '../config/db.php';
 
         
         $uploadFolder = '../images/';
+
         
         $imageData = array();
 
@@ -46,8 +47,9 @@ require_once '../config/db.php';
             array_push($imageData, $imageName);
         };
 
-         $imageUpload = serialize($imageData);
-        
+        $imageUpload = serialize($imageData);
+
+
         $stmt->bindParam(':title', $title);
         $stmt->bindParam(':description', $description);
         $stmt->bindParam(':price', $price);
