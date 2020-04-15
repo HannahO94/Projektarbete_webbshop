@@ -15,7 +15,7 @@ $list = '<ul>';
 while($row = $stmt->fetch(PDO::FETCH_ASSOC)){  
     $category = htmlspecialchars($row['category']);
     $id = htmlspecialchars($row['categoryid']);
-    $list .= "<li> $category <button><a href='admin-update-category.php?id=$id'>Uppdatera</a></button><button>Ta bort</button></li>";
+    $list .= "<li> $category <button><a href='admin-update-category.php?id=$id'>Uppdatera</a></button><button><a href='admin-delete-category.php?id=$id' onclick='return myFunction()' id='delete'>Ta bort</a></button></li>";
 
     }
     $list .= '</ul>';  
@@ -78,18 +78,17 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
 
 </form>
 
-
-<?php require_once "footer.php";?>
-
-
-
-
-<!-- <script>
+ <script>
     function myFunction() {
-    let remove = confirm("Är du säker på att du vill radera inlägget");
-    if (remove == false) {
-        return false;
-    } 
+        
+                let remove = confirm("Är du säker på att du vill radera inlägget");
+                if (remove == false) {
+                    return false;
+                } 
+                
+            }
+           
+           
+</script> 
 
-}
-</script> -->
+    <?php require_once "footer.php";?>
