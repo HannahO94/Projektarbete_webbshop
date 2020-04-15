@@ -10,6 +10,7 @@
 <nav><ul>
     <!-- Ska sätta css display none i den inre listan som togglas men hjälp av javascript? -->
         <li><a href="admin-home.php">ADMIN<a></li>
+
             <ul> 
                 <li><a href="admin-category.php">Kategorier</a></li>
                 <li><a href="admin-products.php">Produkter</a></li>

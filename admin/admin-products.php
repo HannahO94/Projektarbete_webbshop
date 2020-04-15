@@ -20,7 +20,6 @@ $output .="</ul>";
 
 echo $output;
 
-
 ?>
 <script>
     function myFunction() {
@@ -32,6 +31,7 @@ echo $output;
                 
             }
                     
+
 </script> 
 
 <button><a href="admin-add-products.php">Lägg till produkt</a></button>
