@@ -2,7 +2,7 @@
 require_once 'header.php';
 require_once '../config/db.php';
 
-$sql = "SELECT * FROM categories"; 
+$sql = "SELECT * FROM webshop_categories"; 
 $stmt = $db->prepare($sql);
 $stmt->execute();
 //$stmt är ett objekt som innehåller tabellen
@@ -15,15 +15,15 @@ $list = '<ul>';
 while($row = $stmt->fetch(PDO::FETCH_ASSOC)){  
     $category = htmlspecialchars($row['category']);
     $id = htmlspecialchars($row['categoryid']);
-    $list .= "<li> $category <button>Uppdatera</button><button>Ta bort</button></li>";
+    $list .= "<li> $category <button><a href='admin-update-category.php?id=$id'>Uppdatera</a></button><button>Ta bort</button></li>";
 
     }
     $list .= '</ul>';  
 
     if($_SERVER['REQUEST_METHOD'] === 'POST') :
         
-        $sql = "INSERT INTO categories (category,  categoryimg)
-                VALUES (:category, :categoryimg) ";
+        $sql = "INSERT INTO webshop_categories (category, image)
+                VALUES (:category, :image) ";
            
         $stmt = $db->prepare($sql);
 
@@ -35,7 +35,7 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
 
         
         $stmt->bindParam(':category', $category);
-        $stmt->bindParam(':categoryimg', $image);
+        $stmt->bindParam(':image', $image);
 
     
        
