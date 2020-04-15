@@ -1,3 +1,4 @@
+
 let searchedGames = document.querySelector('#searched-games')
 let searchField = document.querySelector('#search-Field')
 //let games = ["monopol", "uno", "twister", "poker"] //array att testa med tills databasen är korrekt kopplad
@@ -46,6 +47,7 @@ ajax.onreadystatechange = function () {
       let searchedGame = games.filter(function (game) {
         return game.toLowerCase().includes(searchField.value.toLowerCase())
       })
+
 
       searchedGames.innerHTML = ''
       for (let i = 0; i < searchedGame.length; i++) {

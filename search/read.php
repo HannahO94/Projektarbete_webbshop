@@ -1,3 +1,4 @@
+
 <?php
 
 require_once '../config\db.php';
@@ -14,6 +15,7 @@ require_once '../config\db.php';
     $games[] = htmlspecialchars($row['title']);
     $games[] = htmlspecialchars($row['description']);
  
+
   };
  // print_r($games);
 
