@@ -1,5 +1,5 @@
 <?php
-require_once '../header_extern.php';
+require_once "../header_extern.php";
 require_once "../config/db.php";
 
 $id = htmlspecialchars($_GET['id']);
@@ -56,7 +56,7 @@ echo "</div>";
 
 <?php 
 
-echo "<a href='../categorypage.php?id=" . $categoryid ."'>Tillbaka</a>";
+echo "<a href='../categorypage/categorypage.php?id=" . $categoryid ."'>Tillbaka</a>";
 
 require_once '../footer_extern.php';
 ?>
