@@ -12,13 +12,13 @@ require_once '../config/db.php';
 
   while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
    // print_r($row);
-    $games[] = htmlspecialchars($row['title']);
-    $games[] = htmlspecialchars($row['description']);
- 
+   // $games[] = htmlspecialchars($row['title']);
+    //$games[] = htmlspecialchars($row['description']);
+    
+    $games[] = $row;
 
   };
  // print_r($games);
 
   echo json_encode($games);
 ?>
-

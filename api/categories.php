@@ -20,8 +20,8 @@ $stmt->execute();
 //Om det finns några kategorier (tabellrader) i databasen
 if ($stmt->rowCount() > 0) {
 
-  //Skapa tom PHP-array
-  $categories = [];
+  //Deklarera en tom PHP-array
+  $categories = array();
 
   //Lägg till varje kategori i PHP-arrayen 
   while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) :
@@ -31,7 +31,7 @@ if ($stmt->rowCount() > 0) {
       "image" => htmlspecialchars($row["image"])
     );
 
-    $categories[] = $category;
+    array_push($categories, $category);
 
   endwhile;
 

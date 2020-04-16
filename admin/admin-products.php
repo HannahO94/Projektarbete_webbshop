@@ -13,13 +13,12 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
     $categoryid = htmlspecialchars($row['categoryid']);
     $product = htmlspecialchars($row['title']);
 
-    $output .= "<li>$product<button><a href='admin-delete-product.php?id=$productid' onclick='return myFunction()' id='delete'>Ta bort</a></button></li>";
+    $output .= "<li>$product<button><a href='admin-update-product.php?id=$productid'>Uppdatera</a></button><button><a href='admin-delete-product.php?id=$productid' onclick='return myFunction()' id='delete'>Ta bort</a></button></li>";
 }
 
 $output .="</ul>";
 
 echo $output;
-
 
 ?>
 <script>
@@ -32,6 +31,7 @@ echo $output;
                 
             }
                     
+
 </script> 
 
 <button><a href="admin-add-products.php">Lägg till produkt</a></button>
