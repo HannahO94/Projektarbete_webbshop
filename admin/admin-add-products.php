@@ -126,6 +126,9 @@ require_once '../config/db.php';
 </section>
 
 
+<button><a href="admin-products.php">Tillbaka</a></button>
+
+
 
 
 <?php require_once 'footer.php';?>
