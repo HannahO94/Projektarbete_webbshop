@@ -68,9 +68,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') :
     $description = htmlspecialchars($_POST['description']);
     $categoryid = $_POST['category'];
 
-
     if ($_FILES['productimg']['name'] ==''){
-        $imageUpload = $imageold;
+        $imageUpload = serialize($imageold);
 
     }else {
         $uploadFolder = '../images/';
@@ -94,7 +93,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') :
     }
 
     $sql = "UPDATE webshop_products SET title = :title, productimg = :productimg, price = :price, quantity = :quantity, description = :description, categoryid = :categoryid   WHERE productid = :id";
-    
     $stmt = $db->prepare($sql);
     $stmt->bindParam(':title', $title);
     $stmt->bindParam(':price', $price);
@@ -174,6 +172,9 @@ if (!$imageold === false){
         ";
     }
 }
+        else{
+            echo "ingen bildfil finns tillgänglig";
+        }
 ?>
 
 
