@@ -14,15 +14,14 @@
 
 .category_card {
   margin: 2em;
-  /*background-color: lightgrey;*/
-  background-image: url(../images/barnspel.jpg);
-  background-size: cover;
   text-align: center;
   height: 200px;
   width: 200px;
 }
 
 .category_title {
+  position: relative;
+  z-index: 1;
   display: inline-block;
   margin-top: 40%;
   text-decoration: none;
@@ -34,4 +33,12 @@
   @media (min-width: 800px) {
     font-size: 24px;
   }
+}
+
+.img_wrapper {
+  @extend %wrapper-parent;
+}
+
+.category_img {
+  @extend %wrapped-img;
 }
