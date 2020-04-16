@@ -1,7 +1,7 @@
 
 <?php
 
-require_once '../config\db.php';
+require_once '../config/db.php';
 //require_once 'index.html';
 
   $sql = "SELECT * FROM webshop_products";
