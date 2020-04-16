@@ -1,6 +1,8 @@
 /*importera partials, fonter, variabler, mixins, extends etc. */
+@import "./mixins/mixins";
 @import "frontpage";
 @import "categorypage";
+@import "header_extern";
 
 /*ok att nedan ligger här eller kan vi lägga det ngn
 annanstans så att det fortfarande är med överallt?*/

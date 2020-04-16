@@ -14,7 +14,25 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
     $list .= "<li> $category <button><a href='admin-update-category.php?id=$id'>Uppdatera</a></button><button><a href='admin-delete-category.php?id=$id' onclick='return myFunction()' id='delete'>Ta bort</a></button></li>";
 
     }
-$list .= '</ul>';  
+
+    $list .= '</ul>';  
+
+    if($_SERVER['REQUEST_METHOD'] === 'POST') :
+        
+        $sql = "INSERT INTO webshop_categories (category, image)
+                VALUES (:category, :image) ";
+           
+        $stmt = $db->prepare($sql);
+
+        
+        $category = htmlspecialchars($_POST['category']);
+        $image = $_FILES['category-img']['name'];
+        $target = "../images/".basename($image);
+        
+
+        
+        $stmt->bindParam(':category', $category);
+        $stmt->bindParam(':image', $image);
 
  ?>
 
@@ -26,7 +44,6 @@ $list .= '</ul>';
 <h3>Lägg till en kategori</h3>
 <?php
 require_once "admin-create-category.php";?>
-
 
  <script>
     function myFunction() {

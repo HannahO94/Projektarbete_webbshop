@@ -10,26 +10,34 @@
 </head> 
 
 <body>
-
 <header>
 
 <div class="menu-wraper">
-      <div class="menu-wraper__logo-wrap">
+      
+        <div class="menu-wraper__logo-wrap">
         <img src="" alt="Logo" />
       </div>
       <nav>
         <ul class="menu-wraper__link-list">
           <li>
-            <a class="menu-wraper__links--active" href="../index.php">HEM</a>
+            <a class="menu-wraper__links--active" href="index.php">HEM</a>
           </li>
           <li>
-            <a class="menu-wraper__links" href="../index.php">KATEGORIER</a>
+            <div class="dropdown">
+              <a class="menu-wraper__links" id="dropdown-categories" href="index.php">KATEGORIER</a>
+                <div class="dropdown-content">
+                  <a href="">Familjespel</a>
+                  <a href="">Barnspel</a>
+                  <a href="">Strategispel</a>
+                  <a href="">Partyspel</a>
+                </div>
+            </div>
           </li>
           <li>
             <a class="menu-wraper__links" href="">KONTAKT</a>
           </li>
           <li>
-            <a class="menu-wraper__links" href="/search/index.php">SÖK</a>
+            <a class="menu-wraper__links" href="/search/index.html">SÖK</a>
           </li>
           <li>
             <a class="menu-wraper__links" href="/admin/index.php">ADMIN</a>
