@@ -13,7 +13,8 @@ $sql = "SELECT
             P.title, 
             P.description,
             P.price,
-            P.quantity
+            P.quantity,
+            P.productimg
         FROM 
             webshop_products as P";
 
@@ -35,6 +36,7 @@ if ($stmt->rowCount() > 0) {
     $description = htmlspecialchars($row["description"]);
     $price = htmlspecialchars($row["price"]);
     $quantity = htmlspecialchars($row["quantity"]);
+    $productimg = htmlspecialchars($row["productimg"]);
 
 
     $product = array(
@@ -44,6 +46,7 @@ if ($stmt->rowCount() > 0) {
       "description" => $description,
       "price" => $price,
       "quantity" => $quantity,
+      "productimg" => $productimg
     );
 
     array_push($products, $product);
