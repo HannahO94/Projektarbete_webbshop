@@ -4,6 +4,7 @@ require_once 'header.php';
 
 $imageold = "";
 
+
 if(isset($_GET['id'])){
     $id = htmlspecialchars($_GET['id']);
     $sql = "SELECT * FROM webshop_products WHERE productid =:id";
@@ -18,9 +19,10 @@ if(isset($_GET['id'])){
         $price = htmlspecialchars($row['price']);
         $quantity = htmlspecialchars($row['quantity']);
         $description = htmlspecialchars($row['description']);
+        $product_categoryid = htmlspecialchars($row['categoryid']);
 
-
-        // $imageold = $row['image'];
+        $imageold = unserialize($row['productimg']);
+        
         
     }else {
         header('Location:admin-products.php');
@@ -30,9 +32,23 @@ if(isset($_GET['id'])){
     header('Location:admin-products.php');
     exit;
 }
+print_r($imageold);
 
-$sql = "SELECT * FROM webshop_categories";
+
+$query ="SELECT * FROM webshop_categories WHERE categoryid = :categoryid";
+$statment = $db->prepare($query);
+$statment->bindParam(':categoryid', $product_categoryid);
+$statment->execute();
+
+while($row = $statment->fetch(PDO::FETCH_ASSOC)){
+    $product_category = htmlspecialchars($row['category']);
+}
+
+
+$sql = "SELECT * FROM webshop_categories WHERE NOT categoryid = :categoryid";
 $stmt = $db->prepare($sql);
+$stmt->bindParam(':categoryid', $product_categoryid);
+
 $stmt->execute();
 
 $option_value = "";
@@ -41,34 +57,57 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
     $category = htmlspecialchars($row['category']);
     $option_value .= "<option value='$categoryid'>$category</option>";
 }
-// $msg = "";
+$msg = "";
 
-// if($_SERVER['REQUEST_METHOD'] === 'POST') :
-//     $category = htmlspecialchars($_POST['category']);
-//     $id = htmlspecialchars($_POST['id']);
-//     if ($_FILES['image']['name'] ==''){
-//         $image = $imageold;
-//     }else {
-//         $image = $_FILES['image']['name'];
-//         $target ="../images/".basename($image);
-//         if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
-//             $msg = "Bilden är uppladdad!";
-//         }else{
-//             $msg = "Ingen bild är uppladdad!";
-//         }
-//     }
-     
-//     $sql = "UPDATE webshop_categories SET category=:category, image=:image WHERE categoryid=:id";
-//     $stmt = $db->prepare($sql);
-//     $stmt->bindParam(':category', $category);
-//     $stmt->bindParam(':image', $image);
-//     $stmt->bindParam(':id', $id);
-//     $stmt->execute();
+
+if($_SERVER['REQUEST_METHOD'] === 'POST') :
+    $title = htmlspecialchars($_POST['title']);
+    $id = htmlspecialchars($_POST['id']);
+    $price = htmlspecialchars($_POST['price']);
+    $quantity = htmlspecialchars($_POST['quantity']);
+    $description = htmlspecialchars($_POST['description']);
+    $categoryid = $_POST['category'];
+
     
-//     header('Location:admin-category.php');
+    if ($_FILES['productimg']['name'] ==''){
+        $imageUpload = $imageold;
+
+    }else {
+        $uploadFolder = '../images/';
+        $imageData = array();
+
+        foreach ($_FILES['productimg']['tmp_name'] as $key => $image) {
+            $imageTmpName = $_FILES['productimg']['tmp_name'][$key];
+            $imageName = $_FILES['productimg']['name'][$key];
+            $result = move_uploaded_file($imageTmpName,$uploadFolder.$imageName);
+            array_push($imageData, $imageName);
+        };
+
+        $imageUpload = serialize($imageData);
+
+        // if (move_uploaded_file($_FILES['productimg']['tmp_name'], $target)) {
+        //     $msg = "Bilden är uppladdad!";
+        // }else{
+        //     $msg = "Ingen bild är uppladdad!";
+        // }
+        
+    }
+
+    $sql = "UPDATE webshop_products SET title=:title, productimg= :productimg, price= :price, quantity = :quantity, description =:description, categoryid =:categoryid   WHERE productid=:id";
+    $stmt = $db->prepare($sql);
+    $stmt->bindParam(':title', $title);
+    $stmt->bindParam(':price', $price);
+    $stmt->bindParam(':quantity', $quantity);
+    $stmt->bindParam(':description', $description);
+    $stmt->bindParam(':categoryid', $categoryid);
+    $stmt->bindParam(':productimg', $imageUpload);
+    $stmt->bindParam(':id', $id);
+    $stmt->execute();
+    
+    header('Location:admin-products.php');
    
     
-// endif;
+endif;
 ?>
 
 
@@ -100,7 +139,7 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
 <div class="product_field-category">
 <label for="category">Kategori: </label><br>
 <select name="category">
-<option value=''>Välj en kategori...</option>
+<option value='<?php echo $product_categoryid;?>'><?php echo $product_category;?></option>
 <?php echo $option_value; ?>
 
 </select>
@@ -119,22 +158,23 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
 <div class="product_field-submit">
 <input type="submit" value="Uppdatera produkt">
 </div>
+<input type="hidden" name="id" value="<?php echo $id ?>"> 
 
 
 </form>
 </section>
 
 
-<button><a href="admin-products.php">Tillbaka</a></button>
-
-
-
-
 <?php 
 if (!$imageold === false){
-    echo "<img src='../images/$imageold' width='200px' class=''><br>
-    ";
+    foreach ($imageold as $key => $value) {
+        
+        echo "<img src='../images/$value' width='200px' class=''><br><button>Radera bild</button><br>
+        ";
+    }
 }
 ?>
 
+
+<button><a href="admin-products.php">Tillbaka</a></button>
 <?php  require_once 'footer.php'; ?>
