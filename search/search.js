@@ -10,24 +10,18 @@ ajax.open("GET", "read.php", true);
 ajax.send();
 //ta emot svar från php fil
 ajax.onreadystatechange = function () {
-
   //console.log(this.readyState);
   if (this.readyState === 4 && this.status === 200) {
     //konvertera JSON tillbaka till array
     let games = JSON.parse(this.responseText);
 
-
     let gamesTitle = new Array;
 
     for (let i = 0; i < games.length; i++) {
-
       //console.log(games[i].title)
-      gamesTitle.push(games[i].title)
-      
+      gamesTitle.push(games[i].title) 
     }
-
     //console.log(gamesTitle)
-
     //eventlistener på sökfältt
     searchField.addEventListener('input', function (event) {
       //minst två tecken validering
@@ -39,16 +33,25 @@ ajax.onreadystatechange = function () {
     })
     //filtrerar och visar spelen som matchar sökningen 
     function display() {
-
       let searchedGame = gamesTitle.filter(function (game) {
         return game.toLowerCase().includes(searchField.value.toLowerCase())
       })
       //console.log(searchedGame)
 
       for (let i = 0; i < games.length; i++) {
-        console.log(searchedGame)
-        console.log(games[i].title)
-          
+        //console.log(games[i].title)
+        for (let j = 0; j < searchedGame.length; j++) {
+          if (games[i].title === searchedGame[j]) {
+            console.log(games[i].title)
+            console.log(games[i].price)
+            let listedGames = document.createElement('p')
+            listedGames.textContent = games[i].title + " " + games[i].price;
+            searchedGames.appendChild(listedGames);
+
+
+          }
+          //console.log(searchedGame[j])
+        }
       }
 
       /* searchedGames.innerHTML = ''
