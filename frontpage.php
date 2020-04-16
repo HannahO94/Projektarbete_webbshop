@@ -24,7 +24,7 @@ $stmt->execute();
 
         echo
             "<div class='category_card'>
-            <a href= 'categorypage.php? id=$categoryid' 
+            <a href= 'categorypage/categorypage.php? id=$categoryid' 
             class='category_title'>$category</a>
         </div>";
 
