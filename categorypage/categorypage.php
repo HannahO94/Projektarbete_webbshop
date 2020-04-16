@@ -56,5 +56,5 @@ $stmt->execute();
   </div>
   <br>
   <br>
-  <button> <a href="index.php">Tillbaka till startsidan</a></button>
+  <button> <a href="../index.php">Tillbaka till startsidan</a></button>
 </section>

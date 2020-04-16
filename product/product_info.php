@@ -2,8 +2,10 @@
 require_once "../header_extern.php";
 require_once "../config/db.php";
 
+// Hämtar kategori-id som valdes på kategorisidan
 $id = htmlspecialchars($_GET['id']);
 
+// Hämtar alla kolumner från tabellen "webshop_products" i db
 $stmt = $db->prepare("SELECT  
                     `categoryid`,
                     `title`, 
@@ -17,6 +19,7 @@ $stmt->execute();
 
 echo "<div class='product-info'>";
 
+// Hämtar raderna som finns i varje kolumn
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
     $categoryid = htmlspecialchars($row['categoryid']);
@@ -25,6 +28,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
     $quantity = htmlspecialchars($row['quantity']);
     $price = htmlspecialchars($row['price']);
 
+    // Om det finns i lagret eller inte
     if ($quantity == "0") {
         $any_items = "Finns EJ i lager";
     } else {
