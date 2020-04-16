@@ -34,6 +34,7 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
         $stmt->bindParam(':category', $category);
         $stmt->bindParam(':image', $image);
 
+    endif;
  ?>
 
 <h1>Kategorier</h1>
