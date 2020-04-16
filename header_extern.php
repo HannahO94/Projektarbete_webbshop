@@ -20,11 +20,11 @@
       <nav>
         <ul class="menu-wraper__link-list">
           <li>
-            <a class="menu-wraper__links--active" href="index.php">HEM</a>
+            <a class="menu-wraper__links--active" href="/index.php">HEM</a>
           </li>
           <li>
             <div class="dropdown">
-              <a class="menu-wraper__links" id="dropdown-categories" href="index.php">KATEGORIER</a>
+              <a class="menu-wraper__links" id="dropdown-categories" href="/index.php">KATEGORIER</a>
                 <div class="dropdown-content">
                   <a href="">Familjespel</a>
                   <a href="">Barnspel</a>
