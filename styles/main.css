@@ -233,25 +233,6 @@
   }
 }
 
-.menu-wraper__links--active {
-  font-size: 14px;
-  font-weight: bold;
-  color: white;
-  text-decoration: none;
-  border-bottom: 3px solid orange;
-  margin: 15px;
-  padding-bottom: 7px;
-  -webkit-transition: linear 300ms;
-  transition: linear 300ms;
-}
-
-@media (min-width: 500px) {
-  .menu-wraper__links--active {
-    font-size: 16px;
-    margin: 30px;
-  }
-}
-
 #dropdown-categories {
   color: white;
   padding: 16px;
