@@ -37,7 +37,7 @@
             <a class="menu-wraper__links" href="">KONTAKT</a>
           </li>
           <li>
-            <a class="menu-wraper__links" href="/search/index.html">SÖK</a>
+            <a class="menu-wraper__links" href="/search/index.php">SÖK</a>
           </li>
           <li>
             <a class="menu-wraper__links" href="/admin/index.php">ADMIN</a>
