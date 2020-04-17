@@ -9,6 +9,7 @@ require_once "../header_extern.php"
     <input type="text" name="search" id="search-Field" class="search-form__input">
   </form>
 </div>
+<!--i nedan div mha php rita ut produktkort-->
 <div id="searched-result" class="search-result"></div>
 
 <button>Tillbaka</button>
