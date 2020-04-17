@@ -181,4 +181,4 @@ if (!$imageold === ""){
 
 
 <button><a href="admin-products.php">Tillbaka</a></button>
-<?php  require_once 'footer.php'; ?>
+<?php  require_once '../footer.php'; ?>
