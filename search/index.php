@@ -15,5 +15,5 @@ require_once "../header_extern.php"
 <script type="application/javascript" src="search.js"></script>
 
 <?php
-require_once "../footer_extern.php"
+require_once "../footer.php"
 ?>
