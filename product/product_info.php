@@ -62,5 +62,5 @@ echo "</div>";
 
 echo "<a href='../categorypage/categorypage.php?id=" . $categoryid ."'>Tillbaka</a>";
 
-require_once '../footer_extern.php';
+require_once '../footer.php';
 ?>
