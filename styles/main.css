@@ -273,9 +273,9 @@
   list-style-type: none;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (max-content)[5];
-      grid-template-columns: repeat(5, -webkit-max-content);
-      grid-template-columns: repeat(5, max-content);
+  -ms-grid-columns: max-content max-content max-content max-content max-content;
+      grid-template-columns: -webkit-max-content -webkit-max-content -webkit-max-content -webkit-max-content -webkit-max-content;
+      grid-template-columns: max-content max-content max-content max-content max-content;
   place-items: center;
   -webkit-transition: linear 300ms;
   transition: linear 300ms;
@@ -386,6 +386,7 @@
 
 .hide {
   display: none;
+}
 
 .header__hero {
   background-image: url("../images/spelshoppen2.jpg");
@@ -394,7 +395,6 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-
 }
 
 /*ok att nedan ligger här eller kan vi lägga det ngn

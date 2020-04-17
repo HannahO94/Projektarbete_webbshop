@@ -17,7 +17,9 @@
   &__link-list {
     list-style-type: none;
     display: grid;
-    grid-template-columns: repeat(5, max-content);
+    grid-template-columns:
+      max-content max-content max-content max-content
+      max-content;
     place-items: center;
     transition: linear 300ms;
 
