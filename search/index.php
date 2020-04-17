@@ -9,7 +9,7 @@ require_once "../header_extern.php"
     <input type="text" name="search" id="search-Field" class="search-form__input">
   </form>
 </div>
-<div id="searched-games" class="search-result"></div>
+<div id="searched-result" class="search-result"></div>
 
 <button>Tillbaka</button>
 <script type="application/javascript" src="search.js"></script>

@@ -57,7 +57,7 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
     $category = htmlspecialchars($row['category']);
     $option_value .= "<option value='$categoryid'>$category</option>";
 }
-$msg = "";
+// $msg = "";
 
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') :
@@ -67,10 +67,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') :
     $quantity = htmlspecialchars($_POST['quantity']);
     $description = htmlspecialchars($_POST['description']);
     $categoryid = $_POST['category'];
+    
+    
 
-    if ($_FILES['productimg']['name'] ==''){
+    if($_FILES['productimg']['name'] == ""){
         $imageUpload = serialize($imageold);
-
+        
     }else {
         $uploadFolder = '../images/';
         $imageData = array();
@@ -103,7 +105,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') :
     $stmt->bindParam(':id', $id);
     $stmt->execute();
     
-    header('Location:admin-products.php');
+    // header('Location:admin-products.php');
    
     
 endif;
@@ -165,7 +167,7 @@ endif;
 
 
 <?php 
-if (!$imageold === false){
+if (!$imageold === ""){
     foreach ($imageold as $key => $value) {
         
         echo "<img src='../images/$value' width='200px' class=''><br><button>Radera bild</button><br>

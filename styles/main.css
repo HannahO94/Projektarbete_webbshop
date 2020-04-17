@@ -345,6 +345,15 @@
   background-color: #3e8e41;
 }
 
+.header__hero {
+  background-image: url("../images/spelshoppen2.jpg");
+  min-width: 100vw;
+  min-height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 /*ok att nedan ligger här eller kan vi lägga det ngn
 annanstans så att det fortfarande är med överallt?*/
 * {
