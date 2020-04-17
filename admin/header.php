@@ -14,8 +14,7 @@
             <ul> 
                 <li><a href="admin-category.php">Kategorier</a></li>
                 <li><a href="admin-products.php">Produkter</a></li>
-
-                <li>Beställningar</li>
+                <li><a href="">Beställningar</a></li>
             </ul>
         </li>
         <li><a href="../index.php">WEBBSHOPPEN</a></li>
