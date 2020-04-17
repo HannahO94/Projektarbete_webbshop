@@ -1,3 +1,4 @@
+</main>
 <footer class="footer">
     <div class="footer__contact">
         <p class="bold_txt">Kontakt:</p>
@@ -21,7 +22,8 @@
         <img class="socialmedia__img" src="/images/013-twitter-1.png" alt="Instagram">
         </div>
     </div>
- </footer>
- <!--script-filer här-->
+</footer>
+<!--script-filer här-->
 </body>
+
 </html>
