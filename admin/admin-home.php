@@ -1,8 +1,9 @@
 
-
-<h1>Välkommen Admin</h1>
-
-<a href="admin-category.php">Kategorier</a>
+<section class="admin_home">
+    <div class="admin_container">
+        <h1>Välkommen Admin</h1>
+    </div>
+</section>
 
 
     
