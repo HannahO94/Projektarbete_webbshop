@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*importera partials, fonter, variabler, mixins, extends etc. */
 /*kodblock för bildhantering*/
-.img_wrapper {
+.img_wrapper, .img__wrapper {
   position: relative;
   block-size: 100%;
   inline-size: 100%;
@@ -9,7 +9,7 @@
   height: 100%;
 }
 
-.category_img {
+.category_img, .logo__img, .socialmedia__img {
   display: block;
   -o-object-fit: cover;
      object-fit: cover;
@@ -273,9 +273,9 @@
   list-style-type: none;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: max-content max-content max-content max-content max-content;
-      grid-template-columns: -webkit-max-content -webkit-max-content -webkit-max-content -webkit-max-content -webkit-max-content;
-      grid-template-columns: max-content max-content max-content max-content max-content;
+  -ms-grid-columns: max-content max-content max-content max-content max-content;
+      grid-template-columns: -webkit-max-content -webkit-max-content -webkit-max-content -webkit-max-content -webkit-max-content;
+      grid-template-columns: max-content max-content max-content max-content max-content;
   place-items: center;
   -webkit-transition: linear 300ms;
   transition: linear 300ms;
@@ -395,6 +395,73 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media (min-width: 600px) {
+  .footer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+.footer__contact {
+  text-align: center;
+}
+
+.bold_txt {
+  font-weight: bold;
+}
+
+.footer__logo {
+  width: 100px;
+  height: 100px;
+}
+
+.footer__socialmedia {
+  width: 200px;
+  height: 75px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.icon-parent {
+  width: 45px;
+  height: 45px;
+  margin: 5px;
 }
 
 /*ok att nedan ligger här eller kan vi lägga det ngn
