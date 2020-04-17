@@ -42,10 +42,10 @@ $stmt->execute();
 
       echo
         "<div class='product_card'>
-                  <a href= '../product/product_info.php? id=$productid' 
-            class='category_title'>$title</a>
-            <p>Pris: $price kr</p>
-            <p>$any_items</p>
+              <a href= '../product/product_info.php? id=$productid' 
+              class='product_title'>$title</a>
+              <p>Pris: $price kr</p>
+              <p>$any_items</p>
 
             <button class='cart-btn product_card-btn'>Lägg i varukorgen</button>
           </div>";
