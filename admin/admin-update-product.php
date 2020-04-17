@@ -177,5 +177,5 @@ else{
 
 
 <button><a href="admin-products.php">Tillbaka</a></button>
-</div>
-<?php  require_once 'footer.php'; ?>
+<?php  require_once '../footer.php'; ?>
+
