@@ -1,7 +1,7 @@
 <?php
 require_once '../header_extern.php';
 require_once '../config/db.php';
-require_once '../footer_extern.php';
+require_once '../footer.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
   $currentCategory = htmlspecialchars($_GET['id']);
