@@ -8,14 +8,6 @@ $stmt->execute();
 ?>
 
 <!--detta ska vara skalet för en startsida, förstasida för webbshoppen-->
-<section class="hero">
-    <!-- Ikon för shoppingcart -->
-    <div class="shoppingcart">
-    </div>
-    <div class="frontpage_logo img-container">
-        <img class="img-container__img" src="logo.jpg" alt="Logo Spelshoppen">
-    </div>
-</section>
 <section class="frontpage_categories">
     <!--här hämtas kategorier från databas-->
     <?php
@@ -25,8 +17,9 @@ $stmt->execute();
         $image = htmlspecialchars($row['image']);
 
         // Skapa src till img-taggen
-        if (empty($image))
-            $image = "images/no-image-available.png";
+        if(empty($image))
+            $image = "https://via.placeholder.com/200x200.jpg";
+
         else
             $image = "images/$image";
 
