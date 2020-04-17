@@ -1,8 +1,2 @@
 
-
-<h1>Välkommen Admin</h1>
-
-<a href="admin-category.php">Kategorier</a>
-
-
-    
+<h1 class="welcome-admin">Välkommen Admin</h1>

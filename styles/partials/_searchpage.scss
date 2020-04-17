@@ -1,0 +1,17 @@
+.search-form {
+	&__label {
+		font-size: 30px;
+	}
+
+	&__input-field {
+		margin: 10px;
+	}
+}
+
+.search-result {
+	@include gallery;
+
+	&__product-card {
+		@include gallery-card;
+	}
+}

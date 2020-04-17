@@ -1,5 +1,6 @@
 <?php 
 require_once '../config/db.php';
+require_once 'header.php';
 
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') :
@@ -36,21 +37,24 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') :
 ?>
 
 
-<form action="#" method="POST" enctype="multipart/form-data">
+<form action="#" method="POST" enctype="multipart/form-data" class="form-container">
+    <div class="form-container__heading">
+        <h3 class="form-container__heading-text">Lägg till en kategori</h3>
+    </div><br>
+    <div class="category_field-name form-container__box">
+        <label for="category">Namn på kategori: </label><br>
+        <input type="text" name="category" class="form-container__box-input" placeholder="Ange kategorinamn">
+    </div>
 
-<div class="category_field-name">
-<label for="category">Namn på kategori: </label><br>
-<input type="text" name="category">
-</div>
+    <div class="category_field-img form-container__image">
+        <label for="category-img">Ladda upp en katagoribild: </label><br>
+        <input type="file" name="category-img" class="form-container__image-input">
+    </div>
 
-<div class="category_field-img">
-<label for="category-img">Ladda upp en katagoribild: </label><br>
-<input type="file" name="category-img">
-</div>
-
-<div class="category_field-submit">
-<input type="submit" onclick='return myReload()' value="Lägg till ny kategori">
-</div>
+    <div class="category_field-submit form-container__submit">
+        <input type="submit" onclick='return myReload()' value="Lägg till ny kategori" class="form-container__submit-button">
+    </div>
 
 
 </form>
+</div>

@@ -1,16 +1,23 @@
 /*importera partials, fonter, variabler, mixins, extends etc. */
+
 @import "./mixins/mixins";
 @import "_variables";
 @import "extends/extends";
-@import "frontpage";
-@import "categorypage";
-@import "header_extern";
-@import "hero";
+@import "./partials/variables";
+@import "./partials/frontpage";
+@import "./partials/categorypage";
+@import "./partials/searchpage";
+@import "./partials/header_extern";
+@import "./partials/admin-menu";
+@import "./partials/hero";
+@import "./partials/footer";
+@import "./partials/admin_home";
+@import "./partials/forms";
 
 /*ok att nedan ligger här eller kan vi lägga det ngn
 annanstans så att det fortfarande är med överallt?*/
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }

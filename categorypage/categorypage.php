@@ -1,7 +1,7 @@
 <?php
 require_once '../header_extern.php';
 require_once '../config/db.php';
-require_once '../footer_extern.php';
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
   $currentCategory = htmlspecialchars($_GET['id']);
@@ -42,10 +42,10 @@ $stmt->execute();
 
       echo
         "<div class='product_card'>
-                  <a href= '../product/product_info.php? id=$productid' 
-            class='category_title'>$title</a>
-            <p>Pris: $price kr</p>
-            <p>$any_items</p>
+              <a href= '../product/product_info.php? id=$productid' 
+              class='product_title'>$title</a>
+              <p>Pris: $price kr</p>
+              <p>$any_items</p>
 
             <button class='cart-btn product_card-btn'>Lägg i varukorgen</button>
           </div>";
@@ -57,3 +57,5 @@ $stmt->execute();
   <br>
   <button> <a href="../index.php">Tillbaka till startsidan</a></button>
 </section>
+
+<?php require_once '../footer.php'; ?>

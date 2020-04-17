@@ -131,4 +131,4 @@ require_once '../config/db.php';
 
 
 
-<?php require_once 'footer.php';?>
+<?php require_once '../footer.php';?>

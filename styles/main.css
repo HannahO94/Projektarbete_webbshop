@@ -2,7 +2,7 @@
 /*importera partials, fonter, variabler, mixins, extends etc. */
 @import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
 /*kodblock för bildhantering*/
-.img_wrapper {
+.img_wrapper, .img__wrapper {
   position: relative;
   block-size: 100%;
   inline-size: 100%;
@@ -10,7 +10,7 @@
   height: 100%;
 }
 
-.category_img {
+.category_img, .logo__img, .socialmedia__img {
   display: block;
   -o-object-fit: cover;
      object-fit: cover;
@@ -157,6 +157,58 @@
   .category_name {
     display: none;
   }
+}
+
+.search-form__label {
+  font-size: 30px;
+}
+
+.search-form__input-field {
+  margin: 10px;
+}
+
+.search-result {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media (min-width: 600px) {
+  .search-result {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+.search-result__product-card {
+  margin: 2em;
+  background-color: lightgrey;
+  text-align: center;
+  height: 200px;
+  width: 200px;
 }
 
 .menu-wraper {
@@ -343,6 +395,99 @@
   background-color: #3e8e41;
 }
 
+.welcome-admin {
+  text-align: center;
+  padding: 20px;
+}
+
+.sidenav {
+  height: 100%;
+  /* 100% Full-height */
+  width: 0;
+  /* 0 width - change this with JavaScript */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Stay on top */
+  top: 0;
+  /* Stay at the top */
+  left: 0;
+  background-color: #111;
+  /* Black*/
+  overflow-x: hidden;
+  /* Disable horizontal scroll */
+  padding-top: 60px;
+  /* Place content 60px from the top */
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  /* 0.5 second transition effect to slide in the sidenav */
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav a {
+    font-size: 18px;
+  }
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+  -webkit-transition: margin-left 0.5s;
+  transition: margin-left 0.5s;
+  padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+#toggle-menu {
+  background-color: #4caf50;
+  border: 2px solid #4caf50;
+  border-radius: 12px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  -webkit-transition-duration: 0.4s;
+          transition-duration: 0.4s;
+  margin: 30px;
+}
+
+#toggle-menu:hover {
+  background-color: white;
+  color: #4caf50;
+}
+
 .header__hero {
   background-image: url("../images/spelshoppen2.jpg");
   min-width: 100vw;
@@ -395,6 +540,187 @@
   .hamburger {
     display: none;
   }
+}
+
+.footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media (min-width: 600px) {
+  .footer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+.footer__contact {
+  text-align: center;
+}
+
+.bold_txt {
+  font-weight: bold;
+}
+
+.footer__logo {
+  width: 100px;
+  height: 100px;
+}
+
+.footer__socialmedia {
+  width: 200px;
+  height: 75px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.icon-parent {
+  width: 45px;
+  height: 45px;
+  margin: 5px;
+}
+
+.join-in {
+  padding: 5% 10% 5% 10%;
+}
+
+.admin_container {
+  background-color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.form-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  background-color: #f1f1f1;
+  margin: 5% 10%;
+  padding: 3%;
+  border-radius: 5px;
+}
+
+.form-container__heading {
+  width: 100%;
+  padding-bottom: 1rem;
+}
+
+.form-container__box {
+  width: 100%;
+}
+
+@media (min-width: 600px) {
+  .form-container__box {
+    width: 100%;
+    padding-bottom: 1rem;
+  }
+}
+
+.form-container__box-input {
+  margin-top: 1rem;
+  width: 50%;
+  height: 40px;
+  border-radius: 5px;
+  border: 0;
+  padding: 5px;
+}
+
+.form-container__submit {
+  margin-top: 2rem;
+  padding-bottom: 1rem;
+}
+
+.form-container__submit-button {
+  border-radius: 10px;
+  border: solid 1px #2c4f80;
+  padding: 0.7em 1.7em;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 0.2em;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-decoration: none;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #3369ff;
+  -webkit-box-shadow: inset 0 -0.6em 1em -0.35em rgba(0, 0, 0, 0.17), inset 0 0.6em 2em -0.3em rgba(255, 255, 255, 0.15), inset 0 0 0em 0.05em rgba(255, 255, 255, 0.12);
+          box-shadow: inset 0 -0.6em 1em -0.35em rgba(0, 0, 0, 0.17), inset 0 0.6em 2em -0.3em rgba(255, 255, 255, 0.15), inset 0 0 0em 0.05em rgba(255, 255, 255, 0.12);
+  text-align: center;
+  position: relative;
+}
+
+@media (min-width: 770px) {
+  .form-container__submit-button:hover {
+    background: rgba(83, 135, 212, 0.9);
+  }
+}
+
+.form-container__image {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+@media (min-width: 600px) {
+  .form-container__image {
+    width: 40%;
+  }
+}
+
+@media (min-width: 1000px) {
+  .form-container__image {
+    width: 100%;
+  }
+}
+
+.form-container__image-input {
+  margin-top: 1rem;
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.form-container__description {
+  width: 100%;
+}
+
+.form-container__description-input {
+  width: 100%;
+  height: 200px;
+  border: solid 1px black;
+}
+
+.footer-admin {
+  height: 200px;
+  background-color: #4e7dbe;
 }
 
 /*ok att nedan ligger här eller kan vi lägga det ngn

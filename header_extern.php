@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once "config/db.php";
 
 $stmt = $db->prepare("SELECT `categoryid`, `category`
@@ -6,27 +6,30 @@ $stmt = $db->prepare("SELECT `categoryid`, `category`
 $stmt->execute();
 
 $option_value = "";
-while($row = $stmt->fetch(PDO::FETCH_ASSOC)) { 
+while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
   $categoryid = htmlspecialchars($row['categoryid']);
   $category = htmlspecialchars($row['category']);
-  $option_value .=  "<a href='/categorypage/categorypage.php?id=" . $categoryid . "'>" . $category ."</a>";
+  $option_value .=  "<a href='/categorypage/categorypage.php?id=" . $categoryid . "'>" . $category . "</a>";
 }
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=
     , initial-scale=1.0">
-    <!--här gissar jag att CSS för webb - extern ska hamna-->
-    <link rel="stylesheet" type="text/css" href="styles/main.css" />
-    <link rel="stylesheet" type="text/css" href="../styles/main.css" />
-    <title>Spelshoppen</title>
-</head> 
+  <!--här gissar jag att CSS för webb - extern ska hamna-->
+  <link rel="stylesheet" type="text/css" href="styles/main.css" />
+  <link rel="stylesheet" type="text/css" href="../styles/main.css" />
+  <title>Spelshoppen</title>
+</head>
 
 <body>
-<header class="header__hero">
+  <header class="header__hero">
+
+    <div class="menu-wraper">
 
 <div class="menu-wraper">
       
@@ -64,5 +67,7 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         </ul>
       </nav>
     </div>
-    
-    </header>
+
+  </header>
+
+  <main>

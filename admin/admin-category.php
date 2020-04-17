@@ -36,13 +36,11 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
 
     endif;
  ?>
-
+ 
+<div class="page__backround">
 <h1>Kategorier</h1>
-<a href="index.php">Hem</a>
-<h3>Kategori:</h3>
 <?php echo $list;?>
 
-<h3>Lägg till en kategori</h3>
 <?php
 require_once "admin-create-category.php";?>
 
@@ -54,5 +52,3 @@ require_once "admin-create-category.php";?>
         } 
     }  
 </script> 
-
-    <?php require_once "footer.php";?>
