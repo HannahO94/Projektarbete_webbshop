@@ -1,6 +1,7 @@
 /*importera partials, fonter, variabler, mixins, extends etc. */
 
 @import "./mixins/mixins";
+@import "_variables";
 @import "extends/extends";
 @import "./partials/variables";
 @import "./partials/frontpage";
