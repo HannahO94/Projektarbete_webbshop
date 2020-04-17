@@ -9,6 +9,7 @@ $stmt->execute();
 
 <!--detta ska vara skalet för en startsida, förstasida för webbshoppen-->
 <section class="hero">
+    <!-- Ikon för shoppingcart -->
     <div class="shoppingcart">
     </div>
     <div class="frontpage_logo img-container">
@@ -24,7 +25,7 @@ $stmt->execute();
         $image = htmlspecialchars($row['image']);
 
         // Skapa src till img-taggen
-        if(empty($image))
+        if (empty($image))
             $image = "images/no-image-available.png";
         else
             $image = "images/$image";
