@@ -34,7 +34,7 @@ $stmt->execute();
             "<div class='category_card img_wrapper'>
             <img class='category_img' src='$image' alt='$category'>";
         echo
-            "<a href='categorypage/categorypage.php?id=$categoryid' 
+            "<a href='/categorypage/categorypage.php?id=$categoryid' 
             class='category_title'>$category</a>
         </div>";
 

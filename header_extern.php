@@ -36,11 +36,11 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
       <nav>
         <ul class="menu-wraper__link-list">
           <li>
-            <a class="menu-wraper__links" href="index.php">HEM</a>
+            <a class="menu-wraper__links" href="/index.php">HEM</a>
           </li>
           <li>
             <div class="dropdown">
-              <a class="menu-wraper__links" id="dropdown-categories" href="index.php">KATEGORIER</a>
+              <a class="menu-wraper__links" id="dropdown-categories" href="/index.php">KATEGORIER</a>
                 <div class="dropdown-content">
                   <?php 
                   echo "$option_value";
