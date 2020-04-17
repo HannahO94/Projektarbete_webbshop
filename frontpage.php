@@ -8,7 +8,6 @@ $stmt->execute();
 ?>
 
 <!--detta ska vara skalet för en startsida, förstasida för webbshoppen-->
-
 <section class="frontpage_categories">
     <!--här hämtas kategorier från databas-->
     <?php
@@ -20,6 +19,7 @@ $stmt->execute();
         // Skapa src till img-taggen
         if(empty($image))
             $image = "https://via.placeholder.com/200x200.jpg";
+
         else
             $image = "images/$image";
 
@@ -28,7 +28,7 @@ $stmt->execute();
             "<div class='category_card img_wrapper'>
             <img class='category_img' src='$image' alt='$category'>";
         echo
-            "<a href='categorypage/categorypage.php?id=$categoryid' 
+            "<a href='/categorypage/categorypage.php?id=$categoryid' 
             class='category_title'>$category</a>
         </div>";
 

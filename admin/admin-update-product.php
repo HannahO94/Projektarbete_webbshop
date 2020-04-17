@@ -57,7 +57,7 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
     $category = htmlspecialchars($row['category']);
     $option_value .= "<option value='$categoryid'>$category</option>";
 }
-$msg = "";
+// $msg = "";
 
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') :
@@ -67,11 +67,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') :
     $quantity = htmlspecialchars($_POST['quantity']);
     $description = htmlspecialchars($_POST['description']);
     $categoryid = $_POST['category'];
+    
+    
 
-
-    if ($_FILES['productimg']['name'] ==''){
-        $imageUpload = $imageold;
-
+    if($_FILES['productimg']['name'] == ""){
+        $imageUpload = serialize($imageold);
+        
     }else {
         $uploadFolder = '../images/';
         $imageData = array();
@@ -94,7 +95,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') :
     }
 
     $sql = "UPDATE webshop_products SET title = :title, productimg = :productimg, price = :price, quantity = :quantity, description = :description, categoryid = :categoryid   WHERE productid = :id";
-    
     $stmt = $db->prepare($sql);
     $stmt->bindParam(':title', $title);
     $stmt->bindParam(':price', $price);
@@ -105,7 +105,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') :
     $stmt->bindParam(':id', $id);
     $stmt->execute();
     
-    header('Location:admin-products.php');
+    // header('Location:admin-products.php');
    
     
 endif;
@@ -167,13 +167,16 @@ endif;
 
 
 <?php 
-if (!$imageold === false){
+if (!$imageold === ""){
     foreach ($imageold as $key => $value) {
         
         echo "<img src='../images/$value' width='200px' class=''><br><button>Radera bild</button><br>
         ";
     }
 }
+        else{
+            echo "ingen bildfil finns tillgänglig";
+        }
 ?>
 
 

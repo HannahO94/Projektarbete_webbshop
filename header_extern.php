@@ -9,7 +9,7 @@ $option_value = "";
 while($row = $stmt->fetch(PDO::FETCH_ASSOC)) { 
   $categoryid = htmlspecialchars($row['categoryid']);
   $category = htmlspecialchars($row['category']);
-  $option_value .=  "<a href='/Projektarbete_webbshop/categorypage/categorypage.php?id=" . $categoryid . "'>" . $category ."</a>";
+  $option_value .=  "<a href='/categorypage/categorypage.php?id=" . $categoryid . "'>" . $category ."</a>";
 }
 ?>
 
@@ -26,7 +26,7 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 </head> 
 
 <body>
-<header>
+<header class="header__hero">
 
 <div class="menu-wraper">
       
@@ -36,20 +36,15 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
       <nav>
         <ul class="menu-wraper__link-list">
           <li>
-            <a class="menu-wraper__links" href="/Projektarbete_webbshop/index.php">HEM</a>
+            <a class="menu-wraper__links" href="/index.php">HEM</a>
           </li>
           <li>
             <div class="dropdown">
-              <a class="menu-wraper__links" id="dropdown-categories" href="/Projektarbete_webbshop/index.php">KATEGORIER</a>
+              <a class="menu-wraper__links" id="dropdown-categories" href="/index.php">KATEGORIER</a>
                 <div class="dropdown-content">
                   <?php 
-                  // foreach ($category as $value)
                   echo "$option_value";
                   ?>
-                  <!-- <a href="">Familjespel</a>
-                  <a href="">Barnspel</a>
-                  <a href="">Strategispel</a>
-                  <a href="">Partyspel</a> -->
                 </div>
             </div>
           </li>
@@ -57,10 +52,10 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             <a class="menu-wraper__links" href="">KONTAKT</a>
           </li>
           <li>
-            <a class="menu-wraper__links" href="/Projektarbete_webbshop/search/index.php">SÖK</a>
+            <a class="menu-wraper__links" href="/search/index.php">SÖK</a>
           </li>
           <li>
-            <a class="menu-wraper__links" href="/Projektarbete_webbshop/admin/index.php">ADMIN</a>
+            <a class="menu-wraper__links" href="/admin/index.php">ADMIN</a>
           </li>
         </ul>
       </nav>

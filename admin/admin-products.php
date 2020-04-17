@@ -3,6 +3,12 @@
 require_once 'header.php';
 require_once '../config/db.php';
 
+?>
+
+<h2>Produkter</h2>
+
+<?php
+
 $sql = "SELECT * FROM webshop_products";
 $stmt = $db->prepare($sql);
 $stmt->execute();
@@ -21,6 +27,7 @@ $output .="</ul>";
 echo $output;
 
 ?>
+
 <script>
     function myFunction() {
         
