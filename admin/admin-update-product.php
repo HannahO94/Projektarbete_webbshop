@@ -57,7 +57,7 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
     $category = htmlspecialchars($row['category']);
     $option_value .= "<option value='$categoryid'>$category</option>";
 }
-$msg = "";
+// $msg = "";
 
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') :
@@ -67,10 +67,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') :
     $quantity = htmlspecialchars($_POST['quantity']);
     $description = htmlspecialchars($_POST['description']);
     $categoryid = $_POST['category'];
+    
+    
 
-    if ($_FILES['productimg']['name'] ==''){
+    if($_FILES['productimg']['name'] == ""){
         $imageUpload = serialize($imageold);
-
+        
     }else {
         $uploadFolder = '../images/';
         $imageData = array();
@@ -103,59 +105,54 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') :
     $stmt->bindParam(':id', $id);
     $stmt->execute();
     
-    header('Location:admin-products.php');
+    // header('Location:admin-products.php');
    
     
 endif;
 ?>
 
 
-<section class="page-title-container">
-
-<h1 class="page-title">Uppdatera produkt</h1>
-
-</section>
-
 <section class="product-form">
 
-<form action="#" method="POST" enctype="multipart/form-data">
+<form action="#" method="POST" enctype="multipart/form-data" class="form-container">
+<h1 class="page-title">Uppdatera produkt</h1>
 
-<div class="product_field-name">
+<div class="product_field-name form-container__box">
 <label for="title">Produkt namn: </label><br>
-<input type="text" name="title"value='<?php echo $title; ?>'>
+<input type="text" name="title"value='<?php echo $title; ?>' class="form-container__box-input">
 </div>
 
-<div class="product_field-price">
+<div class="product_field-price form-container__box">
 <label for="price">Pris: </label><br>
-<input type="text" name="price" value='<?php echo $price; ?>'>
+<input type="text" name="price" value='<?php echo $price; ?>' class="form-container__box-input">
 </div>
 
-<div class="product_field-quantity">
+<div class="product_field-quantity form-container__box">
 <label for="quantity">Ange lagerstatus: <br>
-<input type="number" min="0" max="500" name="quantity" value='<?php echo $quantity; ?>'>
+<input type="number" min="0" max="500" name="quantity" value='<?php echo $quantity; ?>' class="form-container__box-input">
 </div>
 
-<div class="product_field-category">
+<div class="product_field-category form-container__box">
 <label for="category">Kategori: </label><br>
-<select name="category">
+<select name="category" class="form-container__box-input">
 <option value='<?php echo $product_categoryid;?>'><?php echo $product_category;?></option>
 <?php echo $option_value; ?>
 
 </select>
 </div>
 
-<div class="product_field-img">
+<div class="product_field-img form-container__image">
 <label for="product-img">Ladda upp en produktbild: </label><br>
 <input type="file" name="productimg[]" multiple="multiple">
 </div>
 
-<div class="product_field-description">
+<div class="product_field-description form-container__description">
 <label for="description">Beskrivning: </label><br>
-<textarea name="description" Placeholder="Beskrivning av produkt" cols="10" rows="8"><?php echo $description; ?></textarea>
+<textarea name="description" Placeholder="Beskrivning av produkt" class="form-container__description-input" cols="10" rows="8"><?php echo $description; ?></textarea>
 </div>
 
-<div class="product_field-submit">
-<input type="submit" value="Uppdatera produkt">
+<div class="product_field-submit form-container__submit">
+<input type="submit" value="Uppdatera produkt" class="form-container__submit-button">
 </div>
 <input type="hidden" name="id" value="<?php echo $id ?>"> 
 
@@ -165,18 +162,20 @@ endif;
 
 
 <?php 
-if (!$imageold === false){
+if (!$imageold == ""){
+    
     foreach ($imageold as $key => $value) {
         
         echo "<img src='../images/$value' width='200px' class=''><br><button>Radera bild</button><br>
         ";
     }
 }
-        else{
+else{
             echo "ingen bildfil finns tillgänglig";
-        }
+    }
 ?>
 
 
 <button><a href="admin-products.php">Tillbaka</a></button>
+</div>
 <?php  require_once 'footer.php'; ?>
