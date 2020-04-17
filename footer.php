@@ -9,7 +9,7 @@
         <p>123 45 Game City</p>
     </div>
     <div class="footer__logo img__wrapper">
-        <img class="logo__img" src="images/spelshoppen.jpg" alt="Logo">
+        <img class="logo__img" src="/images/spelshoppen.jpg" alt="Logo">
     </div>
     <div class="footer__socialmedia">
         <div class="img__wrapper icon-parent">
