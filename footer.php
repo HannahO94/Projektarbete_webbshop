@@ -13,13 +13,13 @@
     </div>
     <div class="footer__socialmedia">
         <div class="img__wrapper icon-parent">
-            <img class="socialmedia__img" src="images/011-instagram.png" alt="Instagram">
+        <img class="socialmedia__img" src="/images/011-instagram.png" alt="Instagram">
         </div>
         <div class="img__wrapper icon-parent">
-            <img class="socialmedia__img" src="images/001-facebook.png" alt="Instagram">
+        <img class="socialmedia__img" src="/images/001-facebook.png" alt="Instagram">
         </div>
         <div class="img__wrapper icon-parent">
-            <img class="socialmedia__img" src="images/013-twitter-1.png" alt="Instagram">
+        <img class="socialmedia__img" src="/images/013-twitter-1.png" alt="Instagram">
         </div>
     </div>
 </footer>
