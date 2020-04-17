@@ -9,21 +9,27 @@
 </head>
 
 <body>
+    
+    <div class="btn-wraper">
+        <button id="toggle-menu">Meny</button>
+    </div>
 
-    <button id="toggle-menu">Meny</button>
- 
-    <div id="admin-menu-wraper" class="hide">
+    <div id="admin-menu-wraper" class="hide admin-menu-wraper">
         <nav>
             <ul class="admin-menu-wraper__link-list"> 
                 <li class="admin-menu-wraper__link"><a href="index.php">Admin - Hem</a></li>
                 <li class="admin-menu-wraper__link"><a href="admin-category.php">Kategorier</a></li>
                 <li class="admin-menu-wraper__link"><a href="admin-products.php">Produkter</a></li>
                 <li class="admin-menu-wraper__link"><a href="">Beställningar</a></li>
-                <li class="admin-menu-wraper__link"><a href="../index.php">WEBBSHOPPEN</a></li>
+                <li class="admin-menu-wraper__link web"><a href="../index.php">WEBBSHOPPEN</a></li>
             </ul>
         </nav>
     </div>
     <section class="admin_container">
+
+<main>
+
+</main>
 
 <script>
 

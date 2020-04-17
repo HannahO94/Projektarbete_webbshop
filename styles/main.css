@@ -350,18 +350,8 @@
   padding: 20px;
 }
 
-#admin-menu-wraper {
-  background-color: #d1d1d1;
+.btn-wraper {
   text-align: center;
-}
-
-#admin-menu-wraper__link-list {
-  list-style-type: none;
-  text-align: center;
-}
-
-#admin-menu-wraper__link {
-  margin: 10px;
 }
 
 #toggle-menu {
@@ -386,6 +376,25 @@
 
 .hide {
   display: none;
+}
+
+.admin-menu-wraper {
+  background-color: #d1d1d1;
+  text-align: center;
+}
+
+.admin-menu-wraper__link-list {
+  list-style-type: none;
+  text-align: center;
+  padding: 40px;
+}
+
+.admin-menu-wraper__link a {
+  text-decoration: none;
+}
+
+.web {
+  padding-top: 30px;
 }
 
 .header__hero {
