@@ -3,12 +3,13 @@
 @import "extends/extends";
 @import "frontpage";
 @import "categorypage";
+@import "searchpage";
 @import "header_extern";
 
 /*ok att nedan ligger här eller kan vi lägga det ngn
 annanstans så att det fortfarande är med överallt?*/
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
