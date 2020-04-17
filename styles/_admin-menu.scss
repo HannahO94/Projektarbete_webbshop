@@ -3,18 +3,8 @@
   padding: 20px;
 }
 
-#admin-menu-wraper {
-  background-color: rgb(209, 209, 209);
+.btn-wraper {
   text-align: center;
-
-  &__link-list {
-    list-style-type: none;
-    text-align: center;
-  }
-
-  &__link {
-    margin: 10px;
-  }
 }
 
 #toggle-menu {
@@ -38,4 +28,23 @@
 
 .hide {
   display: none;
+}
+
+.admin-menu-wraper {
+  background-color: rgb(209, 209, 209);
+  text-align: center;
+
+  &__link-list {
+    list-style-type: none;
+    text-align: center;
+    padding: 40px;
+  }
+
+  &__link a {
+    text-decoration: none;
+  }
+}
+
+.web {
+  padding-top: 30px;
 }
