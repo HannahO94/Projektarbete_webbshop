@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once "config/db.php";
 
 $stmt = $db->prepare("SELECT `categoryid`, `category`
@@ -6,31 +6,32 @@ $stmt = $db->prepare("SELECT `categoryid`, `category`
 $stmt->execute();
 
 $option_value = "";
-while($row = $stmt->fetch(PDO::FETCH_ASSOC)) { 
+while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
   $categoryid = htmlspecialchars($row['categoryid']);
   $category = htmlspecialchars($row['category']);
-  $option_value .=  "<a href='/categorypage/categorypage.php?id=" . $categoryid . "'>" . $category ."</a>";
+  $option_value .=  "<a href='/categorypage/categorypage.php?id=" . $categoryid . "'>" . $category . "</a>";
 }
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=
     , initial-scale=1.0">
-    <!--här gissar jag att CSS för webb - extern ska hamna-->
-    <link rel="stylesheet" type="text/css" href="styles/main.css" />
-    <link rel="stylesheet" type="text/css" href="../styles/main.css" />
-    <title>Spelshoppen</title>
-</head> 
+  <!--här gissar jag att CSS för webb - extern ska hamna-->
+  <link rel="stylesheet" type="text/css" href="styles/main.css" />
+  <link rel="stylesheet" type="text/css" href="../styles/main.css" />
+  <title>Spelshoppen</title>
+</head>
 
 <body>
-<header class="header__hero">
+  <header class="header__hero">
 
-<div class="menu-wraper">
-      
-        <div class="menu-wraper__logo-wrap">
+    <div class="menu-wraper">
+
+      <div class="menu-wraper__logo-wrap">
         <img src="" alt="Logo" />
       </div>
       <nav>
@@ -41,11 +42,11 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
           <li>
             <div class="dropdown">
               <a class="menu-wraper__links" id="dropdown-categories" href="/index.php">KATEGORIER</a>
-                <div class="dropdown-content">
-                  <?php 
-                  echo "$option_value";
-                  ?>
-                </div>
+              <div class="dropdown-content">
+                <?php
+                echo "$option_value";
+                ?>
+              </div>
             </div>
           </li>
           <li>
@@ -60,5 +61,7 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         </ul>
       </nav>
     </div>
-    
-    </header>
+
+  </header>
+
+  <main>
