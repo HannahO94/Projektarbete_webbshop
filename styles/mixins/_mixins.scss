@@ -1,25 +1,25 @@
 @mixin menu-wraper {
   display: flex;
   min-height: 104px;
-  background: #061b38;
   flex-direction: column;
   place-content: center center;
   place-items: center center;
   transition: linear 300ms;
 
   @media (min-width: 500px) {
-    min-height: 80px;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
+    // min-height: 100px;
+    // flex-direction: row;
+    // justify-content: flex-end;
+    // align-items: center;
   }
 }
 
 @mixin menu-link-style {
-  font-size: 14px;
-  font-weight: bold;
-  color: white;
+  font-size: 16px;
+  color: rgb(31, 31, 31);
   text-decoration: none;
+  font-family: $font-nav;
+  letter-spacing: 1.5px;
 }
 
 @mixin image-sizing {
