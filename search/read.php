@@ -10,15 +10,9 @@ require_once '../config/db.php';
 
   $games = [];
 
-  while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-   // print_r($row);
-   // $games[] = htmlspecialchars($row['title']);
-    //$games[] = htmlspecialchars($row['description']);
-    
+  while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){    
     $games[] = $row;
 
   };
- // print_r($games);
-
   echo json_encode($games);
 ?>
