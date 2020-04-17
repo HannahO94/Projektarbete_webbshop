@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*importera partials, fonter, variabler, mixins, extends etc. */
 /*kodblock för bildhantering*/
-.img_wrapper {
+.img_wrapper, .img__wrapper {
   position: relative;
   block-size: 100%;
   inline-size: 100%;
@@ -9,7 +9,7 @@
   height: 100%;
 }
 
-.category_img {
+.category_img, .logo__img, .socialmedia__img {
   display: block;
   -o-object-fit: cover;
      object-fit: cover;
@@ -404,6 +404,187 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media (min-width: 600px) {
+  .footer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+.footer__contact {
+  text-align: center;
+}
+
+.bold_txt {
+  font-weight: bold;
+}
+
+.footer__logo {
+  width: 100px;
+  height: 100px;
+}
+
+.footer__socialmedia {
+  width: 200px;
+  height: 75px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.icon-parent {
+  width: 45px;
+  height: 45px;
+  margin: 5px;
+}
+
+.join-in {
+  padding: 5% 10% 5% 10%;
+}
+
+.admin_container {
+  background-color: #FFFFFF;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.form-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  background-color: #f1f1f1;
+  margin: 5% 10%;
+  padding: 3%;
+  border-radius: 5px;
+}
+
+.form-container__heading {
+  width: 100%;
+  padding-bottom: 1rem;
+}
+
+.form-container__box {
+  width: 100%;
+}
+
+@media (min-width: 600px) {
+  .form-container__box {
+    width: 100%;
+    padding-bottom: 1rem;
+  }
+}
+
+.form-container__box-input {
+  margin-top: 1rem;
+  width: 50%;
+  height: 40px;
+  border-radius: 5px;
+  border: 0;
+  padding: 5px;
+}
+
+.form-container__submit {
+  margin-top: 2rem;
+  padding-bottom: 1rem;
+}
+
+.form-container__submit-button {
+  border-radius: 10px;
+  border: solid 1px #2c4f80;
+  padding: 0.7em 1.7em;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 0.2em;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-decoration: none;
+  font-weight: bold;
+  color: #FFFFFF;
+  background-color: #3369ff;
+  -webkit-box-shadow: inset 0 -0.6em 1em -0.35em rgba(0, 0, 0, 0.17), inset 0 0.6em 2em -0.3em rgba(255, 255, 255, 0.15), inset 0 0 0em 0.05em rgba(255, 255, 255, 0.12);
+          box-shadow: inset 0 -0.6em 1em -0.35em rgba(0, 0, 0, 0.17), inset 0 0.6em 2em -0.3em rgba(255, 255, 255, 0.15), inset 0 0 0em 0.05em rgba(255, 255, 255, 0.12);
+  text-align: center;
+  position: relative;
+}
+
+@media (min-width: 770px) {
+  .form-container__submit-button:hover {
+    background: rgba(83, 135, 212, 0.9);
+  }
+}
+
+.form-container__image {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+@media (min-width: 600px) {
+  .form-container__image {
+    width: 40%;
+  }
+}
+
+@media (min-width: 1000px) {
+  .form-container__image {
+    width: 100%;
+  }
+}
+
+.form-container__image-input {
+  margin-top: 1rem;
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.form-container__description {
+  width: 100%;
+}
+
+.form-container__description-input {
+  width: 100%;
+  height: 200px;
+  border: solid 1px black;
+}
+
+.footer-admin {
+  height: 200px;
+  background-color: #4e7dbe;
 }
 
 /*ok att nedan ligger här eller kan vi lägga det ngn

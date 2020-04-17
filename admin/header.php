@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/main.css">
-    <title>Adminpanelen</title>
+    <link rel="stylesheet" type="text/css" href="styles/main.css" />
+    <link rel="stylesheet" type="text/css" href="../styles/main.css" />
+    <title></title>
 </head>
 
 <body>
@@ -24,6 +25,7 @@
             </ul>
         </nav>
     </div>
+    <section class="admin_container">
 
 <main>
 
@@ -45,3 +47,5 @@ toggleMenuBtn.addEventListener('click', function(event) {
 })
 
 </script>
+        
+

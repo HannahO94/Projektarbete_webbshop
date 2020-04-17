@@ -10,7 +10,10 @@
         "_searchpage.scss",
         "_header_extern.scss",
         "_admin-menu.scss",
-        "_hero.scss"
+        "_hero.scss",
+        "_footer.scss",
+        "_admin_home.scss",
+        "_forms.scss"
     ],
     "names": [],
     "file": "main.css"
