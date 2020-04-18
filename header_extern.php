@@ -31,31 +31,37 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
     <div class="menu-wraper">
 
-      <div class="menu-wraper__logo-wrap">
+<div class="menu-wraper">
+      
+       <!--- <div class="menu-wraper__logo-wrap">
         <img src="" alt="Logo" />
-      </div>
-      <nav>
+      </div>-->
+
+      <nav class="menu_nav">
+      <label for="hamburger" class="label_hamburger">&#9776;</label>
+      <input type="checkbox" class="hamburger" >
+
         <ul class="menu-wraper__link-list">
-          <li>
+          <li class="menu-wraper__link-item">
             <a class="menu-wraper__links" href="/index.php">HEM</a>
           </li>
-          <li>
+          <li class="menu-wraper__link-item">
             <div class="dropdown">
-              <a class="menu-wraper__links" id="dropdown-categories" href="/index.php">KATEGORIER</a>
-              <div class="dropdown-content">
-                <?php
-                echo "$option_value";
-                ?>
-              </div>
+              <a class="menu-wraper__links" id="dropdown-categories" href="#">KATEGORIER</a>
+                <div class="dropdown-content">
+                  <?php 
+                  echo "$option_value";
+                  ?>
+                </div>
             </div>
           </li>
-          <li>
+          <li class="menu-wraper__link-item">
             <a class="menu-wraper__links" href="">KONTAKT</a>
           </li>
-          <li>
+          <li class="menu-wraper__link-item">
             <a class="menu-wraper__links" href="/search/index.php">SÖK</a>
           </li>
-          <li>
+          <li class="menu-wraper__link-item">
             <a class="menu-wraper__links" href="/admin/index.php">ADMIN</a>
           </li>
         </ul>

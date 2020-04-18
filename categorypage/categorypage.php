@@ -58,6 +58,4 @@ $stmt->execute();
   <button class="btn-back"><a href="../index.php">Tillbaka till startsidan</a></button>
 </section>
 
-<?php
-require_once '../footer.php';
-?>
+<?php require_once '../footer.php'; ?>
