@@ -1,10 +1,12 @@
 @mixin menu-wraper {
-  display: flex;
-  min-height: 104px;
-  flex-direction: column;
-  place-content: center center;
-  place-items: center center;
-  transition: linear 300ms;
+	display: flex;
+	min-height: 104px;
+	background: #3d085c;
+	flex-direction: column;
+	place-content: center center;
+	place-items: center center;
+	transition: linear 300ms;
+
 
   @media (min-width: 500px) {
     // min-height: 100px;
