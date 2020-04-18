@@ -2,16 +2,17 @@
 require_once "../header_extern.php"
 ?>
 
-<div class="search-form">
-  <form action="#">
-    <label for="search" class="search-form__label">Sök efter spel</label>
-    <br>
-    <input type="text" name="search" id="search-Field" class="search-form__input">
-  </form>
-</div>
+
+<form action="#" class="search-form">
+  <label for="search" class="search-form__label">Sök efter spel</label>
+  <br>
+  <input type="text" name="search" id="search-Field" class="search-form__input-field">
+</form>
+
 <div id="searched-result" class="search-result"></div>
 
-<button>Tillbaka</button>
+<button class="btn-back">Tillbaka</button>
+
 <script type="application/javascript" src="search.js"></script>
 
 <?php
