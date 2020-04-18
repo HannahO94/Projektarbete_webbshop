@@ -10,6 +10,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
   $categoryid = htmlspecialchars($row['categoryid']);
   $category = htmlspecialchars($row['category']);
   $option_value .=  "<a href='/categorypage/categorypage.php?id=" . $categoryid . "'>" . $category . "</a>";
+  $categories = strtoupper($option_value);
 }
 ?>
 
@@ -50,7 +51,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
               <a class="menu-wraper__links" id="dropdown-categories" href="#">KATEGORIER</a>
                 <div class="dropdown-content">
                   <?php 
-                  echo "$option_value";
+                  echo "$categories";
                   ?>
                 </div>
             </div>
