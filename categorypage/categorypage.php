@@ -36,16 +36,16 @@ $stmt->execute();
 
       if ($quantity == "0") {
         $any_items = "Finns EJ i lager";
-    } else {
+      } else {
         $any_items = "Finns i lager";
-    }
+      }
 
       echo
         "<div class='product_card'>
               <a href= '../product/product_info.php? id=$productid' 
               class='product_title'>$title</a>
-              <p>Pris: $price kr</p>
-              <p>$any_items</p>
+              <p class='product_price'>Pris: $price kr</p>
+              <p class='any-items'>$any_items</p>
 
             <button class='cart-btn product_card-btn'>Lägg i varukorgen</button>
           </div>";
@@ -55,7 +55,7 @@ $stmt->execute();
   </div>
   <br>
   <br>
-  <button> <a href="../index.php">Tillbaka till startsidan</a></button>
+  <button class="btn-back"><a href="../index.php">Tillbaka till startsidan</a></button>
 </section>
 
 <?php require_once '../footer.php'; ?>

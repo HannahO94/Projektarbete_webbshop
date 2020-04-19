@@ -1,52 +1,55 @@
 .footer {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  @media (min-width: 600px) {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-  }
+	padding: 30px 0;
+	background-color: rgb(243, 151, 30);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	@media (min-width: 600px) {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		align-items: center;
+	}
 }
 
 .footer__contact {
-  text-align: center;
+	text-align: left;
 }
 
 .bold_txt {
-  font-weight: bold;
+	font-weight: bold;
+	margin-bottom: 5px;
 }
 
 .footer__logo {
-  width: 100px;
-  height: 100px;
+	width: 100px;
+	height: 100px;
 }
 
 .footer__socialmedia {
-  width: 200px;
-  height: 75px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+	width: 200px;
+	height: 75px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
 }
 
 .img__wrapper {
-  @extend %wrapper-parent;
+	@extend %wrapper-parent;
 }
 
 .logo__img {
-  @extend %wrapped-img;
+	@extend %wrapped-img;
 }
 
 .icon-parent {
-  width: 45px;
-  height: 45px;
-  margin: 5px;
+	width: 45px;
+	height: 45px;
+	margin: 5px;
 }
 
 .socialmedia__img {
-  @extend %wrapped-img;
+	@extend %wrapped-img;
 }
