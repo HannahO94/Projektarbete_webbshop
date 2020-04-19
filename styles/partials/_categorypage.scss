@@ -13,16 +13,23 @@
 }
 
 .product_card {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-content: space-between;
 	margin: 2em;
+	padding: 1em;
 	background-color: lightgrey;
 	text-align: center;
+	line-height: 1.5;
 	height: 200px;
 	width: 200px;
+	border-radius: 8px;
 }
 
 .product_title {
-	display: inline-block;
-	margin-top: 25%;
+	//display: inline-block;
+	// margin-top: 25%;
 	text-decoration: none;
 	color: black;
 	font-weight: bold;
@@ -33,9 +40,10 @@
 }
 
 .product_card-btn {
-	display: block;
-	margin-left: 5px;
-	margin-top: 40px; /*inte bra, måste hitta bättre lösning*/
+	//display: block;
+	//margin-left: 5px;
+	position: relative;
+	margin-top: 20px; /*inte bra, måste hitta bättre lösning*/
 }
 
 .category_name {
@@ -43,4 +51,8 @@
 	@media (min-width: 600px) {
 		display: none;
 	}
+}
+
+.btn-back {
+	background-color: rgb(202, 201, 201);
 }
