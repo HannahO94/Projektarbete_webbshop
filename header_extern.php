@@ -39,8 +39,13 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
       </div>-->
 
       <nav class="menu_nav">
-      <label for="hamburger" class="label_hamburger">&#9776;</label>
+      
       <input type="checkbox" class="hamburger" >
+      <label for="label_hamburger">
+      <span class="icon-bar top-bar"></span>
+      <span class="icon-bar middle-bar"></span>
+      <span class="icon-bar bottom-bar"></span>
+      </label>
 
         <ul class="menu-wraper__link-list">
           <li class="menu-wraper__link-item">
