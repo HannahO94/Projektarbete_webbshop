@@ -21,7 +21,6 @@
         </div>
     </div>
 </footer>
-<!--script-filer här-->
 </body>
 
 </html>
