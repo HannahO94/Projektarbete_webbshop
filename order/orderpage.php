@@ -11,7 +11,7 @@ require_once '../config/db.php';
 
 <section class="shoppingcart">
   <h1>Din varukorg</h1>
-  <div class="cart-items">
+  <div id="cart-items" class="cart-items">
     <!--Här visas produkter i varukorgen, eller en text "Inga produkter i varukorgen" om inga har valts än -->
   </div>
 </section>
