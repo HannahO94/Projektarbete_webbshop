@@ -129,6 +129,15 @@ a:hover {
 
 .menu_nav {
   width: 100vw;
+  height: 70px;
+  background-color: #ffffffb6;
+  position: fixed;
+}
+
+@media (min-width: 500px) {
+  .menu_nav {
+    height: 0px;
+  }
 }
 
 .label_hamburger {
@@ -154,7 +163,7 @@ a:hover {
   top: 10px;
   left: 10px;
   cursor: pointer;
-  z-index: 10;
+  z-index: 100;
 }
 
 @media (min-width: 600px) {
@@ -175,7 +184,7 @@ input[type="checkbox"] + label .icon-bar {
   position: absolute;
   top: 20px;
   left: 20px;
-  z-index: 5;
+  z-index: 100;
 }
 
 input[type="checkbox"] + label .top-bar {
@@ -264,7 +273,8 @@ input[type="checkbox"]:checked + label .bottom-bar {
   -webkit-transition: linear 300ms;
   transition: linear 300ms;
   display: none;
-  margin-top: 100px;
+  margin-top: 70px;
+  z-index: 100;
 }
 
 @media (min-width: 500px) {
@@ -274,7 +284,8 @@ input[type="checkbox"]:checked + label .bottom-bar {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    min-height: 165px;
+    min-height: 105px;
+    min-width: 100%;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
@@ -285,12 +296,16 @@ input[type="checkbox"]:checked + label .bottom-bar {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    background-color: #ffffffb6;
+    position: fixed;
+    z-index: 100;
   }
 }
 
 .menu-wraper__link-item {
   padding: 20px;
-  background: #ffffff;
+  background: #ffffffb6;
+  z-index: 100;
 }
 
 @media (min-width: 500px) {
@@ -324,6 +339,7 @@ input[type="checkbox"]:checked + label .bottom-bar {
   padding: 20px;
   -webkit-transition: linear 300ms;
   transition: linear 300ms;
+  z-index: 100;
 }
 
 @media (min-width: 500px) {
@@ -368,7 +384,7 @@ input[type="checkbox"]:checked + label .bottom-bar {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #ffffff;
+  background-color: #ffffffb6;
   min-width: 160px;
   -webkit-box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
           box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
