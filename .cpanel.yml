@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/swphlzpz/public_html/webshop
+    - export DEPLOYPATH=/home/swphlzpz/public_html/webshop/
     - /bin/cp -r * $DEPLOYPATH
