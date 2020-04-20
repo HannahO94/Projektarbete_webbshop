@@ -6,6 +6,7 @@ require_once "../header_extern.php"
   <label for="search" class="search-form__label">Sök efter spel</label>
   <br>
   <input type="text" name="search" id="search-Field" class="search-form__input-field">
+  <button id="search_btn">Sök</button>
 </form>
 
 <!--i nedan div mha php rita ut produktkort-->
