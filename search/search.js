@@ -40,27 +40,35 @@ ajax.onreadystatechange = function () {
         return game.toLowerCase().includes(searchField.value.toLowerCase());
       });
 
+      //töm båda arrayerna varje gång tanget trycks, annars ritas inte förfinade sökningen om
+      output.splice(0, output.length)
+      productId.splice(0, productId.length)
+
       for (let i = 0; i < games.length; i++) {
         for (let j = 0; j < searchedGame.length; j++) {
           if (games[i].title === searchedGame[j] || games[i].description === searchedGame[j]) {
             if (productId.includes(games[i].productid)) {
+              display(productId, output);
             } else {
               output.push(" | " + games[i].title + " " + games[i].price + " kr " + " | ")
               productId.push(games[i].productid)
-              console.log("output = " + output)
+              display(productId, output);
+              
             }
           }
         }
 
       }
-      display(productId, output);
+      
     }
 
     function display() {
-
+      //töm div innerhtml för att kunna rita om när en förfinad sökning görs
+      searchResult.innerHTML = " "
+    
       for (let i = 0; i < output.length; i++) {
         let listedGames = document.createElement("a");
-
+        console.log("output i forloop i display()  " + output + productId)
         listedGames.textContent = output[i]
         listedGames.href = "../product/product_info.php?id= " + productId[i];
         listedGames.id = productId[i]
@@ -68,11 +76,7 @@ ajax.onreadystatechange = function () {
         //kontroll av id på a-tagg - om den finns rita inte ut en ny
         let element = document.getElementById(productId[i])
         if (element !== null) {
-          //console.log("finns")
-          //console.log("element = " + listedGames.id)
         } else {
-          //console.log("finns inte")
-          //console.log("element = " + listedGames.id)
           searchResult.appendChild(listedGames);
         }
       }
@@ -83,9 +87,7 @@ ajax.onreadystatechange = function () {
     if (searchField.value === "") {
       output.splice(0, output.length)
       productId.splice(0, productId.length)
-      //console.log("tömt output och product id arrayer")
-      //console.log("tömd array : " + output)
-      //console.log(productId)
+
     }
   }
 }
