@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/swphlzpz/public_html/webshop # Add /<app_folder> if required
-    - /bin cp * $DEPLOYPATH #copy all from root
+    - export DEPLOYPATH=/home/swphlzpz/public_html/webshop
+    - /bin cp * $DEPLOYPATH
