@@ -1,6 +1,6 @@
 .admin-home {
   display: grid;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 1fr 2fr;
   justify-items: center;
 
   @media (min-width: 800px) {
@@ -10,16 +10,11 @@
 
   &__header {
     font-size: 30px;
-    background-color: #f7931e;
-    border-radius: 40px;
     text-align: center;
-    padding: 40px;
     grid-row: 1;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 
     @media (min-width: 800px) {
-      background-color: white;
-      border-radius: 40px;
       font-size: 80px;
       grid-column: 2;
     }
@@ -30,11 +25,16 @@
   height: 100%;
   grid-row: 2;
   align-items: center;
+  background-color: #f5c083;
+  border-radius: 40px;
+  padding: 40px;
 
   @media (min-width: 800px) {
     grid-column: 1;
     grid-row: 1 / span 2;
+    background-color: white;
     border-right: 2px solid #f7931e;
+    border-radius: 0;
     padding-right: 50px;
   }
 
@@ -58,5 +58,9 @@
   .web {
     font-weight: bolder;
     margin-top: 20px;
+  }
+
+  .web:hover {
+    color: #ffb6c1;
   }
 }
