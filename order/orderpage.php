@@ -2,6 +2,13 @@
 require_once '../header_extern.php';
 require_once '../config/db.php';
 
+//Hämtar det produkt-id som valdes
+$currentProductId = htmlspecialchars($_GET['id']);
+
+//Hämtar aktuell produktrad i databasen, som matchar den valda produkten
+$stmt = $db->prepare("SELECT * FROM webshop_products WHERE productid = $currentProductId");
+$stmt->execute();
+
 ?>
 
 <section class="freigt-info">
@@ -12,9 +19,29 @@ require_once '../config/db.php';
 <section class="shoppingcart">
   <h1>Din varukorg</h1>
   <div id="cart-items" class="cart-items">
+
     <!--Här visas produkter i varukorgen, eller en text "Inga produkter i varukorgen" om inga har valts än -->
+
+    <!-- PHP-koden nedan är bara ett test 
+    för att se att knappen "Lägg i varukorg" skickar rätt produkt 
+    och kan hämta/visa utvalda uppgifter:</h4> -->
+    <?php
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) :
+      $productId = htmlspecialchars($row['productid']);
+      $title = htmlspecialchars($row['title']);
+      $price = htmlspecialchars($row['price']);
+
+      echo
+        "<p class='product_id'>Produkt-id: $productId</p>
+        <p class='product_price'>Pris: $price kr</p>  
+         <p class='product_title'>Titel: $title</p>";
+
+    endwhile;
+
+    ?>
   </div>
-</section>
+
+</section><br>
 
 <section class="order-form">
 
