@@ -57,23 +57,37 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
     $category = htmlspecialchars($row['category']);
     $option_value .= "<option value='$categoryid'>$category</option>";
 }
-// $msg = "";
+$msg = "";
 
 
-if($_SERVER['REQUEST_METHOD'] === 'POST') :
+if(isset($_POST['submit'])) :
     $title = htmlspecialchars($_POST['title']);
     $id = htmlspecialchars($_POST['id']);
     $price = htmlspecialchars($_POST['price']);
     $quantity = htmlspecialchars($_POST['quantity']);
     $description = htmlspecialchars($_POST['description']);
     $categoryid = $_POST['category'];
-    
-    
 
-    if($_FILES['productimg']['name'] == ""){
-        $imageUpload = serialize($imageold);
-        
-    }else {
+
+    $sql = "UPDATE webshop_products SET title = :title, price = :price, quantity = :quantity, description = :description, categoryid = :categoryid   WHERE productid = :id";
+    $stmt = $db->prepare($sql);
+    $stmt->bindParam(':title', $title);
+    $stmt->bindParam(':price', $price);
+    $stmt->bindParam(':quantity', $quantity);
+    $stmt->bindParam(':description', $description);
+    $stmt->bindParam(':categoryid', $categoryid);
+    //$stmt->bindParam(':productimg', $imageUpload);
+    $stmt->bindParam(':id', $id);
+    $stmt->execute();
+    
+    // header('Location:admin-products.php');
+   
+    
+endif;
+
+if(isset($_POST['submitimg'])){
+
+        $id = htmlspecialchars($_POST['id']);
         $uploadFolder = '../images/';
         $imageData = array();
 
@@ -82,34 +96,30 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') :
             $imageName = $_FILES['productimg']['name'][$key];
             $result = move_uploaded_file($imageTmpName,$uploadFolder.$imageName);
             array_push($imageData, $imageName);
-        };
-
+        }
         $imageUpload = serialize($imageData);
-
-        // if (move_uploaded_file($_FILES['productimg']['tmp_name'], $target)) {
-        //     $msg = "Bilden är uppladdad!";
-        // }else{
-        //     $msg = "Ingen bild är uppladdad!";
-        // }
         
-    }
 
-    $sql = "UPDATE webshop_products SET title = :title, productimg = :productimg, price = :price, quantity = :quantity, description = :description, categoryid = :categoryid   WHERE productid = :id";
-    $stmt = $db->prepare($sql);
-    $stmt->bindParam(':title', $title);
-    $stmt->bindParam(':price', $price);
-    $stmt->bindParam(':quantity', $quantity);
-    $stmt->bindParam(':description', $description);
-    $stmt->bindParam(':categoryid', $categoryid);
-    $stmt->bindParam(':productimg', $imageUpload);
+
+
+    //$imageUpload = serialize($imageData);
+    $sql = "UPDATE webshop_products SET productimg = :productimg WHERE productid = :id";
+    $stmt = $db->prepare($sql);   
     $stmt->bindParam(':id', $id);
+    $stmt->bindParam(':productimg', $imageUpload);
     $stmt->execute();
-    
-    // header('Location:admin-products.php');
-   
-    
-endif;
+            
+ 
+        if ($result) {
+            $msg = "Bilden är uppladdad!";
+        }else{
+            $msg = "Ingen bild är uppladdad!";
+        }
+        
+        header("Location:admin-update-product.php?id=$id");
+    }
 ?>
+
 
 
 <section class="product-form">
@@ -140,19 +150,13 @@ endif;
 
 </select>
 </div>
-
-<div class="product_field-img form-container__image">
-<label for="product-img">Ladda upp en produktbild: </label><br>
-<input type="file" name="productimg[]" multiple="multiple">
-</div>
-
 <div class="product_field-description form-container__description">
 <label for="description">Beskrivning: </label><br>
 <textarea name="description" Placeholder="Beskrivning av produkt" class="form-container__description-input" cols="10" rows="8"><?php echo $description; ?></textarea>
 </div>
 
 <div class="product_field-submit form-container__submit">
-<input type="submit" value="Uppdatera produkt" class="form-container__submit-button">
+<input type="submit" name="submit" value="Uppdatera produkt" class="form-container__submit-button">
 </div>
 <input type="hidden" name="id" value="<?php echo $id ?>"> 
 
@@ -160,19 +164,31 @@ endif;
 </form>
 </section>
 
+<section>
+<form action="#" method="POST" enctype="multipart/form-data" class="form-container">
+<h3>Uppdatera bild: </h3>
+<div class="product_field-img form-container__image">
+<label for="product-img">Ladda upp en produktbild: </label><br>
+<input type="file" name="productimg[]" multiple="multiple">
+<?php echo $msg; ?>
+</div>
+
+<div class="product_field-submit form-container__submit">
+<input type="submit" name="submitimg" value="Uppdatera bild" class="form-container__submit-button">
+</div>
+<input type="hidden" name="id" value="<?php echo $id ?>"> 
+</form>
+</section>
+
 
 <?php 
-if (!$imageold == ""){
-    
-    foreach ($imageold as $key => $value) {
-        
-        echo "<img src='../images/$value' width='200px' class=''><br><button>Radera bild</button><br>
-        ";
-    }
+foreach ($imageold as $key => $value) {
+    if($imageold[0] == ""){
+        echo "ingen bildfil finns tillgänglig";
+    }else
+    echo "<img src='../images/$value' width='200px' class=''><br><button>Radera bild</button><br>
+    ";
 }
-else{
-            echo "ingen bildfil finns tillgänglig";
-    }
 ?>
 
 

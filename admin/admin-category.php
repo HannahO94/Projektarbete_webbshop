@@ -46,7 +46,7 @@ require_once "admin-create-category.php";?>
 
  <script>
     function myFunction() {
-        let remove = confirm("Är du säker på att du vill radera inlägget");
+        let remove = confirm("Är du säker på att du vill radera kategorin");
         if (remove == false) {
             return false;
         } 

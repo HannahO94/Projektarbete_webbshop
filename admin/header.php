@@ -41,7 +41,7 @@
     <main>
         <!-- Ska denna section vara här? -->
         <section class="admin_container">
-    </main>
+
 
 <script>
 
