@@ -27,19 +27,67 @@ if(isset($_GET['id'])){
 $msg = "";
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') :
+
     $category = htmlspecialchars($_POST['category']);
     $id = htmlspecialchars($_POST['id']);
     if ($_FILES['image']['name'] ==''){
         $image = $imageold;
-    }else {
-        $image = $_FILES['image']['name'];
-        $target ="../images/".basename($image);
-        if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
-            $msg = "Bilden är uppladdad!";
-        }else{
-            $msg = "Ingen bild är uppladdad!";
+    }
+    $image = $_FILES['image']['name'];
+    $target = "../images/".basename($image);
+
+    $uploadOk = 1;
+    $imageFileType = strtolower(pathinfo($target,PATHINFO_EXTENSION));
+    if(isset($_POST["submit"])) {
+        $check = getimagesize($_FILES["image"]["tmp_name"]);
+        if($check !== false) {
+            echo "File is an image - " . $check["mime"] . ".";
+            $uploadOk = 1;
+        } else {
+            echo "File is not an image.";
+            $uploadOk = 0;
         }
     }
+    // Check if file already exists
+    if (file_exists($target)) {
+        echo "Sorry, file already exists.";
+        $uploadOk = 0;
+        $image = "";
+    }
+    // Check file size
+    if ($_FILES["image"]["size"] > 500000) {
+        echo "Sorry, your file is too large.";
+        $uploadOk = 0;
+        $image = "";
+    }
+    // Allow certain file formats
+    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+    && $imageFileType != "gif" ) {
+        echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+        $uploadOk = 0;
+        $image = "";
+    }
+    // Check if $uploadOk is set to 0 by an error
+    if ($uploadOk == 0) {
+        echo "Sorry, your file was not uploaded.";
+        $image = "";
+    // if everything is ok, try to upload file
+    } 
+    else {
+        if (move_uploaded_file($_FILES["image"]["tmp_name"], $target) && $uploadOk == true) {
+            echo "The file ". basename( $_FILES["image"]["name"]). " has been uploaded.";
+            $image = $_FILES['image']['name'];
+            $target = "../images/".basename($image);
+        } else {
+            echo "Sorry, there was an error uploading your file.";
+            
+        }
+    }
+
+    
+ 
+
+
      
     $sql = "UPDATE webshop_categories SET category=:category, image=:image WHERE categoryid=:id";
     $stmt = $db->prepare($sql);
@@ -48,23 +96,27 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') :
     $stmt->bindParam(':id', $id);
     $stmt->execute();
     
-    header('Location:admin-category.php');
+    // header('Location:admin-category.php');
    
     
 endif;
 ?>
-
+<section class="form-container">
+<div class="form-container__heading">
+        <h3 class="form-container__heading-text">Uppdatera kategori</h3>
+</div><br>
 <form action="#" method="POST" enctype="multipart/form-data">
-    <div class="">
-        <input type="text" placeholder="Namn på kategori" value='<?php echo $category; ?>' name="category" class="">
+    <div class="form-container__box">
+    <label for="category">Namn på kategori: </label><br>
+        <input type="text" value='<?php echo $category; ?>' name="category" class="form-container__box-input">
     </div>
-    <div class="">
+    <div class="form-container__image">
         <label for="image">Ladda upp en bild:</label><br>
-        <input type="file" name="image" class="">     
+        <input type="file" name="image" class="form-container__image-input">     
         <?php echo $msg; ?>
     </div>
-    <div class="">
-            <input type="submit" value="Uppdatera" class="">
+    <div class="form-container__submit">
+            <input type="submit" value="Uppdatera" class="form-container__submit-button">
     </div>
 <input type="hidden" name="id" value="<?php echo $id ?>"> 
 </form>
@@ -75,6 +127,7 @@ if (!$imageold === false){
     ";
 }
 ?>
+</section>
 <br><br>
 <button><a href="admin-category.php">Tillbaka</a></button>
 <?php  require_once '../footer.php'; ?>

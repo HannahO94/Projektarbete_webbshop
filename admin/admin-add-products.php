@@ -75,54 +75,56 @@ require_once '../config/db.php';
 
 <section class="page-title-container">
 
-<h1 class="page-title">Lägg till en ny produkt</h1>
+
 
 </section>
 
-<section class="product-form">
+<section class="product-form form-container">
+    <div class="form-container__heading">
+        <h1 class="page-title form-container__heading-text">Lägg till en ny produkt</h1>
+    </div>
+    <form action="#" method="POST" enctype="multipart/form-data" class="form-container">
 
-<form action="#" method="POST" enctype="multipart/form-data">
+    <div class="product_field-name form-container__box">
+        <label for="title">Produkt namn: </label><br>
+        <input type="text" name="title" class="form-container__box-input">
+    </div>
 
-<div class="product_field-name">
-<label for="title">Produkt namn: </label><br>
-<input type="text" name="title">
-</div>
+    <div class="product_field-price form-container__box">
+        <label for="price">Pris: </label><br>
+        <input type="text" name="price" class="form-container__box-input">
+    </div>
 
-<div class="product_field-price">
-<label for="price">Pris: </label><br>
-<input type="text" name="price">
-</div>
+    <div class="product_field-quantity form-container__box">
+        <label for="quantity">Ange lagerstatus: <br>
+        <input type="number" min="0" max="500" name="quantity" class="form-container__box-input">
+    </div>
 
-<div class="product_field-quantity">
-<label for="quantity">Ange lagerstatus: <br>
-<input type="number" min="0" max="500" name="quantity">
-</div>
+    <div class="product_field-category form-container__box">
+        <label for="category">Kategori: </label><br>
+        <select name="category" class="form-container__box-input">
+            <option value="">Välj en kategori...</option>
+            <?php echo $option_value; ?>
 
-<div class="product_field-category">
-<label for="category">Kategori: </label><br>
-<select name="category">
-<option value="">Välj en kategori...</option>
-<?php echo $option_value; ?>
+        </select>
+    </div>
 
-</select>
-</div>
+    <div class="product_field-img form-container__image">
+        <label for="product-img">Ladda upp en produktbild: </label><br>
+        <input type="file" name="productimg[]" multiple="multiple" class="form-container__image-input">
+    </div>
 
-<div class="product_field-img">
-<label for="product-img">Ladda upp en produktbild: </label><br>
-<input type="file" name="productimg[]" multiple="multiple">
-</div>
+    <div class="product_field-description form-container__description">
+        <label for="description">Beskrivning: </label><br>
+        <textarea name="description" placeholder="Beskrivning av produkt.." cols="10" rows="8" class="form-container__description-input"></textarea>
+    </div>
 
-<div class="product_field-description">
-<label for="description">Beskrivning: </label><br>
-<textarea name="description" placeholder="Beskrivning av produkt.." cols="10" rows="8"></textarea>
-</div>
-
-<div class="product_field-submit">
-<input type="submit" value="Lägg till ny produkt">
-</div>
+    <div class="product_field-submit form-container__submit">
+        <input type="submit" value="Lägg till ny produkt" class="form-container__submit-button">
+    </div>
 
 
-</form>
+    </form>
 </section>
 
 

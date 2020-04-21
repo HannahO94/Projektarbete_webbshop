@@ -59,9 +59,9 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
 }
 
 
-$msg = "";
-$result ="";
-if($_SERVER['REQUEST_METHOD'] === 'POST') :
+
+if(isset($_POST['submit'])) :
+
     $title = htmlspecialchars($_POST['title']);
     $id = htmlspecialchars($_POST['id']);
     $price = htmlspecialchars($_POST['price']);
@@ -83,6 +83,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') :
     
     // header('Location:admin-products.php');
    
+
+
+$msg = "";
+$result ="";
+
+
     $imgArrayTest = array_filter($image);
 
     if(!empty($imgArrayTest)){
@@ -98,6 +104,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') :
                 array_push($imageData, $imageName);
             }
             $imageUpload = serialize($imageData);
+
             
     
         //$imageUpload = serialize($imageData);
@@ -178,6 +185,7 @@ endif;
 
 
 <?php 
+
     
     foreach ($imageold as $key => $value) {
         if($imageold[0] == ""){
@@ -186,6 +194,7 @@ endif;
         echo "<img src='../images/$value' width='200px' class=''><br><button>Radera bild</button><br>
         ";
     }
+
 
 
 
