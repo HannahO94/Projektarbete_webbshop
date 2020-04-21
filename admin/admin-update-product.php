@@ -4,7 +4,7 @@ require_once 'header.php';
 
 $imageold = "";
 
-
+//Hämtar information från databasen om produkten
 if(isset($_GET['id'])){
     $id = htmlspecialchars($_GET['id']);
     $sql = "SELECT * FROM webshop_products WHERE productid =:id";
@@ -30,9 +30,9 @@ if(isset($_GET['id'])){
     header('Location:admin-products.php');
     exit;
 }
-//print_r($imageold);
 
 
+//Hämtar kategorier från databasen
 $query ="SELECT * FROM webshop_categories WHERE categoryid = :categoryid";
 $statment = $db->prepare($query);
 $statment->bindParam(':categoryid', $product_categoryid);
@@ -47,6 +47,7 @@ $stmt = $db->prepare($sql);
 $stmt->bindParam(':categoryid', $product_categoryid);
 $stmt->execute();
 
+//Kategorierna för att kunna lägga in dessa i selectbox i formuläret
 $option_value = "";
 while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
     $categoryid = htmlspecialchars($row['categoryid']);
@@ -54,8 +55,8 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
     $option_value .= "<option value='$categoryid'>$category</option>";
 }
 
-
-if(isset($_POST['submit'])) :
+//Hämtar värden från formuläret
+if($_SERVER['REQUEST_METHOD'] === 'POST') :
 
     $title = htmlspecialchars($_POST['title']);
     $id = htmlspecialchars($_POST['id']);
@@ -78,14 +79,10 @@ if(isset($_POST['submit'])) :
     
     header('Location:admin-products.php');
    
-
-
 $msg = "";
 
-
-
     $imgArrayTest = array_filter($image);
-
+    
     if(!empty($imgArrayTest)){
     
             $id = htmlspecialchars($_POST['id']);
@@ -101,8 +98,6 @@ $msg = "";
             $imageUpload = serialize($imageData);
 
             
-    
-        //$imageUpload = serialize($imageData);
         $sql = "UPDATE webshop_products SET productimg = :productimg WHERE productid = :id";
         $stmt = $db->prepare($sql);   
         $stmt->bindParam(':id', $id);
@@ -116,63 +111,8 @@ $msg = "";
             //$msg = "Ingen bild är uppladdad!";
         }
     
-endif;
-
-?>
-
-
-
-<section class="product-form">
-
-<form action="#" method="POST" enctype="multipart/form-data" class="form-container">
-<h1 class="page-title">Uppdatera produkt</h1>
-
-<div class="product_field-name form-container__box">
-<label for="title">Produkt namn: </label><br>
-<input type="text" name="title"value='<?php echo $title; ?>' class="form-container__box-input">
-</div>
-
-<div class="product_field-price form-container__box">
-<label for="price">Pris: </label><br>
-<input type="text" name="price" value='<?php echo $price; ?>' class="form-container__box-input">
-</div>
-
-<div class="product_field-quantity form-container__box">
-<label for="quantity">Ange lagerstatus: <br>
-<input type="number" min="0" max="500" name="quantity" value='<?php echo $quantity; ?>' class="form-container__box-input">
-</div>
-
-<div class="product_field-category form-container__box">
-<label for="category">Kategori: </label><br>
-<select name="category" class="form-container__box-input">
-<option value='<?php echo $product_categoryid;?>'><?php echo $product_category;?></option>
-<?php echo $option_value; ?>
-
-</select>
-
-<div class="product_field-img form-container__image">
-<label for="product-img">Ladda upp produktbild: </label><br>
-<input type="file" name="productimg[]" multiple="multiple">
-<?php //echo $msg; ?>
-</div>
-
-</div>
-<div class="product_field-description form-container__description">
-<label for="description">Beskrivning: </label><br>
-<textarea name="description" Placeholder="Beskrivning av produkt" class="form-container__description-input" cols="10" rows="8"><?php echo $description; ?></textarea>
-</div>
-
-<div class="product_field-submit form-container__submit">
-<input type="submit" name="submit" value="Uppdatera produkt" class="form-container__submit-button">
-</div>
-<input type="hidden" name="id" value="<?php echo $id ?>"> 
-
-
-</form>
-</section>
-
-
-<?php 
+    endif;
+    require_once "admin-update-product-form.php";
 
     
     foreach ($imageold as $key => $value) {
@@ -182,10 +122,6 @@ endif;
         echo "<img src='../images/$value' width='200px' class=''><br><button>Radera bild</button><br>
         ";
     }
-
-
-
-
 
 ?>
 
