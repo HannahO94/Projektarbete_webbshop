@@ -79,12 +79,12 @@ require_once '../config/db.php';
 
 </section>
 
-<section class="product-form form-container">
+<section class="product-form">
+    
+    <form action="#" method="POST" enctype="multipart/form-data" class="form-container">
     <div class="form-container__heading">
         <h1 class="page-title form-container__heading-text">Lägg till en ny produkt</h1>
     </div>
-    <form action="#" method="POST" enctype="multipart/form-data" class="form-container">
-
     <div class="product_field-name form-container__box">
         <label for="title">Produkt namn: </label><br>
         <input type="text" name="title" class="form-container__box-input">
@@ -118,7 +118,7 @@ require_once '../config/db.php';
         <label for="description">Beskrivning: </label><br>
         <textarea name="description" placeholder="Beskrivning av produkt.." cols="10" rows="8" class="form-container__description-input"></textarea>
     </div>
-
+    <br>
     <div class="product_field-submit form-container__submit">
         <input type="submit" value="Lägg till ny produkt" class="form-container__submit-button">
     </div>

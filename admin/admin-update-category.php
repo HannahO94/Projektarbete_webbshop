@@ -25,7 +25,7 @@ if(isset($_GET['id'])){
     exit;
 }
 $msg = "";
-
+$nameErr = "";
 if($_SERVER['REQUEST_METHOD'] === 'POST') :
 
     $category = htmlspecialchars($_POST['category']);
@@ -83,23 +83,35 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') :
             
         }
     }
+    if (empty($_POST["category"])) {
+        $nameErr = "Kategorinamn måste fyllas i";
+      }
+    else if (!empty($_POST["category"])) {
+        $category = test_input($_POST["category"]);
+        // check if name only contains letters and whitespace
+        if (!preg_match("/^[a-öA-Ö ]*$/",$category)) {
+          $nameErr = "Endast bokstäver och mellanslag är tillåtet";
+      }
+         else {
+       
+            $sql = "UPDATE webshop_categories SET category=:category, image=:image WHERE categoryid=:id";
+            $stmt = $db->prepare($sql);
+            $stmt->bindParam(':category', $category);
+            $stmt->bindParam(':image', $image);
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
+            header('Location:admin-category.php');
 
-    
- 
+        }
+    }
 
-
-     
-    $sql = "UPDATE webshop_categories SET category=:category, image=:image WHERE categoryid=:id";
-    $stmt = $db->prepare($sql);
-    $stmt->bindParam(':category', $category);
-    $stmt->bindParam(':image', $image);
-    $stmt->bindParam(':id', $id);
-    $stmt->execute();
-    
-    // header('Location:admin-category.php');
-   
-    
 endif;
+function test_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+  }
 ?>
 <section class="form-container">
 <div class="form-container__heading">
@@ -109,6 +121,7 @@ endif;
     <div class="form-container__box">
     <label for="category">Namn på kategori: </label><br>
         <input type="text" value='<?php echo $category; ?>' name="category" class="form-container__box-input">
+        <p class="error"><?php echo $nameErr;?></p>
     </div>
     <div class="form-container__image">
         <label for="image">Ladda upp en bild:</label><br>

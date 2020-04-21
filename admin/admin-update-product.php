@@ -85,7 +85,7 @@ if(isset($_POST['submit'])) :
    
 
 
-$msg = "";
+// $msg = "";
 $result ="";
 
 
@@ -165,7 +165,8 @@ endif;
 <div class="product_field-img form-container__image">
 <label for="product-img">Ladda upp en produktbild: </label><br>
 <input type="file" name="productimg[]" multiple="multiple">
-<?php echo $msg; ?>
+<?php 
+// echo $msg; ?>
 </div>
 
 </div>

@@ -45,25 +45,15 @@
   &__submit-button {
     // width: 128px;
     // height: 38px;
-    border-radius: 10px;
-    border: solid 1px #2c4f80;
-    padding: 0.7em 1.7em;
-    margin: 0 0.3em 0.3em 0;
-    border-radius: 0.2em;
-    box-sizing: border-box;
-    text-decoration: none;
-    font-weight: bold;
-    color: #ffffff;
-    background-color: #3369ff;
-    box-shadow: inset 0 -0.6em 1em -0.35em rgba(0, 0, 0, 0.17),
-      inset 0 0.6em 2em -0.3em rgba(255, 255, 255, 0.15),
-      inset 0 0 0em 0.05em rgba(255, 255, 255, 0.12);
-    text-align: center;
-    position: relative;
+    padding: 10px 15px;
+    font-size: 14px;
+    border: none;
+    border-radius: 8px;
+    background-color: rgba(83, 135, 212, 0.9);
 
     &:hover {
       @media (min-width: 770px) {
-        background: rgba(83, 135, 212, 0.9);
+        background: rgba(129, 176, 248, 0.9);
         // font-weight: bold;
       }
     }
@@ -87,9 +77,12 @@
   &__description {
     width: 100%;
     &-input {
-      width: 100%;
+      width: 70%;
       height: 200px;
       border: solid 1px black;
     }
   }
+}
+.error {
+  color: red;
 }
