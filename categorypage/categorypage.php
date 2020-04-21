@@ -47,11 +47,12 @@ $stmt->execute();
               <p class='product_price'>Pris: $price kr</p>
               <p class='any-items'>$any_items</p>
 
-            <button class='cart-btn product_card-btn'>Lägg i varukorgen</button>
+            <button class='cart-btn product_card-btn'><a href= '../order/orderpage.php? id=$productid' </a>Lägg i varukorg</button>
           </div>";
 
     endwhile;
     ?>
+
   </div>
   <br>
   <br>
