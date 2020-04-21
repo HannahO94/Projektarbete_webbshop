@@ -36,8 +36,6 @@ require_once '../config/db.php';
 
         
         $uploadFolder = '../images/';
-
-        
         $imageData = array();
 
         foreach ($_FILES['productimg']['tmp_name'] as $key => $image) {
