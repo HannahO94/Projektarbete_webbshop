@@ -20,9 +20,7 @@ if(isset($_GET['id'])){
         $quantity = htmlspecialchars($row['quantity']);
         $description = htmlspecialchars($row['description']);
         $product_categoryid = htmlspecialchars($row['categoryid']);
-
-        $imageold = unserialize($row['productimg']);
-        
+        $imageold = unserialize($row['productimg']);   
         
     }else {
         header('Location:admin-products.php');
@@ -44,11 +42,9 @@ while($row = $statment->fetch(PDO::FETCH_ASSOC)){
     $product_category = htmlspecialchars($row['category']);
 }
 
-
 $sql = "SELECT * FROM webshop_categories WHERE NOT categoryid = :categoryid";
 $stmt = $db->prepare($sql);
 $stmt->bindParam(':categoryid', $product_categoryid);
-
 $stmt->execute();
 
 $option_value = "";
@@ -57,7 +53,6 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
     $category = htmlspecialchars($row['category']);
     $option_value .= "<option value='$categoryid'>$category</option>";
 }
-
 
 
 if(isset($_POST['submit'])) :
@@ -120,8 +115,6 @@ $result ="";
         //     $msg = "Ingen bild är uppladdad!";
         // }
                 
-     
-    
         header("Location:admin-update-product.php?id=$id");
         }
         else{

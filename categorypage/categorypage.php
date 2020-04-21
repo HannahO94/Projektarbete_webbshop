@@ -35,9 +35,9 @@ $stmt->execute();
       $quantity = htmlspecialchars($row['quantity']);
 
       if ($quantity == "0") {
-        $any_items = "Finns EJ i lager";
+        $any_items = "<span>Finns EJ i lager</span>";
       } else {
-        $any_items = "Finns i lager";
+        $any_items = "I lager: " . $quantity . " st";
       }
 
       echo
