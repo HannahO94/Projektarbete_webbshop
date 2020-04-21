@@ -32,7 +32,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
     if ($quantity == "0") {
         $any_items = "Finns EJ i lager";
     } else {
-        $any_items = "Finns i lager";
+        $any_items = "I lager: " . $quantity . " st";
     }
 ?>
 
@@ -56,10 +56,10 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 echo "</div>";
 ?>
 
-<button class="cart-btn">Lägg i varukorgen</button>
+<!-- <input type="submit" name="add-to-cart" class="add-to-cart">Lägg i varukorgen</input> -->
+<button class="add-to-cart">Lägg i varukorgen</button>
 
-<?php 
-
+<?php
 echo "<a href='../categorypage/categorypage.php?id=" . $categoryid ."'>Tillbaka</a>";
 
 require_once '../footer.php';
