@@ -42,8 +42,9 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
 <?php echo $list;?>
 
 <?php
-require_once "admin-create-category.php";?>
+require_once "admin-create-category.php";
 
+require_once "../footer.php"?>
  <script>
     function myFunction() {
         let remove = confirm("Är du säker på att du vill radera kategorin");
@@ -52,3 +53,4 @@ require_once "admin-create-category.php";?>
         } 
     }  
 </script> 
+

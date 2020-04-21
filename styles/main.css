@@ -510,7 +510,7 @@ input[type="checkbox"]:checked + label .bottom-bar {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  background-color: #f1f1f1;
+  background-color: #ffe4e1;
   margin: 5% 10%;
   padding: 3%;
   border-radius: 5px;

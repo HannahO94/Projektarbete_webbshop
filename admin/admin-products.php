@@ -42,3 +42,4 @@ echo $output;
 </script> 
 
 <button><a href="admin-add-products.php">Lägg till produkt</a></button>
+<?php require_once "../footer.php";?>
