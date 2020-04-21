@@ -79,7 +79,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') :
     
     header('Location:admin-products.php');
    
+
 $msg = "";
+
 
     $imgArrayTest = array_filter($image);
     
@@ -111,9 +113,9 @@ $msg = "";
             //$msg = "Ingen bild är uppladdad!";
         }
     
+
     endif;
     require_once "admin-update-product-form.php";
-
     
     foreach ($imageold as $key => $value) {
         if($imageold[0] == ""){

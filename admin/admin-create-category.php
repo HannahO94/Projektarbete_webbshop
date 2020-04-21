@@ -2,7 +2,7 @@
 require_once '../config/db.php';
 require_once 'header.php';
 
-
+$nameErr = "";
 if($_SERVER['REQUEST_METHOD'] === 'POST') :
 
     $uploadOk = 1;
@@ -52,38 +52,39 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') :
             
         }
     }
+ 
 
-
-
-
-
-        
-        $sql = "INSERT INTO webshop_categories (category, image)
-                VALUES (:category, :image) ";
-           
-        $stmt = $db->prepare($sql);
-
-        
-        $category = htmlspecialchars($_POST['category']);
-        
-        
-
-        
-        $stmt->bindParam(':category', $category);
-        $stmt->bindParam(':image', $image);
-
-    
+    if (empty($_POST["category"])) {
+        $nameErr = "Kategorinamn måste fyllas i";
+      }
+    else if (!empty($_POST["category"])) {
+        $category = test_input($_POST["category"]);
+        // check if name only contains letters and whitespace
+        if (!preg_match("/^[a-ÖA-Ö ]*$/",$category)) {
+          $nameErr = "Endast bokstäver och mellanslag är tillåtet";
+      }
+         else {
+            $sql = "INSERT INTO webshop_categories (category, image)
+            VALUES (:category, :image) ";
        
-       
-        $stmt->execute(); 
+            $stmt = $db->prepare($sql);
+            $stmt->bindParam(':category', $category);
+            $stmt->bindParam(':image', $image);
+            $stmt->execute(); 
+            header('Location:admin-category.php');
 
+        }
+    }
+
+        // $category = htmlspecialchars($_POST['category']);
         
-        // if (move_uploaded_file($_FILES['category-img']['tmp_name'], $target)) {
-        //     $msg = "Bilden är uppladdad!";
-        // }else{
-        //     $msg = "Ingen bild är uppladdad!";
-        // }
     endif;
+    function test_input($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+      }
  
    
 ?>
@@ -96,6 +97,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') :
     <div class="category_field-name form-container__box">
         <label for="category">Namn på kategori: </label><br>
         <input type="text" name="category" class="form-container__box-input" placeholder="Ange kategorinamn">
+        <p class="error"><?php echo $nameErr; ?></p>
     </div>
 
     <div class="category_field-img form-container__image">
@@ -104,9 +106,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') :
     </div>
 
     <div class="category_field-submit form-container__submit">
-        <input type="submit" onclick='return myReload()' value="Lägg till ny kategori" class="form-container__submit-button">
+        <input type="submit"  value="Lägg till ny kategori" class="form-container__submit-button">
     </div>
-
-
+    
+    <!-- onclick='return myReload()' -->
 </form>
+
 </div>
+

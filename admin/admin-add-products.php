@@ -74,8 +74,7 @@ require_once '../config/db.php';
 
 
 
-
-
 <?php 
 require_once 'admin-add-product-form.php';
 require_once '../footer.php';?>
+
