@@ -30,7 +30,7 @@ if(isset($_GET['id'])){
     header('Location:admin-products.php');
     exit;
 }
-print_r($imageold);
+//print_r($imageold);
 
 
 $query ="SELECT * FROM webshop_categories WHERE categoryid = :categoryid";
@@ -76,12 +76,12 @@ if(isset($_POST['submit'])) :
     $stmt->bindParam(':id', $id);
     $stmt->execute();
     
-    // header('Location:admin-products.php');
+    header('Location:admin-products.php');
    
 
 
 $msg = "";
-$result ="";
+
 
 
     $imgArrayTest = array_filter($image);
@@ -109,16 +109,11 @@ $result ="";
         $stmt->bindParam(':productimg', $imageUpload);
         $stmt->execute();
     
-        // if ($result) {
-        //     $msg = "Bilden är uppladdad!";
-        // }else{
-        //     $msg = "Ingen bild är uppladdad!";
-        // }
                 
-        header("Location:admin-update-product.php?id=$id");
+        header("Location:admin-products.php");
         }
         else{
-            echo "Du har inte laddat upp en bild";
+            //$msg = "Ingen bild är uppladdad!";
         }
     
 endif;
@@ -156,9 +151,9 @@ endif;
 </select>
 
 <div class="product_field-img form-container__image">
-<label for="product-img">Ladda upp en produktbild: </label><br>
+<label for="product-img">Ladda upp produktbild: </label><br>
 <input type="file" name="productimg[]" multiple="multiple">
-<?php echo $msg; ?>
+<?php //echo $msg; ?>
 </div>
 
 </div>
