@@ -57,7 +57,6 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
     $category = htmlspecialchars($row['category']);
     $option_value .= "<option value='$categoryid'>$category</option>";
 }
-$msg = "";
 
 
 if(isset($_POST['submit'])) :
@@ -85,6 +84,10 @@ if(isset($_POST['submit'])) :
     
 endif;
 
+
+$msg = "";
+$result ="";
+
 if(isset($_POST['submitimg'])){
 
         $id = htmlspecialchars($_POST['id']);
@@ -108,15 +111,17 @@ if(isset($_POST['submitimg'])){
     $stmt->bindParam(':id', $id);
     $stmt->bindParam(':productimg', $imageUpload);
     $stmt->execute();
+
+
+    if ($result) {
+        $msg = "Bilden är uppladdad!";
+    }else{
+        $msg = "Ingen bild är uppladdad!";
+    }
             
  
-        if ($result) {
-            $msg = "Bilden är uppladdad!";
-        }else{
-            $msg = "Ingen bild är uppladdad!";
-        }
-        
-        header("Location:admin-update-product.php?id=$id");
+
+    header("Location:admin-update-product.php?id=$id");
     }
 ?>
 
@@ -167,6 +172,9 @@ if(isset($_POST['submitimg'])){
 <section>
 <form action="#" method="POST" enctype="multipart/form-data" class="form-container">
 <h3>Uppdatera bild: </h3>
+
+
+
 <div class="product_field-img form-container__image">
 <label for="product-img">Ladda upp en produktbild: </label><br>
 <input type="file" name="productimg[]" multiple="multiple">
@@ -182,13 +190,20 @@ if(isset($_POST['submitimg'])){
 
 
 <?php 
-foreach ($imageold as $key => $value) {
-    if($imageold[0] == ""){
-        echo "ingen bildfil finns tillgänglig";
-    }else
-    echo "<img src='../images/$value' width='200px' class=''><br><button>Radera bild</button><br>
-    ";
-}
+
+    
+    foreach ($imageold as $key => $value) {
+        if($imageold[0] == ""){
+            echo "ingen bildfil finns tillgänglig";
+        }else
+        echo "<img src='../images/$value' width='200px' class=''><br><button>Radera bild</button><br>
+        ";
+    }
+
+
+
+
+
 ?>
 
 
