@@ -970,6 +970,7 @@ main {
   -ms-grid-rows: 1fr 2fr;
       grid-template-rows: 1fr 2fr;
   justify-items: center;
+  min-height: 100vh;
 }
 
 @media (min-width: 800px) {
@@ -1049,6 +1050,29 @@ main {
 
 .admin-menu-wraper .web:hover {
   color: #ffb6c1;
+}
+
+.category-list {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 70%;
+  margin: 5% 10%;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.category-list__item {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid black;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  grid-auto-flow: column;
 }
 
 /*ok att nedan ligger här eller kan vi lägga det ngn
