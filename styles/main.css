@@ -762,6 +762,9 @@ input[type="checkbox"]:checked + label .bottom-bar {
 
 .search-form {
   text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 @media (min-width: 500px) {
@@ -772,19 +775,20 @@ input[type="checkbox"]:checked + label .bottom-bar {
 
 .search-form__label {
   font-size: 24px;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 @media (min-width: 500px) {
   .search-form__label {
-    font-size: 28px;
+    font-size: 20px;
   }
 }
 
 .search-form__input-field {
   width: 75%;
   min-width: 150px;
-  height: 50px;
+  height: 20px;
   padding: 15px 20px;
   margin: 10px 0;
   border: 0.5px solid rgba(0, 0, 0, 0.637);
@@ -807,6 +811,7 @@ input[type="checkbox"]:checked + label .bottom-bar {
       -ms-flex-align: center;
           align-items: center;
   margin: 10px 20px 30px 20px;
+  height: 100%;
 }
 
 @media (min-width: 600px) {
@@ -839,6 +844,13 @@ input[type="checkbox"]:checked + label .bottom-bar {
 
 .btn-back {
   background-color: #cac9c9;
+}
+
+#search_btn {
+  height: 30px;
+  width: 45px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 body {
@@ -958,6 +970,7 @@ main {
   -ms-grid-rows: 1fr 2fr;
       grid-template-rows: 1fr 2fr;
   justify-items: center;
+  min-height: 100vh;
 }
 
 @media (min-width: 800px) {
@@ -1113,6 +1126,29 @@ main {
     -ms-grid-row-span: 2;
     grid-row: 1 / span 2;
   }
+
+.category-list {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 70%;
+  margin: 5% 10%;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.category-list__item {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid black;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  grid-auto-flow: column;
+
 }
 
 /*ok att nedan ligger här eller kan vi lägga det ngn

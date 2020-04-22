@@ -1,20 +1,35 @@
 <?php
-require_once "../header_extern.php"
+require_once '../config/db.php';
+
+//require_once 'index.html';
+
+  $sql = "SELECT * FROM webshop_products";
+  $stmt = $db->prepare($sql);
+  $stmt->execute();
+
+  while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){    
+    $name = htmlspecialchars($row["productid"]);
+
+  };
+
+require_once "../header_extern.php";
+
+//echo $_GET['search'];
+$search = $_GET['id'];
+
 ?>
 
-<form action="#" class="search-form">
-  <label for="search" class="search-form__label">Sök efter spel</label>
-  <br>
-  <input type="text" name="search" id="search-Field" class="search-form__input-field">
-  <button id="search_btn">Sök</button>
-</form>
+<h1>Sök</h1>
+<h2><?php echo $search ?></h2>
 
 <!--i nedan div mha php rita ut produktkort-->
-<div id="searched-result" class="search-result"></div>
+<div id="searched-result" class="search-result">
+
+
+</div>
 
 <button class="btn-back">Tillbaka</button>
 
-<script type="application/javascript" src="search.js"></script>
 
 <?php
 require_once "../footer.php"

@@ -17,6 +17,8 @@
         "partials/_admin_menu.scss",
         "partials/_admin_home.scss",
         "partials/_product_info.scss"
+        "partials/_admin_category.scss"
+
     ],
     "names": [],
     "file": "main.css"
