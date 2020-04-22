@@ -9,7 +9,7 @@ let productId = new Array;
 let ajax = new XMLHttpRequest();
 
 //let url = "read.php";
-ajax.open("GET", "search/read.php", true);
+ajax.open("GET", "../search/read.php", true);
 //skicka ajax request
 ajax.send();
 //ta emot svar från php fil
@@ -28,7 +28,7 @@ ajax.onreadystatechange = function () {
     //eventlistener på sökknapp
     searchBtn.addEventListener("click", function (event) {
       //console.log("click")
-      searchLink.href = "search/index.php?id=" + productId
+      searchLink.href = "../search/index.php?id=" + productId
     });
     //eventlistener på sökfältt
     searchField.addEventListener("input", function (event) {
