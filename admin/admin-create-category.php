@@ -6,6 +6,7 @@ $nameErr = "";
 if($_SERVER['REQUEST_METHOD'] === 'POST') :
     $error = array();
     $uploadOk = 1;
+    $error = array();
     $imageFileType = strtolower(pathinfo($target,PATHINFO_EXTENSION));
     if(isset($_POST["submit"])) {
         $check = getimagesize($_FILES["category-img"]["tmp_name"]);

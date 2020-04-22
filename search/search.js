@@ -1,5 +1,6 @@
 let searchResult = document.querySelector("#searched-result");
 let searchField = document.querySelector("#search-Field");
+let searchBtn = document.querySelector("#search_btn")
 let output = new Array;
 let productId = new Array;
 // anropa ajax
@@ -20,6 +21,11 @@ ajax.onreadystatechange = function () {
       gamesTitle.push(games[i].title);
       gamesTitle.push(games[i].description)
     }
+
+    //eventlistener på sökknapp
+    /*searchBtn.addEventListener("click", function (event) {
+      console.log("click")
+    })*/
 
     //eventlistener på sökfältt
     searchField.addEventListener("input", function (event) {
@@ -53,19 +59,19 @@ ajax.onreadystatechange = function () {
               output.push(" | " + games[i].title + " " + games[i].price + " kr " + " | ")
               productId.push(games[i].productid)
               display(productId, output);
-              
+
             }
           }
         }
 
       }
-      
+
     }
 
     function display() {
       //töm div innerhtml för att kunna rita om när en förfinad sökning görs
       searchResult.innerHTML = " "
-    
+
       for (let i = 0; i < output.length; i++) {
         let listedGames = document.createElement("a");
         console.log("output i forloop i display()  " + output + productId)
