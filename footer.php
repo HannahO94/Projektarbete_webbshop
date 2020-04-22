@@ -21,6 +21,8 @@
         </div>
     </div>
 </footer>
+  <!-- Added here for cart full page -->
+  <script src="../order/showcart.js"></script>
 </body>
 
 </html>

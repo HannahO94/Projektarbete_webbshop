@@ -47,9 +47,9 @@ $stmt->execute();
               <p class='product_price'>Pris: $price kr</p>
               <p class='any-items'>$any_items</p>
 
-            <button class='cart-btn product_card-btn'><a href= '../order/orderpage.php? id=$productid' </a>Lägg i varukorg</button>
+            <button id='cart-btn' class='cart-btn product_card-btn'>Lägg i varukorg</a></button>
           </div>";
-
+          
     endwhile;
     ?>
 
@@ -58,5 +58,6 @@ $stmt->execute();
   <br>
   <button class="btn-back"><a href="../index.php">Tillbaka till startsidan</a></button>
 </section>
+
 
 <?php require_once '../footer.php'; ?>
