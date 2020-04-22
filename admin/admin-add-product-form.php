@@ -13,6 +13,18 @@
     <div class="form-container__heading">
         <h1 class="page-title form-container__heading-text">Lägg till en ny produkt</h1>
     </div>
+    <?php echo $errors; 
+//     if(count($error) > 0){
+//         $errors = "";
+//     foreach($error as $e){
+//         $errors .= "<div class='error'><p> $e </p></div><br />";
+    
+//     }
+// } 
+//     else{
+//         $errors = "<div class='suc'><p> Din Produkt är sparad!</p></div>";
+//     }
+    ?>
     <form action="#" method="POST" enctype="multipart/form-data" class="form-container">
 
     <div class="product_field-name form-container__box">
