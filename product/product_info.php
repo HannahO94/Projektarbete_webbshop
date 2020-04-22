@@ -32,8 +32,6 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 <section class="product">
 <h1 class="product__prod-title"><?= $title ?></h1>
 
-<h2 class="product__prod-description-header">Beskrivning</h2>
-
 <p class="product__prod-description">
 <?= $description ?>
 </p>
@@ -42,26 +40,26 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
     <img src="" alt="Bild på spelet" class="product__img-container__img">
 </div>
 
-<span class="product__prod-price">Pris: <?= $price ?> kr</span>
+<div class="product__prod-price"><strong>Pris:</strong> <?= $price ?> kr</div>
 
 <?php 
  // Om det finns i lagret eller inte
  if ($quantity == "0") {
     $any_items = "Finns EJ i lager";
-    echo "<span class='product__inventory' style='color: red'>" . $any_items . "<span>";
+    echo "<div class='product__inventory' style='color: red'>" . $any_items . "</div>";
+    echo "<button id='cart-btn' class='add-to-cart' style='background-color: grey; color: black;' disabled>Lägg i varukorgen</button>";
 } else {
     $any_items = "I lager: " . $quantity . " st";
-    echo "<span class='product__inventory' style='color: green'>" . $any_items . "<span>";
+    echo "<div class='product__inventory' style='color: green'>" . $any_items . "</div>";
+    echo "<button id='cart-btn' class='add-to-cart'>Lägg i varukorgen</button>";
 }
-    echo "</div>";
+echo "</div>";
 ?>
 
 </section>
 
-<button onclick="btnClick()" name="submit" class="add-to-cart">Lägg i varukorgen</button>
-
 <?php
-echo "<a href='../categorypage/categorypage.php?id=" . $categoryid ."'>Tillbaka</a>";
+echo "<a class='product__back-btn' href='../categorypage/categorypage.php?id=" . $categoryid ."'>Tillbaka</a>";
 
 require_once '../footer.php';
 ?>

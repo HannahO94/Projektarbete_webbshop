@@ -1126,6 +1126,7 @@ main {
     -ms-grid-row-span: 2;
     grid-row: 1 / span 2;
   }
+}
 
 .category-list {
   list-style: none;
@@ -1148,7 +1149,6 @@ main {
       -ms-flex-pack: justify;
           justify-content: space-between;
   grid-auto-flow: column;
-
 }
 
 /*ok att nedan ligger här eller kan vi lägga det ngn

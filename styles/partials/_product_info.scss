@@ -1,46 +1,99 @@
 .product {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 
-  @media (min-width: 600px) {
+  @media (min-width: 900px) {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    gap: 20px;
-    justify-content: center;
-    align-items: center;
+    grid-template-rows: 1fr 3fr 1fr 1fr;
+    gap: 30px;
+    // align-items: center;
   }
 
   &__prod-title {
     font-size: 30px;
+    margin-bottom: 25px;
 
-    @media (min-width: 600px) {
+    @media (min-width: 900px) {
       font-size: 50px;
       grid-column: 1;
       grid-row: 1;
-    }
-  }
-
-  &__prod-description-header {
-    @media (min-width: 600px) {
-      grid-column: 1;
-      grid-row: 2;
+      margin: 0;
     }
   }
 
   &__prod-description {
-    @media (min-width: 600px) {
+    font-size: 15px;
+    margin: 20px;
+
+    @media (min-width: 900px) {
+      grid-column: 1;
+      grid-row: 2;
+      font-size: 20px;
+      margin: 0;
+    }
+  }
+
+  &__img-container {
+    margin: 30px;
+
+    @media (min-width: 900px) {
+      grid-column: 2;
+      grid-row: 1 / span 2;
+      margin: 0;
+    }
+  }
+
+  &__prod-price {
+    font-size: 20px;
+    margin: 5px;
+
+    @media (min-width: 900px) {
+      grid-column: 1;
+      grid-row: 3;
+      margin: 0;
+    }
+  }
+
+  &__inventory {
+    font-weight: bolder;
+    margin-top: 10px;
+
+    @media (min-width: 900px) {
+      align-self: end;
       grid-column: 1;
       grid-row: 3;
     }
   }
 
-  &__img-container {
-    @media (min-width: 600px) {
-      grid-column: 2;
-      grid-row: 1 / span 2;
+  &__back-btn {
+    background-color: rgb(175, 174, 174);
+    font-weight: bolder;
+    font-size: 15px;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 5px;
+
+    @media (min-width: 900px) {
+      font-size: 20px;
+      padding: 10px;
+      align-self: flex-start;
+      &:hover {
+        border: 2px solid #ffb6c1;
+        color: #ffb6c1;
+      }
     }
+  }
+}
+
+#cart-btn {
+  margin: 15px;
+
+  @media (min-width: 900px) {
+    align-self: start;
+    grid-column: 1;
+    grid-row: 4;
+    margin: 0;
   }
 }
