@@ -1,21 +1,19 @@
-<?php 
-// $id = htmlspecialchars($_GET['id']);
 
-// Hämtar alla kolumner från tabellen "webshop_products" i db
-$stmt = $db->prepare("SELECT  
-                    `title`, 
-                    `price` 
-                    FROM `webshop_products` 
-                    WHERE productid=:productid");
-$stmt->bindParam(':productid', $id);
+<?php
+//Hämtar det produkt-id som valdes
+$clickedProductId = $_GET['id'];
+$jsonArray = array();
+//Hämtar aktuell produktrad i databasen, som matchar den valda produkten
+$stmt = $db->prepare("SELECT * FROM webshop_products WHERE productid = :productid");
+$stmt->bindParam(':productid', $clickedProductId);
 $stmt->execute();
-
-$products = array();
-
-$row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    $title = htmlspecialchars($row['title']);
-    $price = htmlspecialchars($row['price']);
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) :
+      $productId = htmlspecialchars($row['productid']);
+      $title = htmlspecialchars($row['title']);
+      $price = htmlspecialchars($row['price']);
+      //Konverterar den associativa arrayen till en JSON-array och spar ner i en variabel 
+      $jsonArray = json_encode($row);
+      //TEST: Skriver ut JSON-arrayen
+    endwhile;
+    echo $jsonArray;
 ?>
-
-<script src="add-product.js"></script>
