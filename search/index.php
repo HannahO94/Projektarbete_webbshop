@@ -6,7 +6,8 @@ require_once "../header_extern.php"
   <label for="search" class="search-form__label">Sök efter spel</label>
   <br>
   <input type="text" name="search" id="search-Field" class="search-form__input-field">
-  <button id="search_btn">Sök</button>
+  <button id="search_btn"><a href="search-result.js">Sök</a></button>
+  
 </form>
 
 <!--i nedan div mha php rita ut produktkort-->
@@ -14,8 +15,9 @@ require_once "../header_extern.php"
 
 <button class="btn-back">Tillbaka</button>
 
+<!--
 <script type="application/javascript" src="search.js"></script>
-
+-->
 <?php
 require_once "../footer.php"
 ?>
