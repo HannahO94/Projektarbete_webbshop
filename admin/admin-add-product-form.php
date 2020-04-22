@@ -13,8 +13,10 @@
     <div class="form-container__heading">
         <h1 class="page-title form-container__heading-text">Lägg till en ny produkt</h1>
     </div>
+
     
     <?php
+
 //     if(count($error) > 0){
 //         $errors = "";
 //     foreach($error as $e){
@@ -25,6 +27,7 @@
 //     else{
 //         $errors = "<div class='suc'><p> Din Produkt är sparad!</p></div>";
 //     }
+
     echo $errors; 
     ?>
     

@@ -1,0 +1,18 @@
+.category-list {
+    list-style: none;
+    display: flex;
+    width: 70%;
+    margin: 5% 10%;
+    flex-wrap: wrap;
+    // padding: 3%;
+    
+}
+.category-list__item {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid black;
+    display: grid;
+    justify-content: space-between;
+    grid-auto-flow: column;
+    
+}

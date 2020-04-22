@@ -86,11 +86,8 @@ $errors = "";
         }
         
 
-
-
-        
-
         if(count($error) == 0){
+        
         
         $uploadFolder = '../images/';
         $imageData = array();
@@ -106,7 +103,9 @@ $errors = "";
 
         $sql = "INSERT INTO webshop_products (title, description, categoryid, price, quantity, productimg)
         VALUES (:title, :description, :categoryid, :price, :quantity, :productimg) ";
+
    
+
         $stmt = $db->prepare($sql);
         $stmt->bindParam(':title', $title);
         $stmt->bindParam(':description', $description);
@@ -116,12 +115,16 @@ $errors = "";
         $stmt->bindParam(':productimg', $imageUpload);
         $stmt->execute(); 
 
+
         }
+
         // if (move_uploaded_file($_FILES['productimg[]']['tmp_name'], $target)) {
         //     $msg = "Bilden är uppladdad!";
         // }else{
         //     $msg = "Ingen bild är uppladdad!";
         // }
+
+
         if(count($error) > 0){
             
         foreach($error as $e){
