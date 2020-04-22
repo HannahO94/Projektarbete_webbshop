@@ -10,7 +10,7 @@ ajax.onreadystatechange = function () {
   }
 };
 
-//STEG 1 EVENTET -> hämta id skicka till getproduct.php
+//STEG 1 EVENTET -> hämta id skicka till get-product.php
 //STEG 1.5 -> backend skickar tillbaka json
 //STEG 2 Ta hand om json och manipulera DOM, lägg till cartItems
 
