@@ -1,18 +1,21 @@
 let searchResult = document.querySelector("#searched-result");
 let searchField = document.querySelector("#search-Field");
 let searchBtn = document.querySelector("#search_btn")
+let searchLink = document.querySelector("#search-link")
 let output = new Array;
 let productId = new Array;
+
 // anropa ajax
 let ajax = new XMLHttpRequest();
 
 //let url = "read.php";
-ajax.open("GET", "read.php", true);
+ajax.open("GET", "search/read.php", true);
 //skicka ajax request
 ajax.send();
 //ta emot svar från php fil
 ajax.onreadystatechange = function () {
   if (this.readyState === 4 && this.status === 200) {
+
     //konvertera JSON tillbaka till array
     let games = JSON.parse(this.responseText);
     let gamesTitle = new Array;
@@ -23,15 +26,17 @@ ajax.onreadystatechange = function () {
     }
 
     //eventlistener på sökknapp
-    /*searchBtn.addEventListener("click", function (event) {
-      console.log("click")
-    })*/
-
+    searchBtn.addEventListener("click", function (event) {
+      //console.log("click")
+      searchLink.href = "search/index.php?id=" + productId
+    });
     //eventlistener på sökfältt
     searchField.addEventListener("input", function (event) {
       emptySearch()
+
       //minst två tecken validering
       if (searchField.value.length >= 2) {
+
         filter();
 
       } else {
@@ -45,7 +50,7 @@ ajax.onreadystatechange = function () {
       let searchedGame = gamesTitle.filter(function (game) {
         return game.toLowerCase().includes(searchField.value.toLowerCase());
       });
-
+      console.log(searchedGame)
       //töm båda arrayerna varje gång tanget trycks, annars ritas inte förfinade sökningen om
       output.splice(0, output.length)
       productId.splice(0, productId.length)
@@ -74,7 +79,7 @@ ajax.onreadystatechange = function () {
 
       for (let i = 0; i < output.length; i++) {
         let listedGames = document.createElement("a");
-        console.log("output i forloop i display()  " + output + productId)
+        //console.log("output i forloop i display()  " + output + productId)
         listedGames.textContent = output[i]
         listedGames.href = "../product/product_info.php?id= " + productId[i];
         listedGames.id = productId[i]
@@ -97,5 +102,4 @@ ajax.onreadystatechange = function () {
     }
   }
 }
-
 

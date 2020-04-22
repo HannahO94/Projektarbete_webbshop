@@ -47,11 +47,17 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
         <ul class="menu-wraper__link-list">
 
-        <form action="search\index.php" class="search-form">
-        <label for="search" class="search-form__label">Sök</label>
-        <input type="text" name="search" id="search-Field" class="search-form__input-field">
-        <input type="submit" id="search_btn" value="Sök">
-        </form> 
+        <li>
+
+          <form action="#" class="search-form">
+            <label for="search" class="search-form__label">Sök</label>
+            <input type="text" name="search" id="search-Field" class="search-form__input-field">
+            <!--<input type="submit" id="search_btn" value="Sök">-->
+            <button id="search_btn"><a id="search-link">Sök</a></button>
+          </form> 
+          <div id="searched-result" class="search-result"></div>
+        </li>
+          
 
           <li class="menu-wraper__link-item">
             <a class="menu-wraper__links" href="/index.php">HEM</a>
@@ -76,7 +82,9 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         </ul>
       </nav>
     </div>
-    <script type="application/javascript" src="search.js"></script>
+    
+    <script type="application/javascript" src="/search/search.js"></script>
+     
   </header>
 
   <main>
