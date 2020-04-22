@@ -7,8 +7,6 @@
 
 <section class="page-title-container">
 
-
-
 </section>
 
 <section class="product-form form-container">

@@ -27,5 +27,3 @@ try {
 } catch (PDOException $e) {
   echo "<h2>Error: " . $e->getMessage() . "</h2>";
 }
-
-
