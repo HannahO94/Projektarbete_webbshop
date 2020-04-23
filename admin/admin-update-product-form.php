@@ -3,7 +3,7 @@
 <section class="product-form">
 
 <form action="#" method="POST" enctype="multipart/form-data" class="form-container">
-<h1 class="page-title">Uppdatera produkt</h1>
+<h1 class="page-title form-container__heading-text">Uppdatera produkt</h1>
 
 <div class="product_field-name form-container__box">
 <label for="title">Produkt namn: </label><br>

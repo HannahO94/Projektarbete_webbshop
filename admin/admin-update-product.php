@@ -116,18 +116,36 @@ $msg = "";
 
     endif;
     require_once "admin-update-product-form.php";
-    
-    foreach ($imageold as $key => $value) {
-        if($imageold[0] == ""){
-            echo "ingen bildfil finns tillgänglig";
-        }else
-        echo "<img src='../images/$value' width='200px' class=''><br><button>Radera bild</button><br>
-        ";
+    if(!empty($imageold)){
+
+        echo "<h3 class='product_img-head'>Produktbilder</h3><br>";
+        echo "<div class='product_img-container'>";
+
+        foreach ($imageold as $key => $value) {
+            if($imageold[0] == ""){
+                echo "ingen bildfil finns tillgänglig";
+            }else
+            echo "<div class='product_img-wrapper'><img src='../images/$value' width='200px' class='product_img'></div><br>
+            ";
+        }
+       echo "</div>";
+       echo "<button class='btn_delete-img'><a href='admin-delete-img.php?id=$productid' onclick='return myFunction()' id='delete'>Radera bilder</a></button><br>";
+        
     }
+    
 
 ?>
+<script>
+    function myFunction() {
+        
+                let remove = confirm("Är du säker på att du vill radera alla bilder?");
+                if (remove == false) {
+                    return false;
+                } 
+            }
+</script> 
 
 
-<button><a href="admin-products.php">Tillbaka</a></button>
+<button class="back_btn"><a href="admin-products.php">Tillbaka</a></button>
 <?php  require_once '../footer.php'; ?>
 

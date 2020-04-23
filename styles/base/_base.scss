@@ -51,8 +51,9 @@ button {
   border: none;
   border-radius: 8px;
   background-color: rgb(243, 151, 30);
+  transition: all 0.5s ease;
   &:hover {
-    background-color: #6b2694;
+    background-color: #852db8;
     color: white;
   }
 }

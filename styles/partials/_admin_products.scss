@@ -88,11 +88,15 @@
     padding: 5px 10px;
     margin-bottom: 5px;
     font-size: 13px;
+    background: peachpuff;
+    text-transform: uppercase;
   }
 
   .btn_delete-product {
     padding: 5px 10px;
     font-size: 13px;
+    background: peachpuff;
+    text-transform: uppercase;
   }
 
   .btn_update-product,
@@ -105,11 +109,14 @@
 @media (min-width: 760px) {
   .table_products {
     min-width: 800px;
+    margin-bottom: 5%;
   }
   .product-head {
     font-size: 46px;
     text-align: center;
-    padding: 10%;
+    padding: 0 10% 10% 10%;
+    letter-spacing: 2px;
+    text-transform: uppercase;
   }
 
   th {
@@ -133,10 +140,36 @@
 
   .btn_update-product,
   .btn_delete-product {
-    margin-left: 20px;
+    margin-left: 15px;
+    background: peachpuff;
+    text-transform: uppercase;
+  }
+
+  .btn_delete-product a {
+    color: #ffffff;
   }
 
   tr:nth-child(odd) {
     background: rgb(235, 235, 235);
+  }
+  .product_img-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    justify-content: center;
+  }
+  .product_img-wrapper {
+    margin: 0 10px 0 10px;
+  }
+
+  .product_img-head {
+    text-align: center;
+    font-size: 36px;
+  }
+
+  .back_btn,
+  .btn-add-product {
+    background: peachpuff;
+    text-transform: uppercase;
   }
 }
