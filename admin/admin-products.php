@@ -9,20 +9,37 @@ require_once '../config/db.php';
 
 <?php
 
-$sql = "SELECT * FROM webshop_products";
+
+
+$sql="SELECT `productid`, `title`, `category` 
+FROM `webshop_products` 
+LEFT JOIN webshop_categories 
+ON webshop_products.categoryid = webshop_categories.categoryid 
+ORDER BY `webshop_categories`.`category` ASC";
+
 $stmt = $db->prepare($sql);
 $stmt->execute();
 
-$output ="<ul>";
+$output ="<table><tr>
+                    <th>Produkt</th>
+                    <th>Kategori</th>
+                    <th>Redigera</th></tr>";
 while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
     $productid = htmlspecialchars($row['productid']);
-    $categoryid = htmlspecialchars($row['categoryid']);
+    $category = htmlspecialchars($row['category']);
     $product = htmlspecialchars($row['title']);
 
-    $output .= "<li>$product<button><a href='admin-update-product.php?id=$productid'>Uppdatera</a></button><button><a href='admin-delete-product.php?id=$productid' onclick='return myFunction()' id='delete'>Ta bort</a></button></li>";
+    $output .= "<tr>
+                <td> $product </td>
+                <td>$category</td>
+                <td><button><a href='admin-update-product.php?id=$productid'>Uppdatera</a></button>
+                <button><a href='admin-delete-product.php?id=$productid' onclick='return myFunction()' id='delete'>Ta bort</a></button></td>
+                </tr> ";
+
+
 }
 
-$output .="</ul>";
+$output.= "</table>";
 
 echo $output;
 
