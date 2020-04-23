@@ -14,7 +14,8 @@ require_once '../config/db.php';
 $sql="SELECT `productid`, `title`, `category` 
 FROM `webshop_products` 
 LEFT JOIN webshop_categories 
-ON webshop_products.categoryid = webshop_categories.categoryid";
+ON webshop_products.categoryid = webshop_categories.categoryid 
+ORDER BY `webshop_categories`.`category` ASC";
 
 $stmt = $db->prepare($sql);
 $stmt->execute();
