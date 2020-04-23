@@ -6,7 +6,11 @@
   background-color: #ffffff;
   font-family: Arial, Helvetica, sans-serif;
 }
-
+.page-title {
+  font-size: 36px;
+  text-transform: uppercase;
+  text-align: center;
+}
 .form-container {
   display: flex;
   flex-wrap: wrap;

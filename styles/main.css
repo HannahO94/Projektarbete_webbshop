@@ -67,10 +67,12 @@ button {
   border: none;
   border-radius: 8px;
   background-color: #f3971e;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 button:hover {
-  background-color: #6b2694;
+  background-color: #852db8;
   color: white;
 }
 
@@ -511,6 +513,12 @@ input[type="checkbox"]:checked + label .bottom-bar {
 .admin_container {
   background-color: #ffffff;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.page-title {
+  font-size: 36px;
+  text-transform: uppercase;
+  text-align: center;
 }
 
 .form-container {
@@ -1251,7 +1259,6 @@ main {
   grid-auto-flow: column;
 }
 
-
 .category-list__item-text {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -1265,6 +1272,7 @@ main {
 
 .category__heading {
   margin-left: 10%;
+}
 
 @media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {
   .product-head {
@@ -1356,10 +1364,14 @@ main {
     padding: 5px 10px;
     margin-bottom: 5px;
     font-size: 13px;
+    background: peachpuff;
+    text-transform: uppercase;
   }
   .btn_delete-product {
     padding: 5px 10px;
     font-size: 13px;
+    background: peachpuff;
+    text-transform: uppercase;
   }
   .btn_update-product,
   .btn_delete-product a {
@@ -1370,11 +1382,14 @@ main {
 @media (min-width: 760px) {
   .table_products {
     min-width: 800px;
+    margin-bottom: 5%;
   }
   .product-head {
     font-size: 46px;
     text-align: center;
-    padding: 10%;
+    padding: 0 10% 10% 10%;
+    letter-spacing: 2px;
+    text-transform: uppercase;
   }
   th {
     font-size: 34px;
@@ -1394,12 +1409,39 @@ main {
   }
   .btn_update-product,
   .btn_delete-product {
-    margin-left: 20px;
+    margin-left: 15px;
+    background: peachpuff;
+    text-transform: uppercase;
+  }
+  .btn_delete-product a {
+    color: #ffffff;
   }
   tr:nth-child(odd) {
     background: #ebebeb;
   }
-
+  .product_img-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    padding: 20px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .product_img-wrapper {
+    margin: 0 10px 0 10px;
+  }
+  .product_img-head {
+    text-align: center;
+    font-size: 36px;
+  }
+  .back_btn,
+  .btn-add-product {
+    background: peachpuff;
+    text-transform: uppercase;
+  }
 }
 
 /*ok att nedan ligger här eller kan vi lägga det ngn
