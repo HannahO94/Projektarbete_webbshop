@@ -14,32 +14,32 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') :
             echo "File is an image - " . $check["mime"] . ".";
             $uploadOk = 1;
         } else {
-            $error = "File is not an image.";
+            // $error = "File is not an image.";
             $uploadOk = 0;
         }
     }
     // Check if file already exists
     if (file_exists($target)) {
-        $error = "Sorry, file already exists.";
+        // $error = "Sorry, file already exists.";
         $uploadOk = 0;
         $image = "";
     }
     // Check file size
     if ($_FILES["category-img"]["size"] > 500000) {
-        $error = "Sorry, your file is too large.";
+        // $error = "Sorry, your file is too large.";
         $uploadOk = 0;
         $image = "";
     }
     // Allow certain file formats
     if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
     && $imageFileType != "gif" ) {
-        $error = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+        // $error = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
         $uploadOk = 0;
         $image = "";
     }
     // Check if $uploadOk is set to 0 by an error
     if ($uploadOk == 0) {
-        echo "Sorry, your file was not uploaded.";
+        echo "Filen laddades inte upp.";
         $image = "";
     // if everything is ok, try to upload file
     } 
@@ -58,9 +58,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') :
     if (empty($_POST["category"])) {
         $nameErr = "Kategorinamn måste fyllas i";
       }
-    if(count($errors) > 0)  {
+    // if(count($errors) > 0)  {
         
-      }
+    //   }
     else if (!empty($_POST["category"])) {
         $category = test_input($_POST["category"]);
         // check if name only contains letters and whitespace
