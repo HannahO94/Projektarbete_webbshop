@@ -2,9 +2,11 @@
 require_once '../config/db.php';
 require_once '../header_extern.php';
 
-$search = $_GET['id'];
-//$searchItems = implode(',', $search);
 
+//Hämta arrayen med produkt-id från sökresultatet 
+$search = $_GET['id'];
+
+  //Hämta sökresultatets produkter från databasen
   $sql = "SELECT * 
           FROM webshop_products
           WHERE productid IN ({$search})";
@@ -12,11 +14,11 @@ $search = $_GET['id'];
   $stmt->execute();
 ?>
 
-<h1>Sök</h1>
+<section>
+<h1 class="header--center">Sökresultat</h1>
 <br><br>
-<!--<h2><?//php echo $search ?></h2>-->
 
-<!--i nedan div mha php rita ut produktkort-->
+<!--i nedan div mha php rita ut produktkort för varje produkt i sökresultatet-->
 <div id="searched-result" class="search-result">
 <?php
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) :
@@ -45,9 +47,10 @@ $search = $_GET['id'];
     ?>
 
 </div>
-
-<button class="btn-back">Tillbaka</button>
-
+<br>
+<br>
+<button class="btn-back"><a href="../index.php">Tillbaka till startsidan</a></button>
+</section>
 
 <?php
 require_once "../footer.php"
