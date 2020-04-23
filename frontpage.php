@@ -8,6 +8,13 @@ $stmt->execute();
 ?>
 
 <!--detta ska vara skalet för en startsida, förstasida för webbshoppen-->
+<section class="frontpage_links">
+<h2><a href="news\news.php">Nyinkommet</a></h2>
+<br>
+<h2><a href="lastChance\lastChance.php">Sista chansen</a></h2>
+<br>
+</section>
+
 <section class="frontpage_categories">
     <!--här hämtas kategorier från databas-->
     <?php

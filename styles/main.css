@@ -1178,6 +1178,29 @@ main {
   }
 }
 
+.product_price-outlet {
+  font-size: 30px;
+  font-weight: bold;
+  color: red;
+}
+
+.product_price-old {
+  text-decoration: line-through;
+  color: #4e4c4c;
+}
+
+.product_price-savings {
+  font-weight: bold;
+  font-style: italic;
+  color: red;
+}
+
+.product_price-new {
+  font-size: 20px;
+  font-weight: bold;
+  color: red;
+}
+
 #cart-btn {
   margin: 15px;
 }
