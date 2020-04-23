@@ -38,7 +38,7 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
  ?>
  
 <div class="page__backround">
-<h1>Kategorier</h1>
+<h1 class="category__heading">Kategorier</h1>
 <?php echo $list;?>
 
 <?php
