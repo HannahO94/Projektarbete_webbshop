@@ -20,14 +20,23 @@ C)Skicka beställning
 
 JAVASCRIPT-FUNKTIONER
 
-addProduct() - Lägg till produkt i varukorgen (skicka till localstorage)
-uppdateCart() - Uppdatera varukorgen i localstorage (anropas varje gång något ändras i varukorgen)
-drawCart() - Hämta varukorgen från localstorage och rita ut produkterna på sidan (anropas varje gång något ändras i varukorgen)
-emptyCart() - Tömmer varukorgen (både på sidan och i localstorage)
-
+addProduct() - Lägg till produkt i varukorgen (skicka till localstorage) 
+               Görs detta när ajaxrequesten blir onreadystatechange?
+               Avslutas med updateLocalStorage() och drawCart()
 removeProduct()  - ta bort en produkt från varukorgen
+                  Avslutas med updateLocalStorage() och drawCart()
 changeQty()  -  öka eller minska antalet för en produkt (plus/minus-knappar)
-alternativ till changeQty: incrementQty() + decrementQty() (separata funktioner för att öka/minska antal)
+                Avslutas med updateLocalStorage() och drawCart()
+                alternativ till changeQty: incrementQty() + decrementQty() (separata funktioner för att öka/minska antal)
+emptyCart() - Tömmer varukorgen (både på sidan och i localstorage)
+              Avslutas med drawCart()
+
+updateLocalStorage() - Uppdatera varukorgen i localstorage (anropas varje gång något ändras i varukorgen)
+drawCart() - Hämta varukorgen från localstorage och rita ut produkterna på sidan (anropas varje gång något ändras i varukorgen)
+
+totalPrice() - räknar ut varukorgens totalsumma
+sendOrder() - skickar beställning till databasen samt att man kommer till en 
+              sida för orderbekräftelse
 
 
 FILER - vilken fil hanterar vad?
