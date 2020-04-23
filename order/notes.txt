@@ -1,5 +1,5 @@
 
-Steg för Steg
+PROCESSEN - STEG FÖR STEG
 
 A)Lägg produkter i varukorg
 1. Vid klick på Lägg till-knapp - skicka produktID via url:en med GET till get-product.php
@@ -9,7 +9,7 @@ A)Lägg produkter i varukorg
 
 B)Manipulera varukorg
 5. Sätt lyssnare på ta bort-knapp och antal-knappar som läggs till varje produktrad. 
-6. Koppla lyssnare till funktioner som raderar produkt, minskar antal och ökar antal. (deleteproduct() osv)
+6. Koppla lyssnare till funktioner som raderar produkt, minskar antal och ökar antal. (deleteProduct() osv)
 7. Sätt lyssnare på töm varukorg-knapp och koppla till funktion emptyCart()
 
 C)Skicka beställning
@@ -17,6 +17,20 @@ C)Skicka beställning
 9. Justera lagersaldo i tabellen products
 10.
 
+
+JAVASCRIPT-FUNKTIONER
+
+addProduct() - Lägg till produkt i varukorgen (skicka till localstorage)
+uppdateCart() - Uppdatera varukorgen i localstorage (anropas varje gång något ändras i varukorgen)
+drawCart() - Hämta varukorgen från localstorage och rita ut produkterna på sidan (anropas varje gång något ändras i varukorgen)
+emptyCart() - Tömmer varukorgen (både på sidan och i localstorage)
+
+removeProduct()  - ta bort en produkt från varukorgen
+changeQty()  -  öka eller minska antalet för en produkt (plus/minus-knappar)
+alternativ till changeQty: incrementQty() + decrementQty() (separata funktioner för att öka/minska antal)
+
+
+FILER - vilken fil hanterar vad?
 
 orderpage.php    
 - Visar HTML med en tom div för varukorgen och beställningsformuläret
