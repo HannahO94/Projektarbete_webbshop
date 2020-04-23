@@ -22,7 +22,7 @@
     </div>
 </footer>
   <!-- Added here for cart full page -->
-  <script src="../order/showcart.js"></script>
+  <script src="../order/update-localstorage.js"></script>
 </body>
 
 </html>
