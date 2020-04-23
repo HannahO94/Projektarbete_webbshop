@@ -21,14 +21,16 @@ ajax.onreadystatechange = function () {
 
     for (let i = 0; i < games.length; i++) {
       gamesTitle.push(games[i].title);
-      gamesTitle.push(games[i].description);
+      //gamesTitle.push(games[i].description); //sök även på beskrivning, ändrat krav från kund
     }
 
     //eventlistener på sökknapp
     searchBtn.addEventListener("click", function (event) {
-      //console.log("click")
+      console.log("click")
       searchLink.href = "../search/index.php?id=" + productId;
     });
+
+
     //eventlistener på sökfältt
     searchField.addEventListener("input", function (event) {
       emptySearch();
@@ -41,13 +43,19 @@ ajax.onreadystatechange = function () {
       }
     });
 
+
+
+
+
     //filtrerar och loopar igenom titel och beskrivning föra tt hitta matchning
     //om matchning hittas - skickas vidare för att ritas ut
     function filter() {
       let searchedGame = gamesTitle.filter(function (game) {
         return game.toLowerCase().includes(searchField.value.toLowerCase());
       });
-      console.log(searchedGame);
+
+
+      //console.log(searchedGame);
       //töm båda arrayerna varje gång tanget trycks, annars ritas inte förfinade sökningen om
       output.splice(0, output.length);
       productId.splice(0, productId.length);
@@ -55,8 +63,8 @@ ajax.onreadystatechange = function () {
       for (let i = 0; i < games.length; i++) {
         for (let j = 0; j < searchedGame.length; j++) {
           if (
-            games[i].title === searchedGame[j] ||
-            games[i].description === searchedGame[j]
+            games[i].title === searchedGame[j]
+            // || games[i].description === searchedGame[j]
           ) {
             if (productId.includes(games[i].productid)) {
               display(productId, output);
@@ -65,7 +73,7 @@ ajax.onreadystatechange = function () {
                 " | " + games[i].title + " " + games[i].price + " kr " + " | "
               );
               productId.push(games[i].productid);
-              display(productId, output);
+              //display(productId, output);
             }
           }
         }
@@ -99,4 +107,6 @@ ajax.onreadystatechange = function () {
       productId.splice(0, productId.length);
     }
   }
-};
+}
+
+
