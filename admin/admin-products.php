@@ -5,7 +5,7 @@ require_once '../config/db.php';
 
 ?>
 
-<h2>Produkter</h2>
+<h2 class="product-head">Produkter</h2>
 
 <?php
 
@@ -20,30 +20,33 @@ ORDER BY `webshop_categories`.`category` ASC";
 $stmt = $db->prepare($sql);
 $stmt->execute();
 
-$output ="<table><tr>
-                    <th>Produkt</th>
-                    <th>Kategori</th>
-                    <th>Redigera</th></tr>";
+
+$output ="<section class='table_container'><table class='table_products'><tr class='table_products-row' >
+                    <th class='table_products-head'>Produkt</th>
+                    <th class='table_products-head'>Kategori</th>
+                    <th class='table_products-head'>Redigera</th></tr>";
 while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
     $productid = htmlspecialchars($row['productid']);
     $category = htmlspecialchars($row['category']);
     $product = htmlspecialchars($row['title']);
 
-    $output .= "<tr>
-                <td> $product </td>
-                <td>$category</td>
-                <td><button><a href='admin-update-product.php?id=$productid'>Uppdatera</a></button>
-                <button><a href='admin-delete-product.php?id=$productid' onclick='return myFunction()' id='delete'>Ta bort</a></button></td>
+    $output .= "<tr class='table_products-row'>
+                <td class='table_products-cell'> $product </td>
+                <td class='table_products-cell'>$category</td>
+                <td><button class='btn_update-product'><a href='admin-update-product.php?id=$productid'>Uppdatera</a></button>
+                <button class='btn_delete-product'><a href='admin-delete-product.php?id=$productid' onclick='return myFunction()' id='delete'>Ta bort</a></button></td>
                 </tr> ";
 
 
 }
 
-$output.= "</table>";
+$output.= "</table></section>";
 
 echo $output;
 
 ?>
+
+
 
 <script>
     function myFunction() {
@@ -58,5 +61,5 @@ echo $output;
 
 </script> 
 
-<button><a href="admin-add-products.php">Lägg till produkt</a></button>
+<button class="btn-add-product"><a href="admin-add-products.php">Lägg till produkt</a></button>
 <?php require_once "../footer.php";?>
