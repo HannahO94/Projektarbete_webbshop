@@ -77,25 +77,22 @@ function removeProduct(event) {
 //Funktion för att ändra antal på produkt
 function changeQty(event) {
   let productID = parseInt(event.currentTarget.dataset.productID);
-  console.log(productID);
-  let buttonClassList = event.currentTarget.classList;
-  console.log(buttonClassList);
-  //let currentButton = event.currentTarget
+  let currentButton = event.currentTarget;
   //Loopa igenom produktarrayen för att hitta det id som matchar
   //med eventets id
   //Detta kanske kan skötas med filter ist f en for-loop?
   for (let i = 0; i < myProducts.length; i++) {
     const currentProductID = myProducts[i].id;
-    console.log(currentProductID);
     //If-sats som jämför array-objektets id med eventets id
     if (currentProductID == productID) {
       let qty = parseInt(myProducts[i].quantity);
+
       //När vi får match kollar vi om knappen är minus eller plus med ytterligare if-sats
-      if (buttonClassList.contains("plusQty")) {
+      if (currentButton.classList.contains("plusQty")) {
         //öka produktens antal med 1
         qty++;
         myProducts[i].quantity = qty;
-      } else if (buttonClassList.contains("minusQty")) {
+      } else if (currentButton.classList.contains("minusQty")) {
         //minska produktens antal med 1
         qty--;
         myProducts[i].quantity = qty;
@@ -103,5 +100,7 @@ function changeQty(event) {
         alert("something wrong with quantity changing buttons");
       }
     }
+    //updateLocalStorage()
+    drawCart();
   }
 }
