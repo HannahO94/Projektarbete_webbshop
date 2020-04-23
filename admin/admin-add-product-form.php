@@ -17,16 +17,6 @@
     
     <?php
 
-//     if(count($error) > 0){
-//         $errors = "";
-//     foreach($error as $e){
-//         $errors .= "<div class='error'><p> $e </p></div><br />";
-    
-//     }
-// } 
-//     else{
-//         $errors = "<div class='suc'><p> Din Produkt är sparad!</p></div>";
-//     }
 
     echo $errors; 
     ?>
