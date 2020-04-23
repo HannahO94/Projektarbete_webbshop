@@ -46,7 +46,7 @@ $search = $_GET['id'];
 
 </div>
 
-<button class="btn-back">Tillbaka</button>
+<button class="btn-back"><a href="../index.php">Tillbaka till startsidan</a></button>
 
 
 <?php
