@@ -5,6 +5,7 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  min-width: 100vw;
   @media (min-width: 600px) {
     display: flex;
     flex-direction: row;
@@ -38,10 +39,13 @@
 
 .img__wrapper {
   @extend %wrapper-parent;
+  
 }
 
 .logo__img {
   @extend %wrapped-img;
+  max-width: 150px;
+  
 }
 
 .icon-parent {
@@ -52,4 +56,5 @@
 
 .socialmedia__img {
   @extend %wrapped-img;
+  max-width: 50px;
 }
