@@ -8,6 +8,7 @@ $id = htmlspecialchars($_GET['id']);
 // Hämtar alla kolumner från tabellen "webshop_products" i db
 $stmt = $db->prepare("SELECT  
                     `categoryid`,
+                 `productid`,
                     `title`, 
                     `description`, 
                     `quantity`, 
@@ -23,6 +24,7 @@ echo "<div class='product-info'>";
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
     $categoryid = htmlspecialchars($row['categoryid']);
+    $productid = htmlspecialchars($row['productid']);
     $title = htmlspecialchars($row['title']);
     $description = htmlspecialchars($row['description']);
     $quantity = htmlspecialchars($row['quantity']);
@@ -51,7 +53,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 } else {
     $any_items = "I lager: " . $quantity . " st";
     echo "<div class='product__inventory' style='color: green'>" . $any_items . "</div>";
-    echo "<button id='cart-btn' class='add-to-cart'>Lägg i varukorgen</button>";
+    echo "<button id='cart-btn' class='add-to-cart'><a href= '../order/orderpage.php?id=$productid'>Lägg i varukorgen</a></button>";
 }
 echo "</div>";
 ?>

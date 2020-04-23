@@ -9,13 +9,13 @@ require_once '../config/db.php';
 </section>
 
 <?php
-//Hämtar det produkt-id som valdes
-$clickedProductId = htmlspecialchars($_GET['id']);
-$jsonArray = array();
-//Hämtar aktuell produktrad i databasen, som matchar den valda produkten
-$stmt = $db->prepare("SELECT * FROM webshop_products WHERE productid = :productid");
-$stmt->bindParam(':productid', $clickedProductId);
-$stmt->execute();
+// //Hämtar det produkt-id som valdes
+// $clickedProductId = htmlspecialchars($_GET['id']);
+// $jsonArray = array();
+// //Hämtar aktuell produktrad i databasen, som matchar den valda produkten
+// $stmt = $db->prepare("SELECT * FROM webshop_products WHERE productid = :productid");
+// $stmt->bindParam(':productid', $clickedProductId);
+// $stmt->execute();
 ?>
 
 <!--Varukorgen-->
@@ -24,30 +24,28 @@ $stmt->execute();
   <h1>Din varukorg</h1>
   <div id="cart-items" class="cart-items">
 
-    <!--Här visas produkter i varukorgen, eller en text "Inga produkter i varukorgen" om inga har valts än -->
-    <!--Ritar ut varukorg-->
+    <!-- Här visas produkter i varukorgen via JS
     <?php
-    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) :
-      $productId = htmlspecialchars($row['productid']);
-      $title = htmlspecialchars($row['title']);
-      $price = htmlspecialchars($row['price']);
-      echo
-        "<p class='product_id'>Produkt-id: $productId</p>
-        <p class='product_price'>Pris: $price kr</p>  
-         <p class='product_title'>Titel: $title</p>";
+    // while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) :
+    //   $productId = htmlspecialchars($row['productid']);
+    //   $title = htmlspecialchars($row['title']);
+    //   $price = htmlspecialchars($row['price']);
+    //   echo
+    //     "<p class='product_id'>Produkt-id: $productId</p>
+    //     <p class='product_price'>Pris: $price kr</p>  
+    //      <p class='product_title'>Titel: $title</p>";
 
-      //TEST: Skriver ut en associativ array med de valda attributen från databastabellen (se "SELECT .. FROM .." ovan)
-      print_r($row);
-      //Konverterar den associativa arrayen till en JSON-array och spar ner i en variabel 
-      $jsonArray = json_encode($row);
-      //TEST: Skriver ut JSON-arrayen
-      echo $jsonArray;
-    endwhile;
+    //   //TEST: Skriver ut en associativ array med de valda attributen från databastabellen (se "SELECT .. FROM .." ovan)
+    //   print_r($row);
+    //   //Konverterar den associativa arrayen till en JSON-array och spar ner i en variabel 
+    //   $jsonArray = json_encode($row);
+    //   //TEST: Skriver ut JSON-arrayen
+    //   echo $jsonArray;
+    // endwhile;
 
     ?>
   </div>
 
-  <!-- <script>
   //FÖRSÖK ATT SPARA PRODUKTER I LOCALSTORAGE
   //Hur får vi till att JSON-arrayen kan användas här i scriptet (tillsammans med javascript)?
   //(verkar ju ha med AJAX att göra som ni redan varit inne på)
