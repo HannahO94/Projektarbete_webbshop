@@ -33,7 +33,6 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 ?>
 <section class="product">
 <h1 class="product__prod-title"><?= $title ?></h1>
-
 <p class="product__prod-description">
 <?= $description ?>
 </p>
@@ -49,11 +48,11 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
  if ($quantity == "0") {
     $any_items = "Finns EJ i lager";
     echo "<div class='product__inventory' style='color: red'>" . $any_items . "</div>";
-    echo "<button id='cart-btn' class='add-to-cart' style='background-color: grey; color: black;' disabled>Lägg i varukorgen</button>";
+    echo "<button id='cart-btn$productid' class='add-to-cart' style='background-color: grey; color: black;' disabled>Lägg i varukorgen</button>";
 } else {
     $any_items = "I lager: " . $quantity . " st";
     echo "<div class='product__inventory' style='color: green'>" . $any_items . "</div>";
-    echo "<button id='cart-btn' class='add-to-cart'><a href= '../order/orderpage.php?id=$productid'>Lägg i varukorgen</a></button>";
+    echo "<button id='cart-btn$productid' class='add-to-cart'><a href= '../order/orderpage.php?id=$productid'>Lägg i varukorgen</a></button>";
 }
 echo "</div>";
 ?>
