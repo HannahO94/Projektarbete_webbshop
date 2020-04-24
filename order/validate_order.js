@@ -1,6 +1,6 @@
 function validateForm(event) {
   event.preventDefault();
-  return validateName() && validateZipcode();
+  return validateName() && validateZipcode() && validateEmail();
 }
 
 // Validering av namn-fältet
@@ -11,7 +11,7 @@ function validateName() {
   if (name.length === 0) {
     infoText.innerHTML = "OBS! Obligatorisk fält";
   } else if (!isNaN(name)) {
-    infoText.innerHTML = "Endast text tillåtet";
+    infoText.innerHTML = "OBS! Endast text tillåtet";
   } else if (name.length > 20) {
     infoText.innerHTML = "OBS! Otillåtet med fler än 20 tecken";
   } else if (name.length < 2) {
@@ -23,22 +23,41 @@ function validateName() {
   return false;
 }
 
+// Validering av mailadressen
+function validate(email) {
+  let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(String(email).toLowerCase());
+}
+
+function validateEmail() {
+  let email = document.querySelector("#email").value;
+  let infoText = document.querySelector(".emailValidationText");
+
+  if (email.length === 0) {
+    infoText.innerHTML = "OBS! Obligatorisk fält";
+  } else if (!validate(email)) {
+    infoText.innerHTML = "OBS! Ogiltig epostadress";
+  } else if (email.length > 64) {
+    infoText.innerHTML = "OBS! Otillåtet med fler än 64 tecken";
+  } else {
+    infoText.innerHTML = "";
+  }
+}
+
 // Validering av postnummer-fältet
 function validateZipcode() {
   let zipcode = document.querySelector("#zipcode").value;
   let infoText = document.querySelector(".zipcodeValidationText");
 
-  if (zipcode.length === 5) {
-    //"OBS! Postnumret måste vara 5 siffror långt"
-    infoText.innerHTML = zipcode;
-    // else if (zipcode.charAt(0) === 0) {
-    //     infoText.innerHTML = "OBS! Postnumret får inte börja på siffran 0";
+  if (zipcode.length === 0) {
+    infoText.innerHTML = "OBS! Obligatorisk fält";
+  } else if (zipcode.length != 5) {
+    infoText.innerHTML = "OBS! Postnumret måste vara 5 siffror långt";
+  } else if (zipcode.charAt(0) == 0) {
+    infoText.innerHTML = "OBS! Postnumret får inte börja på siffran 0";
   } else {
     infoText.innerHTML = "";
     return true;
   }
   return false;
 }
-// (isNaN(zipcode)) {
-//     infoText.innerHTML = "OBS! Endast siffror tillåtet";
-//   }
