@@ -65,10 +65,11 @@ $errors = "";
             }
         }
 
-        if(empty($_POST['quantity'])){
+        if(empty($_POST['quantity']) || !$_POST['quantity'] == 0){
             $error[] = "Du måste ange lagerstatus";
         }
         else if(!empty($_POST['quantity'])){
+            
             $quantity = filter_var($_POST['quantity'], FILTER_VALIDATE_INT);
             if(!$quantity === false){
                 $quantity = test_input($_POST['quantity']);
