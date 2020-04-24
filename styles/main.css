@@ -1274,7 +1274,7 @@ main {
   margin-left: 10%;
 }
 
-@media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {
+@media (max-width: 500px) {
   .product-head {
     font-size: 24px;
     text-align: center;
@@ -1288,17 +1288,17 @@ main {
     display: block;
   }
   .table_container {
-    min-width: 200px;
+    min-width: 280px;
   }
 }
 
-@media only screen and (max-width: 760px) and (min-width: 600px), (min-device-width: 768px) and (max-device-width: 1024px) and (min-width: 600px) {
+@media (max-width: 500px) and (min-width: 600px) {
   .table_container {
     min-width: 400px;
   }
 }
 
-@media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {
+@media (max-width: 500px) {
   thead tr {
     position: absolute;
     top: -9999px;
@@ -1310,13 +1310,13 @@ main {
   }
 }
 
-@media only screen and (max-width: 760px) and (min-width: 1000px), (min-device-width: 768px) and (max-device-width: 1024px) and (min-width: 1000px) {
+@media (max-width: 500px) and (min-width: 1000px) {
   th {
     font-size: 36px;
   }
 }
 
-@media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {
+@media (max-width: 500px) {
   tr {
     margin: 0 0 1rem 0;
     padding: 5px;
@@ -1377,13 +1377,27 @@ main {
   .btn_delete-product a {
     color: white;
   }
+  .back_btn,
+  .btn-add-product {
+    background: peachpuff;
+    text-transform: uppercase;
+  }
 }
 
-@media (min-width: 760px) {
+@media (min-width: 500px) {
   .table_products {
-    min-width: 800px;
+    min-width: 650px;
     margin-bottom: 5%;
   }
+}
+
+@media (min-width: 500px) and (min-width: 800px) {
+  .table_products {
+    min-width: 800px;
+  }
+}
+
+@media (min-width: 500px) {
   .product-head {
     font-size: 46px;
     text-align: center;
@@ -1413,6 +1427,23 @@ main {
     background: peachpuff;
     text-transform: uppercase;
   }
+}
+
+@media (min-width: 500px) and (min-width: 700px) {
+  .btn_update-product,
+  .btn_delete-product {
+    margin-left: 0;
+  }
+}
+
+@media (min-width: 500px) and (min-width: 800px) {
+  .btn_update-product,
+  .btn_delete-product {
+    margin-left: 15px;
+  }
+}
+
+@media (min-width: 500px) {
   .btn_delete-product a {
     color: #ffffff;
   }

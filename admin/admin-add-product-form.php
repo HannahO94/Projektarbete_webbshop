@@ -31,12 +31,12 @@
 
     <div class="product_field-price form-container__box">
         <label for="price">Pris: </label><br>
-        <input type="text" name="price" class="form-container__box-input">
+        <input type="number" min="0" max="10000" name="price" class="form-container__box-input">
     </div>
 
     <div class="product_field-quantity form-container__box">
         <label for="quantity">Ange lagerstatus: <br>
-        <input type="number" min="0" max="500" name="quantity" class="form-container__box-input">
+        <input type="number" name="quantity" class="form-container__box-input">
         
     </div>
 
