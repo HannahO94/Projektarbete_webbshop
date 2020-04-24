@@ -86,7 +86,9 @@ require_once '../config/db.php';
     </div>
     <div class="order_field-email form-container__box">
       <label for="email">E-post:</label><br>
-      <input type="text" name="email" required>
+      <input type="text" name="email" id="email" onblur="validateEmail()" required>
+      <br>
+      <span class="emailValidationText"></span>
     </div>
     <div class="order_field-mobile form-container__box">
       <label for="mobile">Mobilnummer:</label><br>
@@ -98,7 +100,7 @@ require_once '../config/db.php';
     </div>
     <div class="order_field-postalcode form-container__box">
       <label for="zipcode">Postnr:</label><br>
-      <input type="text" name="zipcode" id="zipcode" onblur="validateZipcode()" required>
+      <input type="number" name="zipcode" id="zipcode" onblur="validateZipcode()" required>
       <br>
       <span class="zipcodeValidationText"></span>
     </div>
