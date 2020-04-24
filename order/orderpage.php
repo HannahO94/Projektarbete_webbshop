@@ -77,36 +77,43 @@ require_once '../config/db.php';
 <!--Kontaktformulär för beställning-->
 <section class="order-form">
   <h1>Dina uppgifter</h1>
-  <form action="#" method="POST" class="form-container">
+  <form action="#" method="POST" class="form-container" onsubmit="return validateForm(event)">
     <div class="order_field-name form-container__box">
       <label for="name">För- och efternamn:</label><br>
-      <input type="text" name="name">
+      <input type="text" name="name" id="name" onblur="validateName()" required>
+      <br>
+      <span class="nameValidationText"></span>
     </div>
     <div class="order_field-email form-container__box">
       <label for="email">E-post:</label><br>
-      <input type="text" name="email">
+      <input type="text" name="email" required>
     </div>
     <div class="order_field-mobile form-container__box">
       <label for="mobile">Mobilnummer:</label><br>
-      <input type="number" name="mobile">
+      <input type="number" name="mobile" required>
     </div>
     <div class="order_field-street form-container__box">
       <label for="street">Gatuadress:</label><br>
-      <input type="text" name="street">
+      <input type="text" name="street" required>
     </div>
     <div class="order_field-postalcode form-container__box">
-      <label for="postalcode">Postnr:</label><br>
-      <input type="number" name="postalcode">
+      <label for="zipcode">Postnr:</label><br>
+      <input type="text" name="zipcode" id="zipcode" onblur="validateZipcode()" required>
+      <br>
+      <span class="zipcodeValidationText"></span>
     </div>
     <div class="order_field-city form-container__box">
       <label for="city">Ort:</label><br>
-      <input type="text" name="city">
+      <input type="text" name="city" required>
     </div>
     <div class="order_field-submit form-container__submit">
       <input type="submit" value="Skicka beställning" class="form-container__submit-button">
     </div>
   </form>
 </section>
+
+<script src="validate_order.js"></script>
+
 <?php
 require_once '../footer.php';
 ?>
