@@ -27,14 +27,15 @@ $output ="<section class='table_container'><table class='table_products'><tr cla
                     <th class='table_products-head'>Redigera</th></tr>";
 while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
     $productid = htmlspecialchars($row['productid']);
-    $category = htmlspecialchars($row['category']);
+    $categories = htmlspecialchars($row['category']);
     $product = htmlspecialchars($row['title']);
+    $category = strtoupper($categories);
 
     $output .= "<tr class='table_products-row'>
                 <td class='table_products-cell'> $product </td>
                 <td class='table_products-cell'>$category</td>
                 <td><button class='btn_update-product'><a href='admin-update-product.php?id=$productid'>Uppdatera</a></button>
-                <button class='btn_delete-product'><a href='admin-delete-product.php?id=$productid' onclick='return myFunction()' id='delete'>Ta bort</a></button></td>
+                <button class='btn_delete-product'><a href='admin-delete-product.php?id=$productid' onclick='return myFunction()' id='delete'>Radera</a></button></td>
                 </tr> ";
 
 

@@ -85,6 +85,25 @@
       }
     }
   }
+  &_price-outlet {
+    font-size: 30px;
+    font-weight: bold;
+    color: red;
+  }
+  &_price-old {
+    text-decoration: line-through;
+    color: rgb(78, 76, 76);
+  }
+  &_price-savings{
+    font-weight: bold;
+    font-style: italic;
+    color: red;
+  }
+  &_price-new{
+    font-size: 20px;
+    font-weight: bold;
+    color: red;
+  }
 }
 
 #cart-btn {
