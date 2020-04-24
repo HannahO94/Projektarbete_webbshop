@@ -1,4 +1,4 @@
-<?php
+p<?php
 require_once '../header_extern.php';
 require_once '../config/db.php';
 
@@ -86,12 +86,19 @@ $stmt->execute();
               "<div class='product_card'>
               <a href= '../product/product_info.php? id=$productid' 
               class='product_title'>$title</a>
-              <p class='product_price'>Pris: $price kr</p>
+              <span>Pris:</span>
+              <span class='product_price'> $price </span>
+              <span>kr</span>
               <p class='any-items'>$any_items</p>
-              
-              <button class='cart-btn product_card-btn'><a href= '../order/orderpage.php? id=$productid' </a>Lägg i varukorg</button>
-              </div>";
-            };
+
+              <p style='display:none;'>$quantity</p>
+              <p style='display:none'>$productid</p>
+
+            <button id='$productid' class='cart-btn product_card-btn'>Lägg i varukorg</a></button>
+           
+          </div>";
+         // <a href= '../order/orderpage.php?id=$productid'></a>
+
     endwhile;
     ?>
 
