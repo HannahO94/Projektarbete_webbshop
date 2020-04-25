@@ -1,25 +1,26 @@
 <?php
-
 require_once "../config/db.php";
-
+$clickedProductId = '';
+$id = '';
+$someArray = [];
 //Hämtar det produkt-id som valdes
-$clickedProductId = $_GET['id'];
-$product = [];
-//Hämtar aktuell produktrad i databasen, som matchar den valda produkten
-$stmt = $db->prepare("SELECT productid, title, price, quantity FROM webshop_products WHERE productid = :productid");
-$stmt->bindParam(':productid', $clickedProductId);
+if(isset($_GET['id'])){
+$clickedProductId = htmlspecialchars($_GET['id']);
+echo "<h1>$clickedProductId</h1>";
+}
+$sql = "SELECT title, price, quantity, productid FROM webshop_products";
+$stmt = $db->prepare($sql);
 $stmt->execute();
 
-    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) :
-    //   $productId = htmlspecialchars($row['productid']);
-    //   $title = htmlspecialchars($row['title']);
-    //   $price = htmlspecialchars($row['price']);
-    //   $quantity = htmlspecialchars($row['quantity']);
-    
-    $product[] = $row;
- 
-    
-endwhile;
-//Konverterar den associativa arrayen till en JSON-array och spar ner i en variabel 
-    echo json_encode($product);
+$games = [];
+
+while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){    
+  $games[] = $row;
+};
+
+$id = $clickedProductId;
+
+
+echo json_encode($games);
+
 ?>

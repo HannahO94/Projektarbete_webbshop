@@ -1,12 +1,12 @@
 //Tillfällig testarray, ska egentligen vara array med varukorg från LS
-let myProducts = [
-  { id: 1, title: "Alias", price: 100, quantity: 2 },
-  { id: 2, title: "Råttfällan", price: 250, quantity: 4 },
-  { id: 3, title: "Labyrint", price: 150, quantity: 1 },
-];
-
+// let myProducts = [
+//   { id: 1, title: "Alias", price: 100, quantity: 2 },
+//   { id: 2, title: "Råttfällan", price: 250, quantity: 4 },
+//   { id: 3, title: "Labyrint", price: 150, quantity: 1 },
+// ];
+let myProducts = JSON.parse(localStorage.getItem("products"));
 //Skapa variabler för DOM-elementen som ska användas nedan
-const shoppingCart = document.querySelector("#shoppingCart");
+const shoppingCart = document.querySelector("#shoppingcart");
 
 drawCart();
 //Rita ut produktinfo samt knappar
