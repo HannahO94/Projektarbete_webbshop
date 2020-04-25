@@ -64,7 +64,9 @@ button {
 a {
   text-decoration: none;
   color: rgb(21, 21, 21);
+  cursor: pointer;
   &:hover {
     color: white;
+    cursor: pointer;
   }
 }
