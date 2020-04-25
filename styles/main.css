@@ -760,12 +760,6 @@ input[type="checkbox"]:checked + label .bottom-bar {
   font-size: 20px;
 }
 
-@media (min-width: 800px) {
-  .product_title {
-    font-size: 24px;
-  }
-}
-
 .product_card-btn {
   position: relative;
   margin-top: 20px;
@@ -774,11 +768,14 @@ input[type="checkbox"]:checked + label .bottom-bar {
 
 .category_name {
   text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 @media (min-width: 600px) {
   .category_name {
-    display: none;
+    font-size: 48px;
+    letter-spacing: 3px;
   }
 }
 
