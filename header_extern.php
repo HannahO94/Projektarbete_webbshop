@@ -47,13 +47,13 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
         <ul class="menu-wraper__link-list">
 
-        <li>
+        <li class="menu-wraper__link-item">
 
           <form action="#" class="search-form">
-            <label for="search" class="search-form__label">Sök</label>
+            <label for="search" class="search-form__label"></label>
             <input type="text" name="search" id="search-Field" class="search-form__input-field">
             <!--<input type="submit" id="search_btn" value="Sök">-->
-            <button id="search_btn"><a id="search-link">Sök</a></button>
+             <button id="search_btn"><a id="search-link">Sök</a></button>
           </form> 
           <div id="searched-result" class="search-result"></div>
         </li>
