@@ -331,6 +331,12 @@ input[type="checkbox"]:checked + label .bottom-bar {
   }
 }
 
+@media (min-width: 1100px) {
+  .menu-wraper__link-item:first-child {
+    margin-right: 550px;
+  }
+}
+
 .menu-wraper__links {
   font-size: 16px;
   color: #1f1f1f;
@@ -787,6 +793,8 @@ input[type="checkbox"]:checked + label .bottom-bar {
 @media (min-width: 500px) {
   .search-form {
     text-align: left;
+    margin-top: 40px;
+    margin-right: 20px;
   }
 }
 
@@ -804,13 +812,26 @@ input[type="checkbox"]:checked + label .bottom-bar {
 
 .search-form__input-field {
   width: 75%;
-  min-width: 150px;
+  min-width: 100px;
   height: 20px;
   padding: 15px 20px;
   margin: 10px 0;
   border: 0.5px solid rgba(0, 0, 0, 0.637);
   border-radius: 8px;
-  background-color: rgba(197, 197, 197, 0.411);
+  background-color: rgba(232, 230, 230, 0.411);
+}
+
+@media (min-width: 768px) {
+  .search-form__input-field {
+    width: 50%;
+    margin-left: 10px;
+  }
+}
+
+@media (min-width: 800px) {
+  .search-form__input-field {
+    width: 75%;
+  }
 }
 
 .search-result {
@@ -868,6 +889,7 @@ input[type="checkbox"]:checked + label .bottom-bar {
   width: 45px;
   margin-top: 10px;
   margin-bottom: 10px;
+  margin-left: 10px;
 }
 
 body {
