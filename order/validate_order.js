@@ -28,7 +28,6 @@ function validateName() {
 // }
 
 // Validering av mailadressen
-
 function validateEmail() {
   let email = document.querySelector("#email").value;
   let infoText = document.querySelector(".emailValidationText");
