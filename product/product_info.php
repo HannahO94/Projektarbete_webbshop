@@ -43,7 +43,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 <div class="product__img-container"><?php
 if(!empty($productimg)){
 foreach ($productimg as $key => $value) {
-        echo "<img src='../images/$value' width='200px' class='product_img'>";
+        echo "<img src='../images/$value' width='200px' class='product_img' style='margin: 8px;'>";
         }
     }
     else {
