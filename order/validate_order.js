@@ -22,13 +22,12 @@ function validateName() {
 	}
 	return false
 }
+// function validate(name) {
+//   let re = /^[\w'\-,.]*[^_!¡?÷?¿\/\\+=@#$%ˆ&*(){}|~<>;:[\]]*$/;
+//   return re.test(name);
+// }
 
 // Validering av mailadressen
-function validate(email) {
-	let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-	return re.test(String(email).toLowerCase())
-}
-
 function validateEmail() {
 	let email = document.querySelector("#email").value
 	let infoText = document.querySelector(".emailValidationText")
@@ -42,6 +41,10 @@ function validateEmail() {
 	} else {
 		infoText.innerHTML = ""
 	}
+}
+function validate(email) {
+  let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(String(email).toLowerCase());
 }
 
 // Validering av postnummer-fältet
