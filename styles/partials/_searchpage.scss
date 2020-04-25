@@ -1,47 +1,58 @@
 .search-form {
-	text-align: center;
-	display: flex;
-	@media (min-width: 500px) {
-		text-align: left;
-	}
-	&__label {
-		font-size: 24px;
-		margin-bottom: 10px;
-		margin-top: 10px;
-		@media (min-width: 500px) {
-			font-size: 20px;
-		}
-	}
+  text-align: center;
+  display: flex;
+  @media (min-width: 500px) {
+    text-align: left;
+    margin-top: 40px;
+    margin-right: 20px;
+  }
+  &__label {
+    font-size: 24px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    @media (min-width: 500px) {
+      font-size: 20px;
+    }
+  }
 
-	&__input-field {
-		width: 75%;
-		min-width: 150px;
-		height: 20px;
-		padding: 15px 20px;
-		margin: 10px 0;
-		border: 0.5px solid rgba(0, 0, 0, 0.637);
-		border-radius: 8px;
-		background-color: rgba(197, 197, 197, 0.411);
-	}
+  &__input-field {
+    width: 75%;
+    min-width: 100px;
+    height: 20px;
+    padding: 15px 20px;
+    margin: 10px 0;
+    border: 0.5px solid rgba(0, 0, 0, 0.637);
+    border-radius: 8px;
+    background-color: rgba(232, 230, 230, 0.411);
+
+    @media (min-width: 768px) {
+      width: 50%;
+      margin-left: 10px;
+    }
+    @media (min-width: 800px) {
+      width: 75%;
+    }
+  }
 }
 
 .search-result {
-	@include gallery;
-	margin: 10px 20px 30px 20px;
-	height: 100%;
+  @include gallery;
+  margin: 10px 20px 30px 20px;
+  height: 100%;
 
-	&__product-card {
-		@include gallery-card;
-	}
+  &__product-card {
+    @include gallery-card;
+  }
 }
 
 .btn-back {
-	background-color: rgb(202, 201, 201);
+  background-color: rgb(202, 201, 201);
 }
 
 #search_btn {
-	height: 30px;
-	width: 45px;
-	margin-top: 10px;
-	margin-bottom: 10px;
+  height: 30px;
+  width: 45px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
 }

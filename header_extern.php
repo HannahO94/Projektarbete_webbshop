@@ -28,8 +28,6 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 <body>
   <header class="header__hero">
 
-    <div class="menu-wraper">
-
       <div class="menu-wraper">
 
         <!--- <div class="menu-wraper__logo-wrap">
@@ -58,13 +56,13 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
               </form>
             </li>
 
-
             <li class="menu-wraper__link-item">
               <a class="menu-wraper__links" href="/index.php">HEM</a>
             </li>
             <li class="menu-wraper__link-item">
               <div class="dropdown">
                 <a class="menu-wraper__links" id="dropdown-categories" href="#">KATEGORIER</a>
+
                 <div class="dropdown-content">
                   <?php
                   echo "$option_value";
