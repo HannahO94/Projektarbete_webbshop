@@ -45,7 +45,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
           <ul class="menu-wraper__link-list">
 
-            <li>
+            <li class="menu-wraper__link-item">
 
               <form action="#" class="search-form">
                 <!--<label for="search" class="search-form__label">Sök</label>-->
