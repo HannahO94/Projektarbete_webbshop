@@ -16,7 +16,7 @@ require_once '../config/db.php';
 ?>
 
 <!--Varukorgen-->
-<section class="shoppingcart">
+<section id="shoppingcart">
 
   <h1>Din varukorg</h1>
   <div id="cart-items" class="cart-items">
@@ -27,7 +27,7 @@ require_once '../config/db.php';
 
     ?>
 
-
+</section>
 
 <section class="order-form">
   <h1>Dina uppgifter</h1>
@@ -72,7 +72,7 @@ require_once '../config/db.php';
 
 
 <script src="validate_order.js"></script>
-
+<script type="application/javascript" src="updateProduct.js"></script>
 
 <?php
 require_once '../footer.php';
