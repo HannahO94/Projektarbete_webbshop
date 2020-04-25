@@ -19,7 +19,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) :
   $outletPrice = ceil($price * $percentage);
   $savings = $price - $outletPrice;
 
-  
+  //finns eller inte i lager
   if ($quantity == "0") {
     $any_items = "<span>Finns EJ i lager</span>";
   } else {
@@ -35,26 +35,6 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) :
   //echo $diffDays;
 
   if($diffDays > 60){
-
-    //här måste man skicka nytt pris till databasen!
-    if($_SERVER['REQUEST_METHOD'] === 'POST'){
-      print_r($_POST);
-      $productid = htmlentities($_POST['productid']);
-      $outletPrice = htmlentities($_POST['price']);
-    
-      $sql = "UPDATE webshop_products 
-              SET price = :price
-              WHERE productid = :productid";
-    
-      $stmt = $db->prepare($sql);
-      $stmt->bindParam(':id', $id);
-      $stmt->bindParam(':price', $outletPrice);
-    
-      $stmt->execute();
-      //header('Location:index.php');
-      exit;
-    }
-
 
     echo
     "<div class='product_card'>

@@ -69,16 +69,19 @@ button {
   background-color: #f3971e;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
+  text-transform: uppercase;
+  color: whitesmoke;
 }
 
 button:hover {
   background-color: #852db8;
   color: white;
+  text-transform: uppercase;
 }
 
 a {
   text-decoration: none;
-  color: black;
+  color: #151515;
 }
 
 a:hover {
@@ -331,6 +334,13 @@ input[type="checkbox"]:checked + label .bottom-bar {
   }
 }
 
+@media (min-width: 1100px) {
+  .menu-wraper__link-item:first-child {
+    margin-right: 480px;
+    margin-left: 20px;
+  }
+}
+
 .menu-wraper__links {
   font-size: 16px;
   color: #1f1f1f;
@@ -347,8 +357,14 @@ input[type="checkbox"]:checked + label .bottom-bar {
 @media (min-width: 500px) {
   .menu-wraper__links {
     font-size: 20px;
-    padding: 30px;
+    padding: 20px;
     letter-spacing: 2px;
+  }
+}
+
+@media (min-width: 800px) {
+  .menu-wraper__links {
+    padding: 30px;
   }
 }
 
@@ -734,14 +750,17 @@ input[type="checkbox"]:checked + label .bottom-bar {
           justify-content: center;
   -ms-flex-line-pack: justify;
       align-content: space-between;
-  margin: 2em;
-  padding: 1em;
-  background-color: lightgrey;
   text-align: center;
   line-height: 1.5;
   height: 200px;
   width: 200px;
   border-radius: 8px;
+  margin: 2em;
+  padding: 1em;
+  background-color: lightgrey;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .product_title {
@@ -749,12 +768,6 @@ input[type="checkbox"]:checked + label .bottom-bar {
   color: black;
   font-weight: bold;
   font-size: 20px;
-}
-
-@media (min-width: 800px) {
-  .product_title {
-    font-size: 24px;
-  }
 }
 
 .product_card-btn {
@@ -765,11 +778,14 @@ input[type="checkbox"]:checked + label .bottom-bar {
 
 .category_name {
   text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 @media (min-width: 600px) {
   .category_name {
-    display: none;
+    font-size: 48px;
+    letter-spacing: 3px;
   }
 }
 
@@ -784,9 +800,10 @@ input[type="checkbox"]:checked + label .bottom-bar {
   display: flex;
 }
 
-@media (min-width: 500px) {
+@media (min-width: 800px) {
   .search-form {
     text-align: left;
+    margin-right: 20px;
   }
 }
 
@@ -804,13 +821,31 @@ input[type="checkbox"]:checked + label .bottom-bar {
 
 .search-form__input-field {
   width: 75%;
-  min-width: 150px;
+  min-width: 100px;
   height: 20px;
   padding: 15px 20px;
   margin: 10px 0;
-  border: 0.5px solid rgba(0, 0, 0, 0.637);
+  border: 3px solid rgba(0, 0, 0, 0.817);
   border-radius: 8px;
-  background-color: rgba(197, 197, 197, 0.411);
+  background-color: rgba(255, 255, 255, 0.411);
+}
+
+@media (min-width: 768px) {
+  .search-form__input-field {
+    width: 50%;
+    margin-left: 10px;
+  }
+}
+
+@media (min-width: 800px) {
+  .search-form__input-field {
+    width: 75%;
+    font-size: 14px;
+  }
+}
+
+.search-form__input-field:focus {
+  border: 3px solid peachpuff;
 }
 
 .search-result {
@@ -864,10 +899,17 @@ input[type="checkbox"]:checked + label .bottom-bar {
 }
 
 #search_btn {
-  height: 30px;
-  width: 45px;
-  margin-top: 10px;
+  height: 40px;
+  width: 55px;
+  margin-top: 8px;
   margin-bottom: 10px;
+  margin-left: 10px;
+  background-color: peachpuff;
+}
+
+#search_btn a {
+  text-align: center;
+  margin: -10px;
 }
 
 body {
@@ -1274,7 +1316,7 @@ main {
   margin-left: 10%;
 }
 
-@media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {
+@media (max-width: 500px) {
   .product-head {
     font-size: 24px;
     text-align: center;
@@ -1288,17 +1330,17 @@ main {
     display: block;
   }
   .table_container {
-    min-width: 200px;
+    min-width: 280px;
   }
 }
 
-@media only screen and (max-width: 760px) and (min-width: 600px), (min-device-width: 768px) and (max-device-width: 1024px) and (min-width: 600px) {
+@media (max-width: 500px) and (min-width: 600px) {
   .table_container {
     min-width: 400px;
   }
 }
 
-@media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {
+@media (max-width: 500px) {
   thead tr {
     position: absolute;
     top: -9999px;
@@ -1310,13 +1352,13 @@ main {
   }
 }
 
-@media only screen and (max-width: 760px) and (min-width: 1000px), (min-device-width: 768px) and (max-device-width: 1024px) and (min-width: 1000px) {
+@media (max-width: 500px) and (min-width: 1000px) {
   th {
     font-size: 36px;
   }
 }
 
-@media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {
+@media (max-width: 500px) {
   tr {
     margin: 0 0 1rem 0;
     padding: 5px;
@@ -1377,13 +1419,27 @@ main {
   .btn_delete-product a {
     color: white;
   }
+  .back_btn,
+  .btn-add-product {
+    background: peachpuff;
+    text-transform: uppercase;
+  }
 }
 
-@media (min-width: 760px) {
+@media (min-width: 500px) {
   .table_products {
-    min-width: 800px;
+    min-width: 650px;
     margin-bottom: 5%;
   }
+}
+
+@media (min-width: 500px) and (min-width: 800px) {
+  .table_products {
+    min-width: 800px;
+  }
+}
+
+@media (min-width: 500px) {
   .product-head {
     font-size: 46px;
     text-align: center;
@@ -1413,6 +1469,23 @@ main {
     background: peachpuff;
     text-transform: uppercase;
   }
+}
+
+@media (min-width: 500px) and (min-width: 700px) {
+  .btn_update-product,
+  .btn_delete-product {
+    margin-left: 0;
+  }
+}
+
+@media (min-width: 500px) and (min-width: 800px) {
+  .btn_update-product,
+  .btn_delete-product {
+    margin-left: 15px;
+  }
+}
+
+@media (min-width: 500px) {
   .btn_delete-product a {
     color: #ffffff;
   }

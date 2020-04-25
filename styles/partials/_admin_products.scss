@@ -1,6 +1,5 @@
 //styling för mobil
-@media only screen and (max-width: 760px),
-  (min-device-width: 768px) and (max-device-width: 1024px) {
+@media (max-width: 500px) {
   .product-head {
     font-size: 24px;
     text-align: center;
@@ -16,7 +15,7 @@
   }
 
   .table_container {
-    min-width: 200px;
+    min-width: 280px;
     @media (min-width: 600px) {
       min-width: 400px;
     }
@@ -103,13 +102,21 @@
   .btn_delete-product a {
     color: white;
   }
+  .back_btn,
+  .btn-add-product {
+    background: peachpuff;
+    text-transform: uppercase;
+  }
 }
 
 // Styling för desktop
-@media (min-width: 760px) {
+@media (min-width: 500px) {
   .table_products {
-    min-width: 800px;
+    min-width: 650px;
     margin-bottom: 5%;
+    @media (min-width: 800px) {
+      min-width: 800px;
+    }
   }
   .product-head {
     font-size: 46px;
@@ -143,6 +150,12 @@
     margin-left: 15px;
     background: peachpuff;
     text-transform: uppercase;
+    @media (min-width: 700px) {
+      margin-left: 0;
+    }
+    @media (min-width: 800px) {
+      margin-left: 15px;
+    }
   }
 
   .btn_delete-product a {

@@ -1,38 +1,55 @@
-let orderAjax = new XMLHttpRequest();
-//Denna skall alltså lägga till item in carten. med json datat
-orderAjax.onreadystatechange = function () {
-  //DETTA KÖRS NÄR RESPONSEN ÄR OK
-  let cartProducts = new Array();
+   
+let cartBtn = document.querySelectorAll(".cart-btn");
+let productArray = []
+let arrayToSend = []
+    for (let j = 0; j < cartBtn.length; j++) {
+      // allButtons.push(addToCartBtn[j])
+      let product = cartBtn[j]
+      
+      cartBtn[j].addEventListener("click", function (e) {
+        let parent = product.parentElement
 
-  if (this.readyState === 4 && this.status === 200) {
-    let product = JSON.parse(this.responseText);
+        for (let i = 0; i < parent.children.length; i++){
+          productcard = parent.children[i].textContent
+          productArray.push(productcard)
+          console.log(productArray)
+        }
+        console.log(productArray.length)
+        if(productArray.length === 7){
+        product = {
+                  title: productArray[0],
+                  price: productArray[3],
+                  quantity: productArray[4],
+                  productid: productArray[5]
+                };
+              }
+        else if (productArray.length === 8){
+          product = {
+            title: productArray[1],
+            price: productArray[4],
+            quantity: productArray[5],
+            productid: productArray[6]
+          };
+        }
+        else if (productArray.length === 10){
+          product = {
+            title: productArray[1],
+            price: productArray[5],
+            outletprice: productArray[6],
+            quantity: productArray[7],
+            productid: productArray[8]
+          };
+          console.log(product.title, product.price, product.quantity, product.productid, product.outletprice)
+        }
+        console.log(product.title, product.price, product.quantity, product.productid)
+        arrayToSend.push(product)
+        productArray = []
+        // console.log(arrayToSend)
+        localStorage.setItem("products", JSON.stringify(arrayToSend));
+         
+        
+     })
+    }
+    
+  
 
-    product = {
-      productid: product.productid,
-      title: product.title,
-      price: product.price,
-      quantity: product.quantity,
-    };
-
-    cartProducts.push(product);
-
-    localStorage.setItem("products", "Hejhej");
-  }
-  // JSON.stringify(cartProducts)
-};
-//STEG 1 EVENTET -> hämta id skicka till get-product.php
-//STEG 1.5 -> backend skickar tillbaka json
-//STEG 2 Ta hand om json och manipulera DOM, lägg till cartItems
-
-let addToCartBtn = document.querySelector("#cart-btn");
-addToCartBtn.addEventListener("click", function (e) {
-  //Fånga upp ID från eventet, antingen via dataset eller id för att veta vilken produkkt det handlar
-  //	let tID = event.target.previousSiblingElement.previousSiblingElement;
-  //Skicka in idet till backend, få en respons med produkten tillbaka -> go to onreadystatechange
-  orderAjax.open("GET", "../order/get-product.php?id=" + productid, true);
-  orderAjax.send();
-});
-
-function ClearCart() {}
-
-function showCart() {}

@@ -17,6 +17,6 @@
             <a class="admin-menu-wraper__link" href="index.php">Admin - Hem</a>
             <a class="admin-menu-wraper__link" href="admin-category.php">Kategorier</a>
             <a class="admin-menu-wraper__link" href="admin-products.php">Produkter</a>
-            <a class="admin-menu-wraper__link" href="">Beställningar</a>
+            <a class="admin-menu-wraper__link" href="admin-order.php">Beställningar</a>
             <a class="admin-menu-wraper__link web" href="../index.php">WEBBSHOPPEN</a>
         </div>
