@@ -54,7 +54,8 @@
     }
     &:first-child {
       @media (min-width: 1100px) {
-        margin-right: 520px;
+        margin-right: 480px;
+        margin-left: 20px;
       }
     }
   }

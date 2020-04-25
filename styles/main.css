@@ -69,16 +69,19 @@ button {
   background-color: #f3971e;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
+  text-transform: uppercase;
+  color: whitesmoke;
 }
 
 button:hover {
   background-color: #852db8;
   color: white;
+  text-transform: uppercase;
 }
 
 a {
   text-decoration: none;
-  color: black;
+  color: #151515;
 }
 
 a:hover {
@@ -333,7 +336,8 @@ input[type="checkbox"]:checked + label .bottom-bar {
 
 @media (min-width: 1100px) {
   .menu-wraper__link-item:first-child {
-    margin-right: 520px;
+    margin-right: 480px;
+    margin-left: 20px;
   }
 }
 
@@ -821,9 +825,9 @@ input[type="checkbox"]:checked + label .bottom-bar {
   height: 20px;
   padding: 15px 20px;
   margin: 10px 0;
-  border: 0.5px solid rgba(0, 0, 0, 0.637);
+  border: 3px solid rgba(0, 0, 0, 0.817);
   border-radius: 8px;
-  background-color: rgba(232, 230, 230, 0.411);
+  background-color: rgba(255, 255, 255, 0.411);
 }
 
 @media (min-width: 768px) {
@@ -836,7 +840,12 @@ input[type="checkbox"]:checked + label .bottom-bar {
 @media (min-width: 800px) {
   .search-form__input-field {
     width: 75%;
+    font-size: 14px;
   }
+}
+
+.search-form__input-field:focus {
+  border: 3px solid peachpuff;
 }
 
 .search-result {
@@ -890,11 +899,17 @@ input[type="checkbox"]:checked + label .bottom-bar {
 }
 
 #search_btn {
-  height: 30px;
-  width: 45px;
-  margin-top: 10px;
+  height: 40px;
+  width: 55px;
+  margin-top: 8px;
   margin-bottom: 10px;
   margin-left: 10px;
+  background-color: peachpuff;
+}
+
+#search_btn a {
+  text-align: center;
+  margin: -10px;
 }
 
 body {
