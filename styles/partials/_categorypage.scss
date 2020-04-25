@@ -30,7 +30,6 @@
   background-position: center;
 }
 
-
 .product_title {
   //display: inline-block;
   // margin-top: 25%;
@@ -38,9 +37,9 @@
   color: black;
   font-weight: bold;
   font-size: 20px;
-  @media (min-width: 800px) {
-    font-size: 24px;
-  }
+  // @media (min-width: 800px) {
+  //   font-size: 24px;
+  // }
 }
 
 .product_card-btn {
@@ -52,8 +51,12 @@
 
 .category_name {
   text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
   @media (min-width: 600px) {
-    display: none;
+    font-size: 48px;
+    letter-spacing: 3px;
+    //display: none;
   }
 }
 

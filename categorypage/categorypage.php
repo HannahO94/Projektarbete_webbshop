@@ -11,6 +11,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 $stmt = $db->prepare("SELECT * FROM webshop_products WHERE categoryid = $currentCategory");
 $stmt->execute();
 
+$statement = $db->prepare("SELECT `categoryid`, `category`
+FROM `webshop_categories` WHERE categoryid = $currentCategory");
+$statement->execute();
+
+while ($rowCategory = $statement->fetch(PDO::FETCH_ASSOC)){
+$category = htmlspecialchars($rowCategory['category']);
+}
+
+
 ?>
 
 <!--hero-sektion och sektion för produkter-->
@@ -22,7 +31,7 @@ $stmt->execute();
   </div>
 </section>
 <section>
-  <h1 class="category_name">Kategorinamn</h1>
+  <h1 class="category_name"><?php echo $category ?></h1>
   <br>
   <br>
   <!--här hämtas kategoriens produkter från databas-->
