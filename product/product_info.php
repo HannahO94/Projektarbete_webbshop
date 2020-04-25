@@ -1,7 +1,7 @@
 <?php
 require_once "../header_extern.php";
 require_once "../config/db.php";
-
+$productimg = "";
 // Hämtar kategori-id som valdes på kategorisidan
 $id = htmlspecialchars($_GET['id']);
 
@@ -12,7 +12,8 @@ $stmt = $db->prepare("SELECT
                     `title`, 
                     `description`, 
                     `quantity`, 
-                    `price` 
+                    `price`,
+                    `productimg`
                     FROM `webshop_products` 
                     WHERE productid=:productid");
 $stmt->bindParam(':productid', $id);
@@ -22,13 +23,15 @@ echo "<div class='product-info'>";
 
 // Hämtar raderna som finns i varje kolumn
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
+    
     $categoryid = htmlspecialchars($row['categoryid']);
     $productid = htmlspecialchars($row['productid']);
     $title = htmlspecialchars($row['title']);
     $description = htmlspecialchars($row['description']);
     $quantity = htmlspecialchars($row['quantity']);
     $price = htmlspecialchars($row['price']);
+    $productimg = unserialize($row['productimg']);   
+
 
 ?>
 <section class="product">
@@ -37,8 +40,16 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 <?= $description ?>
 </p>
 
-<div class="product__img-container">
-    <img src="" alt="Bild på spelet" class="product__img-container__img">
+<div class="product__img-container"><?php
+if(!empty($productimg)){
+foreach ($productimg as $key => $value) {
+        echo "<img src='../images/$value' width='200px' class='product_img'>";
+        }
+    }
+    else {
+        echo "ingen bildfil finns tillgänglig";
+  
+    }?>
 </div>
 
 <div class="product__prod-price"><strong>Pris:</strong> <?= $price ?> kr</div>

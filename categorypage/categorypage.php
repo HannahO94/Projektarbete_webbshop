@@ -1,8 +1,8 @@
-p<?php
+<?php
 require_once '../header_extern.php';
 require_once '../config/db.php';
 
-
+$productimg = "";
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
   $currentCategory = htmlspecialchars($_GET['id']);
 }
@@ -34,6 +34,7 @@ $stmt->execute();
       $productid = htmlspecialchars($row['productid']);
       $quantity = htmlspecialchars($row['quantity']);
       $date = htmlspecialchars($row['date']);
+      $productimg = unserialize($row['productimg']); 
 
       //nytt outlet pris
       $percentage = 0.9;
@@ -46,6 +47,17 @@ $stmt->execute();
       } else {
         $any_items = "I lager: " . $quantity . " st";
       }
+      
+      if(!empty($productimg)){
+        foreach ($productimg as $key => $value) {
+                if($key == 0) {
+                  $imgbackground = $value;
+                }
+            }
+      }else if (empty($productimg)) {
+        $imgbackground = "";
+      }
+    
 
             //datum kontroll, rea eller new
             $now = date("yy-m-d");
@@ -57,40 +69,46 @@ $stmt->execute();
             if($diffDays < 7){
               //echo "less then two weeks";
               echo
-              "<div class='product_card'>
+              "<div class='product_card' style=background-image:url('../images/$imgbackground');>
                     <h3 class='product_price-new'>Ny!</h3>
                     <a href= '../product/product_info.php? id=$productid' 
                     class='product_title'>$title</a>
-                    <p class='product_price'>Pris: $price kr</p>
+                    <span class='product_price'>Pris: $price kr</span>
                     <p class='any-items'>$any_items</p>
-          
-                  <button class='cart-btn product_card-btn'><a href= '../order/orderpage.php? id=$productid' </a>Lägg i varukorg</button>
+                    <p style='display:none'>$price</p>
+                    <p style='display:none;'>$quantity</p>
+                  <p style='display:none'>$productid</p>
+                  
+                  <button class='cart-btn product_card-btn'>Lägg i varukorg</button>
                 </div>";
-          
+                //<a href= '../order/orderpage.php? id=$productid' </a>
             }else if($diffDays > 60){
           
               echo
-              "<div class='product_card'>
+              "<div class='product_card' style=background-image:url('../images/$imgbackground');>
                     <p class='product_price-outlet'>Pris: $outletPrice kr</p>
                     <a href= '../product/product_info.php? id=$productid' 
                     class='product_title'>$title</a>
                     <p class='product_price-old'>Normalpris: $price kr</p>
                     <p class='product_price-savings'>Du sparar: $savings kr! (-10%) </p> 
                     <p class='any-items'>$any_items</p>
+                    <p style='display:none;'>$price</p>
+                    <p style='display:none;'>$outletPrice</p>
+                    <p style='display:none;'>$quantity</p>
+                    <p style='display:none'>$productid</p>
           
-                  <button class='cart-btn product_card-btn'><a href= '../order/orderpage.php? id=$productid' </a>Lägg i varukorg</button>
+                  <button class='cart-btn product_card-btn'>Lägg i varukorg</button>
                 </div>";
+                //<a href= '../order/orderpage.php? id=$productid' </a>
             } else {
               
               echo
-              "<div class='product_card'>
+              "<div class='product_card' style=background-image:url('../images/$imgbackground');>
               <a href= '../product/product_info.php? id=$productid' 
               class='product_title'>$title</a>
-              <span>Pris:</span>
-              <span class='product_price'> $price </span>
-              <span>kr</span>
+              <p class='product_price'>Pris: $price kr</p>
               <p class='any-items'>$any_items</p>
-
+              <p style='display:none;'>$price</p>
               <p style='display:none;'>$quantity</p>
               <p style='display:none'>$productid</p>
 
@@ -98,7 +116,7 @@ $stmt->execute();
            
           </div>";
          // <a href= '../order/orderpage.php?id=$productid'></a>
-
+            }
     endwhile;
     ?>
 

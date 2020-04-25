@@ -12,21 +12,24 @@
     align-items: center;
   }
 }
-
 .product_card {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-content: space-between;
-  margin: 2em;
-  padding: 1em;
-  background-color: lightgrey;
   text-align: center;
   line-height: 1.5;
   height: 200px;
   width: 200px;
   border-radius: 8px;
+  margin: 2em;
+  padding: 1em;
+  background-color: lightgrey;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
+
 
 .product_title {
   //display: inline-block;
