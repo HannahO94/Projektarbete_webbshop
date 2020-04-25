@@ -6,16 +6,21 @@ $sql = "SELECT * FROM webshop_categories";
 $stmt = $db->prepare($sql);
 $stmt->execute();
 
-$list = '<ul class="category-list">';
+$list = "<section class='table_categories-container'><table class='table_categories'><tr class='table_category-row' >
+        <th class='table_category-head'>Kategori</th>
+        <th class='table_category-head'>Redigera</th></tr>";
 
 while($row = $stmt->fetch(PDO::FETCH_ASSOC)){  
     $category = htmlspecialchars($row['category']);
     $id = htmlspecialchars($row['categoryid']);
-    $list .= "<li class='category-list__item'><p class='category-list__item-text'> $category </p><div class='category-list__buttons'><button class='category-list__update-button'><a href='admin-update-category.php?id=$id'>Uppdatera</a></button><button class='category-list__delete-button'><a href='admin-delete-category.php?id=$id' onclick='return myFunction()' id='delete'>Ta bort</a></button></div></li>";
+    $list .= "<tr class='table_category-row'>
+    <td class='table_category-cell'> $category</td>
+    <td class='table_category-cell'><button class='btn_update-category'><a href='admin-update-category.php?id=$id'>Uppdatera</a></button>
+    <button class='btn_delete-category'><a href='admin-delete-category.php?id=$id' onclick='return myFunction()' id='delete'>Ta bort</a></button></td></tr>";
 
     }
 
-    $list .= '</ul>';  
+    $list .= '</table></section>';  
 
     if($_SERVER['REQUEST_METHOD'] === 'POST') :
         
@@ -38,7 +43,7 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
  ?>
  
 <div class="page__backround">
-<h1 class="category__heading">Kategorier</h1>
+<h1 class="category-head">Kategorier</h1>
 <?php echo $list;?>
 
 <?php

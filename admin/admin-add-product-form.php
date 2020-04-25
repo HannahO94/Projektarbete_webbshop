@@ -7,12 +7,12 @@
 
 <section class="page-title-container">
 
-</section>
 
-<section class="product-form form-container">
+
     <div class="form-container__heading">
         <h1 class="page-title form-container__heading-text">Lägg till en ny produkt</h1>
     </div>
+<section class="product-form">
 
     
     <?php
