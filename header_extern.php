@@ -28,61 +28,63 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 <body>
   <header class="header__hero">
 
-      <div class="menu-wraper">
+    <div class="menu-wraper">
 
-        <!--- <div class="menu-wraper__logo-wrap">
+<div class="menu-wraper">
+      
+       <!--- <div class="menu-wraper__logo-wrap">
         <img src="" alt="Logo" />
       </div>-->
 
-        <nav class="menu_nav">
+      <nav class="menu_nav">
+      
+      <input type="checkbox" class="hamburger" >
+      <label for="label_hamburger">
+      <span class="icon-bar top-bar"></span>
+      <span class="icon-bar middle-bar"></span>
+      <span class="icon-bar bottom-bar"></span>
+      </label>
 
-          <input type="checkbox" class="hamburger">
-          <label for="label_hamburger">
-            <span class="icon-bar top-bar"></span>
-            <span class="icon-bar middle-bar"></span>
-            <span class="icon-bar bottom-bar"></span>
-          </label>
+        <ul class="menu-wraper__link-list">
 
-          <ul class="menu-wraper__link-list">
+        <li class="menu-wraper__link-item">
 
-            <li>
+          <form action="#" class="search-form">
+            <label for="search" class="search-form__label"></label>
+            <input type="text" name="search" id="search-Field" class="search-form__input-field">
+            <!--<input type="submit" id="search_btn" value="Sök">-->
+             <button id="search_btn"><a id="search-link">Sök</a></button>
+          </form> 
+          <div id="searched-result" class="search-result"></div>
+        </li>
+          
 
-              <form action="#" class="search-form">
-                <!--<label for="search" class="search-form__label">Sök</label>-->
-                <input type="text" name="search" id="search-Field" class="search-form__input-field" placeholder="Sök efter spel">
-                <!--<input type="submit" id="search_btn" value="Sök">-->
-                <button id="search_btn"><a id="search-link">Sök</a></button>
-                <div id="searched-result" class="search-result"></div>
-              </form>
-            </li>
-
-            <li class="menu-wraper__link-item">
-              <a class="menu-wraper__links" href="/index.php">HEM</a>
-            </li>
-            <li class="menu-wraper__link-item">
-              <div class="dropdown">
-                <a class="menu-wraper__links" id="dropdown-categories" href="#">KATEGORIER</a>
-
+          <li class="menu-wraper__link-item">
+            <a class="menu-wraper__links" href="/index.php">HEM</a>
+          </li>
+          <li class="menu-wraper__link-item">
+            <div class="dropdown">
+              <a class="menu-wraper__links" id="dropdown-categories" href="#">KATEGORIER</a>
                 <div class="dropdown-content">
-                  <?php
+                  <?php 
                   echo "$option_value";
                   ?>
                 </div>
-              </div>
-            </li>
-            <li class="menu-wraper__link-item">
-              <a class="menu-wraper__links" href="">KONTAKT</a>
-            </li>
-
-            <li class="menu-wraper__link-item">
-              <a class="menu-wraper__links" href="/admin/index.php">ADMIN</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-
-      <script type="application/javascript" src="/search/search.js"></script>
-
+            </div>
+          </li>
+          <li class="menu-wraper__link-item">
+            <a class="menu-wraper__links" href="">KONTAKT</a>
+          </li>
+         
+          <li class="menu-wraper__link-item">
+            <a class="menu-wraper__links" href="/admin/index.php">ADMIN</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    
+    <script type="application/javascript" src="/search/search.js"></script>
+     
   </header>
 
   <main>
