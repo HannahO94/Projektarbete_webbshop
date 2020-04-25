@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Värd: 127.0.0.1
--- Tid vid skapande: 24 apr 2020 kl 09:22
+-- Tid vid skapande: 26 apr 2020 kl 01:08
 -- Serverversion: 10.4.11-MariaDB
 -- PHP-version: 7.4.2
 
@@ -48,30 +48,6 @@ INSERT INTO `webshop_categories` (`categoryid`, `category`, `image`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabellstruktur `webshop_orderinfo`
---
-
-CREATE TABLE `webshop_orderinfo` (
-  `orderid` int(11) NOT NULL,
-  `name` varchar(50) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `phone` varchar(12) NOT NULL,
-  `street` varchar(50) NOT NULL,
-  `zip` varchar(6) NOT NULL,
-  `city` varchar(50) NOT NULL,
-  `status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumpning av Data i tabell `webshop_orderinfo`
---
-
-INSERT INTO `webshop_orderinfo` (`orderid`, `name`, `email`, `phone`, `street`, `zip`, `city`, `status`) VALUES
-(1, 'hannah', 'hannah@email.se', '0101111111', 'hejgatan 3', '15433', 'stockholm', 1);
-
--- --------------------------------------------------------
-
---
 -- Tabellstruktur `webshop_orderproducts`
 --
 
@@ -89,6 +65,32 @@ CREATE TABLE `webshop_orderproducts` (
 INSERT INTO `webshop_orderproducts` (`orderproductid`, `orderid`, `productid`, `quantity`) VALUES
 (1, 1, 15, 1),
 (3, 1, 3, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Tabellstruktur `webshop_orders`
+--
+
+CREATE TABLE `webshop_orders` (
+  `orderid` int(11) NOT NULL,
+  `orderdate` datetime NOT NULL DEFAULT current_timestamp(),
+  `name` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `phone` varchar(10) NOT NULL,
+  `street` varchar(50) NOT NULL,
+  `zip` varchar(6) NOT NULL,
+  `city` varchar(50) NOT NULL,
+  `status` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumpning av Data i tabell `webshop_orders`
+--
+
+INSERT INTO `webshop_orders` (`orderid`, `orderdate`, `name`, `email`, `phone`, `street`, `zip`, `city`, `status`) VALUES
+(1, '2020-04-25 00:00:00', 'hannah', 'hannah@email.se', '101111111', 'hejgatan 3', '15433', 'stockholm', 1),
+(6, '2020-04-25 18:57:58', 'Magdalena Sjökvist', 'magda@gmail.com', '738483921', 'Testgatan 23', '11002', 'Stockholm', 1);
 
 -- --------------------------------------------------------
 
@@ -126,7 +128,7 @@ CREATE TABLE `webshop_products` (
 INSERT INTO `webshop_products` (`productid`, `categoryid`, `title`, `description`, `price`, `quantity`, `productimg`, `date`) VALUES
 (1, 2, 'Råttfällan', 'Ett fingerfärdigt plockspel för hela familjen! Först spänns spelpjäserna fast i råttfällan, sedan gäller det att plocka upp så många som möjligt utan att fällan slår igen.', '129', 50, '', '2020-04-23 00:00:00'),
 (2, 2, 'Labyrint', 'Nu är det möjligt att svara på Daidalos utmaning på hemmaplan. Labyrintspelet bjuder på fyra utmaningar var din uppgift är att samla livspuckar. Undvik att bli slajmad av Taurus i labyrinten, ta dig över slajmsjön, para ihop korten i minnesspelet och var snabbast i byggutmaningen. Spelaren med flest livspuckar i behåll efter utmaningarna vinner spelet.', '189', 30, '', '2020-04-15 00:00:00'),
-(3, 2, 'Twister', 'Din medspelare snurrar på hjulet och du gör det som hjulet visar, t ex sätt höger fot på den blå cirkeln eller vänster fot på den gröna cirkeln. Akta så du inte slår knut på dig själv! Den som lyckas stå upp längst vinner.', '249', 80, '', '2020-04-15 00:00:00'),
+(3, 2, 'Twister', 'Din medspelare snurrar på hjulet och du gör det som hjulet visar, t ex sätt höger fot på den blå cirkeln eller vänster fot på den gröna cirkeln. Akta så du inte slår knut på dig själv! Den som lyckas stå upp längst vinner.', '249', 80, 'a:1:{i:0;s:17:\"familjespel-2.jpg\";}', '2020-04-15 00:00:00'),
 (4, 2, 'Det stora djungelloppet', 'Djungelns vildaste kapplöpning börjar snart! Slå tre tärningar och flytta antingen din elefant, din tiger eller din apa. Du måste få alla djur över mållinjen först av alla för att vinna den vilda jakten genom djungeln! Ett spel med högt tempo för barn.', '199', 3, '', '2020-04-23 00:00:00'),
 (5, 1, 'Alfapet', 'Spelglädjen växer med ordförrådet. Det är inte vem som helst som tar hem segern i Alfapet! Efter hand som spelplanen fylls, blir det allt klurigare att bilda nya ord. Det är nu som Alfapetsspelarens uthållighet, ordförråd och kreativitet ställs på prov. Tänk till, spela ut och ta poäng!', '275', 0, '', '2020-03-20 00:00:00'),
 (6, 1, 'Blokus', 'Blokus är ett enkelt och snabbspelat familjespel men även ett där strategifantasten får något att bita i. Placera ut dina enfärgade brickor på den trånga spelplanen och försök få ut fler än dina motspelare, så att du slipper minuspoängen när spelplanen inte längre rymmer era brickor!', '185', 0, '', '2020-03-20 00:00:00'),
@@ -155,18 +157,18 @@ ALTER TABLE `webshop_categories`
   ADD PRIMARY KEY (`categoryid`);
 
 --
--- Index för tabell `webshop_orderinfo`
---
-ALTER TABLE `webshop_orderinfo`
-  ADD PRIMARY KEY (`orderid`);
-
---
 -- Index för tabell `webshop_orderproducts`
 --
 ALTER TABLE `webshop_orderproducts`
   ADD PRIMARY KEY (`orderproductid`),
   ADD KEY `productid` (`productid`),
   ADD KEY `orderid` (`orderid`);
+
+--
+-- Index för tabell `webshop_orders`
+--
+ALTER TABLE `webshop_orders`
+  ADD PRIMARY KEY (`orderid`);
 
 --
 -- Index för tabell `webshop_productimages`
@@ -193,16 +195,16 @@ ALTER TABLE `webshop_categories`
   MODIFY `categoryid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT för tabell `webshop_orderinfo`
---
-ALTER TABLE `webshop_orderinfo`
-  MODIFY `orderid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
 -- AUTO_INCREMENT för tabell `webshop_orderproducts`
 --
 ALTER TABLE `webshop_orderproducts`
   MODIFY `orderproductid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT för tabell `webshop_orders`
+--
+ALTER TABLE `webshop_orders`
+  MODIFY `orderid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT för tabell `webshop_productimages`
@@ -225,7 +227,7 @@ ALTER TABLE `webshop_products`
 --
 ALTER TABLE `webshop_orderproducts`
   ADD CONSTRAINT `webshop_orderproducts_ibfk_1` FOREIGN KEY (`productid`) REFERENCES `webshop_products` (`productid`),
-  ADD CONSTRAINT `webshop_orderproducts_ibfk_2` FOREIGN KEY (`orderid`) REFERENCES `webshop_orderinfo` (`orderid`);
+  ADD CONSTRAINT `webshop_orderproducts_ibfk_2` FOREIGN KEY (`orderid`) REFERENCES `webshop_orders` (`orderid`);
 
 --
 -- Restriktioner för tabell `webshop_productimages`
