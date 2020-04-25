@@ -21,9 +21,9 @@
     height: 20px;
     padding: 15px 20px;
     margin: 10px 0;
-    border: 0.5px solid rgba(0, 0, 0, 0.637);
+    border: 3px solid rgba(0, 0, 0, 0.817);
     border-radius: 8px;
-    background-color: rgba(232, 230, 230, 0.411);
+    background-color: rgba(255, 255, 255, 0.411);
 
     @media (min-width: 768px) {
       width: 50%;
@@ -31,7 +31,11 @@
     }
     @media (min-width: 800px) {
       width: 75%;
+      font-size: 14px;
     }
+  }
+  &__input-field:focus {
+    border: 3px solid peachpuff;
   }
 }
 
@@ -50,9 +54,15 @@
 }
 
 #search_btn {
-  height: 30px;
-  width: 45px;
-  margin-top: 10px;
+  height: 40px;
+  width: 55px;
+  margin-top: 8px;
   margin-bottom: 10px;
   margin-left: 10px;
+  background-color: peachpuff;
+}
+
+#search_btn a {
+  text-align: center;
+  margin: -10px;
 }
