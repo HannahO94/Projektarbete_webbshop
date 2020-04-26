@@ -26,10 +26,9 @@ ajax.onreadystatechange = function () {
 
     //eventlistener på sökknapp
     searchBtn.addEventListener("click", function (event) {
-      console.log("click")
+      console.log("click");
       searchLink.href = "../search/index.php?id=" + productId;
     });
-
 
     //eventlistener på sökfältt
     searchField.addEventListener("input", function (event) {
@@ -43,9 +42,20 @@ ajax.onreadystatechange = function () {
       }
     });
 
-
-
-
+    /*
+    // Lyssnare som hanterar enter-tryck i searchField
+    searchField.addEventListener("keydown", function (event) {
+      // Nummer 13 är Enter-knappen
+      if (event.keyCode === 13) {
+        //Vi vill inte göra default action, dvs den action som anges i
+        //formuläret (skicka till samma sida) + lägga till värdet i
+        //searchField i url:en. T ex sök från index på rått ger:
+        //http://localhost/index.php?search=r%C3%A5tt#
+        event.preventDefault(); //får ej denna att funka
+        //Vill istället göra samma som om man skulle tryckt på sök-knappen
+        document.getElementById("searchBtn").click();
+      }
+    });*/
 
     //filtrerar och loopar igenom titel och beskrivning föra tt hitta matchning
     //om matchning hittas - skickas vidare för att ritas ut
@@ -53,7 +63,6 @@ ajax.onreadystatechange = function () {
       let searchedGame = gamesTitle.filter(function (game) {
         return game.toLowerCase().includes(searchField.value.toLowerCase());
       });
-
 
       //console.log(searchedGame);
       //töm båda arrayerna varje gång tanget trycks, annars ritas inte förfinade sökningen om
@@ -107,6 +116,4 @@ ajax.onreadystatechange = function () {
       productId.splice(0, productId.length);
     }
   }
-}
-
-
+};
