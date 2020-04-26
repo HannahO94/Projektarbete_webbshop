@@ -14,10 +14,24 @@ require_once '../config/db.php';
 <section id="shoppingcart">
 
   <h1>Din varukorg</h1>
-  <div id="cart-items" class="cart-items">
+  <!--<div id="cart-items" class="cart-items">-->
 
     <!-- Här visas produkter i varukorgen via JS -->
-
+    <table>
+      <thead>
+        <th>Produkt</th>
+        <th>Pris</th>
+        <th>Ta bort</th>
+        <th>Antal</th>
+      </thead>
+      <tbody id="shoppingCart" class="shoppingCart">
+        <!--här jobbar drawCart()-->
+      </tbody>
+    </table>
+  
+  <br>
+  <button id="empty-cart">Töm varukorgen</button>
+  <br>
 </section>
 
 

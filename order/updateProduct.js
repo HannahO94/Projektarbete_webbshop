@@ -8,7 +8,8 @@
 let myProducts = JSON.parse(localStorage.getItem("products"));
 
 //Skapa variabler för DOM-elementen som ska användas nedan
-const shoppingCart = document.querySelector("#shoppingcart");
+const shoppingCart = document.querySelector("#shoppingCart");
+const emptyCartBtn = document.querySelector("#empty-cart");
 
 drawCart();
 //Rita ut produktinfo samt knappar
@@ -32,20 +33,21 @@ function drawCart() {
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "❌";
     deleteButton.classList.add("delete");
-    deleteButton.dataset.productID = item.id;
+    deleteButton.dataset.productID = item.productid;
+    //console.log("ta bort" + deleteButton.dataset.productID);
     deleteButton.addEventListener("click", removeProduct);
 
     const minusButton = document.createElement("button");
     minusButton.textContent = "➖";
     minusButton.classList.add("minusQty");
-    minusButton.dataset.productID = item.id;
+    minusButton.dataset.productID = item.productid;
     //console.log("minus" + minusButton.dataset.productID);
     minusButton.addEventListener("click", changeQty);
 
     const plusButton = document.createElement("button");
     plusButton.textContent = "➕";
     plusButton.classList.add("plusQty");
-    plusButton.dataset.productID = item.id;
+    plusButton.dataset.productID = item.productid;
     //console.log("plus" + plusButton.dataset.productID);
     plusButton.addEventListener("click", changeQty);
 
@@ -62,16 +64,21 @@ function drawCart() {
 
 //Kan vi skapa lyssnare för ta bort-knapp respektive antal-knappar utanför drawCart?
 
+//Lyssnare till Töm varukorg som ropar på emptyCart
+emptyCartBtn.addEventListener("click", emptyCart);
+
 //Funktion för att ta bort produkt
 function removeProduct(event) {
   console.log("klick ta bort");
   const productID = parseInt(event.currentTarget.dataset.productID);
+  console.log(productID);
   const removedProducts = myProducts.filter(function (item) {
-    const itemID = item.id;
+    const itemID = parseInt(item.productid);
+    console.log(itemID);
     return itemID !== productID;
   });
   myProducts = removedProducts;
-  //updateLocalStorage();
+  updateLocalStorage();
   drawCart();
 }
 
@@ -84,7 +91,7 @@ function changeQty(event) {
   //Loopa igenom produktarrayen för att hitta det id som matchar
   //med eventets id
   for (let i = 0; i < myProducts.length; i++) {
-    const currentProductID = myProducts[i].id;
+    const currentProductID = myProducts[i].productid;
     //If-sats som jämför array-objektets id med eventets id
     if (currentProductID == productID) {
       let qty = parseInt(myProducts[i].quantity);
@@ -102,16 +109,21 @@ function changeQty(event) {
         alert("something wrong with quantity changing buttons");
       }
     }
-    //updateLocalStorage();
+    updateLocalStorage();
     drawCart();
   }
 }
 
-function emptyCart() {}
+//Töm varukorgen, används både vid "töm varukorgen" och "skicka beställning"
+function emptyCart() {
+  myProducts = [];
+  drawCart();
+  localStorage.clear(); //Kan vi ha denna här om vi ska kunna hämta varukorgen
+  //från LS när vi skickat beställning och hamnat på orderbekräftelse?
+}
 
 function updateLocalStorage() {
-  //localStorage.clear(); //Töm LS, sedan lägger vi in uppdaterad myProducts.
-
+  localStorage.clear(); //Töm LS, sedan lägger vi in uppdaterad myProducts.
   localStorage.setItem("products", JSON.stringify(myProducts)); //Spara arrayen i localStorage
 }
 
