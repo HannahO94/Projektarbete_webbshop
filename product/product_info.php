@@ -67,7 +67,10 @@ foreach ($productimg as $key => $value) {
     <p style='display:none;'>$quantity</p>
     <p style='display:none'>$productid</p>";
 
-    echo "<button id='cart-btn$productid' class='add-to-cart'>Lägg i varukorgen</button>";
+    echo "
+    <label for='cartQty'>Antal:</label>
+    <input type='number' id='cartQty' name='cartQty' min='1' max='$quantity'> 
+    <button id='cart-btn$productid' class='add-to-cart'>Lägg i varukorgen</button>";
 }
 echo "</div>";
 ?>
