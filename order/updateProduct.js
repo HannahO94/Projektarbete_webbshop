@@ -13,7 +13,7 @@ const emptyCartBtn = document.querySelector("#empty-cart");
 const orderValue = document.querySelector("#orderValue");
 
 drawCart();
-//Rita ut produktinfo samt knappar
+//Rita ut produktinfo samt knappar, dvs taggen tbody
 function drawCart() {
   //Börja med att rensa gammalt innehåll i varukorgen
   shoppingCart.innerHTML = "";
@@ -53,6 +53,7 @@ function drawCart() {
     plusButton.dataset.productID = item.productid;
     plusButton.addEventListener("click", changeQty);
 
+    //Stoppa in alla element på rätt ställe i DOM-strukturen för tbody
     productRow.appendChild(title);
     productRow.appendChild(price);
     deleteCell.appendChild(deleteButton);
@@ -96,7 +97,7 @@ function changeQty(event) {
   //med eventets id
   for (let i = 0; i < myProducts.length; i++) {
     const currentProductID = myProducts[i].productid;
-    //If-sats som jämför array-objektets id med eventets id
+    //If-sats som matchar array-objektets id mot eventets id
     if (currentProductID == productID) {
       let qty = parseInt(myProducts[i].cartQty);
       let stockQty = parseInt(myProducts[i].quantity);
@@ -114,7 +115,7 @@ function changeQty(event) {
           myProducts[i].cartQty = qty;
         }
       } else if (currentButton.classList.contains("minusQty")) {
-        //FÅr ej understiga 1, annars minska produktens antal med 1
+        //Får ej understiga 1, annars minska produktens antal med 1
         if (qty === 1) {
           alert(
             "Produkten måste ha minst antal 1, vill du ta bort produkten, tryck på det röda krysset."
@@ -124,6 +125,7 @@ function changeQty(event) {
           qty--;
           myProducts[i].cartQty = qty;
         }
+        //extrakoll - kanske onödigt?
       } else {
         alert("something wrong with quantity changing buttons");
       }
@@ -133,7 +135,7 @@ function changeQty(event) {
   }
 }
 
-//Töm varukorgen, används både vid "töm varukorgen" och "skicka beställning"
+//Töm varukorgen, används både vid "töm varukorgen" och "skicka beställning"?
 function emptyCart() {
   myProducts = [];
   drawCart();
@@ -147,6 +149,7 @@ function updateLocalStorage() {
 }
 
 //Räkna ut totalpris, görs varje gång varukorgen ritas ut
+//Får in aktuell myProducts-array som argument
 function totalPrice(arr) {
   let outputPrice = 0;
 
