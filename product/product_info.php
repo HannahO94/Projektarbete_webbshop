@@ -62,8 +62,12 @@ foreach ($productimg as $key => $value) {
     echo "<button id='cart-btn$productid' class='add-to-cart' style='background-color: grey; color: black;' disabled>Lägg i varukorgen</button>";
 } else {
     $any_items = "I lager: " . $quantity . " st";
-    echo "<div class='product__inventory' style='color: green'>" . $any_items . "</div>";
-    echo "<button id='cart-btn$productid' class='add-to-cart'><a href= '../order/orderpage.php?id=$productid'>Lägg i varukorgen</a></button>";
+    echo "<div class='product__inventory' style='color: green'>" . $any_items . "</div>
+    <p style='display:none'>$price</p>
+    <p style='display:none;'>$quantity</p>
+    <p style='display:none'>$productid</p>";
+
+    echo "<button id='cart-btn$productid' class='add-to-cart'>Lägg i varukorgen</button>";
 }
 echo "</div>";
 ?>
