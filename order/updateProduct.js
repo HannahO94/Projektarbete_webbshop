@@ -70,7 +70,6 @@ function drawCart() {
   let total = totalPrice(myProducts);
   console.log(total);
   orderValue.textContent = `Ordervärde totalt: ${total} kr `;
-
 }
 
 //Lyssnare till Töm varukorg som ropar på emptyCart
@@ -100,16 +99,31 @@ function changeQty(event) {
     //If-sats som jämför array-objektets id med eventets id
     if (currentProductID == productID) {
       let qty = parseInt(myProducts[i].cartQty);
+      let stockQty = parseInt(myProducts[i].quantity);
+      console.log(qty);
+      console.log(stockQty);
 
       //När vi får match kollar vi om knappen är minus eller plus
       if (currentButton.classList.contains("plusQty")) {
-        //öka produktens antal med 1
-        qty++;
-        myProducts[i].cartQty = qty;
+        //Får ej överstiga lagersaldo, annars öka produktens antal med 1
+        if (qty === stockQty) {
+          alert("Du kan inte lägga till fler produkter än som finns i lager.");
+          break;
+        } else {
+          qty++;
+          myProducts[i].cartQty = qty;
+        }
       } else if (currentButton.classList.contains("minusQty")) {
-        //minska produktens antal med 1
-        qty--;
-        myProducts[i].cartQty = qty;
+        //FÅr ej understiga 1, annars minska produktens antal med 1
+        if (qty === 1) {
+          alert(
+            "Produkten måste ha minst antal 1, vill du ta bort produkten, tryck på det röda krysset."
+          );
+          break;
+        } else {
+          qty--;
+          myProducts[i].cartQty = qty;
+        }
       } else {
         alert("something wrong with quantity changing buttons");
       }
