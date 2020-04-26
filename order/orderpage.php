@@ -20,7 +20,7 @@ require_once '../config/db.php';
     <table>
       <thead>
         <th>Produkt</th>
-        <th>Pris</th>
+        <th>Pris/st</th>
         <th>Ta bort</th>
         <th colspan="3">Antal</th>
       </thead>
