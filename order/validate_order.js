@@ -52,7 +52,7 @@ function validate(email) {
 
 // Validering av postnummer-fältet
 function validateZipcode() {
-  let zipcode = document.querySelector("#zipcode").value;
+  let zipcode = document.querySelector("#zip").value;
   let infoText = document.querySelector(".zipcodeValidationText");
 
   if (zipcode.length === 0) {
