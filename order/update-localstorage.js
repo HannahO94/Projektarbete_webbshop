@@ -1,7 +1,8 @@
    
 let cartBtn = document.querySelectorAll(".cart-btn");
 let productArray = []
-let arrayToSend = []
+const arrayToSend = JSON.parse(localStorage.getItem("products"));
+
     for (let j = 0; j < cartBtn.length; j++) {
       // allButtons.push(addToCartBtn[j])
       let product = cartBtn[j]
