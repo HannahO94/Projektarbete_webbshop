@@ -44,8 +44,8 @@ require_once '../config/db.php';
       <span class="emailValidationText"></span>
     </div>
 
-    <div class="order_field-mobile form-container__box">
-      <label for="mobile">Mobilnummer:</label><br>
+    <div class="order_field-phone form-container__box">
+      <label for="phone">Mobilnummer:</label><br>
       <input type="number" name="phone" id="phone" required>
     </div>
 
