@@ -65,10 +65,12 @@ function drawCart() {
 
     shoppingCart.appendChild(productRow);
   });
+
   //Räkna ut totalpris
   let total = totalPrice(myProducts);
   console.log(total);
   orderValue.textContent = `Ordervärde totalt: ${total} kr `;
+
 }
 
 //Lyssnare till Töm varukorg som ropar på emptyCart
