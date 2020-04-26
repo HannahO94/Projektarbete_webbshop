@@ -10,7 +10,7 @@ let myProducts = JSON.parse(localStorage.getItem("products"));
 //Skapa variabler för DOM-elementen som ska användas nedan
 const shoppingCart = document.querySelector("#shoppingcart");
 
-drawCart();
+//drawCart();
 //Rita ut produktinfo samt knappar
 function drawCart() {
   //Börja med att rensa gammalt innehåll i varukorgen
@@ -21,10 +21,10 @@ function drawCart() {
 
     const title = document.createElement("td");
     title.textContent = item.title;
-    console.log(item.title);
+    //console.log(item.title);
     const price = document.createElement("td");
     price.textContent = item.price;
-    console.log(item.price);
+    //console.log(item.price);
 
     const quantity = document.createElement("td");
     quantity.textContent = item.quantity;
@@ -60,36 +60,36 @@ function drawCart() {
   });
 }
 
-//Skapa lyssnare för ta bort-knapp respektive antal-knappar?
-//I dessa lyssnare anropas vid event respektive "mini-funktion"?
-//Kan vi skapa dessa lyssnare utanför drawCart?
+//Kan vi skapa lyssnare för ta bort-knapp respektive antal-knappar utanför drawCart?
 
 //Funktion för att ta bort produkt
 function removeProduct(event) {
+  console.log("klick ta bort");
   const productID = parseInt(event.currentTarget.dataset.productID);
   const removedProducts = myProducts.filter(function (item) {
     const itemID = item.id;
     return itemID !== productID;
   });
   myProducts = removedProducts;
-  //updateLocalStorage()
+  //updateLocalStorage();
   drawCart();
 }
 
 //Funktion för att ändra antal på produkt
 function changeQty(event) {
+  console.log("klick ändra antal");
   let productID = parseInt(event.currentTarget.dataset.productID);
   let currentButton = event.currentTarget;
+
   //Loopa igenom produktarrayen för att hitta det id som matchar
   //med eventets id
-  //Detta kanske kan skötas med filter ist f en for-loop?
   for (let i = 0; i < myProducts.length; i++) {
     const currentProductID = myProducts[i].id;
     //If-sats som jämför array-objektets id med eventets id
     if (currentProductID == productID) {
       let qty = parseInt(myProducts[i].quantity);
 
-      //När vi får match kollar vi om knappen är minus eller plus med ytterligare if-sats
+      //När vi får match kollar vi om knappen är minus eller plus
       if (currentButton.classList.contains("plusQty")) {
         //öka produktens antal med 1
         qty++;
@@ -102,7 +102,17 @@ function changeQty(event) {
         alert("something wrong with quantity changing buttons");
       }
     }
-    //updateLocalStorage()
+    //updateLocalStorage();
     drawCart();
   }
 }
+
+function emptyCart() {}
+
+function updateLocalStorage() {
+  //localStorage.clear(); //Töm LS, sedan lägger vi in uppdaterad myProducts.
+
+  localStorage.setItem("products", JSON.stringify(myProducts)); //Spara arrayen i localStorage
+}
+
+function totalPrice() {}
