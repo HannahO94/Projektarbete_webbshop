@@ -72,20 +72,20 @@ else {
           // console.log(parent.childNodes[y])
           productcard = parent.children[y].textContent
           prodarray.push(productcard)
-          console.log(prodarray)
+          // console.log(prodarray)
         
         }
             product = {
                       title: prodarray[0],
-                      price: prodarray[3],
-                      quantity: prodarray[4],
-                      productid: prodarray[5]
+                      price: prodarray[5],
+                      quantity: prodarray[6],
+                      productid: prodarray[7]
                     };
                   
       
               
             
-            // console.log(product.title, product.price, product.quantity, product.productid)
+            console.log(product.title, product.price, product.quantity, product.productid)
             arrayToSend.push(product)
             productArray = []
             // console.log(arrayToSend)
