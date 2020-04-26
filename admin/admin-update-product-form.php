@@ -1,6 +1,6 @@
 <!---Formulär för uppdatera produkt--->
 
-<section class="admin_container ">
+<section class="form_container">
 
 <h1 class="page-title form-container__heading-text">Uppdatera produkt</h1>
 <form action="#" method="POST" enctype="multipart/form-data" class="form-container">

@@ -8,24 +8,27 @@ function validateName() {
 	let name = document.querySelector("#name").value
 	let infoText = document.querySelector(".nameValidationText")
 
-	if (name.length === 0) {
-		infoText.innerHTML = "OBS! Obligatorisk fält"
-	} else if (!isNaN(name)) {
-		infoText.innerHTML = "OBS! Endast text tillåtet"
-	} else if (name.length > 20) {
-		infoText.innerHTML = "OBS! Otillåtet med fler än 20 tecken"
-	} else if (name.length < 2) {
-		infoText.innerHTML = "OBS! Måste skriva mer än 2 tecken"
-	} else {
-		infoText.innerHTML = ""
-		return true
-	}
-	return false
+  if (name.length === 0) {
+    infoText.innerHTML = "OBS! Obligatorisk fält";
+  } else if (!validate(name)) {
+    infoText.innerHTML = "OBS! Ogiltigt namn";
+  } else if (!isNaN(name)) {
+    infoText.innerHTML = "OBS! Endast text tillåtet";
+  } else if (name.length > 20) {
+    infoText.innerHTML = "OBS! Otillåtet med fler än 20 tecken";
+  } else if (name.length < 2) {
+    infoText.innerHTML = "OBS! Måste skriva mer än 2 tecken";
+  } else {
+    infoText.innerHTML = "";
+    return true;
+  }
+  return false;
 }
-// function validate(name) {
-//   let re = /^[\w'\-,.]*[^_!¡?÷?¿\/\\+=@#$%ˆ&*(){}|~<>;:[\]]*$/;
-//   return re.test(name);
-// }
+
+function validate(name) {
+  let re = /^[A-Za-z\x{00C0}-\x{00FF}][A-Za-z\x{00C0}-\x{00FF}\'\-]+([\ A-Za-z\x{00C0}-\x{00FF}][A-Za-z\x{00C0}-\x{00FF}\'\-]+)*/u;
+  return re.test(name);
+}
 
 // Validering av mailadressen
 function validateEmail() {
@@ -43,7 +46,7 @@ function validateEmail() {
 	}
 }
 function validate(email) {
-  let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  let re = /^(([^<>()\[\]\\%.,;:\s@"]+(\.[^<>()\[\]\\%.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(String(email).toLowerCase());
 }
 

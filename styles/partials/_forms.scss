@@ -2,14 +2,14 @@
 //   padding: 5% 10% 5% 10%;
 // }
 
-.admin_container {
-  background-color: #ffffff;
-  font-family: "Kulim Park", sans-serif;
+// .admin_container {
+//   background-color: #ffffff;
+//   font-family: "Kulim Park", sans-serif;
 
-  @media (min-width: 1100px) {
-    margin: 0 15%;
-  }
-}
+//   @media (min-width: 1100px) {
+//     margin: 0 10%;
+//   }
+// }
 .page-title {
   font-size: 26px;
   text-transform: uppercase;
@@ -23,16 +23,18 @@
 .form-container {
   font-family: "Kulim Park", sans-serif;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   background-color: #ffe4e1;
   margin-bottom: 10%;
   padding: 8%;
   border-radius: 5px;
   // box-shadow: -2px 2px 6px 0px rgba(201,199,201,1);
   @media (min-width: 600px) {
+    min-width: 600px;
   }
   @media (min-width: 1000px) {
     padding: 5%;
+    min-width: 800px;
   }
   &__heading {
     width: 100%;
@@ -98,7 +100,7 @@
     margin-top: 1rem;
     padding-top: 15px;
     @media (min-width: 600px) {
-      width: 40%;
+      width: 70%;
     }
     @media (min-width: 1000px) {
       width: 40%;
@@ -145,4 +147,8 @@ label {
   @media (min-width: 500px) {
     font-size: 18px;
   }
+}
+
+.update_category-box {
+  width: 80%;
 }
