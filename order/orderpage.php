@@ -76,7 +76,7 @@ require_once '../config/db.php';
 
 </section>
 
-<script type="application/javascript" src="orderConfirmation.js"></script>
+<!-- <script type="application/javascript" src="orderConfirmation.js"></script> -->
 
 <script type="application/javascript" src="validate_order.js"></script>
 <script type="application/javascript" src="updateProduct.js"></script>

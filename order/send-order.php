@@ -83,9 +83,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') :
     foreach ($error as $e) {
       $errors .= "<div class='error'><p> $e </p></div><br />";
     }
-  } else {
-    echo "<div class='suc'><p> Din order är skickad!</p></div>";
   }
+// else {
+//   echo "<div class='suc'><p> Din order är skickad!</p></div>";
+// }
+
 endif;
 
 function test_input($data)
@@ -97,7 +99,7 @@ function test_input($data)
 }
 ?>
 
-<!-- <script type="application/javascript" src="orderConfirmation.js"></script> -->
+<script type="application/javascript" src="orderConfirmation.js"></script>
 
 <?php
 require_once "orderConfirmation.php";
