@@ -10,6 +10,7 @@ let myProducts = JSON.parse(localStorage.getItem("products"));
 //Skapa variabler för DOM-elementen som ska användas nedan
 const shoppingCart = document.querySelector("#shoppingCart");
 const emptyCartBtn = document.querySelector("#empty-cart");
+const orderValue = document.querySelector("#orderValue");
 
 drawCart();
 //Rita ut produktinfo samt knappar
@@ -22,10 +23,8 @@ function drawCart() {
 
     const title = document.createElement("td");
     title.textContent = item.title;
-    //console.log(item.title);
     const price = document.createElement("td");
     price.textContent = item.price;
-    //console.log(item.price);
 
     const quantity = document.createElement("td");
     quantity.textContent = item.quantity;
@@ -34,21 +33,18 @@ function drawCart() {
     deleteButton.textContent = "❌";
     deleteButton.classList.add("delete");
     deleteButton.dataset.productID = item.productid;
-    //console.log("ta bort" + deleteButton.dataset.productID);
     deleteButton.addEventListener("click", removeProduct);
 
     const minusButton = document.createElement("button");
     minusButton.textContent = "➖";
     minusButton.classList.add("minusQty");
     minusButton.dataset.productID = item.productid;
-    //console.log("minus" + minusButton.dataset.productID);
     minusButton.addEventListener("click", changeQty);
 
     const plusButton = document.createElement("button");
     plusButton.textContent = "➕";
     plusButton.classList.add("plusQty");
     plusButton.dataset.productID = item.productid;
-    //console.log("plus" + plusButton.dataset.productID);
     plusButton.addEventListener("click", changeQty);
 
     productRow.appendChild(title);
@@ -60,21 +56,19 @@ function drawCart() {
 
     shoppingCart.appendChild(productRow);
   });
+  //Räkna ut totalpris
+  let total = totalPrice(myProducts);
+  orderValue.textContent = `Ordervärde totalt: ${total} kr `;
 }
-
-//Kan vi skapa lyssnare för ta bort-knapp respektive antal-knappar utanför drawCart?
 
 //Lyssnare till Töm varukorg som ropar på emptyCart
 emptyCartBtn.addEventListener("click", emptyCart);
 
 //Funktion för att ta bort produkt
 function removeProduct(event) {
-  console.log("klick ta bort");
   const productID = parseInt(event.currentTarget.dataset.productID);
-  console.log(productID);
   const removedProducts = myProducts.filter(function (item) {
     const itemID = parseInt(item.productid);
-    console.log(itemID);
     return itemID !== productID;
   });
   myProducts = removedProducts;
@@ -84,7 +78,6 @@ function removeProduct(event) {
 
 //Funktion för att ändra antal på produkt
 function changeQty(event) {
-  console.log("klick ändra antal");
   let productID = parseInt(event.currentTarget.dataset.productID);
   let currentButton = event.currentTarget;
 
@@ -124,7 +117,17 @@ function emptyCart() {
 
 function updateLocalStorage() {
   localStorage.clear(); //Töm LS, sedan lägger vi in uppdaterad myProducts.
-  localStorage.setItem("products", JSON.stringify(myProducts)); //Spara arrayen i localStorage
+  localStorage.setItem("products", JSON.stringify(myProducts));
 }
 
-function totalPrice() {}
+//Räkna ut totalpris, görs varje gång varukorgen ritas ut
+function totalPrice(arr) {
+  let outputPrice = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    const qty = parseInt(arr[i].quantity);
+    const price = parseInt(arr[i].price);
+    outputPrice += qty * price;
+  }
+  return outputPrice;
+}
