@@ -1,10 +1,9 @@
 <?php
 require_once "../header_extern.php";
-require_once "../config/db.php";
-
+require_once "send-order.php";
 
 //HÄMTA KUNDUPPGIFTER FRÅN DATABASEN 
-//ELLER är det bättre att hämta från formuläret med eventlistener? (Se filen orderConfirmation.js)
+//ELLER är det bättre att hämta från formuläret med eventlistener? (Se filen show-order-details.js)
 
 // Hämta orderid (hur då??)
 //$id = htmlspecialchars($_GET['id']);
@@ -38,7 +37,6 @@ require_once "../config/db.php";
 // $zip = htmlspecialchars($row['zip']);
 // $city = htmlspecialchars($row['city']);
 
-// 
 ?>
 
 
@@ -47,9 +45,14 @@ require_once "../config/db.php";
 
 <section class="order-info">
   <h2>Din beställning</h2>
-
-  <h4>Ditt ordernummer: </h4>
-  <h4>Beställningsdatum: </h4>
+  <br>
+  <!--Här kanske vi hellre vill rita ut ordernr, datum och totalpris som en tabell?
+Likt den för produkterna? -->
+  <h3>Ditt ordernummer: </h3>
+  <br>
+  <h3>Beställningsdatum: </h3>
+  <br>
+  <h3 id="order-total-price"></h3>
   <br>
   <table>
     <thead>
@@ -57,21 +60,21 @@ require_once "../config/db.php";
       <th>Antal</th>
       <th>Pris</th>
     </thead>
-    <tbody id="ordered-products" class="">
-      <!--här jobbar getOrderedProducts()-->
+    <tbody id="product-container" class="">
+      <!--här hämtas beställda produkter från localstorage 
+    och ritas ut med hjälp av funktionen drawOrderedProducts()-->
     </tbody>
   </table>
+
   <br>
 </section>
 
-<section class="customer-info">
+<section id="contact-container">
   <h2>Dina kontaktuppgifter</h2>
   <br>
   <!--här hämtas kund/kontaktdetaljer från orderformuläret-->
   <div id="customer-info"></div>
 </section>
-
-<script type="application/javascript" src="orderConfirmation.js"></script>
 
 
 <?php

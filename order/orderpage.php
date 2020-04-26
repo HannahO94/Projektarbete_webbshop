@@ -41,7 +41,7 @@ require_once '../config/db.php';
 
   <h1>Dina uppgifter</h1>
 
-  <form action="send-order.php" method="POST" id="contact-form" class="form-container">
+  <form action="order-confirmation.php" method="POST" id="contact-form" class="form-container">
     <!-- <form action="send-order.php" method="POST" id="contact-form" class="form-container" onsubmit="return validateForm(event)"> -->
     <!--FK: Formulärvalideringen (som hämtas från validate_order.js) verkar funka 
     utan onsubmit-anrop inuti form-taggen. Därav den utkommenterade kodraden ovan-->
@@ -94,7 +94,7 @@ require_once '../config/db.php';
 
 </section>
 
-<!-- <script type="application/javascript" src="orderConfirmation.js"></script> -->
+<!-- <script type="application/javascript" src="show-order-details.js"></script> -->
 
 <!--<script type="application/javascript" src="validate_order.js"></script>
 <script type="application/javascript" src="updateProduct.js"></script>-->

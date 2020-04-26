@@ -1,14 +1,16 @@
 <?php
-
 require_once "../config/db.php";
 
-
 $errors = "";
-
 $error = array();
 $name = $email = $phone = $street = $zip = $city = $status = "";
 
+//Lyssnar efter POST-request
 if ($_SERVER['REQUEST_METHOD'] === 'POST') :
+
+  //Kontrollerar för varje fält om det är ifyllt eller tomt
+  //FRÅGA: Är det inte nödvändigt med validering här om vi använder javascript-validering?
+  //Blir funktionen test_input överflödig då? (se funktionen längst ner)
 
   if (empty($_POST['name'])) {
     $error[] =  "Du måste ange namn";
@@ -33,7 +35,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') :
   } else if (isset($_POST['phone'])) {
     $phone = $_POST['phone'];
   }
-
 
   if (empty($_POST['street'])) {
     $error[] =  "Du måste ange gatuadress";
@@ -99,8 +100,4 @@ function test_input($data)
 }
 ?>
 
-<script type="application/javascript" src="orderConfirmation.js"></script>
-
-<?php
-require_once "orderConfirmation.php";
-?>
+<!-- require_once "order-confirmation.php";  -->
