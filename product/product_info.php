@@ -69,7 +69,7 @@ foreach ($productimg as $key => $value) {
 
     echo "
     <label for='cartQty'>Antal:</label>
-    <input type='number' id='cartQty' name='cartQty' min='1' max='$quantity'> 
+    <input type='number' id='cartQty' name='cartQty' min='1' max='$quantity' value='1'> 
     <button id='cart-btn$productid' class='add-to-cart'>Lägg i varukorgen</button>";
 }
 echo "</div>";

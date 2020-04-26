@@ -89,7 +89,7 @@ $category = htmlspecialchars($rowCategory['category']);
                     <p style='display:none'>$productid</p>
 
                     <label for='cartQty'>Antal:</label>
-                    <input type='number' id='cartQty' name='cartQty' min='1' max='$quantity'> 
+                    <input type='number' id='cartQty' name='cartQty' min='1' max='$quantity' value='1'> 
                   
                     <button class='cart-btn product_card-btn'>Lägg i varukorg</button>
                 </div>";
@@ -110,7 +110,7 @@ $category = htmlspecialchars($rowCategory['category']);
                     <p style='display:none'>$productid</p>
 
                     <label for='cartQty'>Antal:</label>
-                    <input type='number' id='cartQty' name='cartQty' min='1' max='$quantity'> 
+                    <input type='number' id='cartQty' name='cartQty' min='1' max='$quantity' value='1'> 
           
                     <button class='cart-btn product_card-btn'>Lägg i varukorg</button>
                 </div>";
@@ -128,7 +128,7 @@ $category = htmlspecialchars($rowCategory['category']);
                 <p style='display:none'>$productid</p>
 
                 <label for='cartQty'>Antal:</label>
-                <input type='number' id='cartQty' name='cartQty' min='1' max='$quantity'> 
+                <input type='number' id='cartQty' name='cartQty' min='1' max='$quantity' value='1'> 
 
                 <button id='$productid' class='cart-btn product_card-btn'>Lägg i varukorg</a></button>
             
