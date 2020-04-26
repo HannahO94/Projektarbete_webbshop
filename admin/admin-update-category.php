@@ -113,17 +113,17 @@ function test_input($data) {
     return $data;
   }
 ?>
-<div class="form-container__heading">
-        <h3 class="form-container__heading-text">Uppdatera kategori</h3>
-</div>
-<section class="form-container">
+<section class="form_container">
+
+        <h3 class="page-title form-container__heading-text">Uppdatera kategori</h3>
+
 <form action="#" method="POST" enctype="multipart/form-data" class="form-container">
     <div class="form-container__box">
     <label for="category">Namn på kategori: </label><br>
-        <input type="text" value='<?php echo $category; ?>' name="category" class="form-container__box-input">
+        <input type="text" value='<?php echo $category; ?>' name="category" class="form-container__box-input update_category-box">
         <p class="error"><?php echo $nameErr;?></p>
     </div>
-    <div class="form-container__image">
+    <div class="form-container__image update_category-box">
         <label for="image">Ladda upp en bild:</label><br>
         <input type="file" name="image" class="form-container__image-input">     
         <?php echo $msg; ?>
