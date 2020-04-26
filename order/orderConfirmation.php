@@ -42,36 +42,37 @@ require_once "../config/db.php";
 ?>
 
 
-
-
 <h1>Orderbekräftelse</h1>
+<br>
 
-<p>Ordernummer</p>
-<p>Orderdatum</p>
+<section class="order-info">
+  <h2>Din beställning</h2>
 
-<h2>Beställda produkter</h2>
-<table>
-  <thead>
-    <th>Produkt</th>
-    <th>Pris</th>
-    <th>Antal</th>
-    <th>Osv</th>
-  </thead>
-  <tbody id="ordered-products" class="">
-    <!--här jobbar getOrderedProducts()-->
-  </tbody>
+  <h4>Ditt ordernummer: </h4>
+  <h4>Beställningsdatum: </h4>
+  <br>
+  <table>
+    <thead>
+      <th>Produkt</th>
+      <th>Antal</th>
+      <th>Pris</th>
+    </thead>
+    <tbody id="ordered-products" class="">
+      <!--här jobbar getOrderedProducts()-->
+    </tbody>
+  </table>
+  <br>
+</section>
 
-  <h2>Kunduppgifter</h2>
-
+<section class="customer-info">
+  <h2>Dina kontaktuppgifter</h2>
+  <br>
   <!--här hämtas kund/kontaktdetaljer från orderformuläret-->
-  <div id="contact-details"></div>
-
-</table>
+  <div id="customer-info"></div>
+</section>
 
 <script type="application/javascript" src="orderConfirmation.js"></script>
-</body>
 
-</html>
 
 <?php
 require_once "../footer.php"
