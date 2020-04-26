@@ -26,8 +26,12 @@ function drawCart() {
     const price = document.createElement("td");
     price.textContent = item.price;
 
+    //Här vill jag istället kunna hämta cartQty
+    //Ett värde som läggs till i produktobjektet som ska in i LS
+    //Antingen default 1 eller att det hämtar värde från ett inputfält
     const quantity = document.createElement("td");
-    quantity.textContent = item.quantity;
+    //quantity.textContent = item.quantity;
+    quantity.textContent = item.cartQty;
 
     const deleteCell = document.createElement("td");
     const deleteButton = document.createElement("button");
