@@ -338,8 +338,8 @@ input[type="checkbox"]:checked + label .bottom-bar {
 
 @media (min-width: 1100px) {
   .menu-wraper__link-item:first-child {
-    margin-right: 480px;
-    margin-left: 20px;
+    float: right;
+    margin-right: 300px;
   }
 }
 
@@ -366,7 +366,7 @@ input[type="checkbox"]:checked + label .bottom-bar {
 
 @media (min-width: 800px) {
   .menu-wraper__links {
-    padding: 30px;
+    padding: 20px;
   }
 }
 
@@ -392,7 +392,7 @@ input[type="checkbox"]:checked + label .bottom-bar {
 @media (min-width: 500px) {
   #dropdown-categories {
     font-size: 20px;
-    padding: 16px;
+    padding: 20px;
   }
 }
 
