@@ -28,9 +28,11 @@ require_once '../config/db.php';
         <!--här jobbar drawCart()-->
       </tbody>
     </table>
-  
+    <br>
+    <h3 id="orderValue"></h3>
   <br>
   <button id="empty-cart">Töm varukorgen</button>
+  <br>
   <br>
 </section>
 
