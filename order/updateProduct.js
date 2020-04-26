@@ -1,15 +1,16 @@
-//Tillfällig testarray, ska egentligen vara array med varukorg från LS
-// let myProducts = [
-//   { id: 1, title: "Alias", price: 100, quantity: 2 },
-//   { id: 2, title: "Råttfällan", price: 250, quantity: 4 },
-//   { id: 3, title: "Labyrint", price: 150, quantity: 1 },
-// ];
+/*** 
+Denna fil ritar ut varukorgen utifrån vår array i LS.
+Här finns även småfunktioner för att modifiera varukorgen
+på olika sätt och samtidigt uppdatera localstorage.
+***/
 
+//Hämta produktarray från Localstorage
 let myProducts = JSON.parse(localStorage.getItem("products"));
 
 //Skapa variabler för DOM-elementen som ska användas nedan
 const shoppingCart = document.querySelector("#shoppingCart");
 const emptyCartBtn = document.querySelector("#empty-cart");
+const orderValue = document.querySelector("#orderValue");
 
 drawCart();
 //Rita ut produktinfo samt knappar
@@ -22,59 +23,62 @@ function drawCart() {
 
     const title = document.createElement("td");
     title.textContent = item.title;
-    //console.log(item.title);
     const price = document.createElement("td");
-    price.textContent = item.price;
-    //console.log(item.price);
+    price.textContent = `${item.price} kr`;
 
+    //Här hämtas cartQty
+    //Ett värde som läggs till i produktobjektet som sparas i LS
+    //Antingen default 1 eller att det hämtar värde från ett inputfält
     const quantity = document.createElement("td");
-    quantity.textContent = item.quantity;
+    quantity.textContent = item.cartQty;
 
+    const deleteCell = document.createElement("td");
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "❌";
     deleteButton.classList.add("delete");
     deleteButton.dataset.productID = item.productid;
-    //console.log("ta bort" + deleteButton.dataset.productID);
     deleteButton.addEventListener("click", removeProduct);
 
+    const minusCell = document.createElement("td");
     const minusButton = document.createElement("button");
     minusButton.textContent = "➖";
     minusButton.classList.add("minusQty");
     minusButton.dataset.productID = item.productid;
-    //console.log("minus" + minusButton.dataset.productID);
     minusButton.addEventListener("click", changeQty);
 
+    const plusCell = document.createElement("td");
     const plusButton = document.createElement("button");
     plusButton.textContent = "➕";
     plusButton.classList.add("plusQty");
     plusButton.dataset.productID = item.productid;
-    //console.log("plus" + plusButton.dataset.productID);
     plusButton.addEventListener("click", changeQty);
 
     productRow.appendChild(title);
     productRow.appendChild(price);
-    productRow.appendChild(deleteButton);
-    productRow.appendChild(minusButton);
+    deleteCell.appendChild(deleteButton);
+    productRow.appendChild(deleteCell);
+    minusCell.appendChild(minusButton);
+    productRow.appendChild(minusCell);
     productRow.appendChild(quantity);
-    productRow.appendChild(plusButton);
+    plusCell.appendChild(plusButton);
+    productRow.appendChild(plusCell);
 
     shoppingCart.appendChild(productRow);
   });
+  //Räkna ut totalpris
+  let total = totalPrice(myProducts);
+  console.log(total);
+  orderValue.textContent = `Ordervärde totalt: ${total} kr `;
 }
-
-//Kan vi skapa lyssnare för ta bort-knapp respektive antal-knappar utanför drawCart?
 
 //Lyssnare till Töm varukorg som ropar på emptyCart
 emptyCartBtn.addEventListener("click", emptyCart);
 
 //Funktion för att ta bort produkt
 function removeProduct(event) {
-  console.log("klick ta bort");
   const productID = parseInt(event.currentTarget.dataset.productID);
-  console.log(productID);
   const removedProducts = myProducts.filter(function (item) {
     const itemID = parseInt(item.productid);
-    console.log(itemID);
     return itemID !== productID;
   });
   myProducts = removedProducts;
@@ -84,7 +88,6 @@ function removeProduct(event) {
 
 //Funktion för att ändra antal på produkt
 function changeQty(event) {
-  console.log("klick ändra antal");
   let productID = parseInt(event.currentTarget.dataset.productID);
   let currentButton = event.currentTarget;
 
@@ -94,17 +97,17 @@ function changeQty(event) {
     const currentProductID = myProducts[i].productid;
     //If-sats som jämför array-objektets id med eventets id
     if (currentProductID == productID) {
-      let qty = parseInt(myProducts[i].quantity);
+      let qty = parseInt(myProducts[i].cartQty);
 
       //När vi får match kollar vi om knappen är minus eller plus
       if (currentButton.classList.contains("plusQty")) {
         //öka produktens antal med 1
         qty++;
-        myProducts[i].quantity = qty;
+        myProducts[i].cartQty = qty;
       } else if (currentButton.classList.contains("minusQty")) {
         //minska produktens antal med 1
         qty--;
-        myProducts[i].quantity = qty;
+        myProducts[i].cartQty = qty;
       } else {
         alert("something wrong with quantity changing buttons");
       }
@@ -124,7 +127,17 @@ function emptyCart() {
 
 function updateLocalStorage() {
   localStorage.clear(); //Töm LS, sedan lägger vi in uppdaterad myProducts.
-  localStorage.setItem("products", JSON.stringify(myProducts)); //Spara arrayen i localStorage
+  localStorage.setItem("products", JSON.stringify(myProducts));
 }
 
-function totalPrice() {}
+//Räkna ut totalpris, görs varje gång varukorgen ritas ut
+function totalPrice(arr) {
+  let outputPrice = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    const qty = parseInt(arr[i].cartQty);
+    const price = parseInt(arr[i].price);
+    outputPrice += qty * price;
+  }
+  return outputPrice;
+}
