@@ -1,10 +1,10 @@
-//Tillfällig testarray, ska egentligen vara array med varukorg från LS
-// let myProducts = [
-//   { id: 1, title: "Alias", price: 100, quantity: 2 },
-//   { id: 2, title: "Råttfällan", price: 250, quantity: 4 },
-//   { id: 3, title: "Labyrint", price: 150, quantity: 1 },
-// ];
+/*** 
+Denna fil ritar ut varukorgen utifrån vår array i LS.
+Här finns även småfunktioner för att modifiera varukorgen
+på olika sätt och samtidigt uppdatera localstorage.
+***/
 
+//Hämta produktarray från Localstorage
 let myProducts = JSON.parse(localStorage.getItem("products"));
 
 //Skapa variabler för DOM-elementen som ska användas nedan
@@ -24,13 +24,12 @@ function drawCart() {
     const title = document.createElement("td");
     title.textContent = item.title;
     const price = document.createElement("td");
-    price.textContent = item.price;
+    price.textContent = `${item.price} kr`;
 
-    //Här vill jag istället kunna hämta cartQty
-    //Ett värde som läggs till i produktobjektet som ska in i LS
+    //Här hämtas cartQty
+    //Ett värde som läggs till i produktobjektet som sparas i LS
     //Antingen default 1 eller att det hämtar värde från ett inputfält
     const quantity = document.createElement("td");
-    //quantity.textContent = item.quantity;
     quantity.textContent = item.cartQty;
 
     const deleteCell = document.createElement("td");
@@ -68,6 +67,7 @@ function drawCart() {
   });
   //Räkna ut totalpris
   let total = totalPrice(myProducts);
+  console.log(total);
   orderValue.textContent = `Ordervärde totalt: ${total} kr `;
 }
 
@@ -97,17 +97,17 @@ function changeQty(event) {
     const currentProductID = myProducts[i].productid;
     //If-sats som jämför array-objektets id med eventets id
     if (currentProductID == productID) {
-      let qty = parseInt(myProducts[i].quantity);
+      let qty = parseInt(myProducts[i].cartQty);
 
       //När vi får match kollar vi om knappen är minus eller plus
       if (currentButton.classList.contains("plusQty")) {
         //öka produktens antal med 1
         qty++;
-        myProducts[i].quantity = qty;
+        myProducts[i].cartQty = qty;
       } else if (currentButton.classList.contains("minusQty")) {
         //minska produktens antal med 1
         qty--;
-        myProducts[i].quantity = qty;
+        myProducts[i].cartQty = qty;
       } else {
         alert("something wrong with quantity changing buttons");
       }
@@ -135,7 +135,7 @@ function totalPrice(arr) {
   let outputPrice = 0;
 
   for (let i = 0; i < arr.length; i++) {
-    const qty = parseInt(arr[i].quantity);
+    const qty = parseInt(arr[i].cartQty);
     const price = parseInt(arr[i].price);
     outputPrice += qty * price;
   }
