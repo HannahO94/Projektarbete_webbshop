@@ -25,21 +25,21 @@ require_once '../config/db.php';
 
   <h1>Dina uppgifter</h1>
 
-  <form action="send-order.php" method="POST" id="contact-form" class="form-container">
-    <!-- <form action="#" method="POST" id="contact-form" class="form-container" onsubmit="return validateForm(event)">
- -->
+  <!-- <form action="send-order.php" method="POST" id="contact-form" class="form-container"> -->
+  <form action="#" method="POST" id="contact-form" class="form-container" onsubmit="return validateForm(event)">
+
     <div class="order_field-name form-container__box">
       <label for="name">För- och efternamn:</label><br>
-      <input type="text" name="name" id="name" required>
-      <!-- <input type="text" name="name" id="name" onblur="validateName()" required> -->
+      <!-- <input type="text" name="name" id="name" required> -->
+      <input type="text" name="name" id="name" onblur="validateName()" required>
       <br>
       <span class="nameValidationText"></span>
     </div>
 
     <div class="order_field-email form-container__box">
       <label for="email">E-post:</label><br>
-      <input type="text" name="email" id="email" required>
-      <!-- <input type="text" name="email" id="email" onblur="validateEmail()" required> -->
+      <!-- <input type="text" name="email" id="email" required> -->
+      <input type="text" name="email" id="email" onblur="validateEmail()" required>
       <br>
       <span class="emailValidationText"></span>
     </div>
@@ -56,8 +56,8 @@ require_once '../config/db.php';
 
     <div class="order_field-postalcode form-container__box">
       <label for="zip">Postnr:</label><br>
-      <input type="number" name="zip" id="zip" required>
-      <!-- <input type="number" name="zip" id="zip" onblur="validateZipcode()" required> -->
+      <!-- <input type="number" name="zip" id="zip" required> -->
+      <input type="number" name="zip" id="zip" onblur="validateZipcode()" required>
       <br>
       <span class="zipcodeValidationText"></span>
     </div>
