@@ -10,7 +10,7 @@ let myProducts = JSON.parse(localStorage.getItem("products"));
 //Skapa variabler för DOM-elementen som ska användas nedan
 const shoppingCart = document.querySelector("#shoppingcart");
 
-//drawCart();
+drawCart();
 //Rita ut produktinfo samt knappar
 function drawCart() {
   //Börja med att rensa gammalt innehåll i varukorgen
@@ -58,6 +58,7 @@ function drawCart() {
 
     shoppingCart.appendChild(productRow);
   });
+  
 }
 
 //Kan vi skapa lyssnare för ta bort-knapp respektive antal-knappar utanför drawCart?
