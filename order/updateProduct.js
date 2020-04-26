@@ -4,7 +4,9 @@
 //   { id: 2, title: "Råttfällan", price: 250, quantity: 4 },
 //   { id: 3, title: "Labyrint", price: 150, quantity: 1 },
 // ];
+
 let myProducts = JSON.parse(localStorage.getItem("products"));
+
 //Skapa variabler för DOM-elementen som ska användas nedan
 const shoppingCart = document.querySelector("#shoppingcart");
 
