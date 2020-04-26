@@ -16,7 +16,7 @@ require_once '../config/db.php';
   <h1>Din varukorg</h1>
   <!--<div id="cart-items" class="cart-items">-->
 
-  <!-- Här visas produkter i varukorgen via JS -->
+  <!--Här visas produkter i varukorgen via JS -->
   <table>
     <thead>
       <th>Produkt</th>
