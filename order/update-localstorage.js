@@ -19,10 +19,10 @@ for (let j = 0; j < cartBtn.length; j++) {
     for (let i = 0; i < parent.children.length; i++) {
       productcard = parent.children[i].textContent;
       productArray.push(productcard);
-      console.log(productcard);
+      // console.log(productcard);
     }
     console.log(productArray.length);
-    if (productArray.length === 7) {
+    if (productArray.length === 9) {
       product = {
         cartQty: 1,
         title: productArray[0],
@@ -30,7 +30,7 @@ for (let j = 0; j < cartBtn.length; j++) {
         quantity: productArray[4],
         productid: productArray[5],
       };
-    } else if (productArray.length === 8) {
+    } else if (productArray.length === 10) {
       product = {
         cartQty: 1,
         title: productArray[1],
@@ -38,7 +38,7 @@ for (let j = 0; j < cartBtn.length; j++) {
         quantity: productArray[5],
         productid: productArray[6],
       };
-    } else if (productArray.length === 10) {
+    } else if (productArray.length === 12) {
       product = {
         cartQty: 1,
         title: productArray[1],
