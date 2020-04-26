@@ -5,16 +5,10 @@
 
 
 
-<section class="page-title-container">
-
-
-
-    <div class="form-container__heading">
-        <h1 class="page-title form-container__heading-text">Lägg till en ny produkt</h1>
-    </div>
-<section class="product-form">
-
+<section class="form_container">
     
+        <h1 class="page-title form-container__heading-text">Lägg till en ny produkt</h1>
+
     <?php
 
 
@@ -70,4 +64,4 @@
 </section>
 
 
-<button><a href="admin-products.php">Tillbaka</a></button>
+<button class='back_btn'><a href="admin-products.php">Tillbaka</a></button>

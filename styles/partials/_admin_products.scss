@@ -186,3 +186,18 @@
     text-transform: uppercase;
   }
 }
+
+.btn_delete-img {
+  background-color: #852db8;
+  text-transform: uppercase;
+  color: white;
+  transition: all 300ms ease;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+.btn_delete-img:hover {
+  background-color: #b852f4;
+  text-transform: uppercase;
+  color: white;
+}
