@@ -113,17 +113,17 @@ function test_input($data) {
     return $data;
   }
 ?>
-<section class="form-container">
-<div class="form-container__heading">
-        <h3 class="form-container__heading-text">Uppdatera kategori</h3>
-</div><br>
-<form action="#" method="POST" enctype="multipart/form-data">
+<section class="form_container">
+
+        <h3 class="page-title form-container__heading-text">Uppdatera kategori</h3>
+
+<form action="#" method="POST" enctype="multipart/form-data" class="form-container">
     <div class="form-container__box">
     <label for="category">Namn på kategori: </label><br>
-        <input type="text" value='<?php echo $category; ?>' name="category" class="form-container__box-input">
+        <input type="text" value='<?php echo $category; ?>' name="category" class="form-container__box-input update_category-box">
         <p class="error"><?php echo $nameErr;?></p>
     </div>
-    <div class="form-container__image">
+    <div class="form-container__image update_category-box">
         <label for="image">Ladda upp en bild:</label><br>
         <input type="file" name="image" class="form-container__image-input">     
         <?php echo $msg; ?>
@@ -134,14 +134,15 @@ function test_input($data) {
 <input type="hidden" name="id" value="<?php echo $id ?>"> 
 </form>
 
+</section>
 <?php 
 if (!$imageold === false){
-    echo "<img src='../images/$imageold' width='200px' class=''><br>
+    echo "<h2 class='category_img-head'>Kategori bild</h2><div class ='category_img-container'>";
+    echo "<div class='category_img-wrapper'><img src='../images/$imageold' width='200px'></div></div><br>
     ";
 }
 ?>
-</section>
 <br><br>
-<button><a href="admin-category.php">Tillbaka</a></button>
+<button class="back_btn"><a href="admin-category.php">Tillbaka</a></button>
 <?php  require_once '../footer.php'; ?>
 <!-- <a href='delete-img.php?id=$id' class='btn btn-danger'>Ta bort bild</a> -->

@@ -86,9 +86,12 @@ $category = htmlspecialchars($rowCategory['category']);
                     <p class='any-items'>$any_items</p>
                     <p style='display:none'>$price</p>
                     <p style='display:none;'>$quantity</p>
-                  <p style='display:none'>$productid</p>
+                    <p style='display:none'>$productid</p>
+
+                    <label for='cartQty'>Antal:</label>
+                    <input type='number' id='cartQty' name='cartQty' min='1' max='$quantity'> 
                   
-                  <button class='cart-btn product_card-btn'>Lägg i varukorg</button>
+                    <button class='cart-btn product_card-btn'>Lägg i varukorg</button>
                 </div>";
                 //<a href= '../order/orderpage.php? id=$productid' </a>
             }else if($diffDays > 60){
@@ -105,25 +108,31 @@ $category = htmlspecialchars($rowCategory['category']);
                     <p style='display:none;'>$outletPrice</p>
                     <p style='display:none;'>$quantity</p>
                     <p style='display:none'>$productid</p>
+
+                    <label for='cartQty'>Antal:</label>
+                    <input type='number' id='cartQty' name='cartQty' min='1' max='$quantity'> 
           
-                  <button class='cart-btn product_card-btn'>Lägg i varukorg</button>
+                    <button class='cart-btn product_card-btn'>Lägg i varukorg</button>
                 </div>";
                 //<a href= '../order/orderpage.php? id=$productid' </a>
             } else {
               
               echo
               "<div class='product_card' style=background-image:url('../images/$imgbackground');>
-              <a href= '../product/product_info.php? id=$productid' 
-              class='product_title'>$title</a>
-              <p class='product_price'>Pris: $price kr</p>
-              <p class='any-items'>$any_items</p>
-              <p style='display:none;'>$price</p>
-              <p style='display:none;'>$quantity</p>
-              <p style='display:none'>$productid</p>
+                <a href= '../product/product_info.php? id=$productid' 
+                class='product_title'>$title</a>
+                <p class='product_price'>Pris: $price kr</p>
+                <p class='any-items'>$any_items</p>
+                <p style='display:none;'>$price</p>
+                <p style='display:none;'>$quantity</p>
+                <p style='display:none'>$productid</p>
 
-            <button id='$productid' class='cart-btn product_card-btn'>Lägg i varukorg</a></button>
-           
-          </div>";
+                <label for='cartQty'>Antal:</label>
+                <input type='number' id='cartQty' name='cartQty' min='1' max='$quantity'> 
+
+                <button id='$productid' class='cart-btn product_card-btn'>Lägg i varukorg</a></button>
+            
+              </div>";
          // <a href= '../order/orderpage.php?id=$productid'></a>
             }
     endwhile;

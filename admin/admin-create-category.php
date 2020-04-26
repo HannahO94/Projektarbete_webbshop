@@ -104,10 +104,10 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') :
 ?>
 
 
+<div class="form-container__heading">
+<h3 class="form-container__heading-text">Lägg till en kategori</h3>
+</div><br>
 <form action="#" method="POST" enctype="multipart/form-data" class="form-container">
-    <div class="form-container__heading">
-        <h3 class="form-container__heading-text">Lägg till en kategori</h3>
-    </div><br>
     <div class="category_field-name form-container__box">
         <label for="category">Namn på kategori: </label><br>
         <input type="text" name="category" class="form-container__box-input" placeholder="Ange kategorinamn">

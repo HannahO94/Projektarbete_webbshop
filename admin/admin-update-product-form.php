@@ -1,9 +1,9 @@
 <!---Formulär för uppdatera produkt--->
 
-<section class="product-form">
+<section class="form_container">
 
-<form action="#" method="POST" enctype="multipart/form-data" class="form-container">
 <h1 class="page-title form-container__heading-text">Uppdatera produkt</h1>
+<form action="#" method="POST" enctype="multipart/form-data" class="form-container">
 
 <div class="product_field-name form-container__box">
 <label for="title">Produkt namn: </label><br>
@@ -27,10 +27,10 @@
 <?php echo $option_value; ?>
 
 </select>
-
+</div>
 <div class="product_field-img form-container__image">
 <label for="product-img">Ladda upp en produktbild: </label><br>
-<input type="file" name="productimg[]" multiple="multiple">
+<input type="file" name="productimg[]" multiple="multiple" class="form-container__image-input">
 <?php 
 // echo $msg; ?>
 </div>
