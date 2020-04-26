@@ -22,7 +22,7 @@ require_once '../config/db.php';
         <th>Produkt</th>
         <th>Pris</th>
         <th>Ta bort</th>
-        <th>Antal</th>
+        <th colspan="3">Antal</th>
       </thead>
       <tbody id="shoppingCart" class="shoppingCart">
         <!--här jobbar drawCart()-->

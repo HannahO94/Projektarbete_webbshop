@@ -29,18 +29,21 @@ function drawCart() {
     const quantity = document.createElement("td");
     quantity.textContent = item.quantity;
 
+    const deleteCell = document.createElement("td");
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "❌";
     deleteButton.classList.add("delete");
     deleteButton.dataset.productID = item.productid;
     deleteButton.addEventListener("click", removeProduct);
 
+    const minusCell = document.createElement("td");
     const minusButton = document.createElement("button");
     minusButton.textContent = "➖";
     minusButton.classList.add("minusQty");
     minusButton.dataset.productID = item.productid;
     minusButton.addEventListener("click", changeQty);
 
+    const plusCell = document.createElement("td");
     const plusButton = document.createElement("button");
     plusButton.textContent = "➕";
     plusButton.classList.add("plusQty");
@@ -49,10 +52,13 @@ function drawCart() {
 
     productRow.appendChild(title);
     productRow.appendChild(price);
-    productRow.appendChild(deleteButton);
-    productRow.appendChild(minusButton);
+    deleteCell.appendChild(deleteButton);
+    productRow.appendChild(deleteCell);
+    minusCell.appendChild(minusButton);
+    productRow.appendChild(minusCell);
     productRow.appendChild(quantity);
-    productRow.appendChild(plusButton);
+    plusCell.appendChild(plusButton);
+    productRow.appendChild(plusCell);
 
     shoppingCart.appendChild(productRow);
   });
