@@ -7,7 +7,11 @@ let counters = document.querySelectorAll(".counter");
 showValue();
 
 function showValue() {
-  value = localStorage.getItem("counter");
+  if (JSON.parse(localStorage.getItem("counter")) !== null) {
+    value = localStorage.getItem("counter");
+  } else {
+    value = 0;
+  }
   counters[0].textContent = value;
 }
 
