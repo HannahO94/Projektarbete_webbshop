@@ -15,28 +15,16 @@ const emptyCartBtn = document.querySelector("#empty-cart");
 const productValue = document.querySelector("#productValue");
 const freightValue = document.querySelector("#freightValue");
 const orderValue = document.querySelector("#orderValue");
-
-//Kontrollera ifall myProducts är tom eller om den ska ritas ut
-if (myProducts.length !== null) {
-  console.log("det finns varor");
-  shoppingCartContainer.classList.remove("hideCart");
-  emptyCartText.classList.add("hideCart");
-} else {
-  console.log("inga varor");
-  emptyCartText.classList.remove("hideCart");
-  shoppingCartContainer.classList.add("hideCart");
-}
+const zipCode = document.querySelector("#zip");
 
 drawCart();
 //Rita ut produktinfo samt knappar, dvs taggen tbody
 function drawCart() {
   //Kontrollera ifall myProducts är tom eller om den ska ritas ut
   if (myProducts.length !== 0) {
-    console.log("det finns varor");
     shoppingCartContainer.classList.remove("hideCart");
     emptyCartText.classList.add("hideCart");
   } else {
-    console.log("inga varor");
     emptyCartText.classList.remove("hideCart");
     shoppingCartContainer.classList.add("hideCart");
   }
@@ -104,7 +92,7 @@ function drawCart() {
   //Räkna ut totalt produktvärde, fraktkostnad samt totalt ordervärde
   let total = totalPrice(myProducts);
   productValue.textContent = `Produktvärde totalt: ${total} kr `;
-  let freight = calculateFreight(total);
+  let freight = calculateFreightFromPrice(total);
   freightValue.textContent = `Frakt: ${freight} kr `;
   let orderTotal = total + freight;
   orderValue.textContent = `Ordervärde totalt: ${orderTotal} kr `;
@@ -200,12 +188,24 @@ function totalPrice(arr) {
   return outputPrice;
 }
 
-function calculateFreight(productPrice) {
+function calculateFreightFromPrice(productPrice) {
   let outputFreight = 50;
   //Kontrollera om ordervärde överstiger 500kr
-  //Eller om input postnummer börjar på '1'
   if (productPrice >= 500) {
     outputFreight = 0;
   }
+  //else if (calculateFreightFromZip()) {
+  //outputFreight = 0;
+  //}
   return outputFreight;
+}
+
+//Lyssnare på postnummerfältet
+zipCode.addEventListener("blur", calculateFreightFromZip);
+//Svaret på denna funktion vill jag gärna kunna använda som
+//ytterligare else if i funktionen ovan
+function calculateFreightFromZip(event) {
+  let zip = event.currentTarget.value;
+  console.log(zip.startsWith("1"));
+  return zip.startsWith("1");
 }
