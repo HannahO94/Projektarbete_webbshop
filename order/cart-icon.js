@@ -13,6 +13,7 @@ function showValue() {
     value = 0;
   }
   counters[0].textContent = value;
+  localStorage.setItem("counter", value);
 }
 
 for (let i = 0; i < btn1.length; i++) {
@@ -40,7 +41,6 @@ function btn1Count(event) {
 function btn1Less(event) {
   counters[0].textContent = parseInt(counters[0].textContent) - 1;
   let value = counters[0].textContent;
-
   localStorage.setItem("counter", value);
   showValue();
 }
