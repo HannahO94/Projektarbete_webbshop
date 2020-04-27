@@ -8,7 +8,7 @@ på olika sätt och samtidigt uppdatera localstorage.
 let myProducts = JSON.parse(localStorage.getItem("products"));
 
 //Skapa variabler för DOM-elementen som ska användas nedan
-const shoppingCart = document.querySelector("#shoppingCart");
+const shoppingCart = document.querySelector("#cartItems");
 const emptyCartBtn = document.querySelector("#empty-cart");
 const orderValue = document.querySelector("#orderValue");
 
