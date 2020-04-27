@@ -1780,6 +1780,7 @@ main {
   color: white;
 }
 
+
 @media (max-width: 500px) {
   .product-head {
     font-size: 24px;
@@ -1977,6 +1978,7 @@ main {
   .order-container {
     padding: 5%;
   }
+
 }
 
 /*ok att nedan ligger här eller kan vi lägga det ngn

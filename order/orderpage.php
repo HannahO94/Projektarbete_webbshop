@@ -13,10 +13,10 @@ require_once '../config/db.php';
   <h1 class="page-title form-container__heading-text">Din varukorg</h1>
 
   <!--Här visas produkter i varukorgen via JS alternativt Varukorgen är tom.-->
-  <h3 id="emptyCartText" >Varukorgen är tom.</h3>
-  <div id="shoppingCartContainer" class="hideCart"></div>
-  <section  class='table_container'>
-    <table class='table_orders'>
+
+  <h3 id="emptyCartText">Varukorgen är tom.</h3>
+  <div id="shoppingCartContainer" class="hideCart">
+    <table>
       <thead>
         <tr class='table_orders-row'>
         <th class='table_orders-head'>Produkt</th>
@@ -29,6 +29,8 @@ require_once '../config/db.php';
         <!--här jobbar drawCart()-->
       </tbody>
     </table>
+    <br>
+    <h3 id="productValue"></h3>
     <br>
     <h3 id="freightValue"></h3>
     <br>
