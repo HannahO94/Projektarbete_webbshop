@@ -16,20 +16,20 @@ require_once '../config/db.php';
   <h1>Din varukorg</h1>
   <!--<div id="cart-items" class="cart-items">-->
 
-    <!-- Här visas produkter i varukorgen via JS -->
-    <table>
-      <thead>
-        <th>Produkt</th>
-        <th>Pris</th>
-        <th>Ta bort</th>
-        <th colspan="3">Antal</th>
-      </thead>
-      <tbody id="shoppingCart" class="shoppingCart">
-        <!--här jobbar drawCart()-->
-      </tbody>
-    </table>
-    <br>
-    <h3 id="orderValue"></h3>
+  <!--Här visas produkter i varukorgen via JS -->
+  <table>
+    <thead>
+      <th>Produkt</th>
+      <th>Pris/st</th>
+      <th>Ta bort</th>
+      <th colspan="3">Antal</th>
+    </thead>
+    <tbody id="shoppingCart" class="shoppingCart">
+      <!--här jobbar drawCart()-->
+    </tbody>
+  </table>
+  <br>
+  <h3 id="orderValue"></h3>
   <br>
   <button id="empty-cart">Töm varukorgen</button>
   <br>
@@ -41,8 +41,10 @@ require_once '../config/db.php';
 
   <h1>Dina uppgifter</h1>
 
-  <!-- <form action="send-order.php" method="POST" id="contact-form" class="form-container"> -->
-  <form action="#" method="POST" id="contact-form" class="form-container" onsubmit="return validateForm(event)">
+  <form action="order-confirmation.php" method="POST" id="contact-form" class="form-container">
+    <!-- <form action="send-order.php" method="POST" id="contact-form" class="form-container" onsubmit="return validateForm(event)"> -->
+    <!--FK: Formulärvalideringen (som hämtas från validate_order.js) verkar funka 
+    utan onsubmit-anrop inuti form-taggen. Därav den utkommenterade kodraden ovan-->
 
     <div class="order_field-name form-container__box">
       <label for="name">För- och efternamn:</label><br>
@@ -60,9 +62,9 @@ require_once '../config/db.php';
       <span class="emailValidationText"></span>
     </div>
 
-    <div class="order_field-mobile form-container__box">
-      <label for="mobile">Mobilnummer:</label><br>
-      <input type="number" name="phone" id="phone" required>
+    <div class="order_field-phone form-container__box">
+      <label for="phone">Mobilnummer:</label><br>
+      <input type="text" name="phone" id="phone" required>
     </div>
 
     <div class="order_field-street form-container__box">
@@ -73,7 +75,7 @@ require_once '../config/db.php';
     <div class="order_field-postalcode form-container__box">
       <label for="zip">Postnr:</label><br>
       <!-- <input type="number" name="zip" id="zip" required> -->
-      <input type="number" name="zip" id="zip" onblur="validateZipcode()" required>
+      <input type="text" name="zip" id="zip" onblur="validateZipcode()" required>
       <br>
       <span class="zipcodeValidationText"></span>
     </div>
@@ -92,7 +94,7 @@ require_once '../config/db.php';
 
 </section>
 
-<!-- <script type="application/javascript" src="orderConfirmation.js"></script> -->
+<!-- <script type="application/javascript" src="show-order-details.js"></script> -->
 
 <!--<script type="application/javascript" src="validate_order.js"></script>
 <script type="application/javascript" src="updateProduct.js"></script>-->

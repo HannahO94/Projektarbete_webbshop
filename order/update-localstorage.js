@@ -17,39 +17,39 @@ for (let j = 0; j < cartBtn.length; j++) {
     let parent = product.parentElement;
 
     for (let i = 0; i < parent.children.length; i++) {
-      productcard = parent.children[i].textContent;
+      productcard = parent.children[i];
       productArray.push(productcard);
-      console.log(productcard);
+      // console.log(productcard);
     }
     console.log(productArray.length);
-    if (productArray.length === 7) {
+    if (productArray.length === 9) {
       product = {
-        cartQty: 1,
-        title: productArray[0],
-        price: productArray[3],
-        quantity: productArray[4],
-        productid: productArray[5],
-      };
-    } else if (productArray.length === 8) {
-      product = {
-        cartQty: 1,
-        title: productArray[1],
-        price: productArray[4],
-        quantity: productArray[5],
-        productid: productArray[6],
+        cartQty: productArray[7].value,
+        title: productArray[0].textContent,
+        price: productArray[3].textContent,
+        quantity: productArray[4].textContent,
+        productid: productArray[5].textContent,
       };
     } else if (productArray.length === 10) {
       product = {
-        cartQty: 1,
-        title: productArray[1],
-        price: productArray[5],
-        outletprice: productArray[6],
-        quantity: productArray[7],
-        productid: productArray[8],
+        cartQty: productArray[8].value,
+        title: productArray[1].textContent,
+        price: productArray[4].textContent,
+        quantity: productArray[5].textContent,
+        productid: productArray[6].textContent,
+      };
+    } else if (productArray.length === 12) {
+      product = {
+        cartQty: productArray[10].value,
+        title: productArray[1].textContent,
+        price: productArray[5].textContent,
+        outletprice: productArray[6].textContent,
+        quantity: productArray[7].textContent,
+        productid: productArray[8].textContent,
       };
       // console.log(product.title, product.price, product.quantity, product.productid, product.outletprice)
     }
-    // console.log(product.title, product.price, product.quantity, product.productid)
+    console.log(product.title, product.price, product.quantity, product.productid, product.cartQty)
     arrayToSend.push(product);
     productArray = [];
     // console.log(arrayToSend)
@@ -66,19 +66,20 @@ for (let x = 0; x < addToCartBtn.length; x++) {
 
     for (let y = 0; y < parent.children.length; y++) {
       // console.log(parent.childNodes[y])
-      productcard = parent.children[y].textContent;
+      productcard = parent.children[y];
       prodarray.push(productcard);
       // console.log(prodarray)
     }
     product = {
-      cartQty: 1,
-      title: prodarray[0],
-      price: prodarray[5],
-      quantity: prodarray[6],
-      productid: prodarray[7],
+      cartQty: prodarray[9].value,
+      title: prodarray[0].textContent,
+      price: prodarray[5].textContent,
+      quantity: prodarray[6].textContent,
+      productid: prodarray[7].textContent,
     };
 
     console.log(
+      product.cartQty,
       product.title,
       product.price,
       product.quantity,
