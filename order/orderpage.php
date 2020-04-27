@@ -15,9 +15,11 @@ require_once '../config/db.php';
   <!--Här visas produkter i varukorgen via JS alternativt Varukorgen är tom.-->
 
   <h3 id="emptyCartText">Varukorgen är tom.</h3>
+
   <div id="shoppingCartContainer" class="hideCart">
     <section class='table_container'>
     <table class='table_orders'>
+
       <thead>
         <tr class='table_orders-row'>
 
@@ -51,8 +53,10 @@ require_once '../config/db.php';
   <h1 class="page-title form-container__heading-text">Dina uppgifter</h1>
 
 
-  <!-- <form action="order-confirmation.php" method="POST" id="customer-form" class="form-container"> -->
-  <form action="order-confirmation.php" method="POST" id="customer-form" class="form-container" onsubmit="return validateForm(event)">
+
+  <!-- <form action="" method="POST" id="customer-form" class="form-container"> -->
+    <form action="send-order.php" method="POST" id="contact-form" class="form-container" onsubmit="return validateForm(event), save()">
+
     <!--FK: Formulärvalideringen (som hämtas från validate_order.js) verkar funka 
     utan onsubmit-anrop inuti form-taggen. Därav den utkommenterade kodraden ovan-->
 
@@ -104,7 +108,8 @@ require_once '../config/db.php';
     <input type="hidden" name="status" id="status" value="1">
 
     <div class="order_field-submit form-container__submit">
-      <input type="submit" value="Skicka beställning" class="form-container__submit-button">
+      <input type="submit" value="Skicka beställning" class="form-container__submit-button" id="form-container__submit-button" >
+
     </div>
   </form>
 

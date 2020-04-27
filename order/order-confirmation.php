@@ -69,8 +69,24 @@ Likt den för produkterna? -->
   <br>
 </section>
 
-<section>
-  <h2>Dina kontaktuppgifter</h2>
+<section id="contact">
+<h2>Dina kontaktuppgifter</h2>
+<table>
+    <thead>
+      <th>Namn</th>
+      <th>Email</th>
+      <th>Telefonnummer</th>
+      <th>Adress</th>
+      <th>Postnummer</th>
+      <th>Postort</th>
+    </thead>
+    <tbody id="contact-container" class="">
+      <!--här hämtas beställda produkter från localstorage 
+    och ritas ut med hjälp av funktionen drawOrderedProducts()-->
+    </tbody>
+  </table>
+  
+
   <br>
   <!--här hämtas kund/kontaktdetaljer från orderformuläret-->
   <div id="customer-details"></div>

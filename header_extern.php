@@ -84,7 +84,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             <li class="menu-wraper__link-item">
             <div class="cart-wrapper">
               <a class="menu-wraper__links" href="../order/orderpage.php"><img src="/images/cart.png" class="cart-img"></a>
-              <span class="counter">0</span>
+              <span class="counter" id="counter">0</span>
               </div>
             </li>
 
