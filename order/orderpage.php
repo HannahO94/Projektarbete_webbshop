@@ -14,24 +14,28 @@ require_once '../config/db.php';
 <section id="shoppingcart">
 
   <h1>Din varukorg</h1>
-  <!--<div id="cart-items" class="cart-items">-->
 
-  <!--Här visas produkter i varukorgen via JS -->
-  <table>
-    <thead>
-      <th>Produkt</th>
-      <th>Pris/st</th>
-      <th>Ta bort</th>
-      <th colspan="3">Antal</th>
-    </thead>
-    <tbody id="shoppingCart" class="shoppingCart">
-      <!--här jobbar drawCart()-->
-    </tbody>
-  </table>
-  <br>
-  <h3 id="orderValue"></h3>
-  <br>
-  <button id="empty-cart">Töm varukorgen</button>
+  <!--Här visas produkter i varukorgen via JS alternativt Varukorgen är tom.-->
+  <h3 id="emptyCartText">Varukorgen är tom.</h3>
+  <div id="shoppingCartContainer" class="hideCart"></div>
+    <table>
+      <thead>
+        <th>Produkt</th>
+        <th>Pris/st</th>
+        <th>Ta bort</th>
+        <th colspan="3">Antal</th>
+      </thead>
+      <tbody id="cartItems">
+        <!--här jobbar drawCart()-->
+      </tbody>
+    </table>
+    <br>
+    <h3 id="freightValue"></h3>
+    <br>
+    <h3 id="orderValue"></h3>
+    <br>
+    <button id="empty-cart">Töm varukorgen</button>
+  </div>
   <br>
   <br>
 </section>
@@ -41,7 +45,7 @@ require_once '../config/db.php';
 
   <h1>Dina uppgifter</h1>
 
-  <form action="order-confirmation.php" method="POST" id="contact-form" class="form-container">
+  <form action="order-confirmation.php" method="POST" id="customer-form" class="form-container">
     <!-- <form action="send-order.php" method="POST" id="contact-form" class="form-container" onsubmit="return validateForm(event)"> -->
     <!--FK: Formulärvalideringen (som hämtas från validate_order.js) verkar funka 
     utan onsubmit-anrop inuti form-taggen. Därav den utkommenterade kodraden ovan-->

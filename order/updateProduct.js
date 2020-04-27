@@ -23,8 +23,14 @@ function drawCart() {
 
     const title = document.createElement("td");
     title.textContent = item.title;
+
     const price = document.createElement("td");
-    price.textContent = `${item.price} kr`;
+    //Kontrollera ifall produkten är på rea eller inte
+    if (item.hasOwnProperty("outletprice")) {
+      price.textContent = `${item.outletprice} kr (ord. ${item.price} kr)`;
+    } else {
+      price.textContent = `${item.price} kr`;
+    }
 
     //Här hämtas cartQty
     //Ett värde som läggs till i produktobjektet som sparas i LS
@@ -69,7 +75,6 @@ function drawCart() {
 
   //Räkna ut totalpris
   let total = totalPrice(myProducts);
-  console.log(total);
   orderValue.textContent = `Ordervärde totalt: ${total} kr `;
 }
 
@@ -101,8 +106,6 @@ function changeQty(event) {
     if (currentProductID == productID) {
       let qty = parseInt(myProducts[i].cartQty);
       let stockQty = parseInt(myProducts[i].quantity);
-      console.log(qty);
-      console.log(stockQty);
 
       //När vi får match kollar vi om knappen är minus eller plus
       if (currentButton.classList.contains("plusQty")) {
@@ -155,7 +158,12 @@ function totalPrice(arr) {
 
   for (let i = 0; i < arr.length; i++) {
     const qty = parseInt(arr[i].cartQty);
-    const price = parseInt(arr[i].price);
+    let price = 0;
+    if (arr[i].hasOwnProperty("outletprice")) {
+      price = parseInt(arr[i].outletprice);
+    } else {
+      price = parseInt(arr[i].price);
+    }
     outputPrice += qty * price;
   }
   return outputPrice;
