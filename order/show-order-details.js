@@ -5,7 +5,7 @@ let productsInLocalStorage = JSON.parse(localStorage.getItem("products"))
 console.log(productsInLocalStorage)
 
 //Hämta nödvändiga element från bekräftelsesidan
-const orderedProducts = document.querySelector("#product-container")
+const orderedProducts = document.querySelector("#ordered-products")
 const orderTotalPrice = document.querySelector("#order-total-price")
 
 //Funktionen drawOrderedProducts() skriver ut alla produkter på sidan, en tabellrad i taget
@@ -48,32 +48,41 @@ function drawOrderedProducts() {
 // 2. HÄMTA OCH RITA UT KUNDUPPGIFTER (med javascript eller php - hämta från databasen?)
 
 // Hämta nödvändiga element från orderformuläret
-// const contactForm = document.querySelector("#contact-form")
+const customerForm = document.querySelector("#customer-form")
+// const orderSubmit = document.querySelector("#order-submit")
 
-// const nameInput = document.querySelector("#name")
-// const emailInput = document.querySelector("#email")
-// const phoneInput = document.querySelector("#phone")
-// const streetInput = document.querySelector("#street")
-// const zipcodeInput = document.querySelector("#zip")
-// const cityInput = document.querySelector("#city")
-// const statusInput = document.querySelector("#status")
+const nameInput = document.querySelector("#name")
+console.log(nameInput)
+const emailInput = document.querySelector("#email")
+const phoneInput = document.querySelector("#phone")
+const streetInput = document.querySelector("#street")
+const zipcodeInput = document.querySelector("#zip")
+const cityInput = document.querySelector("#city")
+const statusInput = document.querySelector("#status")
 
-// //Koppla events
-// contactForm.addEventListener("submit", save)
+//Koppla events
+customerForm.addEventListener("submit", save)
+// orderSubmit.addEventListener("click", save)
 
-// function save(event) {
-// 	event.preventDefault()
+function save(event) {
+	event.preventDefault()
+	console.log("kör funktionen?")
+	let name = nameInput.value
+	let email = emailInput.value
+	let phone = phoneInput.value
+	let street = streetInput.value
+	let zipcode = zipcodeInput.value
+	let city = cityInput.value
+	let status = statusInput.value
+	console.log("hej " + name)
+	console.log(email)
+}
 
-// 	let name = nameInput.value
-// 	let email = emailInput.value
-// 	let phone = phoneInput.value
-// 	let street = streetInput.value
-// 	let zipcode = zipcodeInput.value
-// 	let city = cityInput.value
-// 	let status = statusInput.value
-// 	console.log("hej" + name)
-// 	console.log(email)
-// }
+//Hämta nödvändiga element från bekräftelsesidan
+const customerDetails = document.querySelector("#customer-details")
 
-// //Hämta nödvändiga element från bekräftelsesidan
-// const contactDetails = document.querySelector("#contact-container")
+const nameOutput = document.createElement("p")
+nameOutput.textContent = "hej"
+
+customerDetails.appendChild(nameOutput)
+console.log(nameOutput)
