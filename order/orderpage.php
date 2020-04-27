@@ -16,14 +16,15 @@ require_once '../config/db.php';
 
   <h3 id="emptyCartText">Varukorgen är tom.</h3>
   <div id="shoppingCartContainer" class="hideCart">
-    <table>
+    <section class='table_container'>
+    <table class='table_orders'>
       <thead>
         <tr class='table_orders-row'>
         <th class='table_orders-head'>Produkt</th>
         <th class='table_orders-head'>Pris/st</th>
         <th class='table_orders-head'>Ta bort</th>
         <th class='table_orders-head' colspan="3">Antal</th>
-</tr>
+      </tr>
       </thead>
       <tbody id="cartItems">
         <!--här jobbar drawCart()-->
