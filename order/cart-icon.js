@@ -132,7 +132,7 @@ function updateCartCount2 () {
     counters.textContent = products
     console.log(products.length)
   }
-
+}
 //maddes
 function btn1Less(event) {
   counters[0].textContent = parseInt(counters[0].textContent) - 1;
