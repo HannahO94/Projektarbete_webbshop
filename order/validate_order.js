@@ -6,7 +6,6 @@ function validateForm() {
     validateStreet() &&
     validateZipcode() &&
     validateCity();
-  console.log(ret);
   return ret;
 }
 
