@@ -76,7 +76,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') :
             $stmt->bindParam(':category', $category);
             $stmt->bindParam(':image', $image);
             $stmt->execute(); 
-            // header('Location:admin-category.php');
+            header('Location:admin-category.php');
 
         }
     }

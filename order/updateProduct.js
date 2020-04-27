@@ -8,7 +8,7 @@ på olika sätt och samtidigt uppdatera localstorage.
 let myProducts = JSON.parse(localStorage.getItem("products"));
 
 //Skapa variabler för DOM-elementen som ska användas nedan
-const shoppingCart = document.querySelector("#shoppingCart");
+const shoppingCart = document.querySelector("#cartItems");
 const emptyCartBtn = document.querySelector("#empty-cart");
 const orderValue = document.querySelector("#orderValue");
 
@@ -20,26 +20,38 @@ function drawCart() {
 
   myProducts.forEach(function (item) {
     const productRow = document.createElement("tr");
+    productRow.classList.add("table_orders-row");
 
     const title = document.createElement("td");
+    title.classList.add("table_orders-cell");
     title.textContent = item.title;
+
     const price = document.createElement("td");
-    price.textContent = `${item.price} kr`;
+    price.classList.add("table_orders-cell");
+    //Kontrollera ifall produkten är på rea eller inte
+    if (item.hasOwnProperty("outletprice")) {
+      price.textContent = `${item.outletprice} kr (ord. ${item.price} kr)`;
+    } else {
+      price.textContent = `${item.price} kr`;
+    }
 
     //Här hämtas cartQty
     //Ett värde som läggs till i produktobjektet som sparas i LS
     //Antingen default 1 eller att det hämtar värde från ett inputfält
     const quantity = document.createElement("td");
+    quantity.classList.add("table_orders-cell");
     quantity.textContent = item.cartQty;
 
     const deleteCell = document.createElement("td");
+    deleteCell.classList.add("table_orders-cell");
     const deleteButton = document.createElement("button");
-    deleteButton.textContent = "❌";
+    deleteButton.textContent = "Radera";
     deleteButton.classList.add("delete");
     deleteButton.dataset.productID = item.productid;
     deleteButton.addEventListener("click", removeProduct);
 
     const minusCell = document.createElement("td");
+    minusCell.classList.add("table_orders-cell");
     const minusButton = document.createElement("button");
     minusButton.textContent = "➖";
     minusButton.classList.add("minusQty");
@@ -47,6 +59,7 @@ function drawCart() {
     minusButton.addEventListener("click", changeQty);
 
     const plusCell = document.createElement("td");
+    plusCell.classList.add("table_orders-cell");
     const plusButton = document.createElement("button");
     plusButton.textContent = "➕";
     plusButton.classList.add("plusQty");
@@ -69,7 +82,6 @@ function drawCart() {
 
   //Räkna ut totalpris
   let total = totalPrice(myProducts);
-  console.log(total);
   orderValue.textContent = `Ordervärde totalt: ${total} kr `;
 }
 
@@ -101,8 +113,6 @@ function changeQty(event) {
     if (currentProductID == productID) {
       let qty = parseInt(myProducts[i].cartQty);
       let stockQty = parseInt(myProducts[i].quantity);
-      console.log(qty);
-      console.log(stockQty);
 
       //När vi får match kollar vi om knappen är minus eller plus
       if (currentButton.classList.contains("plusQty")) {
@@ -155,7 +165,12 @@ function totalPrice(arr) {
 
   for (let i = 0; i < arr.length; i++) {
     const qty = parseInt(arr[i].cartQty);
-    const price = parseInt(arr[i].price);
+    let price = 0;
+    if (arr[i].hasOwnProperty("outletprice")) {
+      price = parseInt(arr[i].outletprice);
+    } else {
+      price = parseInt(arr[i].price);
+    }
     outputPrice += qty * price;
   }
   return outputPrice;
