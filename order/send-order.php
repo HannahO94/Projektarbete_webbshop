@@ -88,6 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') :
 // else {
 //   echo "<div class='suc'><p> Din order är skickad!</p></div>";
 // }
+header('Location:order-confirmation.php');
 
 endif;
 

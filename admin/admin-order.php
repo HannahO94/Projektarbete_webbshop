@@ -8,14 +8,14 @@ O.name  AS Kund,
 O.street AS Gata,
 O.zip  AS Postnummer,
 O.city AS Ort,
-Q.quatity AS Antal,
+Q.quantity AS Antal,
 Q.orderid AS Orderid,
 Q.productid AS Produktid,
 P.productid AS Productid,
 P.title AS Spelnamn,
 P.price AS Pris
 FROM
-webshop_orderinfo    AS O,
+webshop_orders    AS O,
 webshop_orderproducts AS Q,
 webshop_products    AS P
 WHERE
