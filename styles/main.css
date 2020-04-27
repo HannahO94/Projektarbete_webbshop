@@ -871,7 +871,7 @@ label {
       align-content: space-between;
   text-align: center;
   line-height: 1.5;
-  height: 200px;
+  height: 300px;
   width: 200px;
   border-radius: 8px;
   margin: 2em;
@@ -1023,12 +1023,11 @@ label {
   margin-top: 8px;
   margin-bottom: 10px;
   margin-left: 10px;
-  background-color: peachpuff;
+  background-color: #f78d30;
 }
 
-#search_btn a {
-  text-align: center;
-  margin: -10px;
+#search_btn:hover {
+  background-color: #852db8;
 }
 
 body {
