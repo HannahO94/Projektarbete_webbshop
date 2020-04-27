@@ -59,10 +59,9 @@
   margin-top: 8px;
   margin-bottom: 10px;
   margin-left: 10px;
-  background-color: peachpuff;
+  background-color: rgb(247, 141, 48);
 }
 
-#search_btn a {
-  text-align: center;
-  margin: -10px;
+#search_btn:hover {
+  background-color: #852db8;
 }
