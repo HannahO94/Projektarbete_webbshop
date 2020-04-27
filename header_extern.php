@@ -54,8 +54,8 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 <input type="text" name="search" id="search-Field" class="search-form__input-field" placeholder="Sök efter spel">
                 <!--<input type="submit" id="search_btn" value="Sök">-->
                 <button id="search_btn">Sök</button>
-                <div id="searched-result" class="search-result"></div>
               </form>
+              <div id="searched-result" class="search-result"></div>
               
             </li>
 

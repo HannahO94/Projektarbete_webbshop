@@ -25,9 +25,33 @@ ajax.onreadystatechange = function () {
       //gamesTitle.push(games[i].description); //sök även på beskrivning, ändrat krav från kund
     }
 
+    function validate(input) {
+      let re = /[^a-zåäöA-Zåäö0-9 ]/i;
+      return re.test(input);
+    }
+
     //eventlistener på sökfältt
     searchField.addEventListener("input", function (event) {
       emptySearch();
+      //eventlistener på formulär, skickar id istället för form value
+      searchForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        //valideringar
+        if (searchField.value.length < 2) {
+          searchResult.innerHTML = "OBS! Du måste skriva mer än 2 bokstäver";
+        } else if (searchField.value.length > 20) {
+          searchResult.innerHTML = "OBS! Max 20 bokstäver tillåtet"
+        } else if (!isNaN(searchField.value)) {
+          searchResult.innerHTML = "OBS! Endast text tillåtet";
+        } else if (validate(searchField.value)) {
+          searchResult.innerHTML = "OBS! Otillåten sökning";
+        }
+        else {
+          location.href = "../search/index.php?id=" + productId;
+        }
+
+      })
 
       //minst två tecken validering
       if (searchField.value.length >= 2) {
@@ -45,14 +69,10 @@ ajax.onreadystatechange = function () {
         return game.toLowerCase().includes(searchField.value.toLowerCase());
       });
 
-      //eventlistener på formulär, skickar id istället för form value
-      searchForm.addEventListener("submit", function (event) {
-        event.preventDefault();
-        location.href = "../search/index.php?id=" + productId;
-      })
 
 
-      console.log(searchedGame);
+
+      //console.log(searchedGame);
       //töm båda arrayerna varje gång tanget trycks, annars ritas inte förfinade sökningen om
       output.splice(0, output.length);
       productId.splice(0, productId.length);

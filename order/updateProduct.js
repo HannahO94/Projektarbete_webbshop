@@ -8,23 +8,39 @@ på olika sätt och samtidigt uppdatera localstorage.
 let myProducts = JSON.parse(localStorage.getItem("products"));
 
 //Skapa variabler för DOM-elementen som ska användas nedan
-const shoppingCart = document.querySelector("#cartItems");
+const emptyCartText = document.querySelector("#emptyCartText");
+const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
+const cartItems = document.querySelector("#cartItems");
 const emptyCartBtn = document.querySelector("#empty-cart");
+const productValue = document.querySelector("#productValue");
+const freightValue = document.querySelector("#freightValue");
 const orderValue = document.querySelector("#orderValue");
+const zipCode = document.querySelector("#zip");
 
 drawCart();
 //Rita ut produktinfo samt knappar, dvs taggen tbody
 function drawCart() {
+  //Kontrollera ifall myProducts är tom eller om den ska ritas ut
+  if (myProducts.length !== 0) {
+    shoppingCartContainer.classList.remove("hideCart");
+    emptyCartText.classList.add("hideCart");
+  } else {
+    emptyCartText.classList.remove("hideCart");
+    shoppingCartContainer.classList.add("hideCart");
+  }
   //Börja med att rensa gammalt innehåll i varukorgen
-  shoppingCart.innerHTML = "";
+  cartItems.innerHTML = "";
 
   myProducts.forEach(function (item) {
     const productRow = document.createElement("tr");
+    productRow.classList.add("table_orders-row");
 
     const title = document.createElement("td");
+    title.classList.add("table_orders-cell");
     title.textContent = item.title;
 
     const price = document.createElement("td");
+    price.classList.add("table_orders-cell");
     //Kontrollera ifall produkten är på rea eller inte
     if (item.hasOwnProperty("outletprice")) {
       price.textContent = `${item.outletprice} kr (ord. ${item.price} kr)`;
@@ -32,27 +48,27 @@ function drawCart() {
       price.textContent = `${item.price} kr`;
     }
 
-    //Här hämtas cartQty
-    //Ett värde som läggs till i produktobjektet som sparas i LS
-    //Antingen default 1 eller att det hämtar värde från ett inputfält
-    const quantity = document.createElement("td");
-    quantity.textContent = item.cartQty;
-
     const deleteCell = document.createElement("td");
+    deleteCell.classList.add("table_orders-cell");
     const deleteButton = document.createElement("button");
-    deleteButton.textContent = "❌";
+    deleteButton.textContent = "Radera";
     deleteButton.classList.add("delete");
     deleteButton.dataset.productID = item.productid;
     deleteButton.addEventListener("click", removeProduct);
 
     const minusCell = document.createElement("td");
+    minusCell.classList.add("table_orders-cell");
     const minusButton = document.createElement("button");
     minusButton.textContent = "➖";
     minusButton.classList.add("minusQty");
     minusButton.dataset.productID = item.productid;
     minusButton.addEventListener("click", changeQty);
 
+    const quantity = document.createElement("td");
+    quantity.textContent = item.cartQty;
+
     const plusCell = document.createElement("td");
+    plusCell.classList.add("table_orders-cell");
     const plusButton = document.createElement("button");
     plusButton.textContent = "➕";
     plusButton.classList.add("plusQty");
@@ -70,12 +86,16 @@ function drawCart() {
     plusCell.appendChild(plusButton);
     productRow.appendChild(plusCell);
 
-    shoppingCart.appendChild(productRow);
+    cartItems.appendChild(productRow);
   });
 
-  //Räkna ut totalpris
+  //Räkna ut totalt produktvärde, fraktkostnad samt totalt ordervärde
   let total = totalPrice(myProducts);
-  orderValue.textContent = `Ordervärde totalt: ${total} kr `;
+  productValue.textContent = `Produktvärde totalt: ${total} kr `;
+  let freight = calculateFreightFromPrice(total);
+  freightValue.textContent = `Frakt: ${freight} kr `;
+  let orderTotal = total + freight;
+  orderValue.textContent = `Ordervärde totalt: ${orderTotal} kr `;
 }
 
 //Lyssnare till Töm varukorg som ropar på emptyCart
@@ -138,12 +158,11 @@ function changeQty(event) {
   }
 }
 
-//Töm varukorgen, används både vid "töm varukorgen" och "skicka beställning"?
+//Töm varukorgen
 function emptyCart() {
   myProducts = [];
+  localStorage.clear();
   drawCart();
-  localStorage.clear(); //Kan vi ha denna här om vi ska kunna hämta varukorgen
-  //från LS när vi skickat beställning och hamnat på orderbekräftelse?
 }
 
 function updateLocalStorage() {
@@ -167,4 +186,26 @@ function totalPrice(arr) {
     outputPrice += qty * price;
   }
   return outputPrice;
+}
+
+function calculateFreightFromPrice(productPrice) {
+  let outputFreight = 50;
+  //Kontrollera om ordervärde överstiger 500kr
+  if (productPrice >= 500) {
+    outputFreight = 0;
+  }
+  //else if (calculateFreightFromZip()) {
+  //outputFreight = 0;
+  //}
+  return outputFreight;
+}
+
+//Lyssnare på postnummerfältet
+zipCode.addEventListener("blur", calculateFreightFromZip);
+//Svaret på denna funktion vill jag gärna kunna använda som
+//ytterligare else if i funktionen ovan
+function calculateFreightFromZip(event) {
+  let zip = event.currentTarget.value;
+  console.log(zip.startsWith("1"));
+  return zip.startsWith("1");
 }

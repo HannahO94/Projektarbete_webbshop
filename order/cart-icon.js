@@ -70,13 +70,24 @@
 let counters = document.querySelector("#counter");
 let btn1 = document.querySelectorAll(".cart-btn");
 let btnLess = document.querySelectorAll(".delete");
-
+//maddes
 let products 
 products = JSON.parse(localStorage.getItem("products"));
 
+//maddes?
+function showValue() {
+  if (JSON.parse(localStorage.getItem("counter")) !== null) {
+    value = localStorage.getItem("counter");
+  } else {
+    value = 0;
+  }
+  counters[0].textContent = value;
+  localStorage.setItem("counter", value);
+}
 
 
 
+//Hannahs
 for (let i = 0; i < btn1.length; i++) {
   btn1[i].addEventListener("click", updateCartCount )
 }
@@ -87,7 +98,7 @@ for (let j = 0; j < btnLess.length; j++) {
   
 }
 updateCartCount()
-
+//Hannahs
 function updateCartCount () {
   let products 
   if (JSON.parse(localStorage.getItem("products")) !== null) {
@@ -105,6 +116,7 @@ function updateCartCount () {
 
 }
 
+//Hannahs
 function updateCartCount2 () {
   let products 
   if (JSON.parse(localStorage.getItem("products")) !== null) {
@@ -120,6 +132,13 @@ function updateCartCount2 () {
     counters.textContent = products
     console.log(products.length)
   }
+
+//maddes
+function btn1Less(event) {
+  counters[0].textContent = parseInt(counters[0].textContent) - 1;
+  let value = counters[0].textContent;
+  localStorage.setItem("counter", value);
+  showValue();
 
 }
 

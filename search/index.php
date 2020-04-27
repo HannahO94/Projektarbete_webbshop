@@ -3,15 +3,6 @@ require_once '../config/db.php';
 require_once '../header_extern.php';
 
 
-//Hämta arrayen med produkt-id från sökresultatet 
-$search = $_GET['id'];
-
-  //Hämta sökresultatets produkter från databasen
-  $sql = "SELECT * 
-          FROM webshop_products
-          WHERE productid IN ({$search})";
-  $stmt = $db->prepare($sql);
-  $stmt->execute();
 ?>
 
 <section>
@@ -20,7 +11,25 @@ $search = $_GET['id'];
 
 <!--i nedan div mha php rita ut produktkort för varje produkt i sökresultatet-->
 <div id="searched-result" class="search-result">
+
 <?php
+
+//Hämta arrayen med produkt-id från sökresultatet 
+  $search = htmlspecialchars($_GET['id']);
+
+  if ($search === ""){
+    echo "<h3 id='search-noResult'>Vi har tyvärr inte det spelet du söker, testa gärna en ny sökning!</h3>";
+  }else {
+
+  
+  //Hämta sökresultatets produkter från databasen
+  $sql = "SELECT * 
+          FROM webshop_products
+          WHERE productid IN ({$search})";
+  $stmt = $db->prepare($sql);
+  $stmt->execute();
+  
+
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) :
       $title = htmlspecialchars($row['title']);
       $price = htmlspecialchars($row['price']);
@@ -120,6 +129,10 @@ echo "</div>";
   };
 
     endwhile;
+
+
+  }
+
     ?>
 
 </div>

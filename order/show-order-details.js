@@ -5,7 +5,7 @@ let productsInLocalStorage = JSON.parse(localStorage.getItem("products"))
 console.log(productsInLocalStorage)
 
 //Hämta nödvändiga element från bekräftelsesidan
-const orderedProducts = document.querySelector("#product-container")
+const orderedProducts = document.querySelector("#ordered-products")
 const orderTotalPrice = document.querySelector("#order-total-price")
 const orderDetail = document.querySelector("#contact-container")
 
@@ -136,3 +136,4 @@ function drawOrderDetail() {
 
 // //Hämta nödvändiga element från bekräftelsesidan
 // const contactDetails = document.querySelector("#contact-container")
+
