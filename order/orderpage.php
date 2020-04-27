@@ -20,11 +20,13 @@ require_once '../config/db.php';
     <table class='table_orders'>
       <thead>
         <tr class='table_orders-row'>
-        <th class='table_orders-head'>Produkt</th>
-        <th class='table_orders-head'>Pris/st</th>
-        <th class='table_orders-head'>Ta bort</th>
-        <th class='table_orders-head' colspan="3">Antal</th>
-      </tr>
+
+          <th class='table_orders-head'>Produkt</th>
+          <th class='table_orders-head'>Pris/st</th>
+          <th class='table_orders-head'>Ta bort</th>
+          <th class='table_orders-head' colspan="3">Antal</th>
+        </tr>
+
       </thead>
       <tbody id="cartItems">
         <!--här jobbar drawCart()-->
@@ -50,7 +52,7 @@ require_once '../config/db.php';
 
 
   <!-- <form action="order-confirmation.php" method="POST" id="customer-form" class="form-container"> -->
-    <form action="order-confirmation.php" method="POST" id="contact-form" class="form-container" onsubmit="return validateForm(event)">
+  <form action="order-confirmation.php" method="POST" id="customer-form" class="form-container" onsubmit="return validateForm(event)">
     <!--FK: Formulärvalideringen (som hämtas från validate_order.js) verkar funka 
     utan onsubmit-anrop inuti form-taggen. Därav den utkommenterade kodraden ovan-->
 
