@@ -17,7 +17,7 @@ require_once '../config/db.php';
 
   <!--Här visas produkter i varukorgen via JS alternativt Varukorgen är tom.-->
   <h3 id="emptyCartText">Varukorgen är tom.</h3>
-  <div id="shoppingCartContainer" class="hideCart"></div>
+  <div id="shoppingCartContainer" class="hideCart">
     <table>
       <thead>
         <th>Produkt</th>
@@ -29,6 +29,8 @@ require_once '../config/db.php';
         <!--här jobbar drawCart()-->
       </tbody>
     </table>
+    <br>
+    <h3 id="productValue"></h3>
     <br>
     <h3 id="freightValue"></h3>
     <br>

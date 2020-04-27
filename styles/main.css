@@ -1765,6 +1765,10 @@ main {
   color: white;
 }
 
+.hideCart {
+  display: none;
+}
+
 /*ok att nedan ligger här eller kan vi lägga det ngn
 annanstans så att det fortfarande är med överallt?*/
 /*# sourceMappingURL=main.css.map */
