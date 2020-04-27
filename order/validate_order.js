@@ -1,13 +1,13 @@
-function validateForm(event) {
-  event.preventDefault();
-  return (
+function validateForm() {
+  let ret =
     validateName() &&
     validateEmail() &&
     validatePhone() &&
     validateStreet() &&
     validateZipcode() &&
-    validateCity()
-  );
+    validateCity();
+  console.log(ret);
+  return ret;
 }
 
 // Validering av namn
