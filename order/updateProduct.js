@@ -45,11 +45,14 @@ function drawCart() {
 
   myProducts.forEach(function (item) {
     const productRow = document.createElement("tr");
+    productRow.classList.add("table_orders-row");
 
     const title = document.createElement("td");
+    title.classList.add("table_orders-cell");
     title.textContent = item.title;
 
     const price = document.createElement("td");
+    price.classList.add("table_orders-cell");
     //Kontrollera ifall produkten är på rea eller inte
     if (item.hasOwnProperty("outletprice")) {
       price.textContent = `${item.outletprice} kr (ord. ${item.price} kr)`;
@@ -58,13 +61,15 @@ function drawCart() {
     }
 
     const deleteCell = document.createElement("td");
+    deleteCell.classList.add("table_orders-cell");
     const deleteButton = document.createElement("button");
-    deleteButton.textContent = "❌";
+    deleteButton.textContent = "Radera";
     deleteButton.classList.add("delete");
     deleteButton.dataset.productID = item.productid;
     deleteButton.addEventListener("click", removeProduct);
 
     const minusCell = document.createElement("td");
+    minusCell.classList.add("table_orders-cell");
     const minusButton = document.createElement("button");
     minusButton.textContent = "➖";
     minusButton.classList.add("minusQty");
@@ -75,6 +80,7 @@ function drawCart() {
     quantity.textContent = item.cartQty;
 
     const plusCell = document.createElement("td");
+    plusCell.classList.add("table_orders-cell");
     const plusButton = document.createElement("button");
     plusButton.textContent = "➕";
     plusButton.classList.add("plusQty");

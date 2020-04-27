@@ -88,11 +88,16 @@ $category = htmlspecialchars($rowCategory['category']);
                     <p style='display:none;'>$quantity</p>
                     <p style='display:none'>$productid</p>
 
-                    <label for='cartQty'>Antal:</label>
-                    <input type='number' id='cartQty' name='cartQty' min='1' max='$quantity' value='1'> 
-                  
-                    <button class='cart-btn product_card-btn'>Lägg i varukorg</button>
-                </div>";
+                    <label for='cartQty'>Antal:</label>";
+                    if ($quantity == "0") {
+                      $any_items = "Finns EJ i lager";
+                      echo "<div class='product__inventory' style='color: red'>" . $any_items . "</div>
+                      <button id='cart-btn$productid' class='add-to-cart' style='background-color: grey; color: black;' disabled>Lägg i varukorg</button>";
+                  }else{
+                    echo "<input type='number' id='cartQty' name='cartQty' class='cartQty' min='1' max='$quantity' value='1'>
+                     <button class='cart-btn product_card-btn'>Lägg i varukorg</button>";
+                  }
+                echo "</div>";
                 //<a href= '../order/orderpage.php? id=$productid' </a>
             }else if($diffDays > 60){
           
@@ -109,11 +114,16 @@ $category = htmlspecialchars($rowCategory['category']);
                     <p style='display:none;'>$quantity</p>
                     <p style='display:none'>$productid</p>
 
-                    <label for='cartQty'>Antal:</label>
-                    <input type='number' id='cartQty' name='cartQty' min='1' max='$quantity' value='1'> 
-          
-                    <button class='cart-btn product_card-btn'>Lägg i varukorg</button>
-                </div>";
+                    <label for='cartQty'>Antal:</label>";
+                    if ($quantity == "0") {
+                      $any_items = "Finns EJ i lager";
+                      echo "<div class='product__inventory' style='color: red'>" . $any_items . "</div>
+                      <button id='cart-btn$productid' class='add-to-cart' style='background-color: grey; color: black;' disabled>Lägg i varukorg</button>";
+                  }else{
+                    echo "<input type='number' id='cartQty' name='cartQty' class='cartQty' min='1' max='$quantity' value='1'>
+                     <button class='cart-btn product_card-btn'>Lägg i varukorg</button>";
+                  }
+                echo "</div>";
                 //<a href= '../order/orderpage.php? id=$productid' </a>
             } else {
               
@@ -127,12 +137,16 @@ $category = htmlspecialchars($rowCategory['category']);
                 <p style='display:none;'>$quantity</p>
                 <p style='display:none'>$productid</p>
 
-                <label for='cartQty'>Antal:</label>
-                <input type='number' id='cartQty' name='cartQty' min='1' max='$quantity' value='1'> 
-
-                <button id='$productid' class='cart-btn product_card-btn'>Lägg i varukorg</a></button>
-            
-              </div>";
+                <label for='cartQty'>Antal:</label>";
+                if ($quantity == "0") {
+                  $any_items = "Finns EJ i lager";
+                  echo "<div class='product__inventory' style='color: red'>" . $any_items . "</div>
+                  <button id='cart-btn$productid' class='add-to-cart' style='background-color: grey; color: black;' disabled>Lägg i varukorg</button>";
+              }else{
+                echo "<input type='number' id='cartQty' name='cartQty' class='cartQty' min='1' max='$quantity' value='1'>
+                 <button class='cart-btn product_card-btn'>Lägg i varukorg</button>";
+              }
+            echo "</div>";
          // <a href= '../order/orderpage.php?id=$productid'></a>
             }
     endwhile;

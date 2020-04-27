@@ -4,26 +4,26 @@ require_once '../config/db.php';
 ?>
 
 
-<section class="freight-info">
-  <p>Fri frakt över 500 kr.</p>
-  <p>Alla inom Stockholm har fri frakt.</p>
-</section>
+
 
 
 <!--Varukorgen-->
 <section id="shoppingcart">
 
-  <h1>Din varukorg</h1>
+  <h1 class="page-title form-container__heading-text">Din varukorg</h1>
 
   <!--Här visas produkter i varukorgen via JS alternativt Varukorgen är tom.-->
+
   <h3 id="emptyCartText">Varukorgen är tom.</h3>
   <div id="shoppingCartContainer" class="hideCart">
     <table>
       <thead>
-        <th>Produkt</th>
-        <th>Pris/st</th>
-        <th>Ta bort</th>
-        <th colspan="3">Antal</th>
+        <tr class='table_orders-row'>
+        <th class='table_orders-head'>Produkt</th>
+        <th class='table_orders-head'>Pris/st</th>
+        <th class='table_orders-head'>Ta bort</th>
+        <th class='table_orders-head' colspan="3">Antal</th>
+</tr>
       </thead>
       <tbody id="cartItems">
         <!--här jobbar drawCart()-->
@@ -42,20 +42,21 @@ require_once '../config/db.php';
   <br>
 </section>
 
-<section class="order-form">
 
-  <h1>Dina uppgifter</h1>
+<section class="form_container order-container">
+
+  <h1 class="page-title form-container__heading-text">Dina uppgifter</h1>
 
 
-  <form action="order-confirmation.php" method="POST" id="customer-form" class="form-container">
-    <!-- <form action="send-order.php" method="POST" id="contact-form" class="form-container" onsubmit="return validateForm(event)"> -->
+  <!-- <form action="order-confirmation.php" method="POST" id="customer-form" class="form-container"> -->
+    <form action="order-confirmation.php" method="POST" id="contact-form" class="form-container" onsubmit="return validateForm(event)">
     <!--FK: Formulärvalideringen (som hämtas från validate_order.js) verkar funka 
     utan onsubmit-anrop inuti form-taggen. Därav den utkommenterade kodraden ovan-->
 
     <div class="order_field-name form-container__box">
       <label for="name">För- och efternamn:</label><br>
       <!-- <input type="text" name="name" id="name" required> -->
-      <input type="text" name="name" id="name" onblur="validateName()">
+      <input type="text" name="name" id="name" onblur="validateName()" class="form-container__box-input">
       <br>
       <span class="nameValidationText"></span>
     </div>
@@ -63,21 +64,21 @@ require_once '../config/db.php';
     <div class="order_field-email form-container__box">
       <label for="email">E-post:</label><br>
       <!-- <input type="text" name="email" id="email" required> -->
-      <input type="text" name="email" id="email" onblur="validateEmail()" placeholder="exempel@test.com">
+      <input type="text" name="email" id="email" onblur="validateEmail()" class="form-container__box-input" placeholder="exempel@test.com">
       <br>
       <span class="emailValidationText"></span>
     </div>
 
     <div class="order_field-phone form-container__box">
       <label for="phone">Mobilnummer:</label><br>
-      <input type="text" name="phone" id="phone" onblur="validatePhone()" placeholder="(ex. 0701234567)">
+      <input type="text" name="phone" id="phone" onblur="validatePhone()" class="form-container__box-input" placeholder="(ex. 0701234567)">
       <br>
       <span class="phoneValidationText"></span>
     </div>
 
     <div class="order_field-street form-container__box">
       <label for="street">Gatuadress:</label><br>
-      <input type="text" name="street" id="street" onblur="validateStreet()">
+      <input type="text" name="street" id="street" onblur="validateStreet() " class="form-container__box-input">
       <br>
       <span class="streetValidationText"></span>
     </div>
@@ -85,14 +86,14 @@ require_once '../config/db.php';
     <div class="order_field-postalcode form-container__box">
       <label for="zip">Postnr:</label><br>
       <!-- <input type="number" name="zip" id="zip" required> -->
-      <input type="text" name="zip" id="zip" onblur="validateZipcode()" placeholder="(ex. 12345)">
+      <input type="text" name="zip" id="zip" onblur="validateZipcode()" placeholder="(ex. 12345)" class="form-container__box-input">
       <br>
       <span class="zipcodeValidationText"></span>
     </div>
 
     <div class="order_field-city form-container__box">
       <label for="city">Ort:</label><br>
-      <input type="text" name="city" id="city" onblur="validateCity()">
+      <input type="text" name="city" id="city" onblur="validateCity()" class="form-container__box-input">
       <br>
       <span class="cityValidationText"></span>
     </div>

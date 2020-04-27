@@ -39,9 +39,20 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) :
           class='product_title'>$title</a>
           <p class='product_price'>Pris: $price kr</p>
           <p class='any-items'>$any_items</p>
+          <p style='display:none'>$price</p>
+          <p style='display:none;'>$quantity</p>
+          <p style='display:none'>$productid</p>
 
-        <button class='cart-btn product_card-btn'><a href= '../order/orderpage.php? id=$productid' </a>Lägg i varukorg</button>
-      </div>";
+          <label for='cartQty'>Antal:</label>";
+          if ($quantity == "0") {
+            $any_items = "Finns EJ i lager";
+            echo "<div class='product__inventory' style='color: red'>" . $any_items . "</div>
+            <button id='cart-btn$productid' class='add-to-cart' style='background-color: grey; color: black;' disabled>Lägg i varukorgen</button>";
+        }else{
+          echo "<input type='number' id='cartQty' name='cartQty' min='1' max='$quantity' value='1'>
+           <button class='cart-btn product_card-btn'>Lägg i varukorg</button>";
+        }
+      echo "</div>";
   };
 
   
