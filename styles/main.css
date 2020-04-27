@@ -339,7 +339,7 @@ input[type="checkbox"]:checked + label .bottom-bar {
 @media (min-width: 1100px) {
   .menu-wraper__link-item:first-child {
     float: right;
-    margin-right: 300px;
+    margin-right: 370px;
   }
 }
 
@@ -1546,6 +1546,231 @@ main {
     background: peachpuff;
     text-transform: uppercase;
   }
+}
+
+@media (max-width: 500px) {
+  .product-head {
+    font-size: 24px;
+    text-align: center;
+  }
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+  .table_container {
+    min-width: 280px;
+  }
+}
+
+@media (max-width: 500px) and (min-width: 600px) {
+  .table_container {
+    min-width: 400px;
+  }
+}
+
+@media (max-width: 500px) {
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  th {
+    padding: 2%;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 500px) and (min-width: 1000px) {
+  th {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 500px) {
+  tr {
+    margin: 0 0 1rem 0;
+    padding: 5px;
+    border-radius: 5px;
+    letter-spacing: 2px;
+  }
+  tr:nth-child(odd) {
+    background: #ebebeb;
+  }
+  td {
+    /* Behave  like a "row" */
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 50%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+  }
+  td:before {
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 0;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+  }
+  td:nth-of-type(1):before {
+    content: "Produkt";
+    padding: 5%;
+    font-weight: 700;
+  }
+  td:nth-of-type(2):before {
+    content: "Kategori";
+    padding: 5%;
+    font-weight: 700;
+  }
+  td:nth-of-type(3):before {
+    content: "Redigera";
+    padding: 5%;
+    font-weight: 700;
+  }
+  .btn_update-product {
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    font-size: 13px;
+    background: peachpuff;
+    text-transform: uppercase;
+  }
+  .btn_delete-product {
+    padding: 5px 10px;
+    font-size: 13px;
+    background: peachpuff;
+    text-transform: uppercase;
+  }
+  .btn_update-product,
+  .btn_delete-product a {
+    color: white;
+  }
+  .back_btn,
+  .btn-add-product {
+    background: peachpuff;
+    text-transform: uppercase;
+  }
+}
+
+@media (min-width: 500px) {
+  .table_products {
+    min-width: 650px;
+    margin-bottom: 5%;
+  }
+}
+
+@media (min-width: 500px) and (min-width: 800px) {
+  .table_products {
+    min-width: 800px;
+  }
+}
+
+@media (min-width: 500px) {
+  .product-head {
+    font-size: 46px;
+    text-align: center;
+    padding: 0 10% 10% 10%;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  th {
+    font-size: 34px;
+    padding-bottom: 5%;
+    padding-top: 5%;
+  }
+  tr {
+    padding: 5%;
+  }
+  td {
+    width: 200px;
+    font-size: 18px;
+    padding: 2%;
+  }
+  .table_products-head {
+    padding-right: 30px;
+  }
+  .btn_update-product,
+  .btn_delete-product {
+    margin-left: 15px;
+    background: peachpuff;
+    text-transform: uppercase;
+  }
+}
+
+@media (min-width: 500px) and (min-width: 700px) {
+  .btn_update-product,
+  .btn_delete-product {
+    margin-left: 0;
+  }
+}
+
+@media (min-width: 500px) and (min-width: 800px) {
+  .btn_update-product,
+  .btn_delete-product {
+    margin-left: 15px;
+  }
+}
+
+@media (min-width: 500px) {
+  .btn_delete-product a {
+    color: #ffffff;
+  }
+  tr:nth-child(odd) {
+    background: #ebebeb;
+  }
+  .product_img-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    padding: 20px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .product_img-wrapper {
+    margin: 0 10px 0 10px;
+  }
+  .product_img-head {
+    text-align: center;
+    font-size: 36px;
+  }
+  .back_btn,
+  .btn-add-product {
+    background: peachpuff;
+    text-transform: uppercase;
+  }
+}
+
+.btn_delete-img {
+  background-color: #852db8;
+  text-transform: uppercase;
+  color: white;
+  -webkit-transition: all 300ms ease;
+  transition: all 300ms ease;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+.btn_delete-img:hover {
+  background-color: #b852f4;
+  text-transform: uppercase;
+  color: white;
+}
+
+.freight-info {
+  padding-bottom: 40px;
+}
+
+.freight-info-p {
+  text-align: center;
 }
 
 @media (max-width: 500px) {

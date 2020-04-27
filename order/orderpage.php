@@ -4,10 +4,7 @@ require_once '../config/db.php';
 ?>
 
 
-<section class="freight-info">
-  <p>Fri frakt över 500 kr.</p>
-  <p>Alla inom Stockholm har fri frakt.</p>
-</section>
+
 
 
 <!--Varukorgen-->
@@ -40,9 +37,10 @@ require_once '../config/db.php';
   <br>
 </section>
 
-<section class="order-form">
 
-  <h1>Dina uppgifter</h1>
+<section class="form_container">
+
+  <h1 class="page-title form-container__heading-text">Dina uppgifter</h1>
 
 
   <form action="order-confirmation.php" method="POST" id="customer-form" class="form-container">
