@@ -37,11 +37,14 @@
   color: black;
   font-weight: bold;
   font-size: 20px;
+  // z-index: 1;
+	// background-color: rgba(201, 197, 197, 0.8);
+	// padding: 20px 5px;
+	// width: 200px;
   // @media (min-width: 800px) {
   //   font-size: 24px;
   // }
 }
-
 .product_card-btn {
   //display: block;
   //margin-left: 5px;
@@ -62,4 +65,9 @@
 
 .btn-back {
   background-color: rgb(202, 201, 201);
+}
+.cartQty {
+  width: 50px;
+  align-self: center;
+  border: 1;
 }

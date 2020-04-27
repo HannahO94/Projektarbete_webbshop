@@ -912,6 +912,14 @@ label {
   background-color: #cac9c9;
 }
 
+.cartQty {
+  width: 50px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  border: 1;
+}
+
 .search-form {
   text-align: center;
   display: -webkit-box;

@@ -92,9 +92,9 @@ $category = htmlspecialchars($rowCategory['category']);
                     if ($quantity == "0") {
                       $any_items = "Finns EJ i lager";
                       echo "<div class='product__inventory' style='color: red'>" . $any_items . "</div>
-                      <button id='cart-btn$productid' class='add-to-cart' style='background-color: grey; color: black;' disabled>Lägg i varukorgen</button>";
+                      <button id='cart-btn$productid' class='add-to-cart' style='background-color: grey; color: black;' disabled>Lägg i varukorg</button>";
                   }else{
-                    echo "<input type='number' id='cartQty' name='cartQty' min='1' max='$quantity' value='1'>
+                    echo "<input type='number' id='cartQty' name='cartQty' class='cartQty' min='1' max='$quantity' value='1'>
                      <button class='cart-btn product_card-btn'>Lägg i varukorg</button>";
                   }
                 echo "</div>";
@@ -118,9 +118,9 @@ $category = htmlspecialchars($rowCategory['category']);
                     if ($quantity == "0") {
                       $any_items = "Finns EJ i lager";
                       echo "<div class='product__inventory' style='color: red'>" . $any_items . "</div>
-                      <button id='cart-btn$productid' class='add-to-cart' style='background-color: grey; color: black;' disabled>Lägg i varukorgen</button>";
+                      <button id='cart-btn$productid' class='add-to-cart' style='background-color: grey; color: black;' disabled>Lägg i varukorg</button>";
                   }else{
-                    echo "<input type='number' id='cartQty' name='cartQty' min='1' max='$quantity' value='1'>
+                    echo "<input type='number' id='cartQty' name='cartQty' class='cartQty' min='1' max='$quantity' value='1'>
                      <button class='cart-btn product_card-btn'>Lägg i varukorg</button>";
                   }
                 echo "</div>";
@@ -141,9 +141,9 @@ $category = htmlspecialchars($rowCategory['category']);
                 if ($quantity == "0") {
                   $any_items = "Finns EJ i lager";
                   echo "<div class='product__inventory' style='color: red'>" . $any_items . "</div>
-                  <button id='cart-btn$productid' class='add-to-cart' style='background-color: grey; color: black;' disabled>Lägg i varukorgen</button>";
+                  <button id='cart-btn$productid' class='add-to-cart' style='background-color: grey; color: black;' disabled>Lägg i varukorg</button>";
               }else{
-                echo "<input type='number' id='cartQty' name='cartQty' min='1' max='$quantity' value='1'>
+                echo "<input type='number' id='cartQty' name='cartQty' class='cartQty' min='1' max='$quantity' value='1'>
                  <button class='cart-btn product_card-btn'>Lägg i varukorg</button>";
               }
             echo "</div>";
