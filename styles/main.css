@@ -997,12 +997,11 @@ label {
   margin-top: 8px;
   margin-bottom: 10px;
   margin-left: 10px;
-  background-color: peachpuff;
+  background-color: #f78d30;
 }
 
-#search_btn a {
-  text-align: center;
-  margin: -10px;
+#search_btn:hover {
+  background-color: #852db8;
 }
 
 body {
