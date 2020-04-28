@@ -58,14 +58,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') :
   } else if (isset($_POST['status'])) {
     $status = $_POST['status'];
   }
+  $products = $_POST['products'];
 
 
   //Om det inte finns några felmeddelanden
   if (count($error) == 0) {
 
     //Skicka beställning till databasen
-    $sql = "INSERT INTO webshop_orders (name, email, phone, street, zip, city, status)
-  VALUES (:name, :email, :phone, :street, :zip, :city, :status)";
+    $sql = "INSERT INTO webshop_orders (name, email, phone, street, zip, city, status, products)
+  VALUES (:name, :email, :phone, :street, :zip, :city, :status, :products)";
 
     $stmt = $db->prepare($sql);
     $stmt->bindParam(':name', $name);
@@ -75,6 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') :
     $stmt->bindParam(':zip', $zip);
     $stmt->bindParam(':city', $city);
     $stmt->bindParam(':status', $status);
+    $stmt->bindParam(':products', $products);
     $stmt->execute();
   }
 

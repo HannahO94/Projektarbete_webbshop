@@ -9,18 +9,9 @@ require_once "send-order.php";
 //$id = htmlspecialchars($_GET['id']);
 
 // Hämtar alla kolumner från tabellen "webshop_orders" i db
-// $stmt = $db->prepare("SELECT  
-//                     `orderid`,
-//                     `orderdate`,
-//                     `name`, 
-//                     `email`, 
-//                     `phone`, 
-//                     `street`,
-//                     `zip`
-//                     `city`
-//                     FROM `webshop_order` 
-//                     WHERE orderid=:orderid");
-// $stmt->bindParam(':orderid', $id);
+// $stmt = $db->prepare("SELECT * FROM `webshop_orders` ORDER BY `webshop_orders`.`orderid` DESC "
+//                    );
+// // $stmt->bindParam(':orderid', $id);
 // $stmt->execute();
 
 // echo "<div class='product-info'>";
@@ -36,6 +27,10 @@ require_once "send-order.php";
 // $street = htmlspecialchars($row['street']);
 // $zip = htmlspecialchars($row['zip']);
 // $city = htmlspecialchars($row['city']);
+// $products = json_decode($row['products']);
+
+// print_r($products); 
+
 
 ?>
 

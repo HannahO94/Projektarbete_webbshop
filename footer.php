@@ -27,6 +27,7 @@
 <script type="application/javascript" src="../order/cart-icon.js"></script>
 <script type="application/javascript" src="../order/updateProduct.js"></script>
 <script type="application/javascript" src="../order/show-order-details.js"></script>
+<script type="application/javascript" src="../order/products-ordered.js"></script>
 
 
 </body>
