@@ -1,5 +1,5 @@
 <?php
-require_once '../header_extern.php';
+require_once '../second_header_extern.php';
 require_once '../config/db.php';
 
 $productimg = "";
@@ -22,7 +22,17 @@ $category = htmlspecialchars($rowCategory['category']);
 
 ?>
 
+<!--hero-sektion och sektion för produkter-->
+<section class="hero">
+  <div class="shoppingcart">
+  </div>
+  <!-- <div class="categorypage_logo img-container">
+    <img class="img-container__img" src="category.jpg" alt="Kategoribild">
+  </div> -->
+</section>
+
 <!--sektion för produkter-->
+
 <section>
   <h1 class="category_name"><?php echo $category ?></h1>
   <br>

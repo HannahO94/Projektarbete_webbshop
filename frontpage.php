@@ -1,5 +1,6 @@
 <?php
 // Denna sida hämtar och ritar ut aktuella kategorier från databasen
+require_once 'header_extern.php';
 require_once 'config/db.php';
 
 $stmt = $db->prepare("SELECT * FROM webshop_categories");

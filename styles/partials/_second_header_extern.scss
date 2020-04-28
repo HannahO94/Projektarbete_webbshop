@@ -1,0 +1,16 @@
+.second_hero {
+  background-image: white;
+  min-width: 100vw;
+  min-height: 13vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: ease 300ms;
+
+  @media (min-width: 700px) {
+    background-image: white;
+  }
+  @media (min-width: 1100px) {
+    background-image: white;
+  }
+}
