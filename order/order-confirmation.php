@@ -1,5 +1,5 @@
 <?php
-require_once "../header_extern.php";
+require_once "../second_header_extern.php";
 require_once "send-order.php";
 
 //HÄMTA KUNDUPPGIFTER FRÅN DATABASEN 

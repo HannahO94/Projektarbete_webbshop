@@ -2030,6 +2030,29 @@ main {
   }
 }
 
+.second_hero {
+  background-image: white;
+  min-width: 100vw;
+  min-height: 13vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-transition: ease 300ms;
+  transition: ease 300ms;
+}
+
+@media (min-width: 700px) {
+  .second_hero {
+    background-image: white;
+  }
+}
+
+@media (min-width: 1100px) {
+  .second_hero {
+    background-image: white;
+  }
+}
+
 /*ok att nedan ligger här eller kan vi lägga det ngn
 annanstans så att det fortfarande är med överallt?*/
 /*# sourceMappingURL=main.css.map */
