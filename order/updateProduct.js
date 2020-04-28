@@ -15,6 +15,7 @@ const emptyCartBtn = document.querySelector("#empty-cart");
 const productValue = document.querySelector("#productValue");
 const freightValue = document.querySelector("#freightValue");
 const orderValue = document.querySelector("#orderValue");
+const orderForm = document.querySelector("#order-form");
 const zipCode = document.querySelector("#zip");
 
 drawCart();
@@ -24,10 +25,12 @@ function drawCart() {
 
   if (myProducts.length !== 0) {
     shoppingCartContainer.classList.remove("hideCart");
+    orderForm.classList.remove("hideCart");
     emptyCartText.classList.add("hideCart");
   } else {
     emptyCartText.classList.remove("hideCart");
     shoppingCartContainer.classList.add("hideCart");
+    orderForm.classList.add("hideCart");
   }
   //Börja med att rensa gammalt innehåll i varukorgen
   cartItems.innerHTML = "";
