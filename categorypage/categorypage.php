@@ -30,6 +30,9 @@ $category = htmlspecialchars($rowCategory['category']);
     <img class="img-container__img" src="category.jpg" alt="Kategoribild">
   </div> -->
 </section>
+
+<!--sektion för produkter-->
+
 <section>
   <h1 class="category_name"><?php echo $category ?></h1>
   <br>
