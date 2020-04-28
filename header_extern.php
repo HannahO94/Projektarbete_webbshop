@@ -54,8 +54,8 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 <input type="text" name="search" id="search-Field" class="search-form__input-field" placeholder="Sök efter spel">
                 <!--<input type="submit" id="search_btn" value="Sök">-->
                 <button id="search_btn">Sök</button>
-                <div id="searched-result" class="search-result"></div>
               </form>
+              <div id="searched-result" class="search-result"></div>
               
             </li>
 
@@ -84,7 +84,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             <li class="menu-wraper__link-item">
             <div class="cart-wrapper">
               <a class="menu-wraper__links" href="../order/orderpage.php"><img src="/images/cart.png" class="cart-img"></a>
-              <span class="counter">0</span>
+              <span class="counter" id="counter">0</span>
               </div>
             </li>
 

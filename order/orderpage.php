@@ -13,22 +13,29 @@ require_once '../config/db.php';
   <h1 class="page-title form-container__heading-text">Din varukorg</h1>
 
   <!--Här visas produkter i varukorgen via JS alternativt Varukorgen är tom.-->
-  <h3 id="emptyCartText" >Varukorgen är tom.</h3>
-  <div id="shoppingCartContainer" class="hideCart"></div>
-  <section  class='table_container'>
+
+  <h3 id="emptyCartText">Varukorgen är tom.</h3>
+
+  <div id="shoppingCartContainer" class="hideCart">
+    <section class='table_container'>
     <table class='table_orders'>
+
       <thead>
         <tr class='table_orders-row'>
-        <th class='table_orders-head'>Produkt</th>
-        <th class='table_orders-head'>Pris/st</th>
-        <th class='table_orders-head'>Ta bort</th>
-        <th class='table_orders-head' colspan="3">Antal</th>
-</tr>
+
+          <th class='table_orders-head'>Produkt</th>
+          <th class='table_orders-head'>Pris/st</th>
+          <th class='table_orders-head'>Ta bort</th>
+          <th class='table_orders-head' colspan="3">Antal</th>
+        </tr>
+
       </thead>
       <tbody id="cartItems">
         <!--här jobbar drawCart()-->
       </tbody>
     </table>
+    <br>
+    <h3 id="productValue"></h3>
     <br>
     <h3 id="freightValue"></h3>
     <br>
@@ -46,8 +53,10 @@ require_once '../config/db.php';
   <h1 class="page-title form-container__heading-text">Dina uppgifter</h1>
 
 
-  <!-- <form action="order-confirmation.php" method="POST" id="customer-form" class="form-container"> -->
-    <form action="order-confirmation.php" method="POST" id="contact-form" class="form-container" onsubmit="return validateForm(event)">
+
+  <!-- <form action="" method="POST" id="customer-form" class="form-container"> -->
+    <form action="send-order.php" method="POST" id="contact-form" class="form-container" onsubmit="return validateForm(event), save()">
+
     <!--FK: Formulärvalideringen (som hämtas från validate_order.js) verkar funka 
     utan onsubmit-anrop inuti form-taggen. Därav den utkommenterade kodraden ovan-->
 
@@ -99,7 +108,8 @@ require_once '../config/db.php';
     <input type="hidden" name="status" id="status" value="1">
 
     <div class="order_field-submit form-container__submit">
-      <input type="submit" value="Skicka beställning" class="form-container__submit-button">
+      <input type="submit" value="Skicka beställning" class="form-container__submit-button" id="form-container__submit-button" >
+
     </div>
   </form>
 

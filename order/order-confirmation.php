@@ -43,7 +43,7 @@ require_once "send-order.php";
 <h1>Orderbekräftelse</h1>
 <br>
 
-<section class="order-info">
+<section>
   <h2>Din beställning</h2>
   <br>
   <!--Här kanske vi hellre vill rita ut ordernr, datum och totalpris som en tabell?
@@ -60,7 +60,7 @@ Likt den för produkterna? -->
       <th>Antal</th>
       <th>Pris</th>
     </thead>
-    <tbody id="product-container" class="">
+    <tbody id="ordered-products" class="">
       <!--här hämtas beställda produkter från localstorage 
     och ritas ut med hjälp av funktionen drawOrderedProducts()-->
     </tbody>
@@ -69,11 +69,27 @@ Likt den för produkterna? -->
   <br>
 </section>
 
-<section id="contact-container">
-  <h2>Dina kontaktuppgifter</h2>
+<section id="contact">
+<h2>Dina kontaktuppgifter</h2>
+<table>
+    <thead>
+      <th>Namn</th>
+      <th>Email</th>
+      <th>Telefonnummer</th>
+      <th>Adress</th>
+      <th>Postnummer</th>
+      <th>Postort</th>
+    </thead>
+    <tbody id="contact-container" class="">
+      <!--här hämtas beställda produkter från localstorage 
+    och ritas ut med hjälp av funktionen drawOrderedProducts()-->
+    </tbody>
+  </table>
+  
+
   <br>
   <!--här hämtas kund/kontaktdetaljer från orderformuläret-->
-  <div id="customer-info"></div>
+  <div id="customer-details"></div>
 </section>
 
 
