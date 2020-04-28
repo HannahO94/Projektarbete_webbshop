@@ -34,14 +34,15 @@ require_once '../config/db.php';
         <!--här jobbar drawCart()-->
       </tbody>
     </table>
+    <button id="empty-cart" class="align-button-right">Töm varukorgen</button>
+    <br>
     <br>
     <h3 id="productValue"></h3>
     <br>
     <h3 id="freightValue"></h3>
     <br>
     <h3 id="orderValue"></h3>
-    <br>
-    <button id="empty-cart">Töm varukorgen</button>
+    
   </div>
   <br>
   <br>
