@@ -21,6 +21,7 @@ drawCart();
 //Rita ut produktinfo samt knappar, dvs taggen tbody
 function drawCart() {
   //Kontrollera ifall myProducts är tom eller om den ska ritas ut
+  
   if (myProducts.length !== 0) {
     shoppingCartContainer.classList.remove("hideCart");
     emptyCartText.classList.add("hideCart");
@@ -88,7 +89,7 @@ function drawCart() {
 
     cartItems.appendChild(productRow);
   });
-
+  updateCartCount()
   //Räkna ut totalt produktvärde, fraktkostnad samt totalt ordervärde
   let total = totalPrice(myProducts);
   productValue.textContent = `Produktvärde totalt: ${total} kr `;
