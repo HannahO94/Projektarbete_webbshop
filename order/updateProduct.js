@@ -21,7 +21,7 @@ drawCart();
 //Rita ut produktinfo samt knappar, dvs taggen tbody
 function drawCart() {
   //Kontrollera ifall myProducts är tom eller om den ska ritas ut
-  
+
   if (myProducts.length !== 0) {
     shoppingCartContainer.classList.remove("hideCart");
     emptyCartText.classList.add("hideCart");
@@ -89,7 +89,7 @@ function drawCart() {
 
     cartItems.appendChild(productRow);
   });
-  updateCartCount()
+  updateCartCount();
   //Räkna ut totalt produktvärde, fraktkostnad samt totalt ordervärde
   let total = totalPrice(myProducts);
   productValue.textContent = `Produktvärde totalt: ${total} kr `;
@@ -142,7 +142,7 @@ function changeQty(event) {
         //Får ej understiga 1, annars minska produktens antal med 1
         if (qty === 1) {
           alert(
-            "Produkten måste ha minst antal 1, vill du ta bort produkten, tryck på det röda krysset."
+            "Produkten måste ha minst antal 1, vill du ta bort produkten, tryck på Radera-knappen."
           );
           break;
         } else {
