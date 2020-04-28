@@ -49,7 +49,7 @@ require_once '../config/db.php';
 </section>
 
 
-<section class="form_container order-container">
+<section id="order-form" class="form_container order-container">
 
   <h1 class="page-title form-container__heading-text">Dina uppgifter</h1>
 
@@ -116,9 +116,6 @@ require_once '../config/db.php';
 
 </section>
 
-<!-- <script type="application/javascript" src="show-order-details.js"></script> -->
-<!-- <script type="application/javascript" src="validate_order.js"></script> -->
-<!-- <script type="application/javascript" src="updateProduct.js"></script>-->
 
 <?php
 require_once "../footer.php";
