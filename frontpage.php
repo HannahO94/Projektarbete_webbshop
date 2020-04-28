@@ -9,9 +9,9 @@ $stmt->execute();
 
 <!--detta ska vara skalet för en startsida, förstasida för webbshoppen-->
 <section class="frontpage_links">
-<h2><a href="news\news.php">Nyinkommet</a></h2>
+<h2><a href="news\news.php" class="frontpage_links__link">Nyinkommet</a></h2>
 <br>
-<h2><a href="lastChance\lastChance.php">Sista chansen</a></h2>
+<h2><a href="lastChance\lastChance.php" class="frontpage_links__link">Sista chansen</a></h2>
 <br>
 </section>
 
