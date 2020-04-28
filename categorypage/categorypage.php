@@ -51,11 +51,7 @@ $category = htmlspecialchars($rowCategory['category']);
       $savings = $price - $outletPrice;
 
       //finns eller inte i lager
-      if ($quantity == "0") {
-        $any_items = "<span>Finns EJ i lager</span>";
-      } else {
         $any_items = "I lager: " . $quantity . " st";
-      }
       
       if(!empty($productimg)){
         foreach ($productimg as $key => $value) {
@@ -77,31 +73,33 @@ $category = htmlspecialchars($rowCategory['category']);
 
             if($diffDays < 7){
               //echo "less then two weeks";
-              echo
-              "<div class='product_card' style=background-image:url('../images/$imgbackground');>
-                    <h3 class='product_price-new'>Ny!</h3>
-                    <a href= '../product/product_info.php? id=$productid' 
-                    class='product_title'>$title</a>
-                    <span class='product_price'>Pris: $price kr</span>
-                    <p class='any-items'>$any_items</p>
-                    <p style='display:none'>$price</p>
-                    <p style='display:none;'>$quantity</p>
-                    <p style='display:none'>$productid</p>
-
-                    <label for='cartQty'>Antal:</label>";
                     if ($quantity == "0") {
-                      $any_items = "Finns EJ i lager";
-                      echo "<div class='product__inventory' style='color: red'>" . $any_items . "</div>
-                      <button id='cart-btn$productid' class='add-to-cart' style='background-color: grey; color: black;' disabled>Lägg i varukorg</button>";
-                  }else{
-                    echo "<input type='number' id='cartQty' name='cartQty' class='cartQty' min='1' max='$quantity' value='1'>
+                      echo "";
+                  } else {
+                    echo
+                    "<div class='product_card' style=background-image:url('../images/$imgbackground');>
+                          <h3 class='product_price-new'>Ny!</h3>
+                          <a href= '../product/product_info.php? id=$productid' 
+                          class='product_title'>$title</a>
+                          <span class='product_price'>Pris: $price kr</span>
+                          <p class='any-items'>$any_items</p>
+                          <p style='display:none'>$price</p>
+                          <p style='display:none;'>$quantity</p>
+                          <p style='display:none'>$productid</p>
+      
+                          <label for='cartQty'>Antal:</label>
+                          <input type='number' id='cartQty' name='cartQty' class='cartQty' min='1' max='$quantity' value='1'>
                      <button class='cart-btn product_card-btn'>Lägg i varukorg</button>";
                   }
+
                 echo "</div>";
                 //<a href= '../order/orderpage.php? id=$productid' </a>
             }else if($diffDays > 60){
-          
-              echo
+
+                    if ($quantity == "0") {
+                     echo "";
+                  }else{
+                    echo
               "<div class='product_card' style=background-image:url('../images/$imgbackground');>
                     <p class='product_price-outlet'>Pris: $outletPrice kr</p>
                     <a href= '../product/product_info.php? id=$productid' 
@@ -114,20 +112,17 @@ $category = htmlspecialchars($rowCategory['category']);
                     <p style='display:none;'>$quantity</p>
                     <p style='display:none'>$productid</p>
 
-                    <label for='cartQty'>Antal:</label>";
-                    if ($quantity == "0") {
-                      $any_items = "Finns EJ i lager";
-                      echo "<div class='product__inventory' style='color: red'>" . $any_items . "</div>
-                      <button id='cart-btn$productid' class='add-to-cart' style='background-color: grey; color: black;' disabled>Lägg i varukorg</button>";
-                  }else{
-                    echo "<input type='number' id='cartQty' name='cartQty' class='cartQty' min='1' max='$quantity' value='1'>
+                    <label for='cartQty'>Antal:</label>
+                    <input type='number' id='cartQty' name='cartQty' class='cartQty' min='1' max='$quantity' value='1'>
                      <button class='cart-btn product_card-btn'>Lägg i varukorg</button>";
                   }
                 echo "</div>";
                 //<a href= '../order/orderpage.php? id=$productid' </a>
             } else {
-              
-              echo
+                if ($quantity == "0") {
+                  echo "";
+              }else{
+                echo
               "<div class='product_card' style=background-image:url('../images/$imgbackground');>
                 <a href= '../product/product_info.php? id=$productid' 
                 class='product_title'>$title</a>
@@ -137,13 +132,8 @@ $category = htmlspecialchars($rowCategory['category']);
                 <p style='display:none;'>$quantity</p>
                 <p style='display:none'>$productid</p>
 
-                <label for='cartQty'>Antal:</label>";
-                if ($quantity == "0") {
-                  $any_items = "Finns EJ i lager";
-                  echo "<div class='product__inventory' style='color: red'>" . $any_items . "</div>
-                  <button id='cart-btn$productid' class='add-to-cart' style='background-color: grey; color: black;' disabled>Lägg i varukorg</button>";
-              }else{
-                echo "<input type='number' id='cartQty' name='cartQty' class='cartQty' min='1' max='$quantity' value='1'>
+                <label for='cartQty'>Antal:</label>
+                <input type='number' id='cartQty' name='cartQty' class='cartQty' min='1' max='$quantity' value='1'>
                  <button class='cart-btn product_card-btn'>Lägg i varukorg</button>";
               }
             echo "</div>";
