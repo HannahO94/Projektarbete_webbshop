@@ -4,9 +4,11 @@ require_once '../config/db.php';
 $sql = "SELECT * FROM webshop_products";
 $stmt = $db->prepare($sql);
 $stmt->execute();
-
-  echo "<h2>Här hittar du våra nyaste varor</h2>";
+?>
+<h2>Här hittar du våra nyaste varor</h2>
   
+<div class="product_container">
+<?php  
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) :
   $title = htmlspecialchars($row['title']);
   $price = htmlspecialchars($row['price']);
@@ -55,10 +57,10 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) :
       echo "</div>";
   };
 
-  
-
 endwhile;
 ?>
+
+</div>
 <button class="btn-back"><a href="../index.php">Tillbaka till startsidan</a></button>
 
 <?php
