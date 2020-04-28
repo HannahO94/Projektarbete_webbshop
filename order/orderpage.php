@@ -49,7 +49,7 @@ require_once '../config/db.php';
 </section>
 
 
-<section id="order-form" class="form_container order-container">
+<section id="order-form" class="form_container order-container hideCart">
 
   <h1 class="page-title form-container__heading-text">Dina uppgifter</h1>
 
