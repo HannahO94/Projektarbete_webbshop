@@ -44,7 +44,7 @@ function drawOrderedProducts() {
 	orderTotalPrice.textContent = `Totalpris: ${total} kr `
 
 	//Rensa localStorage
-	// localStorage.clear()
+	
 }
 
 // 2. HÄMTA OCH RITA UT KUNDUPPGIFTER (med javascript eller php - hämta från databasen?)
@@ -132,8 +132,9 @@ function drawOrderDetail() {
 	})
 	localStorage.clear()
 	updateCartCount()
-
+	
 }
+
 
 // //Hämta nödvändiga element från bekräftelsesidan
 // const contactDetails = document.querySelector("#contact-container")
