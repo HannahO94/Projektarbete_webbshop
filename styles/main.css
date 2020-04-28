@@ -1828,7 +1828,7 @@ main {
 
 .align-button-right {
   position: absolute;
-  right: 20px;
+  right: 10%;
 }
 
 @media (max-width: 500px) {
