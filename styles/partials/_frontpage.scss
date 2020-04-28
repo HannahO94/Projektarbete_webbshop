@@ -1,48 +1,75 @@
+.frontpage_links {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px;
+
+  &__link {
+    color: rgb(243, 151, 30);
+    border: 2px solid rgb(243, 151, 30);
+    border-radius: 10px;
+    margin: 20px;
+    padding: 12px;
+
+    &:hover {
+      color: white;
+      background-color: rgb(243, 151, 30);
+    }
+    @media (min-width: 600px) {
+      margin: 15px;
+      padding: 10px;
+    }
+  }
+  @media (min-width: 600px) {
+    flex-direction: row;
+    margin-bottom: 30px;
+  }
+}
+
 .frontpage_categories {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	@media (min-width: 600px) {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		justify-content: center;
-		align-items: center;
-	}
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @media (min-width: 600px) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .category_card {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	margin: 2em;
-	text-align: center;
-	height: 200px;
-	width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 2em;
+  text-align: center;
+  height: 200px;
+  width: 200px;
 }
 
 .category_title {
-	// position: relative;
-	// display: inline-block;
-	// margin-top: 40%;
-	z-index: 1;
-	text-decoration: none;
-	background-color: rgba(56, 56, 56, 0.8);
-	padding: 20px 5px;
-	width: 200px;
-	color: rgb(255, 255, 255);
-	font-weight: bold;
-	font-size: 20px;
-	@media (min-width: 800px) {
-		font-size: 24px;
-	}
+  // position: relative;
+  // display: inline-block;
+  // margin-top: 40%;
+  z-index: 1;
+  text-decoration: none;
+  background-color: rgba(56, 56, 56, 0.8);
+  padding: 20px 5px;
+  width: 200px;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  font-size: 20px;
+  @media (min-width: 800px) {
+    font-size: 24px;
+  }
 }
 
 .img_wrapper {
-	@extend %wrapper-parent;
+  @extend %wrapper-parent;
 }
 
 .category_img {
-	@extend %wrapped-img;
+  @extend %wrapped-img;
 }
