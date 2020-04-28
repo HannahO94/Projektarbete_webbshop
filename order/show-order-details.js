@@ -131,6 +131,7 @@ function drawOrderDetail() {
 		orderDetail.appendChild(orderRow)
 	})
 	localStorage.clear()
+	updateCartCount()
 
 }
 
