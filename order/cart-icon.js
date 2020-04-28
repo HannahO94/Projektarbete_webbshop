@@ -70,20 +70,22 @@
 let counters = document.querySelector("#counter");
 let btn1 = document.querySelectorAll(".cart-btn");
 let btnLess = document.querySelectorAll(".delete");
-//maddes
 let products 
-products = JSON.parse(localStorage.getItem("products"));
+products = JSON.parse(localStorage.getItem("products"))
+
+
 
 //maddes?
-function showValue() {
-  if (JSON.parse(localStorage.getItem("counter")) !== null) {
-    value = localStorage.getItem("counter");
-  } else {
-    value = 0;
-  }
-  counters[0].textContent = value;
-  localStorage.setItem("counter", value);
-}
+// function showValue() {
+//   if (JSON.parse(localStorage.getItem("counter")) !== null) {
+//     value = localStorage.getItem("counter");
+//   } else {
+//     value = 0;
+//   }
+//   counters[0].textContent = value;
+//   localStorage.setItem("counter", value);
+// }
+
 
 
 
@@ -93,7 +95,7 @@ for (let i = 0; i < btn1.length; i++) {
 }
 
 for (let j = 0; j < btnLess.length; j++) {
-  btnLess[j].addEventListener("click", updateCartCount2 )
+  btnLess[j].addEventListener("click", updateCartCount )
   
   
 }
@@ -106,8 +108,6 @@ function updateCartCount () {
     console.log(products.length)
     counters.textContent = products.length
     
-    
-    
   } else {
     products = 0;
     counters.textContent = products
@@ -117,28 +117,28 @@ function updateCartCount () {
 }
 
 //Hannahs
-function updateCartCount2 () {
-  let products 
-  if (JSON.parse(localStorage.getItem("products")) !== null) {
-    products = JSON.parse(localStorage.getItem("products"));
-    console.log(products.length)
-    counters.textContent = products.length
-    btnLess = ""
-    window.location.hash = '#tab2';
-    window.location.reload(true);
+// function updateCartCount2 () {
+//   let products 
+//   if (JSON.parse(localStorage.getItem("products")) !== null) {
+//     products = JSON.parse(localStorage.getItem("products"));
+//     console.log(products.length)
+//     counters.textContent = products.length
+//     btnLess = ""
+//     window.location.hash = '#tab2';
+//     window.location.reload(true);
     
-  } else {
-    products = 0;
-    counters.textContent = products
-    console.log(products.length)
-  }
-}
-//maddes
-function btn1Less(event) {
-  counters[0].textContent = parseInt(counters[0].textContent) - 1;
-  let value = counters[0].textContent;
-  localStorage.setItem("counter", value);
-  showValue();
+//   } else {
+//     products = 0;
+//     counters.textContent = products
+//     console.log(products.length)
+//   }
+// }
+// //maddes
+// function btn1Less(event) {
+//   counters[0].textContent = parseInt(counters[0].textContent) - 1;
+//   let value = counters[0].textContent;
+//   localStorage.setItem("counter", value);
+//   showValue();
 
-}
+// }
 
