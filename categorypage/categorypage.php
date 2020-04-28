@@ -29,7 +29,7 @@ $category = htmlspecialchars($rowCategory['category']);
   <br>
   <br>
   <!--här hämtas kategoriens produkter från databas-->
-  <div class="categorypage_products">
+  <div class="product_container">
     <?php
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) :
       $title = htmlspecialchars($row['title']);
