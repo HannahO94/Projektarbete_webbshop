@@ -77,14 +77,20 @@ if($diffDays < 7){
 <?php
 if(!empty($productimg)){
 foreach ($productimg as $key => $value) {
-        echo "<img src='../images/$value' width='200px' class='product_img' style='margin: 8px;'>";
-        }
+    if($productimg[0] == ""){
+        echo "ingen bildfil finns tillgänglig";
+    }else{
+        echo "<div class='product_img-wrapper'><img src='../images/$value' width='200px' class='product_img'></div><br>";
+    }
+
     }
     else {
         echo "ingen bildfil finns tillgänglig";
   
-    }
-?>
+
+    }?>
+    
+
 </div>
 
 <?php 

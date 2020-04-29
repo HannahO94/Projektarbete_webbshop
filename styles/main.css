@@ -1853,6 +1853,161 @@ main {
   color: white;
 }
 
+@media (max-width: 500px) {
+  .orders-head {
+    font-size: 24px;
+    text-align: center;
+  }
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+  .table_container {
+    min-width: 280px;
+  }
+}
+
+@media (max-width: 500px) and (min-width: 600px) {
+  .table_container {
+    min-width: 400px;
+  }
+}
+
+@media (max-width: 500px) {
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  th {
+    padding: 2%;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 500px) and (min-width: 1000px) {
+  th {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 500px) {
+  tr {
+    margin: 0 0 1rem 0;
+    padding: 5px;
+    border-radius: 5px;
+    letter-spacing: 2px;
+  }
+  tr:nth-child(odd) {
+    background: #ebebeb;
+  }
+  td {
+    /* Behave  like a "row" */
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 50%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+  }
+  td:before {
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 0;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+  }
+  .btn_update-status {
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    font-size: 13px;
+    background: peachpuff;
+    text-transform: uppercase;
+  }
+  .btn_update-status a {
+    color: white;
+  }
+  .back_btn,
+  .btn-update-status {
+    background: peachpuff;
+    text-transform: uppercase;
+  }
+}
+
+@media (min-width: 500px) {
+  .table_orders {
+    min-width: 650px;
+    margin-bottom: 5%;
+  }
+}
+
+@media (min-width: 500px) and (min-width: 800px) {
+  .table_orders {
+    min-width: 800px;
+  }
+}
+
+@media (min-width: 500px) {
+  .orders-head {
+    font-size: 46px;
+    text-align: center;
+    padding: 0 10% 10% 10%;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  th {
+    font-size: 34px;
+    padding-bottom: 5%;
+    padding-top: 5%;
+  }
+  tr {
+    padding: 5%;
+  }
+  td {
+    width: 200px;
+    font-size: 18px;
+    padding: 2%;
+  }
+  .table_orders-head {
+    padding-right: 30px;
+  }
+  .btn_update-status {
+    margin-left: 15px;
+    background: peachpuff;
+    text-transform: uppercase;
+  }
+}
+
+@media (min-width: 500px) and (min-width: 700px) {
+  .btn_update-status {
+    margin-left: 0;
+  }
+}
+
+@media (min-width: 500px) and (min-width: 800px) {
+  .btn_update-status {
+    margin-left: 15px;
+  }
+}
+
+@media (min-width: 500px) {
+  tr:nth-child(odd) {
+    background: #ebebeb;
+  }
+  .back_btn,
+  .btn-update-status {
+    background: peachpuff;
+    text-transform: uppercase;
+  }
+}
+
 .hideCart {
   display: none;
 }
