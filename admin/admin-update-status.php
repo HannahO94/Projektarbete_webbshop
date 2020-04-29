@@ -18,7 +18,6 @@ if (isset($_GET['id'])) {
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
     $orderid = $row['orderid'];
     $currentStatus = $row['status'];
-    //echo $currentStatus
   } else {
     header('Location:admin-order.php');
     exit;
@@ -29,13 +28,20 @@ if (isset($_GET['id'])) {
 }
 
 
-// if ($_SERVER['REQUEST_METHOD'] === 'POST') :
-//   $id = htmlspecialchars($_POST['orderid']);
+if ($_SERVER['REQUEST_METHOD'] === 'POST') :
+  $orderid = htmlspecialchars($_POST['orderid']);
+  $status = htmlspecialchars($_POST['status']);
 
-//   if (isset($_POST["orderid"])) {
-//   }
+  $sql = "UPDATE webshop_orders SET status = :status WHERE orderid = :orderid";
+  $stmt = $db->prepare($sql);
 
-// endif;
+  $stmt->bindParam(':orderid', $orderid);
+  $stmt->bindParam(':status', $status);
+  $stmt->execute();
+
+  header('Location:admin-order.php');
+
+endif;
 ?>
 
 <section class="form_container">
@@ -46,11 +52,11 @@ if (isset($_GET['id'])) {
   <br>
   <form action="#" method="POST" class="form-container">
     <div class="form-container__box">
+      <label for="status">Orderstatus:</label>
       <select name="status" class="form-container__box-input">
-        <option value="">Välj status</option>
-        <option value="">Ny (1)</option>
-        <option value="">Behandlas (2)</option>
-        <option value="">Slutförd (3)</option>
+        <option value="1" <?php if ($currentStatus == 1) echo "selected" ?>>Ny</option>
+        <option value="2" <?php if ($currentStatus == 2) echo "selected" ?>>Behandlas</option>
+        <option value="3" <?php if ($currentStatus == 3) echo "selected" ?>>Slutförd</option>
       </select>
     </div>
 
