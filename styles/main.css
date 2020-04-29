@@ -2017,6 +2017,10 @@ main {
   right: 10%;
 }
 
+.shopping-btn {
+  text-align: center;
+}
+
 @media (max-width: 500px) {
   .shopping_container {
     min-height: 300px;

@@ -1,8 +1,37 @@
 <?php
 require_once "header.php";
 require_once "../config/db.php";
+
+$orderStatusId = htmlspecialchars($_GET['id']);
+//echo $orderStatusId;
+
+if ($orderStatusId == 1){
+    $orderStatus = "Ny";
+} elseif ($orderStatusId == 2) {
+    $orderStatus = "Behandlas";
+} elseif ($orderStatusId == 3) {
+    $orderStatus = "Slutförd";
+} elseif ($orderStatusId == 0){
+    $orderStatus = "Alla";
+};
+
+
 ?>
 <h2 class="orders-head">Beställningar</h2>
+
+<form id="order-status_form">
+<lable id="show_lable">Sortera på orderstatus</lable>
+<select id="show_order-status" name="order-status">
+  <option id="current-status"><?php echo $orderStatus?></option>
+  <option value="0">Alla</option>
+  <option value="1">Ny</option>
+  <option value="2">Behandlas</option>
+  <option value="3">Slutförd</option>
+</select>
+</form>
+
+
+
 <?php
 // $sql = $sql = "SELECT
 // O.orderid    AS Ordernummer,
@@ -25,7 +54,11 @@ require_once "../config/db.php";
 // AND 
 // Q.productid = P.productid";
 
-$sql = "SELECT * FROM webshop_orders";
+if ($orderStatusId > 0){
+   $sql = "SELECT * FROM `webshop_orders` WHERE `status` = $orderStatusId";
+} else {
+    $sql = "SELECT * FROM `webshop_orders`"; 
+};
 
 $stmt = $db->prepare($sql);
 $stmt->execute();
@@ -143,6 +176,7 @@ $table .= "</tbody></table></section>";
 
 echo $table;
 
+require_once "../footer.php";
 
 
 //den här sql:n selectar endast de produkter som har samma produktid som de beställda produkternna. 
