@@ -1,11 +1,6 @@
 <?php
   require_once '../second_header_extern.php';
 require_once '../config/db.php';
-$sql = "SELECT * FROM webshop_products";
-$stmt = $db->prepare($sql);
-$stmt->execute();
-
-
 $sqlDate = "SELECT * FROM `webshop_products` ORDER BY date ASC LIMIT 3";
 $stmtDate = $db->prepare($sqlDate);
 $stmtDate->execute();
@@ -23,6 +18,7 @@ while ($row = $stmtDate->fetch(PDO::FETCH_ASSOC)) :
   $outletProductid = htmlspecialchars($row['productid']);
   $outletQuantity = htmlspecialchars($row['quantity']);
   $outletDate = htmlspecialchars($row['date']);
+  $productimg = unserialize($row['productimg']); 
 
   //nytt outlet pris
   $percentage = 0.9;
@@ -40,8 +36,11 @@ while ($row = $stmtDate->fetch(PDO::FETCH_ASSOC)) :
     "<div class='product_card'>
           <p class='product_price-outlet'>Pris: $outletPrice kr</p>
           <a href= '../product/product_info.php? id=$outletProductid' 
-          class='product_title'>$outletTitle</a>
-          <p class='product_price-old'>Normalpris: $outletOrigPrice kr</p>
+          class='product_title'>$outletTitle</a>";
+          if(!empty($productimg)){
+            echo "<img src='../images/$productimg[0]' width='100px' class='product_img'>";
+            }
+          echo "<p class='product_price-old'>Normalpris: $outletOrigPrice kr</p>
           <p class='product_price-savings'>Du sparar: $savings kr! (-10%) </p> 
           <p class='any-items'>$any_items</p>
           <p style='display:none;'>$outletOrigPrice</p>
