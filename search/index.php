@@ -30,7 +30,7 @@ require_once '../second_header_extern.php';
   $stmt->execute();
   
   //hämta outlet-produkter från databas
-  $sqlDate = "SELECT * FROM webshop_products ORDER BY date ASC LIMIT 3";
+  $sqlDate = "SELECT * FROM webshop_products WHERE quantity > 0 ORDER BY date ASC LIMIT 3";
   $stmtDate = $db->prepare($sqlDate);
   $stmtDate->execute();
   //lägger alla outlet-produkters id i en array
