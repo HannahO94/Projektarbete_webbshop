@@ -18,6 +18,9 @@ const orderValue = document.querySelector("#orderValue");
 const orderForm = document.querySelector("#order-form");
 const zipCode = document.querySelector("#zip");
 
+//madde har lagt in en börja shoppa knapp när varukorgen är tom.
+const shoppingBtn = document.querySelector("#shopping-btn");
+
 drawCart();
 //Rita ut produktinfo samt knappar, dvs taggen tbody
 function drawCart() {
@@ -27,8 +30,10 @@ function drawCart() {
     shoppingCartContainer.classList.remove("hideCart");
     orderForm.classList.remove("hideCart");
     emptyCartText.classList.add("hideCart");
+    shoppingBtn.classList.add("hideCart");
   } else {
     emptyCartText.classList.remove("hideCart");
+    shoppingBtn.classList.remove("hideCart");
     shoppingCartContainer.classList.add("hideCart");
     orderForm.classList.add("hideCart");
   }
@@ -100,7 +105,7 @@ function drawCart() {
   freightValue.textContent = `Frakt: ${freight} kr `;
   let orderTotal = total + freight;
   orderValue.textContent = `Ordervärde totalt: ${orderTotal} kr `;
-  localStorage.setItem("totalprice", orderTotal)
+  localStorage.setItem("totalprice", orderTotal);
 }
 
 //Lyssnare till Töm varukorg som ropar på emptyCart

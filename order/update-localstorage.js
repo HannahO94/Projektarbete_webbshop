@@ -26,8 +26,10 @@ for (let j = 0; j < cartBtn.length; j++) {
       // console.log(productArray[i]);
     }
 
+
     
     console.log(productArray.length)
+
 
     //Kollar längden på arrayen för att kunna veta vilka index i arrayen som ska hämtas ut,
     //beroende på om produkten är på rea eller om det är en ny produkt eller om den hämtas från kategorisidan eller produktsidan behöver man kämta olika
@@ -87,6 +89,7 @@ for (let j = 0; j < cartBtn.length; j++) {
       };
       
     }
+
     
     let sum = 0;
    for (let j = 0; j < arrayToSend.length; j++){
@@ -106,6 +109,7 @@ for (let j = 0; j < cartBtn.length; j++) {
     }
    
 
+
     //pushar in produkt informationen i arrayToSend som ska skickas till localstorage
     arrayToSend.push(product);
     //tömmer productArray(för att det inte ska bli dubletter)
@@ -116,8 +120,4 @@ for (let j = 0; j < cartBtn.length; j++) {
     localStorage.setItem("products", JSON.stringify(arrayToSend));
   });
 }
-
-// console.log(product.title, product.price, product.quantity, product.productid, product.outletprice)
-
- // console.log(product.title, product.price, product.quantity, product.productid, product.cartQty)
 
