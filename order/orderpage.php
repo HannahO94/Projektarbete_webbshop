@@ -8,6 +8,7 @@ require_once '../config/db.php';
 
 
 <!--Varukorgen-->
+<section class="shopping_container">
 <section id="shoppingcart">
 
   <h1 class="page-title form-container__heading-text">Din varukorg</h1>
@@ -61,6 +62,7 @@ require_once '../config/db.php';
     <!--FK: Formulärvalideringen (som hämtas från validate_order.js) verkar funka 
     utan onsubmit-anrop inuti form-taggen. Därav den utkommenterade kodraden ovan-->
     <input type="hidden" id="products" name="products">
+    <input type="hidden" id="totalprice" name="totalprice">
     <div class="order_field-name form-container__box">
       <label for="name">För- och efternamn:</label><br>
       <!-- <input type="text" name="name" id="name" required> -->
@@ -114,6 +116,7 @@ require_once '../config/db.php';
     </div>
   </form>
 
+</section>
 </section>
 
 

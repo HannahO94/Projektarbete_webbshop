@@ -59,14 +59,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') :
     $status = $_POST['status'];
   }
   $products = $_POST['products'];
-
+  $totalprice = $_POST['totalprice'];
 
   //Om det inte finns några felmeddelanden
   if (count($error) == 0) {
 
     //Skicka beställning till databasen
-    $sql = "INSERT INTO webshop_orders (name, email, phone, street, zip, city, status, products)
-  VALUES (:name, :email, :phone, :street, :zip, :city, :status, :products)";
+    $sql = "INSERT INTO webshop_orders (name, email, phone, street, zip, city, status, products, totalprice)
+  VALUES (:name, :email, :phone, :street, :zip, :city, :status, :products, :totalprice)";
 
     $stmt = $db->prepare($sql);
     $stmt->bindParam(':name', $name);
@@ -77,6 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') :
     $stmt->bindParam(':city', $city);
     $stmt->bindParam(':status', $status);
     $stmt->bindParam(':products', $products);
+    $stmt->bindParam(':totalprice', $totalprice);
     $stmt->execute();
   }
 
