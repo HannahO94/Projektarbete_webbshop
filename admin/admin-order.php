@@ -109,13 +109,13 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     $table .= "
         <tr class='table_orders-row'>
             <td class='table_orders-cell'> $orderid</td>
-            <td class='table_orders-cell'>
+            <td class='table_orders-cell' style='width: 20%'>
                 $name <br> 
                 $email <br> 
                 $phone <br> 
                 $street, $zip $city
             </td>
-            <td class='table_orders-cell products' style='width: 300px'> $productsspec </td>
+            <td class='table_orders-cell products' style='width: 20%'> $productsspec </td>
             <td class='table_orders-cell'> $totalprice kr</td>
             <td class='table_orders-cell'> $status</td>
             <td class='table_orders-cell'>
