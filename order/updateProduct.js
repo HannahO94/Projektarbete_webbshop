@@ -100,6 +100,7 @@ function drawCart() {
   freightValue.textContent = `Frakt: ${freight} kr `;
   let orderTotal = total + freight;
   orderValue.textContent = `Ordervärde totalt: ${orderTotal} kr `;
+  localStorage.setItem("totalprice", orderTotal)
 }
 
 //Lyssnare till Töm varukorg som ropar på emptyCart
