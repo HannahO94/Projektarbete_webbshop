@@ -36,17 +36,11 @@ $table = "<section class='table_container'>
                 <tbody>
                     <tr class='table_orders-row'>
                         <th class='table_orders-head'>Orderid</th>
-                        <th class='table_orders-head'>Namn</th>
-                        <th class='table_orders-head'>Email</th>
-                        <th class='table_orders-head'>Telefon</th>
-                        <th class='table_orders-head'>Adress</th>
-                        <th class='table_orders-head'>Postnummer</th>
-                        <th class='table_orders-head'>Ort</th>
+                        <th class='table_orders-head'>Kunduppgifter</th>
                         <th class='table_orders-head'>Produkter</th>
-                        <th class='table_orders-head'>Ordersumma</th>
-                        <th class='table_orders-head'>Status</th>
-                        <th class='table_orders-head'>Ändra status</th>
-                    </tr>";
+                        <th class='table_orders-head'>Summa</th>
+                        <th class='table_orders-head' colspan='2'>Orderstatus</th>
+                        </tr>";
 
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     $orderid = htmlspecialchars($row['orderid']);
@@ -115,16 +109,18 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     $table .= "
         <tr class='table_orders-row'>
             <td class='table_orders-cell'> $orderid</td>
-            <td class='table_orders-cell'> $name </td>
-            <td class='table_orders-cell'> $email </td>
-            <td class='table_orders-cell'> $phone </td>
-            <td class='table_orders-cell'> $street </td>
-            <td class='table_orders-cell'> $zip </td>
-            <td class='table_orders-cell'> $city </td>
+            <td class='table_orders-cell'>
+                Namn: $name <br> 
+                Email: $email <br> 
+                Tel: $phone <br> 
+                Adress: $street, $zip $city</td>
             <td class='table_orders-cell products'> $productsspec </td>
             <td class='table_orders-cell'> $totalprice kr</td>
-            <td class='table_orders-cell'> $status </td>
-            <td class='table_orders-cell'><button class='btn_update-status'><a href='admin-update-status.php?id=$orderid'>Uppdatera</a></button>
+            <td class='table_orders-cell'> $status</td>
+            <td class='table_orders-cell'>
+                <button class='btn_update-status'>
+                    <a href='admin-update-status.php?id=$orderid'>Ändra status</a>
+                </button></td>
 
         </tr>";
 }
