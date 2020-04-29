@@ -30,7 +30,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) :
     $any_items = "I lager: " . $quantity . " st";
   }
 
-  //räkna ut skillnaden mellan datens datum och produktens datum
+  //räkna ut skillnaden mellan dagens datum och produktens datum
   $now = date("yy-m-d");
   $dateNow=date_create($now);
   $dateProd=date_create($date);
