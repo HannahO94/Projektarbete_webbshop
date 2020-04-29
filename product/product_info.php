@@ -13,7 +13,8 @@ $stmt = $db->prepare("SELECT
                     `description`, 
                     `quantity`, 
                     `price`,
-                    `productimg`
+                    `productimg`,
+                    `date`
                     FROM `webshop_products` 
                     WHERE productid=:productid");
 $stmt->bindParam(':productid', $id);
@@ -31,10 +32,27 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
     $quantity = htmlspecialchars($row['quantity']);
     $price = htmlspecialchars($row['price']);
     $productimg = unserialize($row['productimg']);   
+    $date = htmlspecialchars($row['date']);
 
+    //nytt outlet pris
+    $percentage = 0.9;
+    $outletPrice = ceil($price * $percentage);
+    $savings = $price - $outletPrice;
+
+    //räkna ut skillnaden mellan dagens datum och produktens datum
+    $now = date("yy-m-d");
+    $dateNow=date_create($now);
+    $dateProd=date_create($date);
+    $diff=date_diff($dateProd,$dateNow);
+    $diffDays = $diff->format('%R%a days'); 
 
 ?>
 <section class="product">
+<?php 
+if($diffDays < 7){
+    echo "<h3 class='product_price-new'>Ny!</h3>";
+};     
+    ?>
 <h1 class="product__prod-title"><?= $title ?></h1>
 <p class="product__prod-description">
 <?= $description ?>
@@ -52,27 +70,55 @@ foreach ($productimg as $key => $value) {
     }?>
 </div>
 
-<div class="product__prod-price"><strong>Pris:</strong> <?= $price ?> kr</div>
+
 
 <?php 
+
+
+  if($diffDays < 60){
  // Om det finns i lagret eller inte
  if ($quantity == "0") {
     $any_items = "Finns EJ i lager";
     echo "<div class='product__inventory' style='color: red'>" . $any_items . "</div>";
     echo "<button id='cart-btn$productid' class='add-to-cart' style='background-color: grey; color: black;' disabled>Lägg i varukorgen</button>";
 } else {
+    echo "<div class='product__prod-price'><strong>Pris:</strong> $price kr</div>";
     $any_items = "I lager: " . $quantity . " st";
     echo "<div class='product__inventory' style='color: green'>" . $any_items . "</div>
+    
     <p style='display:none'>$price</p>
     <p style='display:none;'>$quantity</p>
     <p style='display:none'>$productid</p>";
-
     echo "
     <label for='cartQty'>Antal:</label>
     <input type='number' id='cartQty' name='cartQty' min='1' max='$quantity' value='1'> 
     <button id='cart-btn$productid' class='cart-btn'>Lägg i varukorgen</button>";
 }
 echo "</div>";
+  } else {
+    if ($quantity == "0") {
+        $any_items = "Finns EJ i lager";
+        echo "<div class='product__inventory' style='color: red'>" . $any_items . "</div>";
+        echo "<button id='cart-btn$productid' class='add-to-cart' style='background-color: grey; color: black;' disabled>Lägg i varukorgen</button>";
+    } else {
+        echo "<div class='product__prod-price'><strong>Pris:</strong> $outletPrice kr</div>
+        <p class='product_price-old'>Normalpris: $price kr</p>
+        <p class='product_price-savings'>Du sparar: $savings kr! (-10%) </p>";
+        $any_items = "I lager: " . $quantity . " st";
+        echo "<div class='product__inventory' style='color: green'>" . $any_items . "</div>
+        
+
+        <p style='display:none;'>$quantity</p>
+        <p style='display:none'>$productid</p>";
+        echo "
+        <label for='cartQty'>Antal:</label>
+        <input type='number' id='cartQty' name='cartQty' min='1' max='$quantity' value='1'> 
+        <button id='cart-btn$productid' class='cart-btn'>Lägg i varukorgen</button>";
+    }
+    echo "</div>";
+
+  }
+
 ?>
 
 </section>
