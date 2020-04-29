@@ -29,6 +29,14 @@ require_once '../second_header_extern.php';
   $stmt = $db->prepare($sql);
   $stmt->execute();
   
+  //hämta outlet-produkter från databas
+  $sqlDate = "SELECT * FROM webshop_products ORDER BY date ASC LIMIT 3";
+  $stmtDate = $db->prepare($sqlDate);
+  $stmtDate->execute();
+  //lägger alla outlet-produkters id i en array
+  while ($outletRow = $stmtDate->fetch(PDO::FETCH_ASSOC)) :
+    $outletProductid[] = $outletRow['productid'];
+  endwhile;
 
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) :
       $title = htmlspecialchars($row['title']);
@@ -36,6 +44,7 @@ require_once '../second_header_extern.php';
       $productid = htmlspecialchars($row['productid']);
       $quantity = htmlspecialchars($row['quantity']);
       $date = htmlspecialchars($row['date']);
+
 
   //nytt outlet pris
   $percentage = 0.9;
@@ -79,7 +88,8 @@ require_once '../second_header_extern.php';
         }
       echo "</div>";
 
-  }else if($diffDays > 60){
+    //kollar om produkten är outlet eller ordinarie
+    }else if(in_array($productid, $outletProductid)) {
 
     echo
     "<div class='product_card'>
