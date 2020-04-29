@@ -31,11 +31,11 @@ $errors = "";
         else if(!empty($_POST['title'])){
             $title = $_POST['title'];
            
-            if (preg_match("/^[a-öA-Ö\s]*$/", $title)) {
+            if (preg_match("/^([a-öA-Ö0-9.\s]+)$/", $title)) {
                 $title = test_input($_POST['title']) ;      
             }
             else{
-                $error[] = "Produktnamnet får endast innehålla bokstäver och mellanslag";
+                $error[] = "Produktnamnet får endast innehålla bokstäver, siffror och mellanslag";
             }
         }
 

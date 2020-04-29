@@ -25,7 +25,6 @@ for (let j = 0; j < cartBtn.length; j++) {
       productArray.push(productcard);
     }
 
-    
     // console.log(productArray.length);
 
     //Kollar längden på arrayen för att kunna veta vilka index i arrayen som ska hämtas ut,
@@ -80,10 +79,8 @@ for (let j = 0; j < cartBtn.length; j++) {
       // console.log(product.title, product.price, product.quantity, product.productid, product.outletprice)
     }
 
-    
     // console.log(product.title, product.price, product.quantity, product.productid, product.cartQty)
 
-    
     //pushar in produkt informationen i arrayToSend som ska skickas till localstorage
     arrayToSend.push(product);
     //tömmer productArray(för att det inte ska bli dubletter)
@@ -94,7 +91,3 @@ for (let j = 0; j < cartBtn.length; j++) {
     localStorage.setItem("products", JSON.stringify(arrayToSend));
   });
 }
-
-
-
-

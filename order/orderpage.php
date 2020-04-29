@@ -16,6 +16,7 @@ require_once '../config/db.php';
   <!--Här visas produkter i varukorgen via JS alternativt Varukorgen är tom.-->
 
   <h3 id="emptyCartText">Varukorgen är tom.</h3>
+ <div class="shopping-btn"> <button id="shopping-btn"><a href="../frontpage.php">Börja shoppa!</a></button></div>
 
   <div id="shoppingCartContainer" class="hideCart">
     <section class='table_container'>
