@@ -29,7 +29,20 @@ $stmt = $db->prepare($sql);
 $stmt->execute();
 
 $productsspec;
-$table = "<table><tr><th>Orderid</th><th>Namn</th><th>Email</th><th>Telefon</th><th>Adress</th><th>Postnummer</th><th>Ort</th><th>Status</th><th>Produkter</th><th>Ordersumma</th></tr>";
+$table = "<table>
+            <tr>
+                <th>Orderid</th>
+                <th>Namn</th>
+                <th>Email</th>
+                <th>Telefon</th>
+                <th>Adress</th>
+                <th>Postnummer</th>
+                <th>Ort</th>
+                <th>Produkter</th>
+                <th>Ordersumma</th>
+                <th>Status</th>
+                <th>Ändra status</th>
+            </tr>";
 
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     $orderid = htmlspecialchars($row['orderid']);
@@ -95,7 +108,21 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         $status = "Slutförd";
     }
 
-    $table .= "<tr><td> $orderid </td><td> $name </td><td> $email </td><td> $phone </td><td> $street </td><td> $zip </td><td> $city </td><td> $status </td><td style='width:300px'> $productsspec </td><td> $totalprice kr</td></tr>";
+    $table .= "
+        <tr>
+            <td> $orderid</td>
+            <td> $name </td>
+            <td> $email </td>
+            <td> $phone </td>
+            <td> $street </td>
+            <td> $zip </td>
+            <td> $city </td>
+            <td style='width:300px'> $productsspec </td>
+            <td> $totalprice kr</td>
+            <td> $status </td>
+            <td><button class='btn_update-product'><a href='admin-update-status.php?id=$orderid'>Uppdatera</a></button>
+
+        </tr>";
 }
 
 $table .= "</table>";

@@ -1,11 +1,6 @@
 <?php
   require_once '../second_header_extern.php';
 require_once '../config/db.php';
-$sql = "SELECT * FROM webshop_products";
-$stmt = $db->prepare($sql);
-$stmt->execute();
-
-
 $sqlDate = "SELECT * FROM `webshop_products` ORDER BY date ASC LIMIT 3";
 $stmtDate = $db->prepare($sqlDate);
 $stmtDate->execute();

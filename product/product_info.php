@@ -21,6 +21,17 @@ $stmt = $db->prepare("SELECT
 $stmt->bindParam(':productid', $id);
 $stmt->execute();
 
+//hämta outlet-produkter från databas
+$sqlDate = "SELECT * FROM webshop_products ORDER BY date ASC LIMIT 3";
+$stmtDate = $db->prepare($sqlDate);
+$stmtDate->execute();
+
+  //lägger alla outlet-produkters id i en array
+  while ($outletRow = $stmtDate->fetch(PDO::FETCH_ASSOC)) :
+    $outletProductid[] = $outletRow['productid'];
+  endwhile;
+
+
 echo "<div class='product-info'>";
 
 // Hämtar raderna som finns i varje kolumn
@@ -79,7 +90,8 @@ foreach ($productimg as $key => $value) {
 <?php 
 
 
-  if($diffDays < 60){
+   //kollar om produkten är outlet eller ordinarie
+if(!in_array($productid, $outletProductid)) {
  // Om det finns i lagret eller inte
  if ($quantity == "0") {
     $any_items = "Finns EJ i lager";
@@ -105,7 +117,7 @@ echo "</div>";
         echo "<div class='product__inventory' style='color: red'>" . $any_items . "</div>";
         echo "<button id='cart-btn$productid' class='add-to-cart' style='background-color: grey; color: black;' disabled>Lägg i varukorgen</button>";
     } else {
-        echo "<div class='product__prod-price'><strong>Pris:</strong> $outletPrice kr</div>
+        echo "<div class='product__prod-price product_price-outlet'><strong>Pris:</strong> $outletPrice kr</div>
         <p class='product_price-old'>Normalpris: $price kr</p>
         <p class='product_price-savings'>Du sparar: $savings kr! (-10%) </p>";
         $any_items = "I lager: " . $quantity . " st";

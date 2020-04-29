@@ -19,6 +19,10 @@ while ($rowCategory = $statement->fetch(PDO::FETCH_ASSOC)){
 $category = htmlspecialchars($rowCategory['category']);
 }
 
+//hämta outlet-produkter från databas
+$sqlDate = "SELECT * FROM webshop_products ORDER BY date ASC LIMIT 3";
+$stmtDate = $db->prepare($sqlDate);
+$stmtDate->execute();
 
 ?>
 
@@ -31,6 +35,12 @@ $category = htmlspecialchars($rowCategory['category']);
   <!--här hämtas kategoriens produkter från databas-->
   <div class="product_container">
     <?php
+
+  //lägger alla outlet-produkters id i en array
+    while ($outletRow = $stmtDate->fetch(PDO::FETCH_ASSOC)) :
+      $outletProductid[] = $outletRow['productid'];
+    endwhile;
+
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) :
       $title = htmlspecialchars($row['title']);
       $price = htmlspecialchars($row['price']);
@@ -39,7 +49,7 @@ $category = htmlspecialchars($rowCategory['category']);
       $date = htmlspecialchars($row['date']);
       $productimg = unserialize($row['productimg']); 
 
-      //nytt outlet pris
+     //nytt outlet pris
       $percentage = 0.9;
       $outletPrice = ceil($price * $percentage);
       $savings = $price - $outletPrice;
@@ -80,7 +90,9 @@ $category = htmlspecialchars($rowCategory['category']);
 
                 echo "</div>";
                 //<a href= '../order/orderpage.php? id=$productid' </a>
-            }else if($diffDays > 60){
+
+                //kollar om produkten är outlet eller ordinarie
+            }else if(in_array($productid, $outletProductid)) {
 
                     if ($quantity == "0") {
                      echo "";
@@ -132,6 +144,7 @@ $category = htmlspecialchars($rowCategory['category']);
          // <a href= '../order/orderpage.php?id=$productid'></a>
             }
     endwhile;
+   
     ?>
 
   </div>
