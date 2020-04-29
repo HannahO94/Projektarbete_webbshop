@@ -68,7 +68,7 @@ if($diffDays < 7){
 };     
 ?>
 
-<h1 class="product__prod-title"><?= $title ?></h1>
+<h1 class="product__prod-title product_title"><?= $title ?></h1>
 <p class="product__prod-description">
 <?= $description ?>
 </p>
@@ -110,12 +110,12 @@ if(!in_array($productid, $outletProductid)) {
     $any_items = "I lager: " . $quantity . " st";
     echo "<div class='product__inventory' style='color: green'>" . $any_items . "</div>
     
-    <p style='display:none'>$price</p>
-    <p style='display:none;'>$quantity</p>
-    <p style='display:none'>$productid</p>";
+    <p class='hidden-price' style='display:none'>$price</p>
+    <p class='hidden-quantity' style='display:none;'>$quantity</p>
+    <p class='hidden-productid' style='display:none'>$productid</p>";
     echo "
     <label for='cartQty'>Antal:</label>
-    <input type='number' id='cartQty' name='cartQty' min='1' max='$quantity' value='1'> 
+    <input type='number' id='cartQty' name='cartQty' class='cartQty' min='1' max='$quantity' value='1'> 
     <button id='cart-btn$productid' class='cart-btn'>Lägg i varukorgen</button>
     <p style='display:none;'></p>";
     
@@ -133,13 +133,13 @@ echo "</div>";
         $any_items = "I lager: " . $quantity . " st";
         echo "<div class='product__inventory' style='color: green'>" . $any_items . "</div>
         
-        <p style='display:none'>$price</p>
-        <p style='display:none'>$outletPrice</p>
-        <p style='display:none;'>$quantity</p>
-        <p style='display:none'>$productid</p>";
+        <p class='hidden-price' style='display:none'>$price</p>
+        <p class='hidden-outletPrice' style='display:none'>$outletPrice</p>
+        <p class='hidden-quantity' style='display:none;'>$quantity</p>
+        <p class='hidden-productid' style='display:none'>$productid</p>";
         echo "
         <label for='cartQty'>Antal:</label>
-        <input type='number' id='cartQty' name='cartQty' min='1' max='$quantity' value='1'> 
+        <input type='number' id='cartQty' name='cartQty' class='cartQty' min='1' max='$quantity' value='1'> 
         <button id='cart-btn$productid' class='cart-btn'>Lägg i varukorgen</button>";
     }
     echo "</div>";

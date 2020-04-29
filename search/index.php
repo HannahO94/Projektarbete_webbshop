@@ -73,9 +73,9 @@ require_once '../second_header_extern.php';
           class='product_title'>$title</a>
           <p class='product_price'>Pris: $price kr</p>
           <p class='any-items'>$any_items</p>
-          <p style='display:none'>$price</p>
-          <p style='display:none;'>$quantity</p>
-          <p style='display:none'>$productid</p>
+          <p class='hidden-price' style='display:none'>$price</p>
+          <p class='hidden-quantity' style='display:none;'>$quantity</p>
+          <p class='hidden-productid' style='display:none'>$productid</p>
 
           <label for='cartQty'>Antal:</label>";
           if ($quantity == "0") {
@@ -83,7 +83,7 @@ require_once '../second_header_extern.php';
             echo "<div class='product__inventory' style='color: red'>" . $any_items . "</div>
             <button id='cart-btn$productid' class='add-to-cart' style='background-color: grey; color: black;' disabled>Lägg i varukorgen</button>";
         }else{
-          echo "<input type='number' id='cartQty' name='cartQty' min='1' max='$quantity' value='1'>
+          echo "<input type='number' id='cartQty' name='cartQty' class='cartQty' min='1' max='$quantity' value='1'>
            <button class='cart-btn product_card-btn'>Lägg i varukorg</button>";
         }
       echo "</div>";
@@ -99,10 +99,10 @@ require_once '../second_header_extern.php';
           <p class='product_price-old'>Normalpris: $price kr</p>
           <p class='product_price-savings'>Du sparar: $savings kr! (-10%) </p> 
           <p class='any-items'>$any_items</p>
-          <p style='display:none;'>$price</p>
-          <p style='display:none;'>$outletPrice</p>
-          <p style='display:none;'>$quantity</p>
-          <p style='display:none'>$productid</p>
+          <p class='hidden-price' style='display:none;'>$price</p>
+          <p class='hidden-outletPrice' style='display:none;'>$outletPrice</p>
+          <p class='hidden-quantity' style='display:none;'>$quantity</p>
+          <p class='hidden-productid' style='display:none'>$productid</p>
 
           <label for='cartQty'>Antal:</label>";
           if ($quantity == "0") {
@@ -110,7 +110,7 @@ require_once '../second_header_extern.php';
             echo "<div class='product__inventory' style='color: red'>" . $any_items . "</div>
             <button id='cart-btn$productid' class='add-to-cart' style='background-color: grey; color: black;' disabled>Lägg i varukorgen</button>";
         }else{
-          echo "<input type='number' id='cartQty' name='cartQty' min='1' max='$quantity' value='1'>
+          echo "<input type='number' id='cartQty' name='cartQty' class='cartQty' min='1' max='$quantity' value='1'>
            <button class='cart-btn product_card-btn'>Lägg i varukorg</button>";
         }
       echo "</div>";
@@ -122,9 +122,9 @@ require_once '../second_header_extern.php';
     class='product_title'>$title</a>
     <p class='product_price'>Pris: $price kr</p>
     <p class='any-items'>$any_items</p>
-    <p style='display:none;'>$price</p>
-    <p style='display:none;'>$quantity</p>
-    <p style='display:none'>$productid</p>
+    <p class='hidden-price' style='display:none;'>$price</p>
+    <p class='hidden-quantity' style='display:none;'>$quantity</p>
+    <p class='hidden-productid' style='display:none'>$productid</p>
 
     <label for='cartQty'>Antal:</label>";
     if ($quantity == "0") {
@@ -132,7 +132,7 @@ require_once '../second_header_extern.php';
       echo "<div class='product__inventory' style='color: red'>" . $any_items . "</div>
       <button id='cart-btn$productid' class='add-to-cart' style='background-color: grey; color: black;' disabled>Lägg i varukorgen</button>";
   }else{
-    echo "<input type='number' id='cartQty' name='cartQty' min='1' max='$quantity' value='1'>
+    echo "<input type='number' id='cartQty' name='cartQty' class='cartQty' min='1' max='$quantity' value='1'>
      <button class='cart-btn product_card-btn'>Lägg i varukorg</button>";
   }
 echo "</div>";
