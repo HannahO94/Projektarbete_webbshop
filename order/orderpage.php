@@ -8,6 +8,7 @@ require_once '../config/db.php';
 
 
 <!--Varukorgen-->
+<section class="shopping_container">
 <section id="shoppingcart">
 
   <h1 class="page-title form-container__heading-text">Din varukorg</h1>
@@ -115,6 +116,7 @@ require_once '../config/db.php';
     </div>
   </form>
 
+</section>
 </section>
 
 

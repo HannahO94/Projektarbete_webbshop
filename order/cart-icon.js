@@ -1,3 +1,5 @@
+//Maddes
+
 // let btn1 = document.querySelectorAll(".cart-btn");
 // let btn2 = document.querySelectorAll(".add-to-cart");
 // let btnLess = document.querySelectorAll(".delete");

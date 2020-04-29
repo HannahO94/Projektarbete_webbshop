@@ -138,7 +138,6 @@ a:hover {
   width: 100vw;
   height: 70px;
   background-color: #ffffffb6;
-  position: fixed;
 }
 
 @media (min-width: 500px) {
@@ -304,7 +303,6 @@ input[type="checkbox"]:checked + label .bottom-bar {
         -ms-flex-align: center;
             align-items: center;
     background-color: #ffffffb6;
-    position: fixed;
     z-index: 100;
   }
 }
@@ -472,7 +470,9 @@ input[type="checkbox"]:checked + label .bottom-bar {
 }
 
 .footer {
+  position: relative;
   padding: 30px 0;
+  margin-top: 70px;
   background-color: #1f1f1f;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -562,6 +562,30 @@ input[type="checkbox"]:checked + label .bottom-bar {
 
 .socialmedia__img {
   max-width: 50px;
+}
+
+.scroll_top-container {
+  display: block;
+  width: 100px;
+  height: 100px;
+  border-radius: 30%;
+  background-color: #1f1f1f;
+  text-align: center;
+  position: absolute;
+  top: -45px;
+  right: 30px;
+  padding: 10px;
+}
+
+.scroll-top a {
+  color: white;
+  font-family: "Fredoka One", cursive;
+  margin-top: 20px;
+}
+
+.arrow-up {
+  width: 20px;
+  height: 25px;
 }
 
 .page-title {
@@ -978,7 +1002,7 @@ label {
 @media (min-width: 800px) {
   .search-form {
     text-align: left;
-    margin-right: 20px;
+    margin-right: 80px;
   }
 }
 
@@ -1040,7 +1064,7 @@ label {
   margin: 0px;
   height: 100%;
   font-size: 10px;
-  color: red;
+  color: black;
 }
 
 @media (min-width: 600px) {
@@ -1839,6 +1863,9 @@ main {
 }
 
 @media (max-width: 500px) {
+  .shopping_container {
+    min-height: 300px;
+  }
   .product-head {
     font-size: 24px;
     text-align: center;
@@ -1895,7 +1922,6 @@ main {
     background: #ebebeb;
   }
   td {
-    /* Behave  like a "row" */
     border: none;
     border-bottom: 1px solid #eee;
     position: relative;
@@ -1904,9 +1930,7 @@ main {
     padding-bottom: 5%;
   }
   td:before {
-    /* Now like a table header */
     position: absolute;
-    /* Top/left values mimic padding */
     top: 0;
     left: 6px;
     width: 45%;
@@ -1953,6 +1977,9 @@ main {
 }
 
 @media (min-width: 500px) {
+  .shopping_container {
+    min-height: 400px;
+  }
   #emptyCartText {
     text-align: center;
     padding-bottom: 20px;

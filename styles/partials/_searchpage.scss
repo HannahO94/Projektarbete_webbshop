@@ -4,7 +4,7 @@
   @media (min-width: 800px) {
     text-align: left;
 
-    margin-right: 20px;
+    margin-right: 80px;
   }
   &__label {
     font-size: 24px;
@@ -44,7 +44,7 @@
   margin: 0px;
   height: 100%;
   font-size: 10px;
-  color: red;
+  color: black;
 
   &__product-card {
     @include gallery-card;
