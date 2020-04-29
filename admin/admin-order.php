@@ -3,7 +3,7 @@ require_once "header.php";
 require_once "../config/db.php";
 
 $orderStatusId = htmlspecialchars($_GET['id']);
-echo $orderStatusId;
+//echo $orderStatusId;
 
 if ($orderStatusId == 1){
     $orderStatus = "Ny";
