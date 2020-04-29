@@ -95,9 +95,9 @@ $category = htmlspecialchars($rowCategory['category']);
                   }else{
                     echo
               "<div class='product_card' style=background-image:url('../images/$imgbackground');>
-                    <p class='product_price-outlet'>Pris: $outletPrice kr</p>
                     <a href= '../product/product_info.php? id=$productid' 
                     class='product_title'>$title</a>
+                    <p class='product_price-outlet'>Pris: $outletPrice kr</p>
                     <p class='product_price-old'>Normalpris: $price kr</p>
                     <p class='product_price-savings'>Du sparar: $savings kr! (-10%) </p> 
                     <p class='any-items'>$any_items</p>

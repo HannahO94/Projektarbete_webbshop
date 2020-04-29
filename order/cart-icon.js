@@ -106,14 +106,14 @@ function updateCartCount() {
     for (let x = 0; x < products.length; x++) {
       let cartValue = products[x].cartQty;
       sum += parseInt(cartValue);
-      console.log(sum);
+      // console.log(sum);
     }
 
     counters.textContent = sum;
   } else {
     products = 0;
     counters.textContent = products;
-    console.log(products.length);
+    // console.log(products.length);
   }
 }
 
