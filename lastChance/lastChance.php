@@ -1,7 +1,7 @@
 <?php
   require_once '../second_header_extern.php';
 require_once '../config/db.php';
-$sqlDate = "SELECT * FROM `webshop_products` ORDER BY date ASC LIMIT 3";
+$sqlDate = "SELECT * FROM `webshop_products` WHERE quantity > 0 ORDER BY date ASC LIMIT 3";
 $stmtDate = $db->prepare($sqlDate);
 $stmtDate->execute();
 ?>
@@ -37,7 +37,7 @@ while ($row = $stmtDate->fetch(PDO::FETCH_ASSOC)) :
           <p class='product_price-outlet'>Pris: $outletPrice kr</p>
           <a href= '../product/product_info.php? id=$outletProductid' 
           class='product_title'>$outletTitle</a>";
-          if(!empty($productimg)){
+          if(!empty($productimg) && $productimg[0] !== ""){
             echo "<img src='../images/$productimg[0]' width='100px' class='product_img'>";
             }
           echo "<p class='product_price-old'>Normalpris: $outletOrigPrice kr</p>

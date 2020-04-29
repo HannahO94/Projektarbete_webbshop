@@ -20,7 +20,7 @@ $category = htmlspecialchars($rowCategory['category']);
 }
 
 //hämta outlet-produkter från databas
-$sqlDate = "SELECT * FROM webshop_products ORDER BY date ASC LIMIT 3";
+$sqlDate = "SELECT * FROM webshop_products WHERE quantity > 0 ORDER BY date ASC LIMIT 3";
 $stmtDate = $db->prepare($sqlDate);
 $stmtDate->execute();
 
@@ -74,7 +74,7 @@ $stmtDate->execute();
                     <h3 class='product_price-new'>Ny!</h3>
                           <a href= '../product/product_info.php? id=$productid' 
                           class='product_title'>$title</a>";
-                          if(!empty($productimg)){
+                          if(!empty($productimg) && $productimg[0] !== ""){
                             echo "<img src='../images/$productimg[0]' width='100px' class='product_img'>";
                             }
                           echo "<span class='product_price'>Pris: $price kr</span>
@@ -98,14 +98,16 @@ $stmtDate->execute();
                      echo "";
                   }else{
                     echo
+
               "<div class='product_card'>
               <p class='product_price-outlet'>Pris: $outletPrice kr</p>
                     <a href= '../product/product_info.php? id=$productid' 
                     class='product_title'>$title</a>";
-                    if(!empty($productimg)){
+                    if(!empty($productimg) && $productimg[0] !== ""){
                       echo "<img src='../images/$productimg[0]' width='100px' class='product_img'>";
                       }
-                    echo "<p class='product_price-old'>Normalpris: $price kr</p>
+                    echo "
+                    <p class='product_price-old'>Normalpris: $price kr</p>
                     <p class='product_price-savings'>Du sparar: $savings kr! (-10%) </p> 
                     <p class='any-items'>$any_items</p>
                     <p style='display:none;'>$price</p>
@@ -127,7 +129,7 @@ $stmtDate->execute();
               "<div class='product_card'>
               <a href= '../product/product_info.php? id=$productid' 
                 class='product_title'>$title</a>";
-                if(!empty($productimg)){
+                if(!empty($productimg) && $productimg[0] !== ""){
                   echo "<img src='../images/$productimg[0]' width='100px' class='product_img'>";
                   }
                 echo "<p class='product_price'>Pris: $price kr</p>

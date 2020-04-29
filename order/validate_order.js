@@ -1,3 +1,5 @@
+let submitBtn = document.querySelector(".form-container__submit-button");
+
 function validateForm() {
   let ret =
     validateName() &&
@@ -8,6 +10,13 @@ function validateForm() {
     validateCity();
   return ret;
 }
+
+let isNameValid = false;
+let isEmailValid = false;
+let isPhoneValid = false;
+let isStreetValid = false;
+let isZipcodeValid = false;
+let isCityValid = false;
 
 // Validering av namn
 function validateName() {
@@ -26,8 +35,19 @@ function validateName() {
     infoText.innerHTML = "OBS! Ogiltigt namn";
   } else {
     infoText.innerHTML = "";
+    isNameValid = true;
+    if (
+      isEmailValid &&
+      isPhoneValid &&
+      isStreetValid &&
+      isZipcodeValid &&
+      isCityValid
+    ) {
+      submitBtn.disabled = false;
+    }
     return true;
   }
+  submitBtn.disabled = true;
   return false;
 }
 function isValidName(name) {
@@ -48,9 +68,20 @@ function validateEmail() {
     infoText.innerHTML = "OBS! Otillåtet med fler än 64 tecken";
   } else {
     infoText.innerHTML = "";
+    isEmailValid = true;
+    if (
+      isNameValid &&
+      isPhoneValid &&
+      isStreetValid &&
+      isZipcodeValid &&
+      isCityValid
+    ) {
+      submitBtn.disabled = false;
+    }
     return true;
   }
-  return true;
+  submitBtn.disabled = true;
+  return false;
 }
 function isValidEmail(email) {
   let re = /^(([^<>()\[\]\\%.,;:\s@"]+(\.[^<>()\[\]\\%.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -72,8 +103,19 @@ function validatePhone() {
     infoText.innerHTML = "OBS! Numret måste vara 10 siffror långt";
   } else {
     infoText.innerHTML = "";
+    isPhoneValid = true;
+    if (
+      isNameValid &&
+      isEmailValid &&
+      isStreetValid &&
+      isZipcodeValid &&
+      isCityValid
+    ) {
+      submitBtn.disabled = false;
+    }
     return true;
   }
+  submitBtn.disabled = true;
   return false;
 }
 function isValidPhone(phone) {
@@ -96,8 +138,19 @@ function validateStreet() {
     infoText.innerHTML = "OBS! Ogiltigt adress";
   } else {
     infoText.innerHTML = "";
+    isStreetValid = true;
+    if (
+      isNameValid &&
+      isEmailValid &&
+      isPhoneValid &&
+      isZipcodeValid &&
+      isCityValid
+    ) {
+      submitBtn.disabled = false;
+    }
     return true;
   }
+  submitBtn.disabled = true;
   return false;
 }
 function isValidStreet(street) {
@@ -118,8 +171,19 @@ function validateZipcode() {
     infoText.innerHTML = "OBS! Postnumret får inte börja på siffran 0";
   } else {
     infoText.innerHTML = "";
+    isZipcodeValid = true;
+    if (
+      isNameValid &&
+      isEmailValid &&
+      isPhoneValid &&
+      isStreetValid &&
+      isCityValid
+    ) {
+      submitBtn.disabled = false;
+    }
     return true;
   }
+  submitBtn.disabled = true;
   return false;
 }
 
@@ -140,8 +204,19 @@ function validateCity() {
     infoText.innerHTML = "OBS! Ogiltig ort";
   } else {
     infoText.innerHTML = "";
+    isCityValid = true;
+    if (
+      isNameValid &&
+      isEmailValid &&
+      isPhoneValid &&
+      isStreetValid &&
+      isZipcodeValid
+    ) {
+      submitBtn.disabled = false;
+    }
     return true;
   }
+  submitBtn.disabled = true;
   return false;
 }
 function isValidCity(city) {
