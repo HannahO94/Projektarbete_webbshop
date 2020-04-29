@@ -2,7 +2,7 @@
 
 // //Hämta produktarray från Localstorage
 let productsInLocalStorage = JSON.parse(localStorage.getItem("products"))
-console.log(productsInLocalStorage)
+// console.log(productsInLocalStorage)
 
 //Hämta nödvändiga element från bekräftelsesidan
 const orderedProducts = document.querySelector("#ordered-products")
@@ -40,7 +40,7 @@ function drawOrderedProducts() {
 
 	//Räkna ut totalpris
 	let total = totalPrice(productsInLocalStorage)
-	console.log(total)
+	// console.log(total)
 	orderTotalPrice.textContent = `Totalpris: ${total} kr `
 
 	//Rensa localStorage

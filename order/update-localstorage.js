@@ -26,7 +26,7 @@ for (let j = 0; j < cartBtn.length; j++) {
       productArray.push(productcard);
     }
     
-    console.log(productArray.length);
+    // console.log(productArray.length);
     //Kollar längden på arrayen för att kunna veta vilka index i arrayen som ska hämtas ut,
     //beroende på om produkten är på rea eller om det är en ny produkt eller om den hämtas från kategorisidan eller produktsidan behöver man kämta olika
     if (productArray.length === 9) {
@@ -79,7 +79,7 @@ for (let j = 0; j < cartBtn.length; j++) {
       };
       // console.log(product.title, product.price, product.quantity, product.productid, product.outletprice)
     }
-    console.log(product.title, product.price, product.quantity, product.productid, product.cartQty)
+    // console.log(product.title, product.price, product.quantity, product.productid, product.cartQty)
     //pushar in produkt informationen i arrayToSend som ska skickas till localstorage
     arrayToSend.push(product);
     //tömmer productArray(för att det inte ska bli dubletter)
@@ -91,39 +91,3 @@ for (let j = 0; j < cartBtn.length; j++) {
 }
 
 
-//Gamla koden för att lägga till i varukorgen inifrån produktsidan, ska fungera i koden ovan nu. 
-
-// for (let x = 0; x < addToCartBtn.length; x++) {
-//   // allButtons.push(addToCartBtn[j])
-//   let product = addToCartBtn[x];
-//   prodarray = [];
-//   addToCartBtn[x].addEventListener("click", function (e) {
-//     let parent = product.parentElement;
-
-//     for (let y = 0; y < parent.children.length; y++) {
-//       // console.log(parent.childNodes[y])
-//       productcard = parent.children[y];
-//       prodarray.push(productcard);
-//       console.log(prodarray.length)
-//     }
-//     product = {
-//       cartQty: prodarray[9].value,
-//       title: prodarray[0].textContent,
-//       price: prodarray[5].textContent,
-//       quantity: prodarray[6].textContent,
-//       productid: prodarray[7].textContent,
-//     };
-
-//     console.log(
-//       product.cartQty,
-//       product.title,
-//       product.price,
-//       product.quantity,
-//       product.productid
-//     );
-//     arrayToSend.push(product);
-//     productArray = [];
-//     // console.log(arrayToSend)
-//     localStorage.setItem("products", JSON.stringify(arrayToSend));
-//   });
-// }

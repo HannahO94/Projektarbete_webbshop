@@ -29,7 +29,7 @@ $stmt = $db->prepare($sql);
 $stmt->execute();
 
 $productsspec;
-$table = "<table><tr><th>Orderid</th><th>Namn</th><th>Email</th><th>Telefon</th><th>Adress</th><th>Postnummer</th><th>Ort</th><th>Status</th><th>Produkter</tr>";
+$table = "<table><tr><th>Orderid</th><th>Namn</th><th>Email</th><th>Telefon</th><th>Adress</th><th>Postnummer</th><th>Ort</th><th>Status</th><th>Produkter</th><th>Ordersumma</th></tr>";
 
 while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
     $orderid = htmlspecialchars($row['orderid']);
@@ -42,18 +42,49 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
     $city = htmlspecialchars($row['city']);
     $status = htmlspecialchars($row['status']);
     $products = json_decode($row['products'], true);
-    print_r($products);
+    $totalprice = htmlspecialchars($row['totalprice']);
+    // print_r($products);
     // $length = count($row);
-    // for ($i=0; $i < $row.$length; $i++) { 
+    // for ($i=0; $i < count($row); $i++) { 
     //     print_r($products[$i]);
     // }
-    // if (is_array($products) || is_object($products)){
-    // foreach ($products as $key => $value) {
-    //     $productsspec .= $key.$value;
-    // }
-// };
+    $productsspec = "";
+    foreach ($products as $key => $value) {
+        // print_r($value);
+       foreach ($value as $ky => $val) {
+        if ($ky == "title"){
+            $productsspec .= $val;
+        }if ($ky == "cartQty"){
+            $productsspec .= $val . "st ";
+        }
+        // if ($ky == "outletprice"){
+        //     $productsspec .= " reapris " . $val;
+        // }
+        if ($ky == "price"){
+            $productsspec .= " pris " . $val;
+        }
+    }
+       $productsspec .= "<br>";
+    }
+
+    // echo $productsspec . "<br>";
+// $keys = array_keys($products);
+
+// for($i = 0; $i < count($products); $i++) {
+
+//     echo $keys[$i] . "{<br>";
+
+//     // foreach($superheroes[$keys[$i]] as $key => $value) {
+
+//     //     echo $key . " : " . $value . "<br>";
+
+//     // }
+
+//     echo "}<br>";
+
+// }
     
-    $table .= "<tr><td> $orderid </td><td> $name </td><td> $email </td><td> $phone </td><td> $street </td><td> $zip </td><td> $city </td><td> $status </td><td> </td></tr>";
+    $table .= "<tr><td> $orderid </td><td> $name </td><td> $email </td><td> $phone </td><td> $street </td><td> $zip </td><td> $city </td><td> $status </td><td style='width:300px'> $productsspec </td><td> $totalprice kr</td></tr>";
    
 
     
