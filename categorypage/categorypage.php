@@ -79,9 +79,9 @@ $stmtDate->execute();
                             }
                           echo "<span class='product_price'>Pris: $price kr</span>
                           <p class='any-items'>$any_items</p>
-                          <p style='display:none'>$price</p>
-                          <p style='display:none;'>$quantity</p>
-                          <p style='display:none'>$productid</p>
+                          <p class='hidden-price' style='display:none'>$price</p>
+                          <p class='hidden-quantity' style='display:none;'>$quantity</p>
+                          <p class='hidden-productid' style='display:none'>$productid</p>
       
                           <label for='cartQty'>Antal:</label>
                           <input type='number' id='cartQty' name='cartQty' class='cartQty' min='1' max='$quantity' value='1'>
@@ -110,10 +110,10 @@ $stmtDate->execute();
                     <p class='product_price-old'>Normalpris: $price kr</p>
                     <p class='product_price-savings'>Du sparar: $savings kr! (-10%) </p> 
                     <p class='any-items'>$any_items</p>
-                    <p style='display:none;'>$price</p>
-                    <p style='display:none;'>$outletPrice</p>
-                    <p style='display:none;'>$quantity</p>
-                    <p style='display:none'>$productid</p>
+                    <p class='hidden-price' style='display:none;'>$price</p>
+                    <p class='hidden-outletPrice' style='display:none;'>$outletPrice</p>
+                    <p class='hidden-quantity' style='display:none;'>$quantity</p>
+                    <p class='hidden-productid' style='display:none'>$productid</p>
 
                     <label for='cartQty'>Antal:</label>
                     <input type='number' id='cartQty' name='cartQty' class='cartQty' min='1' max='$quantity' value='1'>
@@ -134,9 +134,9 @@ $stmtDate->execute();
                   }
                 echo "<p class='product_price'>Pris: $price kr</p>
                 <p class='any-items'>$any_items</p>
-                <p style='display:none;'>$price</p>
-                <p style='display:none;'>$quantity</p>
-                <p style='display:none'>$productid</p>
+                <p class='hidden-price' style='display:none;'>$price</p>
+                <p class='hidden-quantity' style='display:none;'>$quantity</p>
+                <p class='hidden-productid' style='display:none'>$productid</p>
 
                 <label for='cartQty'>Antal:</label>
                 <input type='number' id='cartQty' name='cartQty' class='cartQty' min='1' max='$quantity' value='1'>

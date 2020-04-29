@@ -43,10 +43,10 @@ while ($row = $stmtDate->fetch(PDO::FETCH_ASSOC)) :
           echo "<p class='product_price-old'>Normalpris: $outletOrigPrice kr</p>
           <p class='product_price-savings'>Du sparar: $savings kr! (-10%) </p> 
           <p class='any-items'>$any_items</p>
-          <p style='display:none;'>$outletOrigPrice</p>
-          <p style='display:none;'>$outletPrice</p>
-          <p style='display:none;'>$outletQuantity</p>
-          <p style='display:none'>$outletProductid</p>
+          <p class='hidden-price' style='display:none;'>$outletOrigPrice</p>
+          <p class='hidden-outletPrice' style='display:none;'>$outletPrice</p>
+          <p class='hidden-quantity' style='display:none;'>$outletQuantity</p>
+          <p class='hidden-productid' style='display:none'>$outletProductid</p>
 
           <label for='cartQty'>Antal:</label>";
           if ($outletQuantity == "0") {
@@ -54,7 +54,7 @@ while ($row = $stmtDate->fetch(PDO::FETCH_ASSOC)) :
             echo "<div class='product__inventory' style='color: red'>" . $any_items . "</div>
             <button id='cart-btn$outletProductid' class='add-to-cart' style='background-color: grey; color: black;' disabled>Lägg i varukorgen</button>";
         }else{
-          echo "<input type='number' id='cartQty' name='cartQty' min='1' max='$outletQuantity' value='1'>
+          echo "<input type='number' id='cartQty' name='cartQty' class='cartQty' min='1' max='$outletQuantity' value='1'>
            <button class='cart-btn product_card-btn'>Lägg i varukorg</button>";
         }
       echo "</div>";
