@@ -98,6 +98,7 @@ $stmtDate->execute();
                      echo "";
                   }else{
                     echo
+
               "<div class='product_card'>
               <p class='product_price-outlet'>Pris: $outletPrice kr</p>
                     <a href= '../product/product_info.php? id=$productid' 
