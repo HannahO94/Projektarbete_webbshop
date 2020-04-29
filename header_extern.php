@@ -26,7 +26,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 </head>
 
 <body>
-  <header class="header__hero">
+  <header class="header__hero" id="home">
 
     <div class="menu-wraper">
 
@@ -96,4 +96,4 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
   </header>
 
-  <main>
+  <main >
