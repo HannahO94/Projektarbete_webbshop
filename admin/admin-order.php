@@ -115,7 +115,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 $phone <br> 
                 $street, $zip $city
             </td>
-            <td class='table_orders-cell products'> $productsspec </td>
+            <td class='table_orders-cell products' style='width: 300px'> $productsspec </td>
             <td class='table_orders-cell'> $totalprice kr</td>
             <td class='table_orders-cell'> $status</td>
             <td class='table_orders-cell'>
