@@ -11,28 +11,29 @@ if (JSON.parse(localStorage.getItem("products")) !== null) {
   arrayToSend = [];
 }
 
-//Loopar över alla knappar med klassen cart-btn och lägger till eventlisteners 
+//Loopar över alla knappar med klassen cart-btn och lägger till eventlisteners
 for (let j = 0; j < cartBtn.length; j++) {
   let product = cartBtn[j];
 
   cartBtn[j].addEventListener("click", function (e) {
-
     //Kollar på knappens parentElement som är själva produktkortet/diven som produkten ligger i
     let parent = product.parentElement;
-    
+
     //loopar över alla barn och pushar in dem i en array
     for (let i = 0; i < parent.children.length; i++) {
       productcard = parent.children[i];
       productArray.push(productcard);
     }
+
     
     // console.log(productArray.length);
+
     //Kollar längden på arrayen för att kunna veta vilka index i arrayen som ska hämtas ut,
     //beroende på om produkten är på rea eller om det är en ny produkt eller om den hämtas från kategorisidan eller produktsidan behöver man kämta olika
     if (productArray.length === 9) {
       // console.log(arrayToSend)
       // for (let index = 0; index < arrayToSend.length; index++) {
-        
+
       // if (arrayToSend[index].title == productArray[0].textContent){
       //   console.log(arrayToSend[index].cartQty)
       //   q = parseInt(arrayToSend[index].cartQty)
@@ -47,9 +48,9 @@ for (let j = 0; j < cartBtn.length; j++) {
         price: productArray[3].textContent,
         quantity: productArray[4].textContent,
         productid: productArray[5].textContent,
-    //   }
-    //   arrayToSend.push(product);
-    // }
+        //   }
+        //   arrayToSend.push(product);
+        // }
       };
     } else if (productArray.length === 10) {
       product = {
@@ -59,16 +60,15 @@ for (let j = 0; j < cartBtn.length; j++) {
         quantity: productArray[5].textContent,
         productid: productArray[6].textContent,
       };
-    }else if (productArray.length === 11) {
+    } else if (productArray.length === 11) {
       product = {
         cartQty: productArray[9].value,
         title: productArray[0].textContent,
         price: productArray[5].textContent,
         quantity: productArray[6].textContent,
         productid: productArray[7].textContent,
-      }; 
-    }
-    else if (productArray.length === 12) {
+      };
+    } else if (productArray.length === 12) {
       product = {
         cartQty: productArray[10].value,
         title: productArray[1].textContent,
@@ -79,15 +79,22 @@ for (let j = 0; j < cartBtn.length; j++) {
       };
       // console.log(product.title, product.price, product.quantity, product.productid, product.outletprice)
     }
+
+    
     // console.log(product.title, product.price, product.quantity, product.productid, product.cartQty)
+
+    
     //pushar in produkt informationen i arrayToSend som ska skickas till localstorage
     arrayToSend.push(product);
     //tömmer productArray(för att det inte ska bli dubletter)
     productArray = [];
     // console.log(arrayToSend)
     //skickar in arraYToSend till localstorage med nyckeln products.
+
     localStorage.setItem("products", JSON.stringify(arrayToSend));
   });
 }
+
+
 
 
