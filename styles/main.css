@@ -1033,7 +1033,7 @@ label {
   margin: 0px;
   height: 100%;
   font-size: 10px;
-  color: red;
+  color: black;
 }
 
 @media (min-width: 600px) {
