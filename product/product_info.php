@@ -75,6 +75,7 @@ if($diffDays < 7){
 
 <div class="product__img-container">
 <?php
+
 if(!empty($productimg)){
 foreach ($productimg as $key => $value) {
     if($productimg[0] == ""){
@@ -82,13 +83,14 @@ foreach ($productimg as $key => $value) {
     }else{
         echo "<div class='product_img-wrapper'><img src='../images/$value' width='200px' class='product_img'></div><br>";
     }
-
+}
     }
     else {
         echo "ingen bildfil finns tillgänglig";
   
 
-    }?>
+    }
+    ?>
     
 
 </div>
@@ -114,7 +116,9 @@ if(!in_array($productid, $outletProductid)) {
     echo "
     <label for='cartQty'>Antal:</label>
     <input type='number' id='cartQty' name='cartQty' min='1' max='$quantity' value='1'> 
-    <button id='cart-btn$productid' class='cart-btn'>Lägg i varukorgen</button>";
+    <button id='cart-btn$productid' class='cart-btn'>Lägg i varukorgen</button>
+    <p style='display:none;'></p>";
+    
 }
 echo "</div>";
   } else {
@@ -129,7 +133,8 @@ echo "</div>";
         $any_items = "I lager: " . $quantity . " st";
         echo "<div class='product__inventory' style='color: green'>" . $any_items . "</div>
         
-
+        <p style='display:none'>$price</p>
+        <p style='display:none'>$outletPrice</p>
         <p style='display:none;'>$quantity</p>
         <p style='display:none'>$productid</p>";
         echo "
