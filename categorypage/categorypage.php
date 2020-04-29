@@ -56,17 +56,7 @@ $stmtDate->execute();
 
       //finns eller inte i lager
         $any_items = "I lager: " . $quantity . " st";
-      
-      if(!empty($productimg)){
-        foreach ($productimg as $key => $value) {
-                if($key == 0) {
-                  $imgbackground = $value;
-                }
-            }
-      }else if (empty($productimg)) {
-        $imgbackground = "";
-      }
-    
+
             //datum kontroll, rea eller new
             $now = date("yy-m-d");
             $dateNow=date_create($now);
@@ -80,11 +70,14 @@ $stmtDate->execute();
                       echo "";
                   } else {
                     echo
-                    "<div class='product_card' style=background-image:url('../images/$imgbackground');>
-                          <h3 class='product_price-new'>Ny!</h3>
+                    "<div class='product_card'>
+                    <h3 class='product_price-new'>Ny!</h3>
                           <a href= '../product/product_info.php? id=$productid' 
-                          class='product_title'>$title</a>
-                          <span class='product_price'>Pris: $price kr</span>
+                          class='product_title'>$title</a>";
+                          if(!empty($productimg)){
+                            echo "<img src='../images/$productimg[0]' width='100px' class='product_img'>";
+                            }
+                          echo "<span class='product_price'>Pris: $price kr</span>
                           <p class='any-items'>$any_items</p>
                           <p style='display:none'>$price</p>
                           <p style='display:none;'>$quantity</p>
@@ -105,11 +98,14 @@ $stmtDate->execute();
                      echo "";
                   }else{
                     echo
-              "<div class='product_card' style=background-image:url('../images/$imgbackground');>
-                    <p class='product_price-outlet'>Pris: $outletPrice kr</p>
+              "<div class='product_card'>
+              <p class='product_price-outlet'>Pris: $outletPrice kr</p>
                     <a href= '../product/product_info.php? id=$productid' 
-                    class='product_title'>$title</a>
-                    <p class='product_price-old'>Normalpris: $price kr</p>
+                    class='product_title'>$title</a>";
+                    if(!empty($productimg)){
+                      echo "<img src='../images/$productimg[0]' width='100px' class='product_img'>";
+                      }
+                    echo "<p class='product_price-old'>Normalpris: $price kr</p>
                     <p class='product_price-savings'>Du sparar: $savings kr! (-10%) </p> 
                     <p class='any-items'>$any_items</p>
                     <p style='display:none;'>$price</p>
@@ -128,10 +124,13 @@ $stmtDate->execute();
                   echo "";
               }else{
                 echo
-              "<div class='product_card' style=background-image:url('../images/$imgbackground');>
-                <a href= '../product/product_info.php? id=$productid' 
-                class='product_title'>$title</a>
-                <p class='product_price'>Pris: $price kr</p>
+              "<div class='product_card'>
+              <a href= '../product/product_info.php? id=$productid' 
+                class='product_title'>$title</a>";
+                if(!empty($productimg)){
+                  echo "<img src='../images/$productimg[0]' width='100px' class='product_img'>";
+                  }
+                echo "<p class='product_price'>Pris: $price kr</p>
                 <p class='any-items'>$any_items</p>
                 <p style='display:none;'>$price</p>
                 <p style='display:none;'>$quantity</p>
