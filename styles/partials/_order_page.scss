@@ -1,5 +1,8 @@
 //styling för mobil
 @media (max-width: 500px) {
+  .shopping_container {
+    min-height: 300px;
+  }
   .product-head {
     font-size: 24px;
     text-align: center;
@@ -52,7 +55,6 @@
   }
 
   td {
-    /* Behave  like a "row" */
     border: none;
     border-bottom: 1px solid #eee;
     position: relative;
@@ -62,9 +64,7 @@
   }
 
   td:before {
-    /* Now like a table header */
     position: absolute;
-    /* Top/left values mimic padding */
     top: 0;
     left: 6px;
     width: 45%;
@@ -116,6 +116,9 @@
 
 // Styling för desktop
 @media (min-width: 500px) {
+  .shopping_container {
+    min-height: 400px;
+  }
   #emptyCartText {
     text-align: center;
     padding-bottom: 20px;

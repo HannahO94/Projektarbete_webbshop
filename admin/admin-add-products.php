@@ -65,7 +65,7 @@ $errors = "";
             }
         }
 
-        if(empty($_POST['quantity'])){
+        if(!isset($_POST['quantity']) && ($_POST['quantity']) !== 0 ){
             $error[] = "Du måste ange lagerstatus";
         }
         else if(!empty($_POST['quantity'])){

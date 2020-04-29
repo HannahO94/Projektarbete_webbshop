@@ -1,7 +1,9 @@
 <?php
- require_once "header.php";
- require_once "../config/db.php";
-
+require_once "header.php";
+require_once "../config/db.php";
+?>
+<h2 class="orders-head">Beställningar</h2>
+<?php
 // $sql = $sql = "SELECT
 // O.orderid    AS Ordernummer,
 // O.name  AS Kund,
@@ -29,9 +31,18 @@ $stmt = $db->prepare($sql);
 $stmt->execute();
 
 $productsspec;
-$table = "<table><tr><th>Orderid</th><th>Namn</th><th>Email</th><th>Telefon</th><th>Adress</th><th>Postnummer</th><th>Ort</th><th>Status</th><th>Produkter</th><th>Ordersumma</th></tr>";
+$table = "<section class='table_container'>
+            <table class='table_orders>
+                <tbody>
+                    <tr class='table_orders-row'>
+                        <th class='table_orders-head'>Orderid</th>
+                        <th class='table_orders-head'>Kunduppgifter</th>
+                        <th class='table_orders-head'>Produkter</th>
+                        <th class='table_orders-head'>Summa</th>
+                        <th class='table_orders-head' colspan='2'>Orderstatus</th>
+                        </tr>";
 
-while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     $orderid = htmlspecialchars($row['orderid']);
     $date = htmlspecialchars($row['orderdate']);
     $name = htmlspecialchars($row['name']);
@@ -51,48 +62,72 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
     $productsspec = "";
     foreach ($products as $key => $value) {
         // print_r($value);
-       foreach ($value as $ky => $val) {
-        if ($ky == "title"){
-            $productsspec .= $val;
-        }if ($ky == "cartQty"){
-            $productsspec .= $val . "st ";
+        foreach ($value as $ky => $val) {
+            if ($ky == "title") {
+                $productsspec .= $val;
+            }
+            if ($ky == "cartQty") {
+                $productsspec .= $val . "st ";
+            }
+            // if ($ky == "outletprice"){
+            //     $productsspec .= " reapris " . $val;
+            // }
+            if ($ky == "price") {
+                $productsspec .= " pris " . $val;
+            }
         }
-        // if ($ky == "outletprice"){
-        //     $productsspec .= " reapris " . $val;
-        // }
-        if ($ky == "price"){
-            $productsspec .= " pris " . $val;
-        }
-    }
-       $productsspec .= "<br>";
+        $productsspec .= "<br>";
     }
 
     // echo $productsspec . "<br>";
-// $keys = array_keys($products);
+    // $keys = array_keys($products);
 
-// for($i = 0; $i < count($products); $i++) {
+    // for($i = 0; $i < count($products); $i++) {
 
-//     echo $keys[$i] . "{<br>";
+    //     echo $keys[$i] . "{<br>";
 
-//     // foreach($superheroes[$keys[$i]] as $key => $value) {
+    //     // foreach($superheroes[$keys[$i]] as $key => $value) {
 
-//     //     echo $key . " : " . $value . "<br>";
+    //     //     echo $key . " : " . $value . "<br>";
 
-//     // }
+    //     // }
 
-//     echo "}<br>";
+    //     echo "}<br>";
 
-// }
-    
-    $table .= "<tr><td> $orderid </td><td> $name </td><td> $email </td><td> $phone </td><td> $street </td><td> $zip </td><td> $city </td><td> $status </td><td style='width:300px'> $productsspec </td><td> $totalprice kr</td></tr>";
-   
+    // }
 
-    
+    //Kontrollerar vilken status-siffra beställningen har i databasen,
+    //för att skriva ut rätt statustext på sidan
+    if ($status == 1) {
+        $status = "Ny";
+    } elseif ($status == 2) {
+        $status = "Behandlas";
+    } elseif ($status == 3) {
+        $status = "Slutförd";
+    }
 
-  
+    $table .= "
+        <tr class='table_orders-row'>
+            <td class='table_orders-cell'> $orderid</td>
+            <td class='table_orders-cell' style='width: 20%'>
+                $name <br> 
+                $email <br> 
+                $phone <br> 
+                $street, $zip $city
+            </td>
+            <td class='table_orders-cell products' style='width: 20%'> $productsspec </td>
+            <td class='table_orders-cell'> $totalprice kr</td>
+            <td class='table_orders-cell'> $status</td>
+            <td class='table_orders-cell'>
+                <button class='btn_update-status'>
+                    <a href='admin-update-status.php?id=$orderid'>Ändra status</a>
+                </button>
+            </td>
+
+        </tr>";
 }
 
-$table .= "</table>";
+$table .= "</tbody></table></section>";
 
 // foreach ($products as $key => $array) {
 //     foreach ($array as $key => $value) {
@@ -101,7 +136,7 @@ $table .= "</table>";
 //     }
 //     else if ($key == "cartQty"){
 //         echo "<p>$value</p>";
-       
+
 //     }
 //     }
 // }

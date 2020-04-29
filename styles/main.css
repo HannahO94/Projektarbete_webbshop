@@ -138,7 +138,6 @@ a:hover {
   width: 100vw;
   height: 70px;
   background-color: #ffffffb6;
-  position: fixed;
 }
 
 @media (min-width: 500px) {
@@ -304,7 +303,6 @@ input[type="checkbox"]:checked + label .bottom-bar {
         -ms-flex-align: center;
             align-items: center;
     background-color: #ffffffb6;
-    position: fixed;
     z-index: 100;
   }
 }
@@ -472,7 +470,9 @@ input[type="checkbox"]:checked + label .bottom-bar {
 }
 
 .footer {
+  position: relative;
   padding: 30px 0;
+  margin-top: 70px;
   background-color: #1f1f1f;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -562,6 +562,30 @@ input[type="checkbox"]:checked + label .bottom-bar {
 
 .socialmedia__img {
   max-width: 50px;
+}
+
+.scroll_top-container {
+  display: block;
+  width: 100px;
+  height: 100px;
+  border-radius: 30%;
+  background-color: #1f1f1f;
+  text-align: center;
+  position: absolute;
+  top: -45px;
+  right: 30px;
+  padding: 10px;
+}
+
+.scroll-top a {
+  color: white;
+  font-family: "Fredoka One", cursive;
+  margin-top: 20px;
+}
+
+.arrow-up {
+  width: 20px;
+  height: 25px;
 }
 
 .page-title {
@@ -912,7 +936,7 @@ label {
       align-content: space-between;
   text-align: center;
   line-height: 1.5;
-  height: 300px;
+  min-height: 300px;
   width: 200px;
   border-radius: 8px;
   margin: 2em;
@@ -928,6 +952,13 @@ label {
   color: black;
   font-weight: bold;
   font-size: 20px;
+}
+
+.product_img {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  margin: 8px;
 }
 
 .product_card-btn {
@@ -971,7 +1002,7 @@ label {
 @media (min-width: 800px) {
   .search-form {
     text-align: left;
-    margin-right: 20px;
+    margin-right: 80px;
   }
 }
 
@@ -1033,7 +1064,7 @@ label {
   margin: 0px;
   height: 100%;
   font-size: 10px;
-  color: red;
+  color: black;
 }
 
 @media (min-width: 600px) {
@@ -1822,23 +1853,10 @@ main {
   color: white;
 }
 
-.hideCart {
-  display: none;
-}
-
-.align-button-right {
-  position: absolute;
-  right: 10%;
-}
-
 @media (max-width: 500px) {
-  .product-head {
+  .orders-head {
     font-size: 24px;
     text-align: center;
-  }
-  #emptyCartText {
-    text-align: center;
-    padding-bottom: 20px;
   }
   table,
   thead,
@@ -1906,6 +1924,174 @@ main {
     padding-right: 10px;
     white-space: nowrap;
   }
+  .btn_update-status {
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    font-size: 13px;
+    background: peachpuff;
+    text-transform: uppercase;
+  }
+  .btn_update-status a {
+    color: white;
+  }
+  .back_btn,
+  .btn-update-status {
+    background: peachpuff;
+    text-transform: uppercase;
+  }
+}
+
+@media (min-width: 500px) {
+  .table_orders {
+    min-width: 650px;
+    margin-bottom: 5%;
+  }
+}
+
+@media (min-width: 500px) and (min-width: 800px) {
+  .table_orders {
+    min-width: 800px;
+  }
+}
+
+@media (min-width: 500px) {
+  .orders-head {
+    font-size: 46px;
+    text-align: center;
+    padding: 0 10% 10% 10%;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  th {
+    font-size: 34px;
+    padding-bottom: 5%;
+    padding-top: 5%;
+  }
+  tr {
+    padding: 5%;
+  }
+  td {
+    width: 200px;
+    font-size: 18px;
+    padding: 2%;
+  }
+  .table_orders-head {
+    padding-right: 30px;
+  }
+  .btn_update-status {
+    margin-left: 15px;
+    background: peachpuff;
+    text-transform: uppercase;
+  }
+}
+
+@media (min-width: 500px) and (min-width: 700px) {
+  .btn_update-status {
+    margin-left: 0;
+  }
+}
+
+@media (min-width: 500px) and (min-width: 800px) {
+  .btn_update-status {
+    margin-left: 15px;
+  }
+}
+
+@media (min-width: 500px) {
+  tr:nth-child(odd) {
+    background: #ebebeb;
+  }
+  .back_btn,
+  .btn-update-status {
+    background: peachpuff;
+    text-transform: uppercase;
+  }
+}
+
+.hideCart {
+  display: none;
+}
+
+.align-button-right {
+  position: absolute;
+  right: 10%;
+}
+
+@media (max-width: 500px) {
+  .shopping_container {
+    min-height: 300px;
+  }
+  .product-head {
+    font-size: 24px;
+    text-align: center;
+  }
+  #emptyCartText {
+    text-align: center;
+    padding-bottom: 20px;
+  }
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+  .table_container {
+    min-width: 280px;
+  }
+}
+
+@media (max-width: 500px) and (min-width: 600px) {
+  .table_container {
+    min-width: 400px;
+  }
+}
+
+@media (max-width: 500px) {
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  th {
+    padding: 2%;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 500px) and (min-width: 1000px) {
+  th {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 500px) {
+  tr {
+    margin: 0 0 1rem 0;
+    padding: 5px;
+    border-radius: 5px;
+    letter-spacing: 2px;
+  }
+  tr:nth-child(odd) {
+    background: #ebebeb;
+  }
+  td {
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 50%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+  }
+  td:before {
+    position: absolute;
+    top: 0;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+  }
   td:nth-of-type(1):before {
     content: "Produkt";
     padding: 5%;
@@ -1946,6 +2132,9 @@ main {
 }
 
 @media (min-width: 500px) {
+  .shopping_container {
+    min-height: 400px;
+  }
   #emptyCartText {
     text-align: center;
     padding-bottom: 20px;

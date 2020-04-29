@@ -1,6 +1,7 @@
 <?php
 require_once "../second_header_extern.php";
 require_once "../config/db.php";
+
 $productimg = "";
 // Hämtar kategori-id som valdes på kategorisidan
 $id = htmlspecialchars($_GET['id']);
@@ -8,7 +9,7 @@ $id = htmlspecialchars($_GET['id']);
 // Hämtar alla kolumner från tabellen "webshop_products" i db
 $stmt = $db->prepare("SELECT  
                     `categoryid`,
-                 `productid`,
+                    `productid`,
                     `title`, 
                     `description`, 
                     `quantity`, 
@@ -19,6 +20,17 @@ $stmt = $db->prepare("SELECT
                     WHERE productid=:productid");
 $stmt->bindParam(':productid', $id);
 $stmt->execute();
+
+//hämta outlet-produkter från databas
+$sqlDate = "SELECT * FROM webshop_products WHERE quantity > 0 ORDER BY date ASC LIMIT 3";
+$stmtDate = $db->prepare($sqlDate);
+$stmtDate->execute();
+
+  //lägger alla outlet-produkters id i en array
+  while ($outletRow = $stmtDate->fetch(PDO::FETCH_ASSOC)) :
+    $outletProductid[] = $outletRow['productid'];
+  endwhile;
+
 
 echo "<div class='product-info'>";
 
@@ -41,29 +53,33 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
     //räkna ut skillnaden mellan dagens datum och produktens datum
     $now = date("yy-m-d");
-    $dateNow=date_create($now);
-    $dateProd=date_create($date);
-    $diff=date_diff($dateProd,$dateNow);
+    $dateNow = date_create($now);
+    $dateProd = date_create($date);
+    $diff = date_diff($dateProd,$dateNow);
     $diffDays = $diff->format('%R%a days'); 
 
 ?>
+
 <section class="product">
+
 <?php 
 if($diffDays < 7){
     echo "<h3 class='product_price-new'>Ny!</h3>";
 };     
-    ?>
+?>
+
 <h1 class="product__prod-title"><?= $title ?></h1>
 <p class="product__prod-description">
 <?= $description ?>
 </p>
 
-<div class="product__img-container"><?php
+<div class="product__img-container">
+<?php
 if(!empty($productimg)){
 foreach ($productimg as $key => $value) {
     if($productimg[0] == ""){
         echo "ingen bildfil finns tillgänglig";
-    }else
+    }else{
         echo "<div class='product_img-wrapper'><img src='../images/$value' width='200px' class='product_img'></div><br>";
     }
 
@@ -71,16 +87,17 @@ foreach ($productimg as $key => $value) {
     else {
         echo "ingen bildfil finns tillgänglig";
   
+
     }?>
     
+
 </div>
-
-
 
 <?php 
 
 
-  if($diffDays < 60){
+   //kollar om produkten är outlet eller ordinarie
+if(!in_array($productid, $outletProductid)) {
  // Om det finns i lagret eller inte
  if ($quantity == "0") {
     $any_items = "Finns EJ i lager";
@@ -106,7 +123,7 @@ echo "</div>";
         echo "<div class='product__inventory' style='color: red'>" . $any_items . "</div>";
         echo "<button id='cart-btn$productid' class='add-to-cart' style='background-color: grey; color: black;' disabled>Lägg i varukorgen</button>";
     } else {
-        echo "<div class='product__prod-price'><strong>Pris:</strong> $outletPrice kr</div>
+        echo "<div class='product__prod-price product_price-outlet'><strong>Pris:</strong> $outletPrice kr</div>
         <p class='product_price-old'>Normalpris: $price kr</p>
         <p class='product_price-savings'>Du sparar: $savings kr! (-10%) </p>";
         $any_items = "I lager: " . $quantity . " st";

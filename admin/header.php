@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <main>
+    <main id="home">
       <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="index.php">Admin - Hem</a>
