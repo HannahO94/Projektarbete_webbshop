@@ -110,17 +110,19 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         <tr class='table_orders-row'>
             <td class='table_orders-cell'> $orderid</td>
             <td class='table_orders-cell'>
-                Namn: $name <br> 
-                Email: $email <br> 
-                Tel: $phone <br> 
-                Adress: $street, $zip $city</td>
+                $name <br> 
+                $email <br> 
+                $phone <br> 
+                $street, $zip $city
+            </td>
             <td class='table_orders-cell products'> $productsspec </td>
             <td class='table_orders-cell'> $totalprice kr</td>
             <td class='table_orders-cell'> $status</td>
             <td class='table_orders-cell'>
                 <button class='btn_update-status'>
                     <a href='admin-update-status.php?id=$orderid'>Ändra status</a>
-                </button></td>
+                </button>
+            </td>
 
         </tr>";
 }
