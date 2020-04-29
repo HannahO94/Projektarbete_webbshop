@@ -1,6 +1,7 @@
 <?php
 require_once "../second_header_extern.php";
 require_once "../config/db.php";
+
 $productimg = "";
 // Hämtar kategori-id som valdes på kategorisidan
 $id = htmlspecialchars($_GET['id']);
@@ -8,7 +9,7 @@ $id = htmlspecialchars($_GET['id']);
 // Hämtar alla kolumner från tabellen "webshop_products" i db
 $stmt = $db->prepare("SELECT  
                     `categoryid`,
-                 `productid`,
+                    `productid`,
                     `title`, 
                     `description`, 
                     `quantity`, 
@@ -41,24 +42,28 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
     //räkna ut skillnaden mellan dagens datum och produktens datum
     $now = date("yy-m-d");
-    $dateNow=date_create($now);
-    $dateProd=date_create($date);
-    $diff=date_diff($dateProd,$dateNow);
+    $dateNow = date_create($now);
+    $dateProd = date_create($date);
+    $diff = date_diff($dateProd,$dateNow);
     $diffDays = $diff->format('%R%a days'); 
 
 ?>
+
 <section class="product">
+
 <?php 
 if($diffDays < 7){
     echo "<h3 class='product_price-new'>Ny!</h3>";
 };     
-    ?>
+?>
+
 <h1 class="product__prod-title"><?= $title ?></h1>
 <p class="product__prod-description">
 <?= $description ?>
 </p>
 
-<div class="product__img-container"><?php
+<div class="product__img-container">
+<?php
 if(!empty($productimg)){
 foreach ($productimg as $key => $value) {
         echo "<img src='../images/$value' width='200px' class='product_img' style='margin: 8px;'>";
@@ -67,10 +72,9 @@ foreach ($productimg as $key => $value) {
     else {
         echo "ingen bildfil finns tillgänglig";
   
-    }?>
+    }
+?>
 </div>
-
-
 
 <?php 
 
