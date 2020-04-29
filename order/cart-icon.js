@@ -57,7 +57,6 @@
 //   localStorage.setItem("counter", value);
 // }
 
-
 // function showValue() {
 //   if (JSON.parse(localStorage.getItem("products")) !== null) {
 //     value = JSON.parse(localStorage.getItem("products"));
@@ -67,13 +66,14 @@
 
 //   counters[0].textContent = value;
 // }
+
+//////////
+
 let counters = document.querySelector("#counter");
 let btn1 = document.querySelectorAll(".cart-btn");
 let btnLess = document.querySelectorAll(".delete");
-let products 
-products = JSON.parse(localStorage.getItem("products"))
-
-
+let products;
+products = JSON.parse(localStorage.getItem("products"));
 
 //maddes?
 // function showValue() {
@@ -86,39 +86,41 @@ products = JSON.parse(localStorage.getItem("products"))
 //   localStorage.setItem("counter", value);
 // }
 
-
-
-
 //Hannahs
 for (let i = 0; i < btn1.length; i++) {
-  btn1[i].addEventListener("click", updateCartCount )
+  btn1[i].addEventListener("click", updateCartCount);
 }
 
 for (let j = 0; j < btnLess.length; j++) {
-  btnLess[j].addEventListener("click", updateCartCount )
-  
-  
+  btnLess[j].addEventListener("click", updateCartCount);
 }
-updateCartCount()
+
+updateCartCount();
 //Hannahs
-function updateCartCount () {
-  let products 
+function updateCartCount() {
+  let products;
+  let cartValue = 0;
+  let sum = 0;
   if (JSON.parse(localStorage.getItem("products")) !== null) {
     products = JSON.parse(localStorage.getItem("products"));
-    console.log(products.length)
-    counters.textContent = products.length
-    
+    for (let x = 0; x < products.length; x++) {
+      let cartValue = products[x].cartQty;
+      sum += parseInt(cartValue);
+      console.log(sum);
+    }
+
+    counters.textContent = sum;
   } else {
     products = 0;
-    counters.textContent = products
-    console.log(products.length)
+    counters.textContent = products;
+    console.log(products.length);
   }
-
 }
 
+////////////
 //Hannahs
 // function updateCartCount2 () {
-//   let products 
+//   let products
 //   if (JSON.parse(localStorage.getItem("products")) !== null) {
 //     products = JSON.parse(localStorage.getItem("products"));
 //     console.log(products.length)
@@ -126,7 +128,7 @@ function updateCartCount () {
 //     btnLess = ""
 //     window.location.hash = '#tab2';
 //     window.location.reload(true);
-    
+
 //   } else {
 //     products = 0;
 //     counters.textContent = products
@@ -141,4 +143,3 @@ function updateCartCount () {
 //   showValue();
 
 // }
-
