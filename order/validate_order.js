@@ -1,14 +1,26 @@
 let submitBtn = document.querySelector(".form-container__submit-button");
 
-function validateForm() {
-  let ret =
-    validateName() &&
-    validateEmail() &&
-    validatePhone() &&
-    validateStreet() &&
-    validateZipcode() &&
-    validateCity();
-  return ret;
+// function validateForm() {
+//   let ret =
+//     validateName() &&
+//     validateEmail() &&
+//     validatePhone() &&
+//     validateStreet() &&
+//     validateZipcode() &&
+//     validateCity();
+//   return ret;
+// }
+function enableSumbitIfFormIsValid() {
+  if (
+    isNameValid &&
+    isEmailValid &&
+    isPhoneValid &&
+    isStreetValid &&
+    isZipcodeValid &&
+    isCityValid
+  ) {
+    submitBtn.disabled = false;
+  }
 }
 
 let isNameValid = false;
@@ -36,19 +48,10 @@ function validateName() {
   } else {
     infoText.innerHTML = "";
     isNameValid = true;
-    if (
-      isEmailValid &&
-      isPhoneValid &&
-      isStreetValid &&
-      isZipcodeValid &&
-      isCityValid
-    ) {
-      submitBtn.disabled = false;
-    }
-    return true;
+    enableSumbitIfFormIsValid();
   }
   submitBtn.disabled = true;
-  return false;
+  isNameValid = false;
 }
 function isValidName(name) {
   let re = /[^a-öA-Ö\s:]/;
@@ -69,19 +72,10 @@ function validateEmail() {
   } else {
     infoText.innerHTML = "";
     isEmailValid = true;
-    if (
-      isNameValid &&
-      isPhoneValid &&
-      isStreetValid &&
-      isZipcodeValid &&
-      isCityValid
-    ) {
-      submitBtn.disabled = false;
-    }
-    return true;
+    enableSumbitIfFormIsValid();
   }
   submitBtn.disabled = true;
-  return false;
+  isEmailValid = false;
 }
 function isValidEmail(email) {
   let re = /^(([^<>()\[\]\\%.,;:\s@"]+(\.[^<>()\[\]\\%.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -104,20 +98,12 @@ function validatePhone() {
   } else {
     infoText.innerHTML = "";
     isPhoneValid = true;
-    if (
-      isNameValid &&
-      isEmailValid &&
-      isStreetValid &&
-      isZipcodeValid &&
-      isCityValid
-    ) {
-      submitBtn.disabled = false;
-    }
-    return true;
+    enableSumbitIfFormIsValid();
   }
   submitBtn.disabled = true;
-  return false;
+  isPhoneValid = false;
 }
+
 function isValidPhone(phone) {
   let re = /[^0-9:]/;
   return re.test(String(phone));
@@ -139,19 +125,10 @@ function validateStreet() {
   } else {
     infoText.innerHTML = "";
     isStreetValid = true;
-    if (
-      isNameValid &&
-      isEmailValid &&
-      isPhoneValid &&
-      isZipcodeValid &&
-      isCityValid
-    ) {
-      submitBtn.disabled = false;
-    }
-    return true;
+    enableSumbitIfFormIsValid();
   }
   submitBtn.disabled = true;
-  return false;
+  isStreetValid = false;
 }
 function isValidStreet(street) {
   let re = /[^a-öA-Ö\s+0-9]/;
@@ -172,19 +149,10 @@ function validateZipcode() {
   } else {
     infoText.innerHTML = "";
     isZipcodeValid = true;
-    if (
-      isNameValid &&
-      isEmailValid &&
-      isPhoneValid &&
-      isStreetValid &&
-      isCityValid
-    ) {
-      submitBtn.disabled = false;
-    }
-    return true;
+    enableSumbitIfFormIsValid();
   }
   submitBtn.disabled = true;
-  return false;
+  isZipcodeValid = false;
 }
 
 // Validering av ort
@@ -205,19 +173,10 @@ function validateCity() {
   } else {
     infoText.innerHTML = "";
     isCityValid = true;
-    if (
-      isNameValid &&
-      isEmailValid &&
-      isPhoneValid &&
-      isStreetValid &&
-      isZipcodeValid
-    ) {
-      submitBtn.disabled = false;
-    }
-    return true;
+    enableSumbitIfFormIsValid();
   }
   submitBtn.disabled = true;
-  return false;
+  isCityValid = false;
 }
 function isValidCity(city) {
   let re = /[^a-öA-Ö\s:]/;
