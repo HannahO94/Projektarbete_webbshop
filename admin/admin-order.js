@@ -62,6 +62,7 @@ function sort() {
 //sortera på datum
 let sortbyDate = document.querySelector("#sort-date")
 sortbyDate.addEventListener("click", function (event) {
+    //alert("click")
     event.preventDefault();
 
     sortByDate()
@@ -70,7 +71,7 @@ sortbyDate.addEventListener("click", function (event) {
 function sortByDate() {
     let table = document.getElementById("table-orders")
     let rows, x, y, z, o, i, switching, shouldSwitch, dir;
-    let switchcount = 0;
+    let switchcountDate = 0;
     switching = true;
     dir = "asc";
 
@@ -86,24 +87,36 @@ function sortByDate() {
             o = new Date(y.innerHTML)
             //console.log("x " + z.getTime())
             //console.log("y " + o.getTime())
-
-            if (z.getTime() > o.getTime()) {
-                console.log("större")
-                shouldSwitch = true;
-               
-            } else if(z.getTime() < o.getTime()) {
-                console.log("mindre")
-                shouldSwitch = false;
-                
-            } else {
-                console.log("samma")
-                shouldSwitch = false;
+            if (dir == "asc") {
+                console.log("körs denna")
+                if (z.getTime() > o.getTime()) {
+                   // console.log("mindre")
+                    shouldSwitch = true;
+                   // console.log(dir)
+                    //break;
+                }
+            
+            } else if (dir == "desc") {
+                console.log("denna körs")
+                if (z.getTime() < o.getTime()) {
+                    //console.log("större")
+                    shouldSwitch = true;
+                    //console.log(dir)
+                    //break;
+                }
             }
 
             if (shouldSwitch) {
-                console.log("byt")
+                //console.log("byt")
                 rows[i].parentNode.insertBefore(rows[i + 1], rows[i])
                 switching = true;
+                switchcountDate++
+                console.log(dir)
+            } else {
+                if (switchcountDate == 0 && dir == "asc") {
+                    dir = "desc";
+                    switching = true;
+                }
             }
         }
     }
