@@ -77,7 +77,7 @@ let btnLess = document.querySelectorAll(".delete");
 let products;
 products = JSON.parse(localStorage.getItem("products"));
 
-//maddes?
+
 // function showValue() {
 //   if (JSON.parse(localStorage.getItem("counter")) !== null) {
 //     value = localStorage.getItem("counter");
@@ -88,7 +88,7 @@ products = JSON.parse(localStorage.getItem("products"));
 //   localStorage.setItem("counter", value);
 // }
 
-//Hannahs
+
 for (let i = 0; i < btn1.length; i++) {
   btn1[i].addEventListener("click", updateCartCount);
 }
@@ -98,7 +98,7 @@ for (let j = 0; j < btnLess.length; j++) {
 }
 
 updateCartCount();
-//Hannahs
+
 function updateCartCount() {
   let products;
   let cartValue = 0;
@@ -119,29 +119,3 @@ function updateCartCount() {
   }
 }
 
-////////////
-//Hannahs
-// function updateCartCount2 () {
-//   let products
-//   if (JSON.parse(localStorage.getItem("products")) !== null) {
-//     products = JSON.parse(localStorage.getItem("products"));
-//     console.log(products.length)
-//     counters.textContent = products.length
-//     btnLess = ""
-//     window.location.hash = '#tab2';
-//     window.location.reload(true);
-
-//   } else {
-//     products = 0;
-//     counters.textContent = products
-//     console.log(products.length)
-//   }
-// }
-// //maddes
-// function btn1Less(event) {
-//   counters[0].textContent = parseInt(counters[0].textContent) - 1;
-//   let value = counters[0].textContent;
-//   localStorage.setItem("counter", value);
-//   showValue();
-
-// }
