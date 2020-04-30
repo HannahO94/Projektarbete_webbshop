@@ -3,9 +3,13 @@ require_once '../second_header_extern.php';
 require_once '../config/db.php';
 
 $productimg = "";
-if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+//if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+  if(isset($_GET['id'])){
   $currentCategory = htmlspecialchars($_GET['id']);
-}
+} else {
+  $currentCategory = 1;
+};
+
 
 //måste även lägga till ett WHERE-villkor som matchar den aktuella kategorin, variabeln ovan
 $stmt = $db->prepare("SELECT * FROM webshop_products WHERE categoryid = $currentCategory");

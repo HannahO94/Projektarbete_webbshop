@@ -15,7 +15,12 @@ require_once '../second_header_extern.php';
 <?php
 
 //Hämta arrayen med produkt-id från sökresultatet 
+if(isset($_GET['id'])){
   $search = htmlspecialchars($_GET['id']);
+  }else {
+  $search = "";
+  };
+  
 
   if ($search === ""){
     echo "<h3 id='search-noResult'>Vi har tyvärr inte det spelet du söker, testa gärna en ny sökning!</h3>";
