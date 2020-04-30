@@ -57,6 +57,10 @@ for (let j = 0; j < cartBtn.length; j++) {
       alert("Det går inte att lägga till fler produkter än vad som finns i lager")
       return false
     }
+    else if (parseInt(product.cartQty) <= 0){
+      alert("Minst en produkt måste läggas till")
+      return false
+    }
   let checkproductQty = ""
    let sum = 0;
    let productSame
@@ -74,6 +78,11 @@ for (let j = 0; j < cartBtn.length; j++) {
         alert("Det går inte att lägga till fler produkter än vad som finns i lager, produkten finns redan i varukorgen")
         return false
       }
+      else if(parseInt(product.cartQty) <= 0){
+        alert("Minst en produkt måste läggas till")
+        return false
+      }
+
     }
     
     else {
