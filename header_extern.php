@@ -32,10 +32,6 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
       <div class="menu-wraper">
 
-        <!--- <div class="menu-wraper__logo-wrap">
-        <img src="" alt="Logo" />
-      </div>-->
-
         <nav class="menu_nav">
 
           <input type="checkbox" class="hamburger">
