@@ -57,8 +57,9 @@ require_once '../config/db.php';
 
 
 
-    <!-- <form action="" method="POST" id="customer-form" class="form-container"> -->
-    <form name="orderForm" action="send-order.php" method="POST" id="contact-form" class="form-container" onsubmit="return validateForm(event), hiddenProducts()">
+  <!-- <form action="" method="POST" id="customer-form" class="form-container"> -->
+    <form name="orderForm" action="send-order.php" method="POST" id="contact-form" class="form-container" onsubmit="return hiddenProducts()">
+
 
       <!--FK: Formulärvalideringen (som hämtas från validate_order.js) verkar funka 
     utan onsubmit-anrop inuti form-taggen. Därav den utkommenterade kodraden ovan-->

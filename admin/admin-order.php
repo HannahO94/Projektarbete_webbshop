@@ -23,6 +23,10 @@ if ($orderStatusId == 1){
 ?>
 <h2 class="orders-head">Beställningar</h2>
 
+<form id="search-city" action="" class="search-form">
+<input type="text" name="search" id="input-city" class="search-form__input-city"  onkeyup="filterCity()" placeholder="Sök efter ort">
+</form>
+
 <form id="order-status_form">
 <lable id="show_lable">Sortera på orderstatus</lable>
 <select id="show_order-status" name="order-status">
@@ -57,8 +61,10 @@ $table = "<section class='table_container'>
                         <tr class='table_orders-row'>
                             <th class='table_orders-head'>Orderid</th>
                             <th class='table_orders-head'>Kunduppgifter</th>
+                            <th class='table_orders-head'>Ort</th>
                             <th class='table_orders-head'>Produkter</th>
                             <th class='table_orders-head'><a id='sort-sum'>Summa</a></th>
+                            <th class='table_orders-head'><a id='sort-date'>Orderdatum</a></th>
                             <th class='table_orders-head' colspan='2'>Orderstatus</th>
                             </tr>";
 
@@ -105,6 +111,9 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         $status = "Slutförd";
     }
 
+    //$date1 = date_create($date);
+    $onlyDate = date_format(date_create($date), "yy-m-d");
+
     $table .= "
         <tr class='table_orders-row'>
             <td class='table_orders-cell'> $orderid</td>
@@ -112,10 +121,12 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 $name <br> 
                 $email <br> 
                 $phone <br> 
-                $street, $zip $city
+                $street, $zip 
             </td>
+            <td class='table_orders-cell'> $city </td>
             <td class='table_orders-cell products' style='width: 20%'> $productsspec </td>
             <td class='table_orders-cell'> $totalprice </td>
+            <td class='table_orders-cell'> $onlyDate</td>
             <td class='table_orders-cell'> $status</td>
             <td class='table_orders-cell'>
                 <button class='btn_update-status'>
