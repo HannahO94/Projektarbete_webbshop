@@ -36,6 +36,7 @@ if ($orderStatusId == 1){
 
 
 
+
 <?php
 // $sql = $sql = "SELECT
 // O.orderid    AS Ordernummer,
@@ -70,15 +71,15 @@ $stmt->execute();
 
 $productsspec;
 $table = "<section class='table_container'>
-            <table class='table_orders>
-                <tbody>
-                    <tr class='table_orders-row'>
-                        <th class='table_orders-head'>Orderid</th>
-                        <th class='table_orders-head'>Kunduppgifter</th>
-                        <th class='table_orders-head'>Produkter</th>
-                        <th class='table_orders-head'>Summa</th>
-                        <th class='table_orders-head' colspan='2'>Orderstatus</th>
-                        </tr>";
+                <table class='table_orders' id='table-orders'>
+                    <tbody>
+                        <tr class='table_orders-row'>
+                            <th class='table_orders-head'>Orderid</th>
+                            <th class='table_orders-head'>Kunduppgifter</th>
+                            <th class='table_orders-head'>Produkter</th>
+                            <th class='table_orders-head'><a id='sort-sum'>Summa</a></th>
+                            <th class='table_orders-head' colspan='2'>Orderstatus</th>
+                            </tr>";
 
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     $orderid = htmlspecialchars($row['orderid']);
@@ -154,7 +155,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 $street, $zip $city
             </td>
             <td class='table_orders-cell products' style='width: 20%'> $productsspec </td>
-            <td class='table_orders-cell'> $totalprice kr</td>
+            <td class='table_orders-cell'> $totalprice </td>
             <td class='table_orders-cell'> $status</td>
             <td class='table_orders-cell'>
                 <button class='btn_update-status'>
