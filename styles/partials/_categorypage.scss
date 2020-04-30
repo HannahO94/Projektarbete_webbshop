@@ -63,9 +63,16 @@
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 2px;
+  font-family: $font-nav;
+  color: rgb(31, 31, 31);
+  //background-color: rgb(254, 231, 211);
+  width: 100vw;
+  min-height: 200px;
+  margin-top: 130px;
+  padding: 20px;
   @media (min-width: 600px) {
     font-size: 48px;
-    letter-spacing: 3px;
+    letter-spacing: 8px;
     //display: none;
   }
 }

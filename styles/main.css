@@ -996,12 +996,18 @@ label {
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 2px;
+  font-family: "Fredoka One", cursive;
+  color: #1f1f1f;
+  width: 100vw;
+  min-height: 200px;
+  margin-top: 130px;
+  padding: 20px;
 }
 
 @media (min-width: 600px) {
   .category_name {
     font-size: 48px;
-    letter-spacing: 3px;
+    letter-spacing: 8px;
   }
 }
 
@@ -2266,26 +2272,13 @@ main {
 }
 
 .second_hero {
-  background-image: white;
+  background-image: url("../../images/1x/categoryhero.png");
   min-width: 100vw;
-  min-height: 13vh;
-  background-size: cover;
+  height: 50vh;
   background-repeat: no-repeat;
   background-position: center;
   -webkit-transition: ease 300ms;
   transition: ease 300ms;
-}
-
-@media (min-width: 700px) {
-  .second_hero {
-    background-image: white;
-  }
-}
-
-@media (min-width: 1100px) {
-  .second_hero {
-    background-image: white;
-  }
 }
 
 /*ok att nedan ligger här eller kan vi lägga det ngn
