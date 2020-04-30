@@ -41,45 +41,45 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') :
     if(isset($_POST["submit"])) {
         $check = getimagesize($_FILES["image"]["tmp_name"]);
         if($check !== false) {
-            echo "File is an image - " . $check["mime"] . ".";
+            $msg = "File is an image - " . $check["mime"] . ".";
             $uploadOk = 1;
         } else {
-            echo "File is not an image.";
+            $msg = "File is not an image.";
             $uploadOk = 0;
         }
     }
-    // Check if file already exists
-    if (file_exists($target)) {
-        echo "Sorry, file already exists.";
+    // // Check if file already exists
+    // if (file_exists($target)) {
+    //     echo "Sorry, file already exists.";
+    //     $uploadOk = 0;
+    //     $image = "";
+    // }
+    // // Check file size
+    if ($_FILES["image"]["size"] > 1048576) {
+        $msg = "Sorry, your file is too large.";
         $uploadOk = 0;
         $image = "";
     }
-    // Check file size
-    if ($_FILES["image"]["size"] > 500000) {
-        echo "Sorry, your file is too large.";
-        $uploadOk = 0;
-        $image = "";
-    }
-    // Allow certain file formats
+    // // Allow certain file formats
     if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
     && $imageFileType != "gif" ) {
-        echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+        $msg = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
         $uploadOk = 0;
         $image = "";
     }
-    // Check if $uploadOk is set to 0 by an error
-    if ($uploadOk == 0) {
-        echo "Sorry, your file was not uploaded.";
-        $image = "";
-    // if everything is ok, try to upload file
-    } 
+    // // Check if $uploadOk is set to 0 by an error
+    // if ($uploadOk == 0) {
+    //     echo "Sorry, your file was not uploaded.";
+    //     $image = "";
+    // // if everything is ok, try to upload file
+    // } 
     else {
         if (move_uploaded_file($_FILES["image"]["tmp_name"], $target) && $uploadOk == true) {
-            echo "The file ". basename( $_FILES["image"]["name"]). " has been uploaded.";
+            $msg = "The file ". basename( $_FILES["image"]["name"]). " has been uploaded.";
             $image = $_FILES['image']['name'];
             $target = "../images/".basename($image);
         } else {
-            echo "Sorry, there was an error uploading your file.";
+            $msg =  "No file was uploaded";
             
         }
     }
@@ -100,7 +100,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') :
             $stmt->bindParam(':image', $image);
             $stmt->bindParam(':id', $id);
             $stmt->execute();
-            header('Location:admin-category.php');
+            //header('Location:admin-update-category.php');
 
         }
     }
@@ -116,6 +116,7 @@ function test_input($data) {
 <section class="form_container">
 
         <h3 class="page-title form-container__heading-text">Uppdatera kategori</h3>
+        
 
 <form action="#" method="POST" enctype="multipart/form-data" class="form-container">
     <div class="form-container__box">
@@ -124,7 +125,7 @@ function test_input($data) {
         <p class="error"><?php echo $nameErr;?></p>
     </div>
     <div class="form-container__image update_category-box">
-        <label for="image">Ladda upp en bild:</label><br>
+        <label for="image">Ladda upp en bild: (max 1MB)</label><br>
         <input type="file" name="image" class="form-container__image-input">     
         <?php echo $msg; ?>
     </div>

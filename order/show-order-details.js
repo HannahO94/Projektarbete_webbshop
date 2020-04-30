@@ -1,4 +1,19 @@
-// // 1. HÄMTA OCH RITA UT BESTÄLLDA PRODUKTER
+/**********************
+
+OBS! Den här sidan används inte för tillfället. 
+Den är bara ett alternativt sätt att hämta/visa kunduppgifter och produkter
+till orderbekräftelsesidan (med hjälp av javascript och localstorage).
+
+Vi har istället valt att hämta alla uppgifter från databasen med PHP. 
+Se aktuell kod i filerna send-order.php och order-confirmation.php
+
+(HTML-koden i order-confirmation.php saknar därför i nuläget de element 
+som anropas och används i den här JS-filen)
+
+
+***********************/
+
+// 1. HÄMTA OCH RITA UT BESTÄLLDA PRODUKTER
 
 // //Hämta produktarray från Localstorage
 let productsInLocalStorage = JSON.parse(localStorage.getItem("products"))
@@ -44,22 +59,20 @@ function drawOrderedProducts() {
 	orderTotalPrice.textContent = `Totalpris: ${total} kr `
 
 	//Rensa localStorage
-	
 }
 
 // 2. HÄMTA OCH RITA UT KUNDUPPGIFTER (med javascript eller php - hämta från databasen?)
 
 // Hämta nödvändiga element från orderformuläret
 
-
-let addbtn = document.querySelector("#form-container__submit-button");
+let addbtn = document.querySelector("#form-container__submit-button")
 
 addbtn.addEventListener("submit", save)
 
 function save() {
-// event.preventDefault()
+	// event.preventDefault()
 
-// console.log("hello")
+	// console.log("hello")
 	const submitArray = []
 	const contactForm = document.querySelector("#contact-form")
 	const nameInput = document.querySelector("#name")
@@ -70,35 +83,31 @@ function save() {
 	const cityInput = document.querySelector("#city")
 	const statusInput = document.querySelector("#status")
 
+	let name = nameInput.value
+	let email = emailInput.value
+	let phone = phoneInput.value
+	let street = streetInput.value
+	let zipcode = zipcodeInput.value
+	let city = cityInput.value
+	let status = statusInput.value
 
-		let name = nameInput.value
-		let email = emailInput.value
-		let phone = phoneInput.value
-		let street = streetInput.value
-		let zipcode = zipcodeInput.value
-		let city = cityInput.value
-		let status = statusInput.value
-	
-		console.log("hej" + name)
-		// console.log(email)
+	console.log("hej" + name)
+	// console.log(email)
 
-
-		orderinfo = {
-			name: name,
-			email: email,
-			phone: phone,
-			street: street,
-			zipcode: zipcode,
-			city: city, 
-			status: status, 
+	orderinfo = {
+		name: name,
+		email: email,
+		phone: phone,
+		street: street,
+		zipcode: zipcode,
+		city: city,
+		status: status,
+	}
+	// console.log(orderinfo.name, orderinfo.email)
+	submitArray.push(orderinfo)
+	localStorage.setItem("orderdetail", JSON.stringify(submitArray))
+	window.location = "order-confirmation.php"
 }
-// console.log(orderinfo.name, orderinfo.email)
-submitArray.push(orderinfo)
-localStorage.setItem("orderdetail", JSON.stringify(submitArray))
-window.location="order-confirmation.php";
-}
-
-
 
 function drawOrderDetail() {
 	let orderInLocalStorage = JSON.parse(localStorage.getItem("orderdetail"))
@@ -106,7 +115,7 @@ function drawOrderDetail() {
 	//För varje produkt i localstorage-arrayen - skapa en rad (tr) och aktuella kolumner (td)
 	orderInLocalStorage.forEach(function (obj) {
 		const orderRow = document.createElement("tr")
-		
+
 		const name1 = document.createElement("td")
 		name1.textContent = obj.name
 		//Här hämtas cartQty - Ett värde som läggs till i produktobjektet som sparas i LS
@@ -132,10 +141,7 @@ function drawOrderDetail() {
 	})
 	localStorage.clear()
 	updateCartCount()
-	
 }
-
 
 // //Hämta nödvändiga element från bekräftelsesidan
 // const contactDetails = document.querySelector("#contact-container")
-
