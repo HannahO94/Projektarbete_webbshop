@@ -1,6 +1,10 @@
 <?php
 require_once "../second_header_extern.php";
 require_once "send-order.php";
+?>
+</header>
+</main>
+<?php 
 
 //HÄMTA ORDERINFO FRÅN DATABASEN (hämtar bara senaste beställningen baserat på orderid)
 $sql = "SELECT * FROM webshop_orders ORDER BY orderid DESC LIMIT 1";
