@@ -4,6 +4,8 @@ require_once '../second_header_extern.php';
 
 
 ?>
+</header>
+<main>
 
 <section>
 <h1 class="header--center">Sökresultat</h1>

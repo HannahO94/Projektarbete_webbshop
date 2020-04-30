@@ -1,7 +1,11 @@
 <?php
 require_once "../second_header_extern.php";
 require_once "../config/db.php";
+?>
+  </header>
+<main>
 
+<?php
 $productimg = "";
 // Hämtar kategori-id som valdes på kategorisidan
 $id = htmlspecialchars($_GET['id']);
