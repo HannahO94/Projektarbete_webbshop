@@ -1,16 +1,15 @@
 .second_hero {
-  background-image: white;
+  background-image: url("../../images/1x/categoryhero.png");
   min-width: 100vw;
-  min-height: 13vh;
-  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   transition: ease 300ms;
+  position: relative;
 
   @media (min-width: 700px) {
-    background-image: white;
+    //background-image: white;
   }
   @media (min-width: 1100px) {
-    background-image: white;
+    //background-image: white;
   }
 }

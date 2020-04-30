@@ -90,6 +90,3 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
       <script type="application/javascript" src="/search/search.js"></script>
 
-  </header>
-
-  <main>

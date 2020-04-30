@@ -30,8 +30,10 @@ $stmtDate->execute();
 
 <section>
   <h1 class="category_name"><?php echo $category ?></h1>
-  <br>
-  <br>
+  </header>
+
+<main>
+
   <!--här hämtas kategoriens produkter från databas-->
   <div class="product_container">
     <?php
