@@ -39,11 +39,11 @@ require_once '../config/db.php';
         <button id="empty-cart" class="align-button-right">Töm varukorgen</button>
         <br>
         <br>
-        <h3 id="productValue"></h3>
+        <h3>Produktvärde totalt: <span id="productValue"></span> kr</h3>
         <br>
-        <h3 id="freightValue"></h3>
+        <h3>Frakt: <span id="freightValue"></span> kr</h3>
         <br>
-        <h3 id="orderValue"></h3>
+        <h3>Ordervärde totalt: <span id="orderValue"></span> kr</h3>
 
     </div>
     <br>
