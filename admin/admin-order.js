@@ -17,10 +17,8 @@ function filterOrders() {
 let sortSum = document.querySelector("#sort-sum")
 sortSum.addEventListener("click", function (event) {
     event.preventDefault();
-    // alert('click')
     sort()
 });
-
 
 function sort() {
     let table = document.getElementById("table-orders")
@@ -34,11 +32,9 @@ function sort() {
         rows = table.rows
         for (i = 1; i < rows.length - 1; i++) {
             shouldSwitch = false;
-            x = rows[i].getElementsByTagName("td")[3];
-            y = rows[i + 1].getElementsByTagName("td")[3];
-           
+            x = rows[i].getElementsByTagName("td")[4];
+            y = rows[i + 1].getElementsByTagName("td")[4];
             if (dir == "asc") {
-                
                 if (Number(x.innerHTML) > Number(y.innerHTML)) {
                     shouldSwitch = true;
                     break;
@@ -61,10 +57,54 @@ function sort() {
             }
         }
     }
-
 }
 
+//sortera på datum
+let sortbyDate = document.querySelector("#sort-date")
+sortbyDate.addEventListener("click", function (event) {
+    event.preventDefault();
 
+    sortByDate()
+});
 
-//////
+function sortByDate() {
+    let table = document.getElementById("table-orders")
+    let rows, x, y, z, o, i, switching, shouldSwitch, dir;
+    let switchcount = 0;
+    switching = true;
+    dir = "asc";
 
+    while (switching) {
+        switching = false;
+        rows = table.rows
+        for (i = 1; i < rows.length - 1; i++) {
+           // console.log(rows.length-1)
+            shouldSwitch = false;
+            x = rows[i].getElementsByTagName("td")[5];
+            y = rows[i + 1].getElementsByTagName("td")[5];
+            z = new Date(x.innerHTML)
+            o = new Date(y.innerHTML)
+            //console.log("x " + z.getTime())
+            //console.log("y " + o.getTime())
+
+            if (z.getTime() > o.getTime()) {
+                console.log("större")
+                shouldSwitch = true;
+               
+            } else if(z.getTime() < o.getTime()) {
+                console.log("mindre")
+                shouldSwitch = false;
+                
+            } else {
+                console.log("samma")
+                shouldSwitch = false;
+            }
+
+            if (shouldSwitch) {
+                console.log("byt")
+                rows[i].parentNode.insertBefore(rows[i + 1], rows[i])
+                switching = true;
+            }
+        }
+    }
+}
