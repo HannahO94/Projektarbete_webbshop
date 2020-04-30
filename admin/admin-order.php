@@ -23,8 +23,8 @@ if ($orderStatusId == 1){
 ?>
 <h2 class="orders-head">Beställningar</h2>
 
-<form id="search-form" action="" class="search-form">
-<input type="text" name="search" id="search-Field" class="search-form__input-city" placeholder="Sök efter ort">
+<form id="search-city" action="" class="search-form">
+<input type="text" name="search" id="input-city" class="search-form__input-city"  onkeyup="filterCity()" placeholder="Sök efter ort">
 </form>
 
 <form id="order-status_form">

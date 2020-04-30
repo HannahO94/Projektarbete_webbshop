@@ -32,6 +32,7 @@
 <script type="application/javascript" src="../order/order-confirmation.js"></script>
 <script type="application/javascript" src="../order/products-ordered.js"></script>
 <script type="application/javascript" src="../admin/admin-order.js"></script>
+<script type="application/javascript" src="../admin/admin-city-filter.js"></script>
 
 
 </body>
