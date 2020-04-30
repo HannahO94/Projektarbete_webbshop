@@ -2,8 +2,12 @@
 require_once "header.php";
 require_once "../config/db.php";
 
-$orderStatusId = htmlspecialchars($_GET['id']);
-//echo $orderStatusId;
+if(isset($_GET['id'])){
+    $orderStatusId = htmlspecialchars($_GET['id']);
+    }else {
+    $orderStatusId = 0;
+    };
+
 
 if ($orderStatusId == 1){
     $orderStatus = "Ny";
@@ -59,6 +63,7 @@ if ($orderStatusId > 0){
 } else {
     $sql = "SELECT * FROM `webshop_orders`"; 
 };
+
 
 $stmt = $db->prepare($sql);
 $stmt->execute();
