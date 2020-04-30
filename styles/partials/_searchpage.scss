@@ -3,17 +3,16 @@
   display: flex;
   @media (min-width: 800px) {
     text-align: left;
-
     margin-right: 80px;
   }
-  &__label {
-    font-size: 24px;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    @media (min-width: 500px) {
-      font-size: 20px;
-    }
-  }
+  // &__label {
+  //   font-size: 24px;
+  //   margin-bottom: 10px;
+  //   margin-top: 10px;
+  //   @media (min-width: 500px) {
+  //     font-size: 20px;
+  //   }
+  // }
 
   &__input-field {
     width: 75%;
@@ -33,9 +32,31 @@
       width: 75%;
       font-size: 14px;
     }
+    &:focus {
+      border: 3px solid peachpuff;
+    }
   }
-  &__input-field:focus {
-    border: 3px solid peachpuff;
+  &__input-city {
+    max-width: 75%;
+    min-width: 100px;
+    height: 20px;
+    padding: 15px 20px;
+    margin: 10px 0;
+    border: 3px solid rgba(0, 0, 0, 0.817);
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.411);
+
+    @media (min-width: 768px) {
+      max-width: 50%;
+      margin-bottom: 30px;
+    }
+    @media (min-width: 800px) {
+      max-width: 75%;
+      font-size: 14px;
+    }
+    &:focus {
+      border: 3px solid peachpuff;
+    }
   }
 }
 
