@@ -44,9 +44,14 @@ function drawCart() {
     const productRow = document.createElement("tr");
     productRow.classList.add("table_orders-row");
 
+    //Istället för endast titel ska det vara länk tillbaka till produktsidan
     const title = document.createElement("td");
     title.classList.add("table_orders-cell");
-    title.textContent = item.title;
+    //title.textContent = item.title;
+    const titleLink = document.createElement("a");
+    titleLink.textContent = item.title;
+    titleLink.href = `../product/product_info.php? id=${item.productid}`;
+    title.appendChild(titleLink);
 
     const price = document.createElement("td");
     price.classList.add("table_orders-cell");
@@ -100,11 +105,11 @@ function drawCart() {
   updateCartCount();
   //Räkna ut totalt produktvärde, fraktkostnad samt totalt ordervärde
   let total = totalPrice(myProducts);
-  productValue.textContent = `Produktvärde totalt: ${total} kr `;
+  productValue.textContent = total;
   let freight = calculateFreightFromPrice(total);
-  freightValue.textContent = `Frakt: ${freight} kr `;
+  freightValue.textContent = freight;
   let orderTotal = total + freight;
-  orderValue.textContent = `Ordervärde totalt: ${orderTotal} kr `;
+  orderValue.textContent = orderTotal;
   localStorage.setItem("totalprice", orderTotal);
 }
 
@@ -204,18 +209,40 @@ function calculateFreightFromPrice(productPrice) {
   if (productPrice >= 500) {
     outputFreight = 0;
   }
-  //else if (calculateFreightFromZip()) {
-  //outputFreight = 0;
-  //}
+  //Detta villkor ska bara köras ifall postnummer är ifyllt
+  /*console.log(zipCode.value);
+  if (zipCode.length != null) {
+    if (calculateFreightFromZip()) {
+      outputFreight = 0;
+    }
+  }*/
   return outputFreight;
 }
 
 //Lyssnare på postnummerfältet
 zipCode.addEventListener("blur", calculateFreightFromZip);
-//Svaret på denna funktion vill jag gärna kunna använda som
-//ytterligare else if i funktionen ovan
+
+//Funktion som ritar om frakt- och ordervärde om zip börjar på 1
 function calculateFreightFromZip(event) {
   let zip = event.currentTarget.value;
   console.log(zip.startsWith("1"));
-  return zip.startsWith("1");
+  if (zip.startsWith("1")) {
+    let total = parseInt(productValue.textContent);
+    console.log(total);
+    let freight = 0;
+    freightValue.textContent = freight;
+    console.log(freight);
+    let orderTotal = total + freight;
+    orderValue.textContent = orderTotal;
+    localStorage.setItem("totalprice", orderTotal);
+  } else {
+    let total = parseInt(productValue.textContent);
+    console.log(total);
+    let freight = 50;
+    freightValue.textContent = freight;
+    console.log(freight);
+    let orderTotal = total + freight;
+    orderValue.textContent = orderTotal;
+    localStorage.setItem("totalprice", orderTotal);
+  }
 }

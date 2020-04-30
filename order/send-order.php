@@ -3,12 +3,13 @@ require_once "../config/db.php";
 
 $errors = "";
 $error = array();
-$name = $email = $phone = $street = $zip = $city = $status = "";
+$name = $email = $phone = $street = $zip = $city = $status = $totalprice = "";
 
 //Lyssnar efter POST-request
 if ($_SERVER['REQUEST_METHOD'] === 'POST') :
 
   //Kontrollerar för varje fält om det är ifyllt eller tomt
+
   //FRÅGA: Är det inte nödvändigt med validering här om vi använder javascript-validering?
   //Blir funktionen test_input överflödig då? (se funktionen längst ner)
 
@@ -61,12 +62,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') :
   $products = $_POST['products'];
   $totalprice = $_POST['totalprice'];
 
+
   //Om det inte finns några felmeddelanden
   if (count($error) == 0) {
 
     //Skicka beställning till databasen
     $sql = "INSERT INTO webshop_orders (name, email, phone, street, zip, city, status, products, totalprice)
-  VALUES (:name, :email, :phone, :street, :zip, :city, :status, :products, :totalprice)";
+            VALUES (:name, :email, :phone, :street, :zip, :city, :status, :products, :totalprice)";
 
     $stmt = $db->prepare($sql);
     $stmt->bindParam(':name', $name);
@@ -88,10 +90,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') :
       $errors .= "<div class='error'><p> $e </p></div><br />";
     }
   }
-// else {
-//   echo "<div class='suc'><p> Din order är skickad!</p></div>";
-// }
-header('Location:order-confirmation.php');
+  // else {
+  //   echo "<div class='suc'><p> Din order är skickad!</p></div>";
+  // }
+
+  header('Location:order-confirmation.php');
 
 endif;
 
@@ -102,6 +105,5 @@ function test_input($data)
   $data = htmlspecialchars($data);
   return $data;
 }
-?>
 
-<!-- require_once "order-confirmation.php";  -->
+// require_once "../footer.php"

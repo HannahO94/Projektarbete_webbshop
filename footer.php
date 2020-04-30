@@ -1,8 +1,8 @@
 </main>
 <footer class="footer">
-<div class="scroll_top-container">
-<span class="scroll-top"><a href="#home"><img src="/images/1x/arrowup.png" class="arrow-up"></a></span>
-</div>
+    <div class="scroll_top-container">
+        <span class="scroll-top"><a href="#home"><img src="/images/1x/arrowup.png" class="arrow-up"></a></span>
+    </div>
     <div class="footer__contact">
         <p class="bold_txt">Kontakt:</p>
         <p>08-123 456 78</p>
@@ -29,9 +29,10 @@
 <script type="application/javascript" src="../order/validate_order.js"></script>
 <script type="application/javascript" src="../order/cart-icon.js"></script>
 <script type="application/javascript" src="../order/updateProduct.js"></script>
-<script type="application/javascript" src="../order/show-order-details.js"></script>
+<script type="application/javascript" src="../order/order-confirmation.js"></script>
 <script type="application/javascript" src="../order/products-ordered.js"></script>
 <script type="application/javascript" src="../admin/admin-order.js"></script>
+<script type="application/javascript" src="../admin/admin-city-filter.js"></script>
 
 
 </body>

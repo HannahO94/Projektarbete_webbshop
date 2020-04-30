@@ -15,7 +15,12 @@ require_once '../second_header_extern.php';
 <?php
 
 //Hämta arrayen med produkt-id från sökresultatet 
+if(isset($_GET['id'])){
   $search = htmlspecialchars($_GET['id']);
+  }else {
+  $search = "";
+  };
+  
 
   if ($search === ""){
     echo "<h3 id='search-noResult'>Vi har tyvärr inte det spelet du söker, testa gärna en ny sökning!</h3>";
@@ -44,6 +49,8 @@ require_once '../second_header_extern.php';
       $productid = htmlspecialchars($row['productid']);
       $quantity = htmlspecialchars($row['quantity']);
       $date = htmlspecialchars($row['date']);
+      $productimg = unserialize($row['productimg']); 
+
 
 
   //nytt outlet pris
@@ -70,8 +77,11 @@ require_once '../second_header_extern.php';
     "<div class='product_card'>
           <h3 class='product_price-new'>Ny!</h3>
           <a href= '../product/product_info.php? id=$productid' 
-          class='product_title'>$title</a>
-          <p class='product_price'>Pris: $price kr</p>
+          class='product_title'>$title</a>";
+          if(!empty($productimg) && $productimg[0] !== ""){
+            echo "<img src='../images/$productimg[0]' width='100px' class='product_img'>";
+            }
+          echo "<p class='product_price'>Pris: $price kr</p>
           <p class='any-items'>$any_items</p>
           <p class='hidden-price' style='display:none'>$price</p>
           <p class='hidden-quantity' style='display:none;'>$quantity</p>
@@ -95,8 +105,11 @@ require_once '../second_header_extern.php';
     "<div class='product_card'>
           <p class='product_price-outlet'>Pris: $outletPrice kr</p>
           <a href= '../product/product_info.php? id=$productid' 
-          class='product_title'>$title</a>
-          <p class='product_price-old'>Normalpris: $price kr</p>
+          class='product_title'>$title</a>";
+          if(!empty($productimg) && $productimg[0] !== ""){
+            echo "<img src='../images/$productimg[0]' width='100px' class='product_img'>";
+            }
+          echo "<p class='product_price-old'>Normalpris: $price kr</p>
           <p class='product_price-savings'>Du sparar: $savings kr! (-10%) </p> 
           <p class='any-items'>$any_items</p>
           <p class='hidden-price' style='display:none;'>$price</p>
@@ -119,8 +132,11 @@ require_once '../second_header_extern.php';
     echo
     "<div class='product_card'>
     <a href= '../product/product_info.php? id=$productid' 
-    class='product_title'>$title</a>
-    <p class='product_price'>Pris: $price kr</p>
+    class='product_title'>$title</a>";
+          if(!empty($productimg) && $productimg[0] !== ""){
+            echo "<img src='../images/$productimg[0]' width='100px' class='product_img'>";
+            }
+    echo "<p class='product_price'>Pris: $price kr</p>
     <p class='any-items'>$any_items</p>
     <p class='hidden-price' style='display:none;'>$price</p>
     <p class='hidden-quantity' style='display:none;'>$quantity</p>
