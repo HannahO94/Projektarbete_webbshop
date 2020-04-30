@@ -53,6 +53,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     $orderedProducts .= "<br>";
   }
 
+  //Skapa en tabell med orderdetaljerna som hämtats från databasen
   $table .= "
         <tr class='table_orders-row'>
             <td class='table_orders-cell'> $orderId</td>
@@ -74,65 +75,24 @@ $table .= "</tbody></table>";
 
 <h1>Orderbekräftelse</h1>
 <br>
-<h2>Alternativ 1 - skriv ut med PHP/hämta från databasen</h2>
-
 <br>
-<section class='table_container'> <?php echo $table ?></section>
-<br><br><br>
-
-
-<!--Koden nedan hör ihop med show-order-details.js-->
-<h2>Alternativ 2 - skriv ut med javascript/hämta från localstorage</h2>
-<br><br>
-<!--Här kanske vi hellre vill rita ut ordernr, datum och totalpris som en tabell?
-Likt den för produkterna? -->
-<h3>Ditt ordernummer: <?php echo $orderId ?></h3>
+<h2>Tack för din beställning!</h2>
 <br>
-<h3>Beställningsdatum: <?php echo $orderDate ?></h3>
-<br>
-<h3 id="order-total-price">Ordersumma: <?php echo $totalPrice ?> kr</h3>
-<br><br>
-
-<h2>Dina produkter</h2>
-<table>
-  <thead>
-    <th>Produkt</th>
-    <th>Antal</th>
-    <th>Pris</th>
-  </thead>
-  <tbody id="ordered-products" class="">
-    <!--här hämtas beställda produkter från localstorage 
-    och ritas ut med hjälp av funktionen drawOrderedProducts()-->
-  </tbody>
-</table>
-
-<br><br>
+<section class='table_container'>
+  <!-- här skrivs tabellen ut med all orderinfo -->
+  <?php echo $table ?>
 </section>
+<br><br>
+<button id="print-order-btn">Skriv ut din orderbekräftelse</button>
 
-<section id="contact">
-  <h2>Dina kontaktuppgifter</h2>
-  <table>
-    <thead>
-      <th>Namn</th>
-      <th>Email</th>
-      <th>Telefon</th>
-      <th>Adress</th>
-      <th>Postnummer</th>
-      <th>Postort</th>
-    </thead>
-    <tbody id="contact-container" class="">
-      <!--här hämtas beställda produkter från localstorage 
-    och ritas ut med hjälp av funktionen drawOrderedProducts()-->
-    </tbody>
-  </table>
-
-
-  <br>
-  <!--här hämtas kund/kontaktdetaljer från orderformuläret-->
-  <div id="customer-details"></div>
-</section>
-
+<script>
+  const printOrderBtn = document.querySelector("#print-order-btn")
+  printOrderBtn.addEventListener('click', function() {
+    window.print()
+  })
+</script>
 
 <?php
+
 require_once "../footer.php"
 ?>
