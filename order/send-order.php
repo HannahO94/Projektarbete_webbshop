@@ -3,7 +3,7 @@ require_once "../config/db.php";
 
 $errors = "";
 $error = array();
-$name = $email = $phone = $street = $zip = $city = $status = "";
+$name = $email = $phone = $street = $zip = $city = $status = $totalprice = "";
 
 //Lyssnar efter POST-request
 if ($_SERVER['REQUEST_METHOD'] === 'POST') :
@@ -61,9 +61,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') :
   }
   $products = $_POST['products'];
   $totalprice = $_POST['totalprice'];
-
-
-  require_once "update-quantity.php";
 
 
   //Om det inte finns några felmeddelanden
