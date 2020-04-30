@@ -3,11 +3,11 @@ require_once "../second_header_extern.php";
 require_once "send-order.php";
 
 //HÄMTA ORDERINFO FRÅN DATABASEN (hämtar bara senaste beställningen baserat på orderid)
-//Obs. Den här sql-satsen kan vi använda även för att skriva ut övriga uppgifter (som vi nu skriver ut med javascript från localstorage)
 $sql = "SELECT * FROM webshop_orders ORDER BY orderid DESC LIMIT 1";
 $stmt = $db->prepare($sql);
 $stmt->execute();
 
+//Skapa tabellhuvud med rubriker
 $orderedProducts;
 $table = "<table class='table_orders>
             <tbody>
@@ -19,12 +19,13 @@ $table = "<table class='table_orders>
                   <th class='table_orders-head'>Summa</th>
                </tr>";
 
+
+//För varje orderrad i databasen - hämta all orderinfo och spar ner i variabler
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
   $orderId = htmlspecialchars($row['orderid']);
   $orderDate = htmlspecialchars($row['orderdate']);
   $orderDate = substr($orderDate, 0, 10); //Hämtar de 10 första tecknen = bara datumet, utan tidsangivelsen)
   $totalPrice = htmlspecialchars($row['totalprice']);
-
   $name = htmlspecialchars($row['name']);
   $email = htmlspecialchars($row['email']);
   $phone = htmlspecialchars($row['phone']);
@@ -33,7 +34,8 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
   $city = htmlspecialchars($row['city']);
   $products = json_decode($row['products'], true);
 
-  $orderedProducts = "";
+  //Hämta värden från produktarrayen för att kunna skriva ut dem i orderbekräftelsen
+  $orderedProducts = ""; //fylls på med titel, antal och pris för varje produkt
   foreach ($products as $key => $value) {
     // print_r($value);
     foreach ($value as $ky => $val) {
@@ -43,15 +45,16 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
       if ($ky == "cartQty") {
         $orderedProducts .= $val . "st ";
       }
-      // if ($ky == "outletprice"){
-      //     $orderedProducts .= " reapris " . $val;
-      // }
       if ($ky == "price") {
         $orderedProducts .= " pris " . $val;
       }
     }
     $orderedProducts .= "<br>";
   }
+
+  //Uppdatera lagersaldot i databasen 
+  require_once "update-quantity.php";
+
 
   //Skapa en tabell med orderdetaljerna som hämtats från databasen
   $table .= "
@@ -86,5 +89,6 @@ $table .= "</tbody></table>";
 <button id="print-order-btn">Skriv ut orderbekräftelsen</button>
 
 <?php
+
 require_once "../footer.php"
 ?>
