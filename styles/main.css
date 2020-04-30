@@ -815,6 +815,21 @@ label {
   }
 }
 
+.frontpage_head {
+  font-family: "Fredoka One", cursive;
+  text-transform: uppercase;
+  font-size: 36px;
+  padding: 40px;
+  letter-spacing: 5px;
+  color: #212121;
+}
+
+@media (min-width: 500px) {
+  .frontpage_head {
+    font-size: 48px;
+  }
+}
+
 .frontpage_categories {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -864,25 +879,35 @@ label {
           justify-content: center;
   margin: 2em;
   text-align: center;
-  height: 200px;
-  width: 200px;
+  height: 300px;
+  width: 300px;
 }
 
 .category_title {
   z-index: 1;
   text-decoration: none;
-  background-color: rgba(56, 56, 56, 0.8);
-  padding: 20px 5px;
-  width: 200px;
-  color: white;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 30px 5px;
+  width: 300px;
+  color: #1f1f1f;
   font-weight: bold;
   font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 @media (min-width: 800px) {
   .category_title {
     font-size: 24px;
   }
+}
+
+.category_title:hover {
+  color: orange;
+}
+
+.category_img {
+  border-radius: 10px;
 }
 
 .product_container {
