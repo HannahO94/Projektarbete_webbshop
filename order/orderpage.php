@@ -58,7 +58,7 @@ require_once '../config/db.php';
 
 
   <!-- <form action="" method="POST" id="customer-form" class="form-container"> -->
-    <form name="orderForm" action="send-order.php" method="POST" id="contact-form" class="form-container" onsubmit="return hiddenProducts()">
+    <form name="orderForm" action="send-order.php" method="POST" id="contact-form" class="form-container" onsubmit="return hiddenProducts(), save()">
 
 
       <!--FK: Formulärvalideringen (som hämtas från validate_order.js) verkar funka 
