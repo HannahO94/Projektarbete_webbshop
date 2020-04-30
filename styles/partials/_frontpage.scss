@@ -25,6 +25,19 @@
   }
 }
 
+.frontpage_head {
+  font-family: $font-nav;
+  text-transform: uppercase;
+  font-size: 36px;
+  padding: 40px;
+  letter-spacing: 5px;
+  color: rgb(33, 33, 33);
+
+  @media (min-width: 500px) {
+    font-size: 48px;
+  }
+}
+
 .frontpage_categories {
   display: flex;
   flex-direction: column;
@@ -45,8 +58,8 @@
   justify-content: center;
   margin: 2em;
   text-align: center;
-  height: 200px;
-  width: 200px;
+  height: 300px;
+  width: 300px;
 }
 
 .category_title {
@@ -55,14 +68,21 @@
   // margin-top: 40%;
   z-index: 1;
   text-decoration: none;
-  background-color: rgba(56, 56, 56, 0.8);
-  padding: 20px 5px;
-  width: 200px;
-  color: rgb(255, 255, 255);
+  //background-color: rgba(56, 56, 56, 0.8);
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 30px 5px;
+  width: 300px;
+  color: rgb(31, 31, 31);
   font-weight: bold;
   font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
   @media (min-width: 800px) {
     font-size: 24px;
+  }
+
+  &:hover {
+    color: orange;
   }
 }
 
@@ -72,4 +92,5 @@
 
 .category_img {
   @extend %wrapped-img;
+  border-radius: 10px;
 }
