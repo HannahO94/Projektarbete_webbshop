@@ -10,6 +10,7 @@ let submitBtn = document.querySelector(".form-container__submit-button");
 //     validateCity();
 //   return ret;
 // }
+
 function enableSumbitIfFormIsValid() {
   if (
     isNameValid &&
@@ -49,6 +50,7 @@ function validateName() {
     infoText.innerHTML = "";
     isNameValid = true;
     enableSumbitIfFormIsValid();
+    return;
   }
   submitBtn.disabled = true;
   isNameValid = false;
@@ -73,6 +75,7 @@ function validateEmail() {
     infoText.innerHTML = "";
     isEmailValid = true;
     enableSumbitIfFormIsValid();
+    return;
   }
   submitBtn.disabled = true;
   isEmailValid = false;
@@ -99,6 +102,7 @@ function validatePhone() {
     infoText.innerHTML = "";
     isPhoneValid = true;
     enableSumbitIfFormIsValid();
+    return;
   }
   submitBtn.disabled = true;
   isPhoneValid = false;
@@ -126,6 +130,7 @@ function validateStreet() {
     infoText.innerHTML = "";
     isStreetValid = true;
     enableSumbitIfFormIsValid();
+    return;
   }
   submitBtn.disabled = true;
   isStreetValid = false;
@@ -150,6 +155,7 @@ function validateZipcode() {
     infoText.innerHTML = "";
     isZipcodeValid = true;
     enableSumbitIfFormIsValid();
+    return;
   }
   submitBtn.disabled = true;
   isZipcodeValid = false;
@@ -174,6 +180,7 @@ function validateCity() {
     infoText.innerHTML = "";
     isCityValid = true;
     enableSumbitIfFormIsValid();
+    return;
   }
   submitBtn.disabled = true;
   isCityValid = false;
