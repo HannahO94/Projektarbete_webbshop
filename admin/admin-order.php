@@ -33,31 +33,12 @@ if ($orderStatusId == 1){
 
 
 <?php
-// $sql = $sql = "SELECT
-// O.orderid    AS Ordernummer,
-// O.name  AS Kund,
-// O.street AS Gata,
-// O.zip  AS Postnummer,
-// O.city AS Ort,
-// Q.quantity AS Antal,
-// Q.orderid AS Orderid,
-// Q.productid AS Produktid,
-// P.productid AS Productid,
-// P.title AS Spelnamn,
-// P.price AS Pris
-// FROM
-// webshop_orders    AS O,
-// webshop_orderproducts AS Q,
-// webshop_products    AS P
-// WHERE
-// O.orderid = Q.orderid 
-// AND 
-// Q.productid = P.productid";
+
 
 if ($orderStatusId > 0){
-   $sql = "SELECT * FROM `webshop_orders` WHERE `status` = $orderStatusId";
+   $sql = "SELECT * FROM webshop_orders WHERE `status` = $orderStatusId UNION ALL SELECT * FROM webshop_orderscomplete WHERE status = $orderStatusId";
 } else {
-    $sql = "SELECT * FROM `webshop_orders`"; 
+    $sql = "SELECT * FROM webshop_orders UNION ALL SELECT * FROM webshop_orderscomplete"; 
 };
 
 $stmt = $db->prepare($sql);
@@ -87,11 +68,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     $status = htmlspecialchars($row['status']);
     $products = json_decode($row['products'], true);
     $totalprice = htmlspecialchars($row['totalprice']);
-    // print_r($products);
-    // $length = count($row);
-    // for ($i=0; $i < count($row); $i++) { 
-    //     print_r($products[$i]);
-    // }
+
     $productsspec = "";
     foreach ($products as $key => $value) {
         // print_r($value);
@@ -111,23 +88,6 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         }
         $productsspec .= "<br>";
     }
-
-    // echo $productsspec . "<br>";
-    // $keys = array_keys($products);
-
-    // for($i = 0; $i < count($products); $i++) {
-
-    //     echo $keys[$i] . "{<br>";
-
-    //     // foreach($superheroes[$keys[$i]] as $key => $value) {
-
-    //     //     echo $key . " : " . $value . "<br>";
-
-    //     // }
-
-    //     echo "}<br>";
-
-    // }
 
     //Kontrollerar vilken status-siffra beställningen har i databasen,
     //för att skriva ut rätt statustext på sidan
@@ -159,20 +119,9 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
         </tr>";
 }
+ 
+ $table .= "</tbody></table></section>";
 
-$table .= "</tbody></table></section>";
-
-// foreach ($products as $key => $array) {
-//     foreach ($array as $key => $value) {
-//         if ($key == "title"){
-//         echo "<p>$value</p>";
-//     }
-//     else if ($key == "cartQty"){
-//         echo "<p>$value</p>";
-
-//     }
-//     }
-// }
 
 echo $table;
 

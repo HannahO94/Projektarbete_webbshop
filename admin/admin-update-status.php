@@ -38,6 +38,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') :
   $stmt->bindParam(':orderid', $orderid);
   $stmt->bindParam(':status', $status);
   $stmt->execute();
+  
+  if($status == 3){
+    $sq = "INSERT INTO webshop_orderscomplete SELECT * FROM webshop_orders WHERE status = 3";
+    $stm = $db->prepare($sq);
+    $stm->execute();
+    $sl = "DELETE FROM webshop_orders WHERE status = 3";
+    $st = $db->prepare($sl);
+    $st->execute();
+  
+  }
 
   header('Location:admin-order.php');
 
