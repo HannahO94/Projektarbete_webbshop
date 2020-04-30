@@ -9,6 +9,7 @@ $name = $email = $phone = $street = $zip = $city = $status = "";
 if ($_SERVER['REQUEST_METHOD'] === 'POST') :
 
   //Kontrollerar för varje fält om det är ifyllt eller tomt
+
   //FRÅGA: Är det inte nödvändigt med validering här om vi använder javascript-validering?
   //Blir funktionen test_input överflödig då? (se funktionen längst ner)
 
@@ -61,12 +62,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') :
   $products = $_POST['products'];
   $totalprice = $_POST['totalprice'];
 
+
+  require_once "update-quantity.php";
+
+
   //Om det inte finns några felmeddelanden
   if (count($error) == 0) {
 
     //Skicka beställning till databasen
     $sql = "INSERT INTO webshop_orders (name, email, phone, street, zip, city, status, products, totalprice)
-  VALUES (:name, :email, :phone, :street, :zip, :city, :status, :products, :totalprice)";
+            VALUES (:name, :email, :phone, :street, :zip, :city, :status, :products, :totalprice)";
 
     $stmt = $db->prepare($sql);
     $stmt->bindParam(':name', $name);
@@ -91,6 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') :
   // else {
   //   echo "<div class='suc'><p> Din order är skickad!</p></div>";
   // }
+
   header('Location:order-confirmation.php');
 
 endif;
