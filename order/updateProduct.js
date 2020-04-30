@@ -44,9 +44,14 @@ function drawCart() {
     const productRow = document.createElement("tr");
     productRow.classList.add("table_orders-row");
 
+    //Istället för endast titel ska det vara länk tillbaka till produktsidan
     const title = document.createElement("td");
     title.classList.add("table_orders-cell");
-    title.textContent = item.title;
+    //title.textContent = item.title;
+    const titleLink = document.createElement("a");
+    titleLink.textContent = item.title;
+    titleLink.href = `../product/product_info.php? id=${item.productid}`;
+    title.appendChild(titleLink);
 
     const price = document.createElement("td");
     price.classList.add("table_orders-cell");
