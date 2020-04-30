@@ -83,16 +83,8 @@ $table .= "</tbody></table>";
   <?php echo $table ?>
 </section>
 <br><br>
-<button id="print-order-btn">Skriv ut din orderbekräftelse</button>
-
-<script>
-  const printOrderBtn = document.querySelector("#print-order-btn")
-  printOrderBtn.addEventListener('click', function() {
-    window.print()
-  })
-</script>
+<button id="print-order-btn">Skriv ut orderbekräftelsen</button>
 
 <?php
-
 require_once "../footer.php"
 ?>

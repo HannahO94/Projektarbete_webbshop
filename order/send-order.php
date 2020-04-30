@@ -88,10 +88,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') :
       $errors .= "<div class='error'><p> $e </p></div><br />";
     }
   }
-// else {
-//   echo "<div class='suc'><p> Din order är skickad!</p></div>";
-// }
-header('Location:order-confirmation.php');
+  // else {
+  //   echo "<div class='suc'><p> Din order är skickad!</p></div>";
+  // }
+  header('Location:order-confirmation.php');
 
 endif;
 
@@ -102,6 +102,5 @@ function test_input($data)
   $data = htmlspecialchars($data);
   return $data;
 }
-?>
 
-<!-- require_once "order-confirmation.php";  -->
+// require_once "../footer.php"
