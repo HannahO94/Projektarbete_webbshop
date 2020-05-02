@@ -163,9 +163,6 @@ function changeQty(event) {
           qty--;
           myProducts[i].cartQty = qty;
         }
-        //extrakoll - kanske onödigt?
-      } else {
-        alert("something wrong with quantity changing buttons");
       }
     }
     updateLocalStorage();
@@ -205,44 +202,32 @@ function totalPrice(arr) {
 
 function calculateFreightFromPrice(productPrice) {
   let outputFreight = 50;
-  //Kontrollera om ordervärde överstiger 500kr
+  //Kontrollera om ordervärde överstiger 500kr, sedan om postnummer är ifyllt
   if (productPrice >= 500) {
     outputFreight = 0;
-  }
-  //Detta villkor ska bara köras ifall postnummer är ifyllt
-  /*console.log(zipCode.value);
-  if (zipCode.length != null) {
-    if (calculateFreightFromZip()) {
+  } else if (zipCode.value.length == 5) {
+    if (zipCode.value.startsWith("1")) {
       outputFreight = 0;
     }
-  }*/
+  }
   return outputFreight;
 }
 
 //Lyssnare på postnummerfältet
 zipCode.addEventListener("blur", calculateFreightFromZip);
-
 //Funktion som ritar om frakt- och ordervärde om zip börjar på 1
 function calculateFreightFromZip(event) {
-  let zip = event.currentTarget.value;
-  console.log(zip.startsWith("1"));
-  if (zip.startsWith("1")) {
-    let total = parseInt(productValue.textContent);
-    console.log(total);
+  let zipValue = event.currentTarget.value;
+  let total = parseInt(productValue.textContent);
+  let freight = 0;
+  console.log(zipValue.startsWith("1"));
+  if (zipValue.startsWith("1")) {
     let freight = 0;
-    freightValue.textContent = freight;
-    console.log(freight);
-    let orderTotal = total + freight;
-    orderValue.textContent = orderTotal;
-    localStorage.setItem("totalprice", orderTotal);
   } else {
-    let total = parseInt(productValue.textContent);
-    console.log(total);
     let freight = 50;
-    freightValue.textContent = freight;
-    console.log(freight);
-    let orderTotal = total + freight;
-    orderValue.textContent = orderTotal;
-    localStorage.setItem("totalprice", orderTotal);
   }
+  freightValue.textContent = freight;
+  let orderTotal = total + freight;
+  orderValue.textContent = orderTotal;
+  localStorage.setItem("totalprice", orderTotal);
 }
