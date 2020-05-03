@@ -7,7 +7,10 @@ $stmt = $db->prepare($sql);
 $stmt->execute();
 ?>
 
-<h2>Här hittar du våra nyaste varor</h2>
+<h2 class="category_name">Nya Spel</h2>
+</header>
+<main>
+<h3>Här hittar du våra nyaste varor</h3>
   
 <div class="product_container">
 

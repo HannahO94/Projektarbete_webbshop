@@ -67,17 +67,17 @@
     white-space: nowrap;
   }
 
-  td:nth-of-type(1):before {
+  .table_products-cell:nth-of-type(1):before {
     content: "Produkt";
     padding: 5%;
     font-weight: 700;
   }
-  td:nth-of-type(2):before {
+  .table_products-cell:nth-of-type(2):before {
     content: "Kategori";
     padding: 5%;
     font-weight: 700;
   }
-  td:nth-of-type(3):before {
+  .table_products-cell:nth-of-type(3):before {
     content: "Redigera";
     padding: 5%;
     font-weight: 700;
@@ -126,7 +126,7 @@
     text-transform: uppercase;
   }
 
-  th {
+  .table_products-head {
     font-size: 34px;
     padding-bottom: 5%;
     padding-top: 5%;

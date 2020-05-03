@@ -27,7 +27,7 @@ if ($orderStatusId == 1){
 <input type="text" name="search" id="input-city" class="search-form__input-city"  onkeyup="filterCity()" placeholder="Sök efter ort">
 </form>
 
-<form id="order-status_form">
+<form id="order-status_form" class="order-status_form">
 <lable id="show_lable">Sortera på orderstatus</lable>
 <select id="show_order-status" name="order-status">
   <option id="current-status"><?php echo $orderStatus?></option>
@@ -56,16 +56,16 @@ $stmt->execute();
 
 $productsspec;
 $table = "<section class='table_container'>
-                <table class='table_orders' id='table-orders'>
+                <table class='table_orders_admin' id='table-orders'>
                     <tbody>
-                        <tr class='table_orders-row'>
-                            <th class='table_orders-head'>Orderid</th>
-                            <th class='table_orders-head'>Kunduppgifter</th>
-                            <th class='table_orders-head'>Ort</th>
-                            <th class='table_orders-head'>Produkter</th>
-                            <th class='table_orders-head'><a id='sort-sum'>Summa</a></th>
-                            <th class='table_orders-head'><a id='sort-date'>Orderdatum</a></th>
-                            <th class='table_orders-head' colspan='2'>Orderstatus</th>
+                        <tr class='table_orders_admin-row'>
+                            <th class='table_orders_admin-head'>Orderid</th>
+                            <th class='table_orders_admin-head'>Kunduppgifter</th>
+                            <th class='table_orders_admin-head'>Ort</th>
+                            <th class='table_orders_admin-head'>Produkter</th>
+                            <th class='table_orders_admin-head'><a id='sort-sum'>Summa</a></th>
+                            <th class='table_orders_admin-head'><a id='sort-date'>Orderdatum</a></th>
+                            <th class='table_orders_admin-head' colspan='2'>Orderstatus</th>
                             </tr>";
 
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
@@ -115,20 +115,20 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     $onlyDate = date_format(date_create($date), "yy-m-d");
 
     $table .= "
-        <tr class='table_orders-row'>
-            <td class='table_orders-cell'> $orderid</td>
-            <td class='table_orders-cell' style='width: 20%'>
+        <tr class='table_orders_admin-row'>
+            <td class='table_orders_admin-cell'> $orderid</td>
+            <td class='table_orders_admin-cell' style='width: 20%'>
                 $name <br> 
                 $email <br> 
                 $phone <br> 
                 $street, $zip 
             </td>
-            <td class='table_orders-cell'> $city </td>
-            <td class='table_orders-cell products' style='width: 20%'> $productsspec </td>
-            <td class='table_orders-cell'> $totalprice </td>
-            <td class='table_orders-cell'> $onlyDate</td>
-            <td class='table_orders-cell'> $status</td>
-            <td class='table_orders-cell'>
+            <td class='table_orders_admin-cell'> $city </td>
+            <td class='table_orders_admin-cell products' style='width: 20%'> $productsspec </td>
+            <td class='table_orders_admin-cell'> $totalprice </td>
+            <td class='table_orders_admin-cell'> $onlyDate</td>
+            <td class='table_orders_admin-cell'> $status</td>
+            <td class='table_orders_admin-cell'>
                 <button class='btn_update-status'>
                     <a href='admin-update-status.php?id=$orderid'>Ändra status</a>
                 </button>
