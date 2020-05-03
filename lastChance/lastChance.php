@@ -5,8 +5,12 @@ $sqlDate = "SELECT * FROM `webshop_products` WHERE quantity > 0 ORDER BY date AS
 $stmtDate = $db->prepare($sqlDate);
 $stmtDate->execute();
 ?>
-
-<h2>Sista chansen, passa på!</h2>
+<h2 class="category_name">Outlet</h2>
+</header>
+<main>
+</header>
+<main>
+<h3>Sista chansen, passa på!</h3>
 
 <div class="product_container">
 
