@@ -6,7 +6,7 @@
   background-repeat: no-repeat;
   background-position: center;
   transition: ease 300ms;
-
+  box-shadow: -1px 3px 33px -8px rgba(168, 168, 168, 1);
   @media (min-width: 700px) {
     background-image: url("../images/spelshoppen750.jpg");
   }
