@@ -121,6 +121,7 @@
     }
   }
 }
+
 .error {
   color: red;
   padding: 1%;
@@ -136,4 +137,14 @@ label {
 
 .update_category-box {
   width: 80%;
+}
+
+.nameValidationText,
+.emailValidationText,
+.phoneValidationText,
+.streetValidationText,
+.zipcodeValidationText,
+.cityValidationText {
+  color: red;
+  font-weight: bolder;
 }

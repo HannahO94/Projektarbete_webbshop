@@ -776,6 +776,16 @@ label {
   width: 80%;
 }
 
+.nameValidationText,
+.emailValidationText,
+.phoneValidationText,
+.streetValidationText,
+.zipcodeValidationText,
+.cityValidationText {
+  color: red;
+  font-weight: bolder;
+}
+
 .frontpage_links {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1037,7 +1047,7 @@ label {
 @media (min-width: 800px) {
   .search-form {
     text-align: left;
-    margin-right: 80px;
+    margin-right: 200px;
   }
 }
 
