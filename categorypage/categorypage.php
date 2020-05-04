@@ -94,7 +94,7 @@ $stmtDate->execute();
                   }
 
                 echo "</div>";
-                //<a href= '../order/orderpage.php? id=$productid' </a>
+               
 
                 //kollar om produkten är outlet eller ordinarie
             }else if(in_array($productid, $outletProductid)) {
@@ -125,7 +125,7 @@ $stmtDate->execute();
                      <button class='cart-btn product_card-btn'>Lägg i varukorg</button>";
                   }
                 echo "</div>";
-                //<a href= '../order/orderpage.php? id=$productid' </a>
+               
             } else {
                 if ($quantity == "0") {
                   echo "";
@@ -148,7 +148,7 @@ $stmtDate->execute();
                  <button class='cart-btn product_card-btn'>Lägg i varukorg</button>";
               }
             echo "</div>";
-         // <a href= '../order/orderpage.php?id=$productid'></a>
+         
             }
     endwhile;
    
