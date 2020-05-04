@@ -39,8 +39,6 @@ if ($orderStatusId == 1){
 </form>
 
 
-
-
 <?php
 
 
@@ -83,7 +81,6 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
     $productsspec = "";
     foreach ($products as $key => $value) {
-        // print_r($value);
         foreach ($value as $ky => $val) {
             if ($ky == "title") {
                 $productsspec .= $val;
@@ -91,9 +88,6 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             if ($ky == "cartQty") {
                 $productsspec .= $val . "st ";
             }
-            // if ($ky == "outletprice"){
-            //     $productsspec .= " reapris " . $val;
-            // }
             if ($ky == "price") {
                 $productsspec .= " pris " . $val;
             }
@@ -111,7 +105,6 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         $status = "Slutförd";
     }
 
-    //$date1 = date_create($date);
     $onlyDate = date_format(date_create($date), "yy-m-d");
 
     $table .= "
@@ -128,15 +121,19 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             <td class='table_orders_admin-cell'> $totalprice </td>
             <td class='table_orders_admin-cell'> $onlyDate</td>
             <td class='table_orders_admin-cell'> $status</td>
-            <td class='table_orders_admin-cell'>
-                <button class='btn_update-status'>
+            <td class='table_orders_admin-cell'>";
+
+     if($status != "Slutförd"){
+
+    $table .=   
+                "<button class='btn_update-status'>
                     <a href='admin-update-status.php?id=$orderid'>Ändra status</a>
                 </button>
             </td>
 
         </tr>";
 }
- 
+}
  $table .= "</tbody></table></section>";
 
 
@@ -144,8 +141,3 @@ echo $table;
 
 require_once "../footer.php";
 
-
-//den här sql:n selectar endast de produkter som har samma produktid som de beställda produkternna. 
-//SELECT * FROM `webshop_orderproducts` LEFT JOIN webshop_products ON webshop_orderproducts.productid = webshop_products.productid 
-// den här sqlen hämtar all order info + alla beställda produkter(endast id på produkterna). 
-//SELECT * FROM `webshop_orderinfo` LEFT JOIN webshop_orderproducts ON webshop_orderinfo.orderid = webshop_orderproducts.orderid 

@@ -4,7 +4,6 @@ require_once '../config/db.php';
 ?>
 
 </header>
-
 <main>
 
 <!--Varukorgen-->

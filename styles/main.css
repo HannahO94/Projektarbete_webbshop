@@ -1047,7 +1047,7 @@ label {
 @media (min-width: 800px) {
   .search-form {
     text-align: left;
-    margin-right: 80px;
+    margin-right: 200px;
   }
 }
 
@@ -1538,7 +1538,6 @@ main {
     background: #ebebeb;
   }
   td {
-    /* Behave  like a "row" */
     border: none;
     border-bottom: 1px solid #eee;
     position: relative;
@@ -1547,9 +1546,7 @@ main {
     padding-bottom: 5%;
   }
   td:before {
-    /* Now like a table header */
     position: absolute;
-    /* Top/left values mimic padding */
     top: 0;
     left: 6px;
     width: 45%;
@@ -1751,7 +1748,6 @@ main {
     background: #ebebeb;
   }
   td {
-    /* Behave  like a "row" */
     border: none;
     border-bottom: 1px solid #eee;
     position: relative;
@@ -1760,9 +1756,7 @@ main {
     padding-bottom: 5%;
   }
   td:before {
-    /* Now like a table header */
     position: absolute;
-    /* Top/left values mimic padding */
     top: 0;
     left: 6px;
     width: 45%;
@@ -2052,6 +2046,7 @@ main {
   .table_orders_admin {
     margin-bottom: 5%;
     padding-top: 20px;
+    min-width: 550px;
   }
 }
 
@@ -2073,8 +2068,8 @@ main {
 
 @media (min-width: 500px) and (min-width: 800px) {
   .table_orders_admin-head {
-    font-size: 26px;
-    padding: 20px;
+    font-size: 20px;
+    padding: 15px;
   }
 }
 
@@ -2084,7 +2079,7 @@ main {
   }
   .table_orders_admin-cell {
     font-size: 9px;
-    padding: 0;
+    padding: 5px;
     text-align: center;
   }
 }
@@ -2093,11 +2088,15 @@ main {
   .table_orders_admin-cell {
     min-width: 130px;
     font-size: 16px;
-    padding: 1%;
+    padding: 10px 20px;
   }
 }
 
 @media (min-width: 500px) {
+  .table_orders_admin-cell:nth-of-type(2),
+  .table_orders_admin-cell:nth-of-type(4) {
+    text-align: left;
+  }
   .btn_update-status {
     margin-left: 15px;
     background: peachpuff;
