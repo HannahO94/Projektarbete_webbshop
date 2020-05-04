@@ -74,7 +74,7 @@ require_once '../config/db.php';
         <!-- <input type="text" name="name" id="name" required> -->
         <input type="text" name="name" id="name" onblur="validateName()" class="form-container__box-input" required>
         <br>
-        <span class="nameValidationText"></span>
+        <span class="nameValidationText" style="color: red;"></span>
       </div>
 
       <div class="order_field-email form-container__box">
@@ -82,21 +82,21 @@ require_once '../config/db.php';
         <!-- <input type="text" name="email" id="email" required> -->
         <input type="text" name="email" id="email" onblur="validateEmail()" class="form-container__box-input" placeholder="exempel@test.com" required>
         <br>
-        <span class="emailValidationText"></span>
+        <span class="emailValidationText" style="color: red;"></span>
       </div>
 
       <div class="order_field-phone form-container__box">
         <label for="phone">Mobilnummer:</label><br>
         <input type="text" name="phone" id="phone" onblur="validatePhone()" class="form-container__box-input" placeholder="(ex. 0701234567)" required>
         <br>
-        <span class="phoneValidationText"></span>
+        <span class="phoneValidationText" style="color: red;"></span>
       </div>
 
       <div class="order_field-street form-container__box">
         <label for="street">Gatuadress:</label><br>
         <input type="text" name="street" id="street" onblur="validateStreet() " class="form-container__box-input" required>
         <br>
-        <span class="streetValidationText"></span>
+        <span class="streetValidationText" style="color: red;"></span>
       </div>
 
       <div class="order_field-postalcode form-container__box">
@@ -104,14 +104,14 @@ require_once '../config/db.php';
         <!-- <input type="number" name="zip" id="zip" required> -->
         <input type="text" name="zip" id="zip" onblur="validateZipcode()" placeholder="(ex. 12345)" class="form-container__box-input" required>
         <br>
-        <span class="zipcodeValidationText"></span>
+        <span class="zipcodeValidationText" style="color: red;"></span>
       </div>
 
       <div class="order_field-city form-container__box">
         <label for="city">Ort:</label><br>
         <input type="text" name="city" id="city" onblur="validateCity()" class="form-container__box-input" required>
         <br>
-        <span class="cityValidationText"></span>
+        <span class="cityValidationText" style="color: red;"></span>
       </div>
 
       <div class="order_field-submit form-container__submit">

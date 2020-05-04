@@ -1,16 +1,5 @@
 let submitBtn = document.querySelector(".form-container__submit-button");
 
-// function validateForm() {
-//   let ret =
-//     validateName() &&
-//     validateEmail() &&
-//     validatePhone() &&
-//     validateStreet() &&
-//     validateZipcode() &&
-//     validateCity();
-//   return ret;
-// }
-
 function enableSumbitIfFormIsValid() {
   if (
     isNameValid &&
