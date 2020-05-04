@@ -48,12 +48,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') :
             $uploadOk = 0;
         }
     }
-    // // Check if file already exists
-    // if (file_exists($target)) {
-    //     echo "Sorry, file already exists.";
-    //     $uploadOk = 0;
-    //     $image = "";
-    // }
     // // Check file size
     if ($_FILES["image"]["size"] > 1048576) {
         $msg = "Sorry, your file is too large.";
@@ -67,12 +61,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') :
         $uploadOk = 0;
         $image = "";
     }
-    // // Check if $uploadOk is set to 0 by an error
-    // if ($uploadOk == 0) {
-    //     echo "Sorry, your file was not uploaded.";
-    //     $image = "";
-    // // if everything is ok, try to upload file
-    // } 
+
     else {
         if (move_uploaded_file($_FILES["image"]["tmp_name"], $target) && $uploadOk == true) {
             $msg = "The file ". basename( $_FILES["image"]["name"]). " has been uploaded.";

@@ -3,7 +3,7 @@ require_once "../second_header_extern.php";
 require_once "send-order.php";
 ?>
 </header>
-</main>
+
 <?php 
 
 //HÄMTA ORDERINFO FRÅN DATABASEN (hämtar bara senaste beställningen baserat på orderid)
@@ -79,7 +79,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 $table .= "</tbody></table>";
 ?>
 
-
+<section class="order-confirmation-page">
 <h1>Orderbekräftelse</h1>
 <br>
 <br>
@@ -91,7 +91,8 @@ $table .= "</tbody></table>";
 </section>
 <br><br>
 <button id="print-order-btn">Skriv ut orderbekräftelsen</button>
-
+</section>
+</main>
 <?php
 
 require_once "../footer.php"

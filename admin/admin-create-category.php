@@ -39,12 +39,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') :
         $uploadOk = 0;
         $image = "";
     }
-    // Check if $uploadOk is set to 0 by an error
-    // if ($uploadOk == 0) {
-    //     $msg = "Ingen fil laddades upp.";
-    //     $image = "";
-    // // if everything is ok, try to upload file
-    // } 
     else {
         if (move_uploaded_file($_FILES["category-img"]["tmp_name"], $target)) {
             // echo "The file ". basename( $_FILES["category-img"]["name"]). " has been uploaded.";
@@ -118,7 +112,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') :
         <label for="category-img">Ladda upp en katagoribild: </label><br>
         <input type="file" name="category-img" class="form-container__image-input">
         <p class="error"><?php 
-        // echo $msg;
         echo $errors;
         ?></p>
 
@@ -128,7 +121,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') :
         <input type="submit"  value="Lägg till ny kategori" class="form-container__submit-button">
     </div>
     
-    <!-- onclick='return myReload()' -->
 </form>
 
 
