@@ -24,7 +24,12 @@
 
   &__img-container {
     margin: 30px;
-    align-self: center;
+    //align-self: center;
+    display: flex;
+    flex-direction: column;
+    @media (min-width: 500px) {
+      flex-direction: row;
+    }
   }
 
   &__prod-price {
@@ -78,6 +83,13 @@
     font-weight: bold;
     color: red;
   }
+}
+
+.cartQty {
+  padding: 5px;
+  margin: 10px;
+  border-radius: 5px;
+  border: 2px solid black;
 }
 
 .add-to-cart {
