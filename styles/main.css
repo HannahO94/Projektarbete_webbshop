@@ -934,7 +934,7 @@ label {
           align-items: center;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 800px) {
   .product_container {
     display: -ms-grid;
     display: grid;
