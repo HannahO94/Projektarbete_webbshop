@@ -3,15 +3,12 @@ require_once '../second_header_extern.php';
 require_once '../config/db.php';
 
 $productimg = "";
-//if ($_SERVER['REQUEST_METHOD'] === 'GET') {
   if(isset($_GET['id'])){
   $currentCategory = htmlspecialchars($_GET['id']);
 } else {
   $currentCategory = 1;
 };
 
-
-//måste även lägga till ett WHERE-villkor som matchar den aktuella kategorin, variabeln ovan
 $stmt = $db->prepare("SELECT * FROM webshop_products WHERE categoryid = $currentCategory");
 $stmt->execute();
 
@@ -94,7 +91,6 @@ $stmtDate->execute();
                   }
 
                 echo "</div>";
-                //<a href= '../order/orderpage.php? id=$productid' </a>
 
                 //kollar om produkten är outlet eller ordinarie
             }else if(in_array($productid, $outletProductid)) {
@@ -125,7 +121,6 @@ $stmtDate->execute();
                      <button class='cart-btn product_card-btn'>Lägg i varukorg</button>";
                   }
                 echo "</div>";
-                //<a href= '../order/orderpage.php? id=$productid' </a>
             } else {
                 if ($quantity == "0") {
                   echo "";
@@ -148,7 +143,6 @@ $stmtDate->execute();
                  <button class='cart-btn product_card-btn'>Lägg i varukorg</button>";
               }
             echo "</div>";
-         // <a href= '../order/orderpage.php?id=$productid'></a>
             }
     endwhile;
    

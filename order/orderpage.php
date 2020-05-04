@@ -2,12 +2,8 @@
 require_once '../second_header_extern.php';
 require_once '../config/db.php';
 ?>
-
-
 </header>
-
 <main>
-
 
 <!--Varukorgen-->
 <section class="shopping_container">

@@ -25,7 +25,6 @@ drawCart();
 //Rita ut produktinfo samt knappar, dvs taggen tbody
 function drawCart() {
   //Kontrollera ifall myProducts är tom eller om den ska ritas ut
-
   if (myProducts.length !== 0) {
     shoppingCartContainer.classList.remove("hideCart");
     orderForm.classList.remove("hideCart");
@@ -37,6 +36,7 @@ function drawCart() {
     shoppingCartContainer.classList.add("hideCart");
     orderForm.classList.add("hideCart");
   }
+
   //Börja med att rensa gammalt innehåll i varukorgen
   cartItems.innerHTML = "";
 
