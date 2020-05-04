@@ -2405,8 +2405,193 @@ main {
           align-items: center;
 }
 
+@media (max-width: 800px) {
+  .order-confirmation-page {
+    max-width: 95%;
+    margin-left: 2%;
+  }
+}
+
+@media (max-width: 500px) {
+  .order-confirmation-page {
+    margin-left: 0%;
+    -webkit-box-align: unset;
+        -ms-flex-align: unset;
+            align-items: unset;
+  }
+}
+
+.order-confirmation-heading {
+  padding-bottom: 1%;
+}
+
+@media (max-width: 800px) {
+  .order-confirmation-heading {
+    margin-left: 5%;
+  }
+}
+
+@media (max-width: 500px) {
+  .order-confirmation-heading {
+    margin-left: 0;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+}
+
+.order-confirmation-text {
+  padding-bottom: 1%;
+}
+
+@media (max-width: 800px) {
+  .order-confirmation-text {
+    margin-left: 5%;
+  }
+}
+
+@media (max-width: 500px) {
+  .order-confirmation-text {
+    margin-left: 0;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+}
+
+.table_orders-row {
+  margin-right: 2%;
+  margin-left: 2%;
+}
+
+@media (max-width: 500px) {
+  .table_orders-row {
+    margin-left: 0;
+  }
+}
+
+.conf-cell {
+  border-bottom: 1px solid #ebebeb;
+}
+
+@media (max-width: 800px) {
+  .conf-cell {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 500px) {
+  .table_orders-head-row {
+    display: none;
+  }
+}
+
+@media (max-width: 800px) {
+  .table_orders-head-row {
+    font-size: 24;
+  }
+}
+
+.table_orders-head-text {
+  font-size: 34px;
+  padding: 1%;
+}
+
+@media (max-width: 800px) {
+  .table_orders-head-text {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 800px) {
+  .table_orders-head-text:nth-of-type(1) {
+    width: 15%;
+  }
+}
+
+.conf-cell:nth-of-type(1) {
+  border-left: 1px solid #ebebeb;
+}
+
+@media (max-width: 500px) {
+  .conf-cell:nth-of-type(1) {
+    border-left: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .conf-cell:nth-of-type(1):before {
+    content: "Orderid";
+    padding: 5%;
+    font-weight: 700;
+    float: left;
+  }
+}
+
+@media (max-width: 500px) {
+  .conf-cell:nth-of-type(2):before {
+    content: "Orderdatum";
+    padding: 5%;
+    font-weight: 700;
+  }
+}
+
+.conf-cell:nth-of-type(3):before {
+  width: 25%;
+}
+
+@media (max-width: 500px) {
+  .conf-cell:nth-of-type(3):before {
+    content: "Kunduppgifter";
+    padding: 5%;
+    font-weight: 700;
+  }
+}
+
+@media (max-width: 500px) {
+  .conf-cell:nth-of-type(4)::before {
+    content: "Produkter";
+    padding: 5%;
+    font-weight: 700;
+    width: 100%;
+  }
+}
+
+.conf-cell:nth-of-type(5) {
+  border-right: 1px solid #ebebeb;
+}
+
+@media (max-width: 500px) {
+  .conf-cell:nth-of-type(5) {
+    border-right: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .conf-cell:nth-of-type(5)::before {
+    content: "Summa";
+    padding: 5%;
+    font-weight: 700;
+  }
+}
+
 #print-order-btn {
+  margin-top: 2%;
   width: 200px;
+}
+
+@media (max-width: 800px) {
+  #print-order-btn {
+    margin-top: 5%;
+  }
+}
+
+@media (max-width: 500px) {
+  #print-order-btn {
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
 }
 
 /*ok att nedan ligger här eller kan vi lägga det ngn
