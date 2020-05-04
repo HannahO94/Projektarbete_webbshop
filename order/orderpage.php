@@ -2,6 +2,7 @@
 require_once '../second_header_extern.php';
 require_once '../config/db.php';
 ?>
+
 </header>
 <main>
 
@@ -48,19 +49,12 @@ require_once '../config/db.php';
     <br>
   </section>
 
-
   <section id="order-form" class="form_container order-container hideCart">
 
     <h1 class="page-title form-container__heading-text">Dina uppgifter</h1>
 
 
-
-  <!-- <form action="" method="POST" id="customer-form" class="form-container"> -->
     <form name="orderForm" action="send-order.php" method="POST" id="contact-form" class="form-container" onsubmit="return hiddenProducts()">
-
-
-      <!--FK: Formulärvalideringen (som hämtas från validate_order.js) verkar funka 
-    utan onsubmit-anrop inuti form-taggen. Därav den utkommenterade kodraden ovan-->
 
       <!--Hidden input-fields för de uppgifter som ska skickas med automatiskt,
       utan input från kunden -->
@@ -71,47 +65,44 @@ require_once '../config/db.php';
       <!--Input-fält som kunden fyller i-->
       <div class="order_field-name form-container__box">
         <label for="name">För- och efternamn:</label><br>
-        <!-- <input type="text" name="name" id="name" required> -->
         <input type="text" name="name" id="name" onblur="validateName()" class="form-container__box-input" required>
         <br>
-        <span class="nameValidationText" style="color: red;"></span>
+        <span class="nameValidationText"></span>
       </div>
 
       <div class="order_field-email form-container__box">
         <label for="email">E-post:</label><br>
-        <!-- <input type="text" name="email" id="email" required> -->
         <input type="text" name="email" id="email" onblur="validateEmail()" class="form-container__box-input" placeholder="exempel@test.com" required>
         <br>
-        <span class="emailValidationText" style="color: red;"></span>
+        <span class="emailValidationText"></span>
       </div>
 
       <div class="order_field-phone form-container__box">
         <label for="phone">Mobilnummer:</label><br>
         <input type="text" name="phone" id="phone" onblur="validatePhone()" class="form-container__box-input" placeholder="(ex. 0701234567)" required>
         <br>
-        <span class="phoneValidationText" style="color: red;"></span>
+        <span class="phoneValidationText"></span>
       </div>
 
       <div class="order_field-street form-container__box">
         <label for="street">Gatuadress:</label><br>
         <input type="text" name="street" id="street" onblur="validateStreet() " class="form-container__box-input" required>
         <br>
-        <span class="streetValidationText" style="color: red;"></span>
+        <span class="streetValidationText"></span>
       </div>
 
       <div class="order_field-postalcode form-container__box">
         <label for="zip">Postnr:</label><br>
-        <!-- <input type="number" name="zip" id="zip" required> -->
         <input type="text" name="zip" id="zip" onblur="validateZipcode()" placeholder="(ex. 12345)" class="form-container__box-input" required>
         <br>
-        <span class="zipcodeValidationText" style="color: red;"></span>
+        <span class="zipcodeValidationText"></span>
       </div>
 
       <div class="order_field-city form-container__box">
         <label for="city">Ort:</label><br>
         <input type="text" name="city" id="city" onblur="validateCity()" class="form-container__box-input" required>
         <br>
-        <span class="cityValidationText" style="color: red;"></span>
+        <span class="cityValidationText"></span>
       </div>
 
       <div class="order_field-submit form-container__submit">
