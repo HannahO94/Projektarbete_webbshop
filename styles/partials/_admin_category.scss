@@ -94,7 +94,7 @@
 
   .btn_update-category,
   .btn_delete-category a {
-    color: white;
+    color: #212121;
   }
   .back_btn,
   .btn-add-category {
@@ -160,8 +160,12 @@
     }
   }
 
+  .btn_delete-category {
+    background: #ffe4e1;
+  }
+
   .btn_delete-category a {
-    color: #ffffff;
+    color: #212121;
   }
 
   tr:nth-child(odd) {

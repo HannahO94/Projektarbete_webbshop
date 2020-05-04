@@ -70,7 +70,7 @@ button {
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
   text-transform: uppercase;
-  color: whitesmoke;
+  color: #151515;
 }
 
 button:hover {
@@ -776,6 +776,16 @@ label {
   width: 80%;
 }
 
+.nameValidationText,
+.emailValidationText,
+.phoneValidationText,
+.streetValidationText,
+.zipcodeValidationText,
+.cityValidationText {
+  color: red;
+  font-weight: bolder;
+}
+
 .frontpage_links {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -788,15 +798,15 @@ label {
 }
 
 .frontpage_links__link {
-  color: #f3971e;
-  border: 2px solid #f3971e;
+  color: #212121;
+  border: 2px solid #212121;
   border-radius: 10px;
   margin: 20px;
   padding: 12px;
 }
 
 .frontpage_links__link:hover {
-  color: white;
+  color: #212121;
   background-color: #f3971e;
 }
 
@@ -915,32 +925,21 @@ label {
 }
 
 .product_container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 800px) {
   .product_container {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
@@ -965,15 +964,17 @@ label {
       align-content: space-between;
   text-align: center;
   line-height: 1.5;
-  min-height: 300px;
-  width: 200px;
+  min-height: 400px;
+  max-width: 300px;
   border-radius: 8px;
   margin: 2em;
   padding: 1em;
-  background-color: lightgrey;
+  background-color: #fcf8f8;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  -webkit-box-shadow: 9px 11px 24px 0px #a8a8a8;
+          box-shadow: 9px 11px 24px 0px #a8a8a8;
 }
 
 .product_title {
@@ -981,6 +982,14 @@ label {
   color: black;
   font-weight: bold;
   font-size: 20px;
+  margin-bottom: 10px;
+}
+
+@media (min-width: 600px) {
+  .product_title {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
 }
 
 .product_img {
@@ -988,12 +997,34 @@ label {
       -ms-grid-row-align: center;
       align-self: center;
   margin: 8px;
+  border-radius: 40px;
+  width: 100px;
+}
+
+@media (min-width: 600px) {
+  .product_img {
+    width: 200px;
+  }
+}
+
+.product_price {
+  font-size: 15px;
+  font-weight: bolder;
+}
+
+@media (min-width: 600px) {
+  .product_price {
+    font-size: 20px;
+  }
+}
+
+.any-items {
+  color: green;
 }
 
 .product_card-btn {
   position: relative;
   margin-top: 20px;
-  /*inte bra, måste hitta bättre lösning*/
 }
 
 .category_name {
@@ -1037,7 +1068,7 @@ label {
 @media (min-width: 800px) {
   .search-form {
     text-align: left;
-    margin-right: 80px;
+    margin-right: 200px;
   }
 }
 
@@ -1263,9 +1294,9 @@ main {
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 #toggle-menu {
   background-color: white;
-  border: 2px solid #f3971e;
+  border: 2px solid #212121;
   border-radius: 12px;
-  color: #f3971e;
+  color: #212121;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
@@ -1278,7 +1309,7 @@ main {
 
 #toggle-menu:hover {
   background-color: #f3971e;
-  color: white;
+  color: #212121;
 }
 
 .admin-home {
@@ -1407,9 +1438,22 @@ main {
 
 .product__img-container {
   margin: 30px;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+@media (min-width: 500px) {
+  .product__img-container {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
 }
 
 .product__prod-price {
@@ -1465,6 +1509,13 @@ main {
   font-size: 20px;
   font-weight: bold;
   color: red;
+}
+
+.cartQty {
+  padding: 5px;
+  margin: 10px;
+  border-radius: 5px;
+  border: 2px solid black;
 }
 
 .add-to-cart {
@@ -1568,7 +1619,7 @@ main {
   }
   .btn_update-category,
   .btn_delete-category a {
-    color: white;
+    color: #212121;
   }
   .back_btn,
   .btn-add-category {
@@ -1654,8 +1705,11 @@ main {
 }
 
 @media (min-width: 500px) {
+  .btn_delete-category {
+    background: #ffe4e1;
+  }
   .btn_delete-category a {
-    color: #ffffff;
+    color: #212121;
   }
   tr:nth-child(odd) {
     background: #ebebeb;
@@ -1778,12 +1832,12 @@ main {
   .btn_delete-product {
     padding: 5px 10px;
     font-size: 13px;
-    background: peachpuff;
+    background: #ffe4e1;
     text-transform: uppercase;
   }
   .btn_update-product,
   .btn_delete-product a {
-    color: white;
+    color: #212121;
   }
   .back_btn,
   .btn-add-product {
@@ -1852,8 +1906,11 @@ main {
 }
 
 @media (min-width: 500px) {
+  .btn_delete-product {
+    background: #ffe4e1;
+  }
   .btn_delete-product a {
-    color: #ffffff;
+    color: #212121;
   }
   tr:nth-child(odd) {
     background: #ebebeb;
@@ -2036,6 +2093,7 @@ main {
   .table_orders_admin {
     margin-bottom: 5%;
     padding-top: 20px;
+    min-width: 550px;
   }
 }
 
@@ -2057,8 +2115,8 @@ main {
 
 @media (min-width: 500px) and (min-width: 800px) {
   .table_orders_admin-head {
-    font-size: 26px;
-    padding: 20px;
+    font-size: 20px;
+    padding: 15px;
   }
 }
 
@@ -2068,7 +2126,7 @@ main {
   }
   .table_orders_admin-cell {
     font-size: 9px;
-    padding: 0;
+    padding: 5px;
     text-align: center;
   }
 }
@@ -2077,11 +2135,15 @@ main {
   .table_orders_admin-cell {
     min-width: 130px;
     font-size: 16px;
-    padding: 1%;
+    padding: 10px 20px;
   }
 }
 
 @media (min-width: 500px) {
+  .table_orders_admin-cell:nth-of-type(2),
+  .table_orders_admin-cell:nth-of-type(4) {
+    text-align: left;
+  }
   .btn_update-status {
     margin-left: 15px;
     background: peachpuff;

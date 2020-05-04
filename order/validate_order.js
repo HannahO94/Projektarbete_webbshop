@@ -26,7 +26,7 @@ function validateName() {
   let infoText = document.querySelector(".nameValidationText");
 
   if (name.length === 0) {
-    infoText.innerHTML = "OBS! Obligatorisk fält";
+    infoText.innerHTML = "OBS! Obligatoriskt fält";
   } else if (new RegExp("[0-9]").test(name)) {
     infoText.innerHTML = "OBS! Inga siffror tillåtna";
   } else if (name.length > 20) {
@@ -55,9 +55,9 @@ function validateEmail() {
   let infoText = document.querySelector(".emailValidationText");
 
   if (email.length === 0) {
-    infoText.innerHTML = "OBS! Obligatorisk fält";
+    infoText.innerHTML = "OBS! Obligatoriskt fält";
   } else if (!isValidEmail(email)) {
-    infoText.innerHTML = "OBS! Ogiltig epostadress";
+    infoText.innerHTML = "OBS! Ogiltig e-postadress";
   } else if (email.length > 64) {
     infoText.innerHTML = "OBS! Otillåtet med fler än 64 tecken";
   } else {
@@ -80,7 +80,7 @@ function validatePhone() {
   let infoText = document.querySelector(".phoneValidationText");
 
   if (phone.length === 0) {
-    infoText.innerHTML = "OBS! Obligatorisk fält";
+    infoText.innerHTML = "OBS! Obligatoriskt fält";
   } else if (new RegExp("[a-öA-Ö]").test(phone)) {
     infoText.innerHTML = "OBS! Inga bokstäver tillåtna";
   } else if (isValidPhone(phone)) {
@@ -108,7 +108,7 @@ function validateStreet() {
   let infoText = document.querySelector(".streetValidationText");
 
   if (street.length === 0) {
-    infoText.innerHTML = "OBS! Obligatorisk fält";
+    infoText.innerHTML = "OBS! Obligatoriskt fält";
   } else if (street.length > 40) {
     infoText.innerHTML = "OBS! Otillåtet med fler än 40 tecken";
   } else if (street.length < 2) {
@@ -135,7 +135,7 @@ function validateZipcode() {
   let infoText = document.querySelector(".zipcodeValidationText");
 
   if (zipcode.length === 0) {
-    infoText.innerHTML = "OBS! Obligatorisk fält";
+    infoText.innerHTML = "OBS! Obligatoriskt fält";
   } else if (zipcode.length != 5) {
     infoText.innerHTML = "OBS! Postnumret måste vara 5 siffror långt";
   } else if (zipcode.charAt(0) == 0) {
@@ -156,7 +156,7 @@ function validateCity() {
   let infoText = document.querySelector(".cityValidationText");
 
   if (city.length === 0) {
-    infoText.innerHTML = "OBS! Obligatorisk fält";
+    infoText.innerHTML = "OBS! Obligatoriskt fält";
   } else if (new RegExp("[0-9]").test(city)) {
     infoText.innerHTML = "OBS! Inga siffror tillåtna";
   } else if (city.length > 20) {

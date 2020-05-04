@@ -77,7 +77,7 @@ $stmtDate->execute();
                           <a href= '../product/product_info.php? id=$productid' 
                           class='product_title'>$title</a>";
                           if(!empty($productimg) && $productimg[0] !== ""){
-                            echo "<img src='../images/$productimg[0]' width='100px' class='product_img'>";
+                            echo "<img src='../images/$productimg[0]' class='product_img'>";
                             }
                           echo "<span class='product_price'>Pris: $price kr</span>
                           <p class='any-items'>$any_items</p>
@@ -86,7 +86,8 @@ $stmtDate->execute();
                           <p class='hidden-productid' style='display:none'>$productid</p>
       
                           <label for='cartQty'>Antal:</label>
-                          <input type='number' id='cartQty' name='cartQty' class='cartQty' min='1' max='$quantity' value='1'>
+                          <input type='number' onkeydown='javascript: return event.keyCode === 8 ||
+                          event.keyCode === 46 ? true : !isNaN(Number(event.key))' id='cartQty' name='cartQty' class='cartQty' min='1' max='$quantity' value='1'>
                      <button class='cart-btn product_card-btn'>Lägg i varukorg</button>";
                   }
 
@@ -106,7 +107,7 @@ $stmtDate->execute();
                     <a href= '../product/product_info.php? id=$productid' 
                     class='product_title'>$title</a>";
                     if(!empty($productimg) && $productimg[0] !== ""){
-                      echo "<img src='../images/$productimg[0]' width='100px' class='product_img'>";
+                      echo "<img src='../images/$productimg[0]' class='product_img'>";
                       }
                     echo "
                     <p class='product_price-old'>Normalpris: $price kr</p>
@@ -118,7 +119,8 @@ $stmtDate->execute();
                     <p class='hidden-productid' style='display:none'>$productid</p>
 
                     <label for='cartQty'>Antal:</label>
-                    <input type='number' id='cartQty' name='cartQty' class='cartQty' min='1' max='$quantity' value='1'>
+                    <input type='number' onkeydown='javascript: return event.keyCode === 8 ||
+                    event.keyCode === 46 ? true : !isNaN(Number(event.key))' id='cartQty' name='cartQty' class='cartQty' min='1' max='$quantity' value='1'>
                      <button class='cart-btn product_card-btn'>Lägg i varukorg</button>";
                   }
                 echo "</div>";
@@ -132,7 +134,7 @@ $stmtDate->execute();
               <a href= '../product/product_info.php? id=$productid' 
                 class='product_title'>$title</a>";
                 if(!empty($productimg) && $productimg[0] !== ""){
-                  echo "<img src='../images/$productimg[0]' width='100px' class='product_img'>";
+                  echo "<img src='../images/$productimg[0]' class='product_img'>";
                   }
                 echo "<p class='product_price'>Pris: $price kr</p>
                 <p class='any-items'>$any_items</p>
@@ -141,7 +143,8 @@ $stmtDate->execute();
                 <p class='hidden-productid' style='display:none'>$productid</p>
 
                 <label for='cartQty'>Antal:</label>
-                <input type='number' id='cartQty' name='cartQty' class='cartQty' min='1' max='$quantity' value='1'>
+                <input type='number' onkeydown='javascript: return event.keyCode === 8 ||
+                event.keyCode === 46 ? true : !isNaN(Number(event.key))' id='cartQty' name='cartQty' class='cartQty' min='1' max='$quantity' value='1'>
                  <button class='cart-btn product_card-btn'>Lägg i varukorg</button>";
               }
             echo "</div>";

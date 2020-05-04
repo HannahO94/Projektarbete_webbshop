@@ -58,7 +58,8 @@ while ($row = $stmtDate->fetch(PDO::FETCH_ASSOC)) :
             echo "<div class='product__inventory' style='color: red'>" . $any_items . "</div>
             <button id='cart-btn$outletProductid' class='add-to-cart' style='background-color: grey; color: black;' disabled>Lägg i varukorgen</button>";
         }else{
-          echo "<input type='number' id='cartQty' name='cartQty' class='cartQty' min='1' max='$outletQuantity' value='1'>
+          echo "<input type='number' onkeydown='javascript: return event.keyCode === 8 ||
+          event.keyCode === 46 ? true : !isNaN(Number(event.key))' id='cartQty' name='cartQty' class='cartQty' min='1' max='$outletQuantity' value='1'>
            <button class='cart-btn product_card-btn'>Lägg i varukorg</button>";
         }
       echo "</div>";
