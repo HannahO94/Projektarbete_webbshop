@@ -17,8 +17,6 @@ const freightValue = document.querySelector("#freightValue");
 const orderValue = document.querySelector("#orderValue");
 const orderForm = document.querySelector("#order-form");
 const zipCode = document.querySelector("#zip");
-
-//madde har lagt in en börja shoppa knapp när varukorgen är tom.
 const shoppingBtn = document.querySelector("#shopping-btn");
 
 drawCart();
@@ -47,7 +45,6 @@ function drawCart() {
     //Istället för endast titel ska det vara länk tillbaka till produktsidan
     const title = document.createElement("td");
     title.classList.add("table_orders-cell");
-    //title.textContent = item.title;
     const titleLink = document.createElement("a");
     titleLink.textContent = item.title;
     titleLink.href = `../product/product_info.php? id=${item.productid}`;
@@ -55,6 +52,7 @@ function drawCart() {
 
     const price = document.createElement("td");
     price.classList.add("table_orders-cell");
+
     //Kontrollera ifall produkten är på rea eller inte
     if (item.hasOwnProperty("outletprice")) {
       price.textContent = `${item.outletprice} kr (ord. ${item.price} kr)`;
@@ -103,6 +101,7 @@ function drawCart() {
     cartItems.appendChild(productRow);
   });
   updateCartCount();
+
   //Räkna ut totalt produktvärde, fraktkostnad samt totalt ordervärde
   let total = totalPrice(myProducts);
   productValue.textContent = total;
@@ -112,9 +111,6 @@ function drawCart() {
   orderValue.textContent = orderTotal;
   localStorage.setItem("totalprice", orderTotal);
 }
-
-//Lyssnare till Töm varukorg som ropar på emptyCart
-emptyCartBtn.addEventListener("click", emptyCart);
 
 //Funktion för att ta bort produkt
 function removeProduct(event) {
@@ -137,6 +133,7 @@ function changeQty(event) {
   //med eventets id
   for (let i = 0; i < myProducts.length; i++) {
     const currentProductID = myProducts[i].productid;
+
     //If-sats som matchar array-objektets id mot eventets id
     if (currentProductID == productID) {
       let qty = parseInt(myProducts[i].cartQty);
@@ -170,6 +167,9 @@ function changeQty(event) {
   }
 }
 
+//Lyssnare till Töm varukorg-knappen
+emptyCartBtn.addEventListener("click", emptyCart);
+
 //Töm varukorgen
 function emptyCart() {
   myProducts = [];
@@ -178,7 +178,7 @@ function emptyCart() {
 }
 
 function updateLocalStorage() {
-  localStorage.clear(); //Töm LS, sedan lägger vi in uppdaterad myProducts.
+  localStorage.clear();
   localStorage.setItem("products", JSON.stringify(myProducts));
 }
 
@@ -220,11 +220,10 @@ function calculateFreightFromZip(event) {
   let zipValue = event.currentTarget.value;
   let total = parseInt(productValue.textContent);
   let freight = 0;
-  console.log(zipValue.startsWith("1"));
   if (zipValue.startsWith("1")) {
-    let freight = 0;
+    freight = 0;
   } else {
-    let freight = 50;
+    freight = 50;
   }
   freightValue.textContent = freight;
   let orderTotal = total + freight;
