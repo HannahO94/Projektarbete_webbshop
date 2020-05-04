@@ -70,7 +70,7 @@ button {
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
   text-transform: uppercase;
-  color: whitesmoke;
+  color: #151515;
 }
 
 button:hover {
@@ -798,15 +798,15 @@ label {
 }
 
 .frontpage_links__link {
-  color: #f3971e;
-  border: 2px solid #f3971e;
+  color: #212121;
+  border: 2px solid #212121;
   border-radius: 10px;
   margin: 20px;
   padding: 12px;
 }
 
 .frontpage_links__link:hover {
-  color: white;
+  color: #212121;
   background-color: #f3971e;
 }
 
@@ -1273,9 +1273,9 @@ main {
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 #toggle-menu {
   background-color: white;
-  border: 2px solid #f3971e;
+  border: 2px solid #212121;
   border-radius: 12px;
-  color: #f3971e;
+  color: #212121;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
@@ -1288,7 +1288,7 @@ main {
 
 #toggle-menu:hover {
   background-color: #f3971e;
-  color: white;
+  color: #212121;
 }
 
 .admin-home {
