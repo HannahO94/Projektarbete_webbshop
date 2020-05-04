@@ -3,7 +3,7 @@
   grid-template-columns: 1fr;
   align-items: center;
 
-  @media (min-width: 600px) {
+  @media (min-width: 800px) {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-content: center;
@@ -52,6 +52,19 @@
   @media (min-width: 600px) {
     width: 200px;
   }
+}
+
+.product_price {
+  font-size: 15px;
+  font-weight: bolder;
+
+  @media (min-width: 600px) {
+    font-size: 20px;
+  }
+}
+
+.any-items {
+  color: green;
 }
 
 .product_card-btn {

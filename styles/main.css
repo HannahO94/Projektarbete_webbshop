@@ -934,7 +934,7 @@ label {
           align-items: center;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 800px) {
   .product_container {
     display: -ms-grid;
     display: grid;
@@ -1005,6 +1005,21 @@ label {
   .product_img {
     width: 200px;
   }
+}
+
+.product_price {
+  font-size: 15px;
+  font-weight: bolder;
+}
+
+@media (min-width: 600px) {
+  .product_price {
+    font-size: 20px;
+  }
+}
+
+.any-items {
+  color: green;
 }
 
 .product_card-btn {
@@ -2373,6 +2388,25 @@ main {
   background-position: center;
   -webkit-transition: ease 300ms;
   transition: ease 300ms;
+}
+
+.order-confirmation-page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#print-order-btn {
+  width: 200px;
 }
 
 /*ok att nedan ligger här eller kan vi lägga det ngn
