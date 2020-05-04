@@ -25,15 +25,23 @@ for (let j = 0; j < cartBtn.length; j++) {
     let prodCartQuantity
     let prodOutletPrice
 
+
+   
     prodTitle = parent.querySelector(".product_title")
     prodPrice = parent.querySelector(".hidden-price")
     prodQuantity = parent.querySelector(".hidden-quantity")
     prodId = parent.querySelector(".hidden-productid")
     prodCartQuantity = parent.querySelector(".cartQty")
     prodOutletPrice = parent.querySelector(".hidden-outletPrice")
- 
-    if (prodOutletPrice !== null){
+   
 
+    //kollar om input är tomt
+    if (prodCartQuantity.value === "") {
+      alert("Minst en produkt måste läggas till")
+      return false
+    }
+
+    if (prodOutletPrice !== null){
       product = {
         cartQty: prodCartQuantity.value,
         title: prodTitle.textContent,
@@ -42,7 +50,7 @@ for (let j = 0; j < cartBtn.length; j++) {
         quantity: prodQuantity.textContent,
         productid: prodId.textContent,
       };
-    }else {
+    } else {
       product = {
         cartQty: prodCartQuantity.value,
         title: prodTitle.textContent,
@@ -81,7 +89,7 @@ for (let j = 0; j < cartBtn.length; j++) {
       else if(parseInt(product.cartQty) <= 0){
         alert("Minst en produkt måste läggas till")
         return false
-      }
+      } 
 
     }
     
