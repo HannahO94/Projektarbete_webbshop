@@ -1007,6 +1007,21 @@ label {
   }
 }
 
+.product_price {
+  font-size: 15px;
+  font-weight: bolder;
+}
+
+@media (min-width: 600px) {
+  .product_price {
+    font-size: 20px;
+  }
+}
+
+.any-items {
+  color: green;
+}
+
 .product_card-btn {
   position: relative;
   margin-top: 20px;
