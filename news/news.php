@@ -44,7 +44,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) :
           <h3 class='product_price-new'>Ny!</h3>
           <a href= '../product/product_info.php? id=$productid' class='product_title'>$title</a>";
           if(!empty($productimg) && $productimg[0] !== ""){
-            echo "<img src='../images/$productimg[0]' width='100px' class='product_img'>";
+            echo "<img src='../images/$productimg[0]' class='product_img'>";
             }
           echo "<p class='product_price'>Pris: $price kr</p>
           <p class='any-items'>$any_items</p>
