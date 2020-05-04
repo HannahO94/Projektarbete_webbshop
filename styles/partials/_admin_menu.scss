@@ -68,9 +68,9 @@ main {
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 #toggle-menu {
   background-color: white;
-  border: 2px solid rgb(243, 151, 30);
+  border: 2px solid rgb(33, 33, 33);
   border-radius: 12px;
-  color: rgb(243, 151, 30);
+  color: rgb(33, 33, 33);
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
@@ -82,5 +82,5 @@ main {
 
 #toggle-menu:hover {
   background-color: rgb(243, 151, 30);
-  color: white;
+  color: rgb(33, 33, 33);
 }

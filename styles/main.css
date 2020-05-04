@@ -70,7 +70,7 @@ button {
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
   text-transform: uppercase;
-  color: whitesmoke;
+  color: #151515;
 }
 
 button:hover {
@@ -798,15 +798,15 @@ label {
 }
 
 .frontpage_links__link {
-  color: #f3971e;
-  border: 2px solid #f3971e;
+  color: #212121;
+  border: 2px solid #212121;
   border-radius: 10px;
   margin: 20px;
   padding: 12px;
 }
 
 .frontpage_links__link:hover {
-  color: white;
+  color: #212121;
   background-color: #f3971e;
 }
 
@@ -980,10 +980,12 @@ label {
   border-radius: 8px;
   margin: 2em;
   padding: 1em;
-  background-color: lightgrey;
+  background-color: #faf0f1;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  -webkit-box-shadow: 9px 11px 24px 0px #a8a8a8;
+          box-shadow: 9px 11px 24px 0px #a8a8a8;
 }
 
 .product_title {
@@ -998,12 +1000,12 @@ label {
       -ms-grid-row-align: center;
       align-self: center;
   margin: 8px;
+  border-radius: 40px;
 }
 
 .product_card-btn {
   position: relative;
   margin-top: 20px;
-  /*inte bra, måste hitta bättre lösning*/
 }
 
 .category_name {
@@ -1273,9 +1275,9 @@ main {
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 #toggle-menu {
   background-color: white;
-  border: 2px solid #f3971e;
+  border: 2px solid #212121;
   border-radius: 12px;
-  color: #f3971e;
+  color: #212121;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
@@ -1288,7 +1290,7 @@ main {
 
 #toggle-menu:hover {
   background-color: #f3971e;
-  color: white;
+  color: #212121;
 }
 
 .admin-home {
@@ -1578,7 +1580,7 @@ main {
   }
   .btn_update-category,
   .btn_delete-category a {
-    color: white;
+    color: #212121;
   }
   .back_btn,
   .btn-add-category {
@@ -1664,8 +1666,11 @@ main {
 }
 
 @media (min-width: 500px) {
+  .btn_delete-category {
+    background: #ffe4e1;
+  }
   .btn_delete-category a {
-    color: #ffffff;
+    color: #212121;
   }
   tr:nth-child(odd) {
     background: #ebebeb;
@@ -1788,12 +1793,12 @@ main {
   .btn_delete-product {
     padding: 5px 10px;
     font-size: 13px;
-    background: peachpuff;
+    background: #ffe4e1;
     text-transform: uppercase;
   }
   .btn_update-product,
   .btn_delete-product a {
-    color: white;
+    color: #212121;
   }
   .back_btn,
   .btn-add-product {
@@ -1862,8 +1867,11 @@ main {
 }
 
 @media (min-width: 500px) {
+  .btn_delete-product {
+    background: #ffe4e1;
+  }
   .btn_delete-product a {
-    color: #ffffff;
+    color: #212121;
   }
   tr:nth-child(odd) {
     background: #ebebeb;
