@@ -980,10 +980,12 @@ label {
   border-radius: 8px;
   margin: 2em;
   padding: 1em;
-  background-color: lightgrey;
+  background-color: #faf0f1;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  -webkit-box-shadow: 9px 11px 24px 0px #a8a8a8;
+          box-shadow: 9px 11px 24px 0px #a8a8a8;
 }
 
 .product_title {
@@ -998,6 +1000,7 @@ label {
       -ms-grid-row-align: center;
       align-self: center;
   margin: 8px;
+  border-radius: 40px;
 }
 
 .product_card-btn {
