@@ -4,14 +4,14 @@
   margin-bottom: 5px;
 
   &__link {
-    color: rgb(243, 151, 30);
-    border: 2px solid rgb(243, 151, 30);
+    color: rgb(33, 33, 33);
+    border: 2px solid rgb(33, 33, 33);
     border-radius: 10px;
     margin: 20px;
     padding: 12px;
 
     &:hover {
-      color: white;
+      color: rgb(33, 33, 33);
       background-color: rgb(243, 151, 30);
     }
     @media (min-width: 600px) {
