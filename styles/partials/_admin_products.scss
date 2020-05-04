@@ -91,13 +91,13 @@
   .btn_delete-product {
     padding: 5px 10px;
     font-size: 13px;
-    background: #ffe4e1;
+    background: peachpuff;
     text-transform: uppercase;
   }
 
   .btn_update-product,
   .btn_delete-product a {
-    color: rgb(33, 33, 33);
+    color: white;
   }
   .back_btn,
   .btn-add-product {
@@ -155,12 +155,8 @@
     }
   }
 
-  .btn_delete-product {
-    background: #ffe4e1;
-  }
-
   .btn_delete-product a {
-    color: rgb(33, 33, 33);
+    color: #ffffff;
   }
 
   tr:nth-child(odd) {

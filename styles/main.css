@@ -1576,12 +1576,12 @@ main {
   .btn_delete-category {
     padding: 5px 10px;
     font-size: 13px;
-    background: #ffe4e1;
+    background: peachpuff;
     text-transform: uppercase;
   }
   .btn_update-category,
   .btn_delete-category a {
-    color: #212121;
+    color: white;
   }
   .back_btn,
   .btn-add-category {
@@ -1667,11 +1667,8 @@ main {
 }
 
 @media (min-width: 500px) {
-  .btn_delete-category {
-    background: #ffe4e1;
-  }
   .btn_delete-category a {
-    color: #212121;
+    color: #ffffff;
   }
   tr:nth-child(odd) {
     background: #ebebeb;
@@ -1794,12 +1791,12 @@ main {
   .btn_delete-product {
     padding: 5px 10px;
     font-size: 13px;
-    background: #ffe4e1;
+    background: peachpuff;
     text-transform: uppercase;
   }
   .btn_update-product,
   .btn_delete-product a {
-    color: #212121;
+    color: white;
   }
   .back_btn,
   .btn-add-product {
@@ -1868,11 +1865,8 @@ main {
 }
 
 @media (min-width: 500px) {
-  .btn_delete-product {
-    background: #ffe4e1;
-  }
   .btn_delete-product a {
-    color: #212121;
+    color: #ffffff;
   }
   tr:nth-child(odd) {
     background: #ebebeb;
