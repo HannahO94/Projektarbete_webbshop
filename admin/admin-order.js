@@ -51,15 +51,12 @@ function sort(num, caller) {
             y = rows[i + 1].getElementsByTagName("td")[num];
 
             if (caller === sortSum) {
-                console.log("caller is sortSum")
                 z = Number(x.innerHTML);
                 o = Number(y.innerHTML)
             } else if (caller === sortStatus) {
-                console.log("caller is sortStatus")
                 z = x.innerHTML.toLowerCase()
                 o = y.innerHTML.toLowerCase()
             } else if (caller === sortDate) {
-                console.log("sort date")
                 z = new Date(x.innerHTML)
                 o = new Date(y.innerHTML)
                 z = z.getTime();
