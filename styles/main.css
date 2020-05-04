@@ -1010,7 +1010,6 @@ label {
 .product_card-btn {
   position: relative;
   margin-top: 20px;
-  /*inte bra, måste hitta bättre lösning*/
 }
 
 .category_name {
@@ -1424,9 +1423,22 @@ main {
 
 .product__img-container {
   margin: 30px;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+@media (min-width: 500px) {
+  .product__img-container {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
 }
 
 .product__prod-price {
@@ -1482,6 +1494,13 @@ main {
   font-size: 20px;
   font-weight: bold;
   color: red;
+}
+
+.cartQty {
+  padding: 5px;
+  margin: 10px;
+  border-radius: 5px;
+  border: 2px solid black;
 }
 
 .add-to-cart {
@@ -1585,7 +1604,7 @@ main {
   }
   .btn_update-category,
   .btn_delete-category a {
-    color: white;
+    color: #212121;
   }
   .back_btn,
   .btn-add-category {
@@ -1671,8 +1690,11 @@ main {
 }
 
 @media (min-width: 500px) {
+  .btn_delete-category {
+    background: #ffe4e1;
+  }
   .btn_delete-category a {
-    color: #ffffff;
+    color: #212121;
   }
   tr:nth-child(odd) {
     background: #ebebeb;
@@ -1795,12 +1817,12 @@ main {
   .btn_delete-product {
     padding: 5px 10px;
     font-size: 13px;
-    background: peachpuff;
+    background: #ffe4e1;
     text-transform: uppercase;
   }
   .btn_update-product,
   .btn_delete-product a {
-    color: white;
+    color: #212121;
   }
   .back_btn,
   .btn-add-product {
@@ -1869,8 +1891,11 @@ main {
 }
 
 @media (min-width: 500px) {
+  .btn_delete-product {
+    background: #ffe4e1;
+  }
   .btn_delete-product a {
-    color: #ffffff;
+    color: #212121;
   }
   tr:nth-child(odd) {
     background: #ebebeb;
