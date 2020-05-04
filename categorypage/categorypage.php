@@ -86,8 +86,7 @@ $stmtDate->execute();
                           <p class='hidden-productid' style='display:none'>$productid</p>
       
                           <label for='cartQty'>Antal:</label>
-                          <input type='number' onkeydown='javascript: return event.keyCode === 8 ||
-                          event.keyCode === 46 ? true : !isNaN(Number(event.key))' id='cartQty' name='cartQty' class='cartQty' min='1' max='$quantity' value='1'>
+                          <input type='number' id='cartQty' name='cartQty' class='cartQty' min='1' max='$quantity' value='1'>
                      <button class='cart-btn product_card-btn'>Lägg i varukorg</button>";
                   }
 
@@ -119,8 +118,7 @@ $stmtDate->execute();
                     <p class='hidden-productid' style='display:none'>$productid</p>
 
                     <label for='cartQty'>Antal:</label>
-                    <input type='number' onkeydown='javascript: return event.keyCode === 8 ||
-                    event.keyCode === 46 ? true : !isNaN(Number(event.key))' id='cartQty' name='cartQty' class='cartQty' min='1' max='$quantity' value='1'>
+                    <input type='number' id='cartQty' name='cartQty' class='cartQty' min='1' max='$quantity' value='1'>
                      <button class='cart-btn product_card-btn'>Lägg i varukorg</button>";
                   }
                 echo "</div>";
@@ -143,8 +141,7 @@ $stmtDate->execute();
                 <p class='hidden-productid' style='display:none'>$productid</p>
 
                 <label for='cartQty'>Antal:</label>
-                <input type='number' onkeydown='javascript: return event.keyCode === 8 ||
-                event.keyCode === 46 ? true : !isNaN(Number(event.key))' id='cartQty' name='cartQty' class='cartQty' min='1' max='$quantity' value='1'>
+                <input type='number' id='cartQty' name='cartQty' class='cartQty' min='1' max='$quantity' value='1'>
                  <button class='cart-btn product_card-btn'>Lägg i varukorg</button>";
               }
             echo "</div>";

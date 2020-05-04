@@ -119,8 +119,7 @@ if(!in_array($productid, $outletProductid)) {
     <p class='hidden-productid' style='display:none'>$productid</p>";
     echo "
     <label for='cartQty'>Antal:</label>
-    <input type='number' onkeydown='javascript: return event.keyCode === 8 ||
-    event.keyCode === 46 ? true : !isNaN(Number(event.key))' id='cartQty' name='cartQty' class='cartQty' min='1' max='$quantity' value='1'> 
+    <input type='number' id='cartQty' name='cartQty' class='cartQty' min='1' max='$quantity' value='1'> 
     <button id='cart-btn$productid' class='cart-btn'>Lägg i varukorgen</button>
     <p style='display:none;'></p>";
     
@@ -144,8 +143,7 @@ echo "</div>";
         <p class='hidden-productid' style='display:none'>$productid</p>";
         echo "
         <label for='cartQty'>Antal:</label>
-        <input type='number' onkeydown='javascript: return event.keyCode === 8 ||
-        event.keyCode === 46 ? true : !isNaN(Number(event.key))' id='cartQty' name='cartQty' class='cartQty' min='1' max='$quantity' value='1'> 
+        <input type='number' id='cartQty' name='cartQty' class='cartQty' min='1' max='$quantity' value='1'> 
         <button id='cart-btn$productid' class='cart-btn'>Lägg i varukorgen</button>";
     }
     echo "</div>";
