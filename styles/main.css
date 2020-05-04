@@ -776,6 +776,16 @@ label {
   width: 80%;
 }
 
+.nameValidationText,
+.emailValidationText,
+.phoneValidationText,
+.streetValidationText,
+.zipcodeValidationText,
+.cityValidationText {
+  color: red;
+  font-weight: bolder;
+}
+
 .frontpage_links {
   display: -webkit-box;
   display: -ms-flexbox;
