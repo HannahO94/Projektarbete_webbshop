@@ -119,12 +119,6 @@ $errors = "";
 
         }
 
-        // if (move_uploaded_file($_FILES['productimg[]']['tmp_name'], $target)) {
-        //     $msg = "Bilden är uppladdad!";
-        // }else{
-        //     $msg = "Ingen bild är uppladdad!";
-        // }
-
 
         if(count($error) > 0){
             
