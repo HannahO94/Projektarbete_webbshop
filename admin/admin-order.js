@@ -4,7 +4,6 @@ function filterOrders() {
 
     let orderStatus = document.getElementById("show_order-status");
     let orderStatusForm = document.getElementById("order-status_form")
-    let orderIdfive = document.getElementById("5")
 
     orderStatusForm.addEventListener("input", function (event) {
         location.href = "../admin/admin-order.php?id=" + orderStatus.value
@@ -12,15 +11,22 @@ function filterOrders() {
 }
 /////////
 
+/*let sortStatus = document.querySelector("#sort-status")
+sortStatus.addEventListener("click", function (event) {
+    event.preventDefault();
+    //alert("click")
+    sort(7)
+})*/
 
-//Sortera på summa
+
+//////////Sortera på summa
 let sortSum = document.querySelector("#sort-sum")
 sortSum.addEventListener("click", function (event) {
     event.preventDefault();
-    sort()
+    sort(4)
 });
 
-function sort() {
+function sort(num) {
     let table = document.getElementById("table-orders")
     let rows, x, y, i, switching, shouldSwitch, dir;
     let switchcount = 0;
@@ -32,8 +38,8 @@ function sort() {
         rows = table.rows
         for (i = 1; i < rows.length - 1; i++) {
             shouldSwitch = false;
-            x = rows[i].getElementsByTagName("td")[4];
-            y = rows[i + 1].getElementsByTagName("td")[4];
+            x = rows[i].getElementsByTagName("td")[num];
+            y = rows[i + 1].getElementsByTagName("td")[num];
             if (dir == "asc") {
                 if (Number(x.innerHTML) > Number(y.innerHTML)) {
                     shouldSwitch = true;
@@ -58,8 +64,9 @@ function sort() {
         }
     }
 }
+/////////////
 
-//sortera på datum
+////////////sortera på datum
 let sortbyDate = document.querySelector("#sort-date")
 sortbyDate.addEventListener("click", function (event) {
     //alert("click")
@@ -69,17 +76,20 @@ sortbyDate.addEventListener("click", function (event) {
 });
 
 function sortByDate() {
+
     let table = document.getElementById("table-orders")
     let rows, x, y, z, o, i, switching, shouldSwitch, dir;
     let switchcountDate = 0;
     switching = true;
     dir = "asc";
+    console.log("högst upp dir = asc")
 
     while (switching) {
+        console.log("Går in i while loop")
         switching = false;
         rows = table.rows
         for (i = 1; i < rows.length - 1; i++) {
-           // console.log(rows.length-1)
+            console.log("går in i foor loop")
             shouldSwitch = false;
             x = rows[i].getElementsByTagName("td")[5];
             y = rows[i + 1].getElementsByTagName("td")[5];
@@ -87,37 +97,38 @@ function sortByDate() {
             o = new Date(y.innerHTML)
             //console.log("x " + z.getTime())
             //console.log("y " + o.getTime())
-            if (dir == "asc") {
-                console.log("körs denna")
+            if (dir === "asc") {
+                console.log(" går in i if -loop = directon is ascending")
                 if (z.getTime() > o.getTime()) {
-                   // console.log("mindre")
+                    // console.log("mindre")
                     shouldSwitch = true;
-                   // console.log(dir)
-                    //break;
+                    // console.log(dir)
+                    break;
                 }
-            
-            } else if (dir == "desc") {
-                console.log("denna körs")
+
+            } else if (dir === "desc") {
+                console.log("går in i if -loop = direction is descending")
                 if (z.getTime() < o.getTime()) {
                     //console.log("större")
                     shouldSwitch = true;
                     //console.log(dir)
-                    //break;
+                    break;
                 }
             }
+        }
+        if (shouldSwitch) {
+            console.log("går in och byter plats")
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i])
+            switching = true;
+            switchcountDate++
 
-            if (shouldSwitch) {
-                //console.log("byt")
-                rows[i].parentNode.insertBefore(rows[i + 1], rows[i])
+        } else {
+            if (switchcountDate === 0 && dir === "asc") {
+                console.log("går in i if-sats, byter dir = descending")
+                dir = "desc";
                 switching = true;
-                switchcountDate++
-                console.log(dir)
-            } else {
-                if (switchcountDate == 0 && dir == "asc") {
-                    dir = "desc";
-                    switching = true;
-                }
             }
         }
     }
 }
+/////////////////
