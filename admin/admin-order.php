@@ -65,7 +65,7 @@ $table = "<section class='table_container'>
                             <th class='table_orders_admin-head'>Produkter</th>
                             <th class='table_orders_admin-head'><a id='sort-sum'>Summa</a></th>
                             <th class='table_orders_admin-head'><a id='sort-date'>Orderdatum</a></th>
-                            <th class='table_orders_admin-head' colspan='2'>Orderstatus</th>
+                            <th class='table_orders_admin-head' colspan='2'><a id='sort-status'>Orderstatus</a></th>
                             </tr>";
 
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
