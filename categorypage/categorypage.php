@@ -77,7 +77,7 @@ $stmtDate->execute();
                           <a href= '../product/product_info.php? id=$productid' 
                           class='product_title'>$title</a>";
                           if(!empty($productimg) && $productimg[0] !== ""){
-                            echo "<img src='../images/$productimg[0]' width='100px' class='product_img'>";
+                            echo "<img src='../images/$productimg[0]' class='product_img'>";
                             }
                           echo "<span class='product_price'>Pris: $price kr</span>
                           <p class='any-items'>$any_items</p>
@@ -107,7 +107,7 @@ $stmtDate->execute();
                     <a href= '../product/product_info.php? id=$productid' 
                     class='product_title'>$title</a>";
                     if(!empty($productimg) && $productimg[0] !== ""){
-                      echo "<img src='../images/$productimg[0]' width='100px' class='product_img'>";
+                      echo "<img src='../images/$productimg[0]' class='product_img'>";
                       }
                     echo "
                     <p class='product_price-old'>Normalpris: $price kr</p>
@@ -134,7 +134,7 @@ $stmtDate->execute();
               <a href= '../product/product_info.php? id=$productid' 
                 class='product_title'>$title</a>";
                 if(!empty($productimg) && $productimg[0] !== ""){
-                  echo "<img src='../images/$productimg[0]' width='100px' class='product_img'>";
+                  echo "<img src='../images/$productimg[0]' class='product_img'>";
                   }
                 echo "<p class='product_price'>Pris: $price kr</p>
                 <p class='any-items'>$any_items</p>
