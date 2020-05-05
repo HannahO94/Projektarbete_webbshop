@@ -3,7 +3,7 @@ require_once "../config/db.php";
 
 $errors = "";
 $error = array();
-$name = $email = $phone = $street = $zip = $city = $status = $totalprice = "";
+$name = $email = $phone = $street = $zip = $city = $status = $freight = $totalprice = "";
 
 //Lyssnar efter POST-request
 if ($_SERVER['REQUEST_METHOD'] === 'POST') :
@@ -58,14 +58,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') :
   }
   $products = $_POST['products'];
   $totalprice = $_POST['totalprice'];
+  $freight = $_POST['freight'];
 
 
   //Om det inte finns några felmeddelanden
   if (count($error) == 0) {
 
     //Skicka beställning till databasen
-    $sql = "INSERT INTO webshop_orders (name, email, phone, street, zip, city, status, products, totalprice)
-            VALUES (:name, :email, :phone, :street, :zip, :city, :status, :products, :totalprice)";
+    $sql = "INSERT INTO webshop_orders (name, email, phone, street, zip, city, status, products, freight, totalprice)
+            VALUES (:name, :email, :phone, :street, :zip, :city, :status, :products, :freight, :totalprice)";
 
     $stmt = $db->prepare($sql);
     $stmt->bindParam(':name', $name);
@@ -76,6 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') :
     $stmt->bindParam(':city', $city);
     $stmt->bindParam(':status', $status);
     $stmt->bindParam(':products', $products);
+    $stmt->bindParam(':freight', $freight);
     $stmt->bindParam(':totalprice', $totalprice);
     $stmt->execute();
   }

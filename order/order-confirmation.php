@@ -37,6 +37,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
   $zip = htmlspecialchars($row['zip']);
   $city = htmlspecialchars($row['city']);
   $products = json_decode($row['products'], true);
+  $freight = htmlspecialchars($row['freight']);
 
 
   //Hämta värden från produktarrayen för att kunna skriva ut dem i orderbekräftelsen
@@ -84,7 +85,8 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 $street, $zip $city
             </td>
             <td class='table_orders-cell conf-cell products'> $orderedProducts </td>
-            <td class='table_orders-cell conf-cell'> $totalPrice kr</td>
+            <td class='table_orders-cell conf-cell'> $totalPrice kr <br>
+                                                    varav frakt: $freight kr</td>
         </tr>";
 }
 

@@ -59,6 +59,7 @@ require_once '../config/db.php';
       <!--Hidden input-fields för de uppgifter som ska skickas med automatiskt,
       utan input från kunden -->
       <input type="hidden" id="products" name="products">
+      <input type="hidden" id="freight" name="freight">
       <input type="hidden" id="totalprice" name="totalprice">
       <input type="hidden" name="status" id="status" value="1">
 
