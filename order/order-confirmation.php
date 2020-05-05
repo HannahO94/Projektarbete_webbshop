@@ -38,8 +38,10 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
   $city = htmlspecialchars($row['city']);
   $products = json_decode($row['products'], true);
 
+
+
   //Hämta värden från produktarrayen för att kunna skriva ut dem i orderbekräftelsen
-  $orderedProducts = ""; //fylls på med titel, antal och pris för varje produkt
+  /*$orderedProducts = ""; //fylls på med titel, antal och pris för varje produkt
   foreach ($products as $key => $value) {
     foreach ($value as $ky => $val) {
       if ($ky == "title") {
@@ -53,7 +55,70 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
       }
     }
     $orderedProducts .= "<br>";
+  }*/
+
+  //Hämta värden från produktarrayen för att kunna skriva ut dem i orderbekräftelsen
+  $orderedProducts = ""; //fylls på med titel, antal och pris för varje produkt
+  
+  foreach ($products as $key => $value) {
+    $pOutlet="";
+    $pPrice="";
+    foreach ($value as $ky => $val) {
+      
+      if ($ky == "cartQty") {
+        $orderedProducts .= $val . " st ";
+      }
+      if ($ky == "title") {
+        $orderedProducts .= $val;
+      }
+      if ($ky == "outletprice") {
+        $pOutlet = $val;
+      }
+      if ($ky == "price") {
+        $pPrice = $val;
+        if ($pOutlet != null) {
+          $orderedProducts .= " pris " . $pOutlet . " kr (ord pris " . $pPrice . " kr)";
+        }
+        else {
+          $orderedProducts .= " pris " . $pPrice . " kr";
+        }
+      }
+    }
+    $orderedProducts .= "<br>";
   }
+
+    //Hämta värden från produktarrayen för att kunna skriva ut dem i orderbekräftelsen
+    /*$orderedProducts = ""; //fylls på med titel, antal och pris för varje produkt
+    $pTitle="";
+    $pQty="";
+    $pOutlet="";
+    $pPrice="";
+    foreach ($products as $key => $value) {
+      foreach ($value as $ky => $val) {
+        //spara ner nödvändiga värden i variabler
+        if ($ky == "cartQty") {
+          $pQty= $val;
+        }
+        if ($ky == "title") {
+          $pTitle= $val;
+        }
+        if ($ky == "outletprice") {
+          $pOutlet= $val;
+        }
+        if ($ky == "price") {
+          $pPrice= $val;
+        }
+        $orderedProducts .= $pQty . "st " . $pTitle;
+        //Om reapris finns, visa båda priserna, annars bara ordinarie
+        if ($pOutlet != null) {
+          $orderedProducts .= " pris " . $pOutlet . " kr (ord pris " . $pPrice . " kr)";
+        }
+        else {
+          $orderedProducts .= " pris " . $pPrice . " kr";
+        }
+      }
+      $orderedProducts .= "<br>";
+    }*/
 
   //Uppdatera lagersaldot i databasen 
   require_once "update-quantity.php";
