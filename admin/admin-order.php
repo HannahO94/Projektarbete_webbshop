@@ -129,9 +129,9 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 $street, $zip 
             </td>
             <td class='table_orders_admin-cell'> $city </td>
-            <td class='table_orders_admin-cell products' style='width: 20%'> $productsspec </td>
-            <td class='table_orders_admin-cell'> $totalprice kr <br>
-                                                varav frakt: $freight kr</td>
+            <td class='table_orders_admin-cell products' style='width: 20%'> $productsspec <br>
+                                                                        Frakt: $freight kr</td>
+            <td class='table_orders_admin-cell'> $totalprice </td>
             <td class='table_orders_admin-cell'> $onlyDate</td>
             <td class='table_orders_admin-cell'> $status</td>
             <td class='table_orders_admin-cell'>";
