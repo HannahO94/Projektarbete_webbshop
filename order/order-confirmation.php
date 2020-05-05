@@ -13,14 +13,14 @@ $stmt->execute();
 
 //Skapa tabellhuvud med rubriker
 $orderedProducts;
-$table = "<table class='table_orders>
+$table = "<table class='table_orders table_orders-container'>
             <tbody>
-               <tr class='table_orders-row'>
-                  <th class='table_orders-head'>Orderid</th>
-                  <th class='table_orders-head'>Orderdatum</th>
-                  <th class='table_orders-head'>Kunduppgifter</th>
-                  <th class='table_orders-head'>Produkter</th>
-                  <th class='table_orders-head'>Summa</th>
+               <tr class='table_orders-row table_orders-head-row'>
+                  <th class='table_orders-head-text'>Orderid</th>
+                  <th class='table_orders-head-text'>Orderdatum</th>
+                  <th class='table_orders-head-text'>Kunduppgifter</th>
+                  <th class='table_orders-head-text'>Produkter</th>
+                  <th class='table_orders-head-text'>Summa</th>
                </tr>";
 
 
@@ -41,7 +41,6 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
   //Hämta värden från produktarrayen för att kunna skriva ut dem i orderbekräftelsen
   $orderedProducts = ""; //fylls på med titel, antal och pris för varje produkt
   foreach ($products as $key => $value) {
-    // print_r($value);
     foreach ($value as $ky => $val) {
       if ($ky == "title") {
         $orderedProducts .= $val;
@@ -63,16 +62,16 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
   //Skapa en tabell med orderdetaljerna som hämtats från databasen
   $table .= "
         <tr class='table_orders-row'>
-            <td class='table_orders-cell'> $orderId</td>
-            <td class='table_orders-cell'> $orderDate</td>
-            <td class='table_orders-cell' style='width: 20%'>
+            <td class='table_orders-cell conf-cell'> $orderId</td>
+            <td class='table_orders-cell conf-cell'> $orderDate</td>
+            <td class='table_orders-cell conf-cell'>
                 $name <br> 
-                $email <br> 
+                <span class='email-style'>$email </span><br> 
                 $phone <br> 
                 $street, $zip $city
             </td>
-            <td class='table_orders-cell products' style='width: 20%'> $orderedProducts </td>
-            <td class='table_orders-cell'> $totalPrice kr</td>
+            <td class='table_orders-cell conf-cell products'> $orderedProducts </td>
+            <td class='table_orders-cell conf-cell'> $totalPrice kr</td>
         </tr>";
 }
 
@@ -80,10 +79,10 @@ $table .= "</tbody></table>";
 ?>
 
 <section class="order-confirmation-page">
-<h1>Orderbekräftelse</h1>
+<h1 class="order-confirmation-heading">Orderbekräftelse</h1>
 <br>
 <br>
-<h2>Tack för din beställning!</h2>
+<h2 class="order-confirmation-text">Tack för din beställning!</h2>
 <br>
 <section class='table_container'>
   <!-- här skrivs tabellen ut med all orderinfo -->

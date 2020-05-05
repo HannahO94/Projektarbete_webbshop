@@ -42,25 +42,6 @@
     margin-bottom: 5px;
   }
 
-  &__back-btn {
-    background-color: rgb(175, 174, 174);
-    font-weight: bolder;
-    font-size: 15px;
-    border: 2px solid black;
-    border-radius: 10px;
-    padding: 5px;
-    margin: 20px;
-
-    @media (min-width: 900px) {
-      padding: 7px;
-      align-self: flex-start;
-      &:hover {
-        border: 2px solid #ffb6c1;
-        color: #ffb6c1;
-      }
-    }
-  }
-
   &_price-outlet {
     font-size: 30px;
     font-weight: bold;
@@ -82,6 +63,15 @@
     font-size: 20px;
     font-weight: bold;
     color: red;
+  }
+}
+
+.back-product-btn {
+  align-self: center;
+  padding: 10px;
+  margin-top: 20px;
+  @media (min-width: 900px) {
+    align-self: flex-start;
   }
 }
 
