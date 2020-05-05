@@ -16,9 +16,9 @@ foreach ($products as $key => $value) {
       $productQty = $val;
     }
   }
-  // echo "antal: $productQty ";
-  // echo "product-id: $productId";
 
+  //skickar sql-fråga till databasen 
+  //sätter aktuell produktrads quantity till befintligt antal minus beställt antal ($productQty)
   $sql = "UPDATE webshop_products SET quantity = quantity - $productQty WHERE productid = $productId";
   $stmt = $db->prepare($sql);
   $stmt->execute();
