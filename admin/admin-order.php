@@ -78,22 +78,34 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     $status = htmlspecialchars($row['status']);
     $products = json_decode($row['products'], true);
     $totalprice = htmlspecialchars($row['totalprice']);
+    $freight = htmlspecialchars($row['freight']);
 
     $productsspec = "";
     foreach ($products as $key => $value) {
+        $pOutlet="";
+        $pPrice="";
         foreach ($value as $ky => $val) {
-            if ($ky == "title") {
-                $productsspec .= $val;
+          if ($ky == "cartQty") {
+            $productsspec .= $val . " st ";
+          }
+          if ($ky == "title") {
+            $productsspec .= $val;
+          }
+          if ($ky == "outletprice") {
+            $pOutlet = $val;
+          }
+          if ($ky == "price") {
+            $pPrice = $val;
+            if ($pOutlet != null) {
+                $productsspec .= " pris " . $pOutlet . " kr (ord pris " . $pPrice . " kr)";
             }
-            if ($ky == "cartQty") {
-                $productsspec .= $val . "st ";
+            else {
+                $productsspec .= " pris " . $pPrice . " kr";
             }
-            if ($ky == "price") {
-                $productsspec .= " pris " . $val;
-            }
+          }
         }
         $productsspec .= "<br>";
-    }
+      }
 
     //Kontrollerar vilken status-siffra beställningen har i databasen,
     //för att skriva ut rätt statustext på sidan
@@ -118,7 +130,8 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             </td>
             <td class='table_orders_admin-cell'> $city </td>
             <td class='table_orders_admin-cell products' style='width: 20%'> $productsspec </td>
-            <td class='table_orders_admin-cell'> $totalprice </td>
+            <td class='table_orders_admin-cell'> $totalprice kr <br>
+                                                varav frakt: $freight kr</td>
             <td class='table_orders_admin-cell'> $onlyDate</td>
             <td class='table_orders_admin-cell'> $status</td>
             <td class='table_orders_admin-cell'>";
