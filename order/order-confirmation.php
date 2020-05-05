@@ -38,18 +38,31 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
   $city = htmlspecialchars($row['city']);
   $products = json_decode($row['products'], true);
 
+
   //Hämta värden från produktarrayen för att kunna skriva ut dem i orderbekräftelsen
   $orderedProducts = ""; //fylls på med titel, antal och pris för varje produkt
+  
   foreach ($products as $key => $value) {
+    $pOutlet="";
+    $pPrice="";
     foreach ($value as $ky => $val) {
+      if ($ky == "cartQty") {
+        $orderedProducts .= $val . " st ";
+      }
       if ($ky == "title") {
         $orderedProducts .= $val;
       }
-      if ($ky == "cartQty") {
-        $orderedProducts .= $val . "st ";
+      if ($ky == "outletprice") {
+        $pOutlet = $val;
       }
       if ($ky == "price") {
-        $orderedProducts .= " pris " . $val;
+        $pPrice = $val;
+        if ($pOutlet != null) {
+          $orderedProducts .= " pris " . $pOutlet . " kr (ord pris " . $pPrice . " kr)";
+        }
+        else {
+          $orderedProducts .= " pris " . $pPrice . " kr";
+        }
       }
     }
     $orderedProducts .= "<br>";
