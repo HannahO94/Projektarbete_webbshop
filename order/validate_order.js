@@ -125,7 +125,7 @@ function validateStreet() {
   isStreetValid = false;
 }
 function isValidStreet(street) {
-  let re = /[^a-öA-Ö\s+0-9+[.,:]]/;
+  let re = /[^a-öA-Ö\s0-9.,:]/;
   return re.test(String(street));
 }
 
