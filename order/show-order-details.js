@@ -1,6 +1,6 @@
 /**********************
 
-OBS! Den här sidan används inte för tillfället. 
+OBS! Den här filen används inte för tillfället. 
 Den är bara ett alternativt sätt att hämta/visa kunduppgifter och produkter
 till orderbekräftelsesidan (med hjälp av javascript och localstorage).
 
