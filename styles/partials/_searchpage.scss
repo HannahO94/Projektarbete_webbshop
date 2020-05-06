@@ -5,32 +5,36 @@
     text-align: left;
     margin-right: 200px;
   }
-  // &__label {
-  //   font-size: 24px;
-  //   margin-bottom: 10px;
-  //   margin-top: 10px;
-  //   @media (min-width: 500px) {
-  //     font-size: 20px;
-  //   }
-  // }
+
+  &-wrapper {
+    position: absolute;
+    top: 8px;
+    left: 60px;
+    @media (min-width: 500px) {
+      top: 22px;
+      left: 30px;
+    }
+  }
 
   &__input-field {
-    width: 75%;
-    min-width: 100px;
+    width: 62%;
+    min-width: 80px;
     height: 20px;
     padding: 15px 20px;
     margin: 10px 0;
-    border: 3px solid rgba(0, 0, 0, 0.817);
+    border: 2.5px solid rgba(0, 0, 0, 0.817);
     border-radius: 8px;
     background-color: rgba(255, 255, 255, 0.411);
 
     @media (min-width: 768px) {
-      width: 50%;
+      width: 60%;
       margin-left: 10px;
+      border: 3px solid rgba(0, 0, 0, 0.817);
     }
     @media (min-width: 800px) {
       width: 75%;
       font-size: 14px;
+      border: 3px solid rgba(0, 0, 0, 0.817);
     }
     &:focus {
       border: 3px solid peachpuff;
@@ -83,12 +87,20 @@
 
 #search_btn {
   cursor: pointer;
-  height: 40px;
+  height: 35px;
   width: 55px;
-  margin-top: 8px;
+  margin-top: 10px;
   margin-bottom: 10px;
   margin-left: 10px;
+  font-size: 12px;
+
   background-color: rgb(247, 141, 48);
+  @media (min-width: 500px) {
+    margin-top: 8px;
+    height: 40px;
+    width: 55px;
+    font-size: 14px;
+  }
 }
 
 #search_btn:hover {

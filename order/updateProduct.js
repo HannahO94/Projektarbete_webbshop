@@ -109,6 +109,7 @@ function drawCart() {
   freightValue.textContent = freight;
   let orderTotal = total + freight;
   orderValue.textContent = orderTotal;
+  localStorage.setItem("freight", freight);
   localStorage.setItem("totalprice", orderTotal);
 }
 
@@ -228,5 +229,6 @@ function calculateFreightFromZip(event) {
   freightValue.textContent = freight;
   let orderTotal = total + freight;
   orderValue.textContent = orderTotal;
+  localStorage.setItem("freight", freight);
   localStorage.setItem("totalprice", orderTotal);
 }

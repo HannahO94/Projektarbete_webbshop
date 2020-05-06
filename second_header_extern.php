@@ -41,19 +41,15 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             <span class="icon-bar bottom-bar"></span>
           </label>
 
-          <ul class="menu-wraper__link-list">
-
-            <li class="menu-wraper__link-item">
-
+          <div class="search-form-wrapper">
               <form id="search-form" action="" class="search-form">
-                <!--<label for="search" class="search-form__label">Sök</label>-->
                 <input type="text" name="search" id="search-Field" class="search-form__input-field" placeholder="Sök efter spel">
-                <!--<input type="submit" id="search_btn" value="Sök">-->
                 <button id="search_btn">Sök</button>
               </form>
               <div id="searched-result" class="search-result"></div>
-              
-            </li>
+            </div>
+
+          <ul class="menu-wraper__link-list">
 
             <li class="menu-wraper__link-item">
               <a class="menu-wraper__links" href="/index.php">HEM</a>
@@ -73,14 +69,13 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
               <a class="menu-wraper__links" href="/admin/index.php">ADMIN</a>
             </li>
 
-            <li class="menu-wraper__link-item">
+          </ul>
+          <div class="cart">
             <div class="cart-wrapper">
               <a class="menu-wraper__links" href="../order/orderpage.php"><img src="/images/cart.png" class="cart-img"></a>
               <span class="counter" id="counter">0</span>
               </div>
-            </li>
-
-          </ul>
+            </div>
         </nav>
       </div>
 
