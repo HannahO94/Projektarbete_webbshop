@@ -73,17 +73,19 @@ input[type="checkbox"] + label {
     transition: rotate(0);
     opacity: 1;
     position: absolute;
-    top: 26px;
+    top: 24px;
     left: 20px;
     border-radius: 4px;
   }
   .middle-bar {
     opacity: 1;
     border-radius: 4px;
+    top: 31px;
+    left: 20px;
   }
   .bottom-bar {
     position: absolute;
-    top: 32px;
+    top: 38px;
     left: 20px;
     border-radius: 4px;
   }
@@ -100,7 +102,7 @@ input[type="checkbox"]:checked + label {
     transform: rotate(45deg);
     transform-origin: 10% 10%;
     position: absolute;
-    top: 20px;
+    top: 26px;
     left: 20px;
   }
   .middle-bar {
@@ -110,7 +112,7 @@ input[type="checkbox"]:checked + label {
     transform: rotate(-45deg);
     transform-origin: 10% 10%;
     position: absolute;
-    top: 32px;
+    top: 38px;
     left: 20px;
   }
 }
