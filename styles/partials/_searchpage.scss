@@ -9,7 +9,7 @@
   &-wrapper {
     position: absolute;
     top: 8px;
-    left: 80px;
+    left: 60px;
     @media (min-width: 500px) {
       top: 22px;
       left: 30px;
@@ -17,8 +17,8 @@
   }
 
   &__input-field {
-    width: 75%;
-    min-width: 100px;
+    width: 62%;
+    min-width: 80px;
     height: 20px;
     padding: 15px 20px;
     margin: 10px 0;
@@ -87,15 +87,16 @@
 
 #search_btn {
   cursor: pointer;
-  height: 37px;
+  height: 35px;
   width: 55px;
-  margin-top: 8px;
+  margin-top: 10px;
   margin-bottom: 10px;
   margin-left: 10px;
   font-size: 12px;
 
   background-color: rgb(247, 141, 48);
   @media (min-width: 500px) {
+    margin-top: 8px;
     height: 40px;
     width: 55px;
     font-size: 14px;
