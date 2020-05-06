@@ -1,13 +1,18 @@
 .product_container {
-  display: grid;
   grid-template-columns: 1fr;
+  @media (min-width: 600px) {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   align-items: center;
-
-  @media (min-width: 800px) {
+  }
+  @media (min-width: 900px) {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-content: center;
     align-items: center;
+  }
+  @media (min-width: 1400px) {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 

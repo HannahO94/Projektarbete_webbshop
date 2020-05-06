@@ -942,16 +942,23 @@ label {
 }
 
 .product_container {
-  display: -ms-grid;
-  display: grid;
   -ms-grid-columns: 1fr;
       grid-template-columns: 1fr;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 600px) {
+  .product_container {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+@media (min-width: 900px) {
   .product_container {
     display: -ms-grid;
     display: grid;
@@ -963,6 +970,13 @@ label {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+  }
+}
+
+@media (min-width: 1400px) {
+  .product_container {
+    -ms-grid-columns: (1fr)[4];
+        grid-template-columns: repeat(4, 1fr);
   }
 }
 
