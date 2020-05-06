@@ -39,12 +39,12 @@ $errors = "";
             }
         }
 
-        if(empty($_POST['description'])){
-            $error[] = "Du måste ange en beskrivning";
-        }
-        else if(!empty($_POST['description'])){
+        // if(empty($_POST['description'])){
+        //     $error[] = "Du måste ange en beskrivning";
+        // }
+        if(!empty($_POST['description'])){
             $description = $_POST['description'];
-            if(preg_match("/^([a-öA-Ö0-9.\s]+)$/", $description)){
+            if(preg_match("/^([a-öA-Ö0-9.,:!?\s]+)$/", $description)){
                 $description = test_input($_POST['description']);
             }
             else{
