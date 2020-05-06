@@ -52,12 +52,12 @@
         box-shadow: none;
       }
     }
-    &:first-child {
-      @media (min-width: 1100px) {
-        float: right;
-        margin-right: 370px;
-      }
-    }
+    // &:first-child {
+    //   @media (min-width: 1100px) {
+    //     float: right;
+    //     margin-right: 370px;
+    //   }
+    // }
   }
 
   &__links {

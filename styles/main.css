@@ -200,7 +200,7 @@ input[type="checkbox"] + label .top-bar {
   transition: rotate(0);
   opacity: 1;
   position: absolute;
-  top: 26px;
+  top: 24px;
   left: 20px;
   border-radius: 4px;
 }
@@ -208,11 +208,13 @@ input[type="checkbox"] + label .top-bar {
 input[type="checkbox"] + label .middle-bar {
   opacity: 1;
   border-radius: 4px;
+  top: 31px;
+  left: 20px;
 }
 
 input[type="checkbox"] + label .bottom-bar {
   position: absolute;
-  top: 32px;
+  top: 38px;
   left: 20px;
   border-radius: 4px;
 }
@@ -233,7 +235,7 @@ input[type="checkbox"]:checked + label .top-bar {
   -webkit-transform-origin: 10% 10%;
           transform-origin: 10% 10%;
   position: absolute;
-  top: 20px;
+  top: 26px;
   left: 20px;
 }
 
@@ -247,7 +249,7 @@ input[type="checkbox"]:checked + label .bottom-bar {
   -webkit-transform-origin: 10% 10%;
           transform-origin: 10% 10%;
   position: absolute;
-  top: 32px;
+  top: 38px;
   left: 20px;
 }
 
@@ -333,13 +335,6 @@ input[type="checkbox"]:checked + label .bottom-bar {
     padding-bottom: 0;
     -webkit-box-shadow: none;
             box-shadow: none;
-  }
-}
-
-@media (min-width: 1100px) {
-  .menu-wraper__link-item:first-child {
-    float: right;
-    margin-right: 370px;
   }
 }
 
@@ -1072,21 +1067,35 @@ label {
   }
 }
 
+.search-form-wrapper {
+  position: absolute;
+  top: 8px;
+  left: 80px;
+}
+
+@media (min-width: 500px) {
+  .search-form-wrapper {
+    top: 22px;
+    left: 30px;
+  }
+}
+
 .search-form__input-field {
   width: 75%;
   min-width: 100px;
   height: 20px;
   padding: 15px 20px;
   margin: 10px 0;
-  border: 3px solid rgba(0, 0, 0, 0.817);
+  border: 2.5px solid rgba(0, 0, 0, 0.817);
   border-radius: 8px;
   background-color: rgba(255, 255, 255, 0.411);
 }
 
 @media (min-width: 768px) {
   .search-form__input-field {
-    width: 50%;
+    width: 60%;
     margin-left: 10px;
+    border: 3px solid rgba(0, 0, 0, 0.817);
   }
 }
 
@@ -1094,6 +1103,7 @@ label {
   .search-form__input-field {
     width: 75%;
     font-size: 14px;
+    border: 3px solid rgba(0, 0, 0, 0.817);
   }
 }
 
@@ -1189,12 +1199,21 @@ label {
 
 #search_btn {
   cursor: pointer;
-  height: 40px;
+  height: 37px;
   width: 55px;
   margin-top: 8px;
   margin-bottom: 10px;
   margin-left: 10px;
+  font-size: 12px;
   background-color: #f78d30;
+}
+
+@media (min-width: 500px) {
+  #search_btn {
+    height: 40px;
+    width: 55px;
+    font-size: 14px;
+  }
 }
 
 #search_btn:hover {
