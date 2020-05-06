@@ -32,7 +32,7 @@ if(isset($_GET['id'])){
   //Hämta sökresultatets produkter från databasen
   $sql = "SELECT * 
           FROM webshop_products
-          WHERE productid IN ({$search})";
+          WHERE productid IN ({$search}) AND quantity > 0";
   $stmt = $db->prepare($sql);
   $stmt->execute();
   
@@ -59,12 +59,10 @@ if(isset($_GET['id'])){
   $percentage = 0.9;
   $outletPrice = ceil($price * $percentage);
   $savings = $price - $outletPrice;
-//finns eller inte i lager
-      if ($quantity == "0") {
-        $any_items = "<span>Finns EJ i lager</span>";
-      } else {
-        $any_items = "I lager: " . $quantity . " st";
-      }
+
+  // om det finns i lager
+  $any_items = "I lager: " . $quantity . " st";
+
 //datumkontroll, rea eller ny
       $now = date("yy-m-d");
       $dateNow=date_create($now);
@@ -88,18 +86,11 @@ if(isset($_GET['id'])){
           <p class='hidden-price' style='display:none'>$price</p>
           <p class='hidden-quantity' style='display:none;'>$quantity</p>
           <p class='hidden-productid' style='display:none'>$productid</p>
-
-          <label for='cartQty'>Antal:</label>";
-          if ($quantity == "0") {
-            $any_items = "Finns EJ i lager";
-            echo "<div class='product__inventory' style='color: red'>" . $any_items . "</div>
-            <button id='cart-btn$productid' class='add-to-cart' style='background-color: grey; color: black;' disabled>Lägg i varukorgen</button>";
-        }else{
-          echo "<input type='number' onkeydown='javascript: return event.keyCode === 8 ||
+          <label for='cartQty'>Antal:</label>
+          <input type='number' onkeydown='javascript: return event.keyCode === 8 ||
           event.keyCode === 46 ? true : !isNaN(Number(event.key))' id='cartQty' name='cartQty' class='cartQty' min='1' max='$quantity' value='1'>
-           <button class='cart-btn product_card-btn'>Lägg i varukorg</button>";
-        }
-      echo "</div>";
+           <button class='cart-btn product_card-btn'>Lägg i varukorg</button>
+           </div>";
 
     //kollar om produkten är outlet eller ordinarie
     }else if(in_array($productid, $outletProductid)) {
@@ -120,17 +111,11 @@ if(isset($_GET['id'])){
           <p class='hidden-quantity' style='display:none;'>$quantity</p>
           <p class='hidden-productid' style='display:none'>$productid</p>
 
-          <label for='cartQty'>Antal:</label>";
-          if ($quantity == "0") {
-            $any_items = "Finns EJ i lager";
-            echo "<div class='product__inventory' style='color: red'>" . $any_items . "</div>
-            <button id='cart-btn$productid' class='add-to-cart' style='background-color: grey; color: black;' disabled>Lägg i varukorgen</button>";
-        }else{
-          echo "<input type='number' onkeydown='javascript: return event.keyCode === 8 ||
+          <label for='cartQty'>Antal:</label>
+          <input type='number' onkeydown='javascript: return event.keyCode === 8 ||
           event.keyCode === 46 ? true : !isNaN(Number(event.key))' id='cartQty' name='cartQty' class='cartQty' min='1' max='$quantity' value='1'>
-           <button class='cart-btn product_card-btn'>Lägg i varukorg</button>";
-        }
-      echo "</div>";
+           <button class='cart-btn product_card-btn'>Lägg i varukorg</button>
+           </div>";
   } else {
     
     echo
@@ -146,21 +131,14 @@ if(isset($_GET['id'])){
     <p class='hidden-quantity' style='display:none;'>$quantity</p>
     <p class='hidden-productid' style='display:none'>$productid</p>
 
-    <label for='cartQty'>Antal:</label>";
-    if ($quantity == "0") {
-      $any_items = "Finns EJ i lager";
-      echo "<div class='product__inventory' style='color: red'>" . $any_items . "</div>
-      <button id='cart-btn$productid' class='add-to-cart' style='background-color: grey; color: black;' disabled>Lägg i varukorgen</button>";
-  }else{
-    echo "<input type='number' onkeydown='javascript: return event.keyCode === 8 ||
+    <label for='cartQty'>Antal:</label>
+    <input type='number' onkeydown='javascript: return event.keyCode === 8 ||
     event.keyCode === 46 ? true : !isNaN(Number(event.key))' id='cartQty' name='cartQty' class='cartQty' min='1' max='$quantity' value='1'>
-     <button class='cart-btn product_card-btn'>Lägg i varukorg</button>";
-  }
-echo "</div>";
+     <button class='cart-btn product_card-btn'>Lägg i varukorg</button>
+     </div>";
   };
 
     endwhile;
-
 
   }
 
