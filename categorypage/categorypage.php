@@ -2,6 +2,16 @@
 require_once '../second_header_extern.php';
 require_once '../config/db.php';
 
+
+function checkImage($productimg) {
+  if(!empty($productimg) && $productimg[0] !== ""){
+    return "<img src='../images/$productimg[0]' class='product_img'>";
+  } else {
+    return "";
+  }
+}
+
+
 $productimg = "";
   if(isset($_GET['id'])){
   $currentCategory = htmlspecialchars($_GET['id']);
@@ -9,7 +19,7 @@ $productimg = "";
   $currentCategory = 1;
 };
 
-$stmt = $db->prepare("SELECT * FROM webshop_products WHERE categoryid = $currentCategory");
+$stmt = $db->prepare("SELECT * FROM webshop_products WHERE categoryid = $currentCategory AND quantity > 0");
 $stmt->execute();
 
 $statement = $db->prepare("SELECT `categoryid`, `category`
@@ -51,6 +61,9 @@ $stmtDate->execute();
       $date = htmlspecialchars($row['date']);
       $productimg = unserialize($row['productimg']); 
 
+      // HTML-variabel
+      $productHTML = "";
+
      //nytt outlet pris
       $percentage = 0.9;
       $outletPrice = ceil($price * $percentage);
@@ -68,48 +81,34 @@ $stmtDate->execute();
 
             if($diffDays < 7){
               //echo "less then two weeks";
-                    if ($quantity == "0") {
-                      echo "";
-                  } else {
-                    echo
+              
+              $productHTML .=
                     "<div class='product_card'>
                     <h3 class='product_price-new'>Ny!</h3>
                           <a href= '../product/product_info.php? id=$productid' 
-                          class='product_title'>$title</a>";
-                          if(!empty($productimg) && $productimg[0] !== ""){
-                            echo "<img src='../images/$productimg[0]' class='product_img'>";
-                            }
-                          echo "<span class='product_price'>Pris: $price kr</span>
+                          class='product_title'>$title</a>
+                          ". checkImage($productimg) ."
+                          <span class='product_price'>Pris: $price kr</span>
                           <p class='any-items'>$any_items</p>
                           <p class='hidden-price' style='display:none'>$price</p>
                           <p class='hidden-quantity' style='display:none;'>$quantity</p>
                           <p class='hidden-productid' style='display:none'>$productid</p>
-      
                           <label for='cartQty'>Antal:</label>
                           <input type='number' onkeydown='javascript: return event.keyCode === 8 ||
                           event.keyCode === 46 ? true : !isNaN(Number(event.key))' id='cartQty' name='cartQty' class='cartQty' min='1' max='$quantity' value='1'>
-                     <button class='cart-btn product_card-btn'>Lägg i varukorg</button>";
-                  }
-
-                echo "</div>";
+                     <button class='cart-btn product_card-btn'>Lägg i varukorg</button>
+                     </div>";
 
 
                 //kollar om produkten är outlet eller ordinarie
             }else if(in_array($productid, $outletProductid)) {
 
-                    if ($quantity == "0") {
-                     echo "";
-                  }else{
-                    echo
-
+              $productHTML .=
               "<div class='product_card'>
               <p class='product_price-outlet'>Pris: $outletPrice kr</p>
                     <a href= '../product/product_info.php? id=$productid' 
-                    class='product_title'>$title</a>";
-                    if(!empty($productimg) && $productimg[0] !== ""){
-                      echo "<img src='../images/$productimg[0]' class='product_img'>";
-                      }
-                    echo "
+                    class='product_title'>$title</a>
+                    " . checkImage($productimg) . "
                     <p class='product_price-old'>Normalpris: $price kr</p>
                     <p class='product_price-savings'>Du sparar: $savings kr! (-10%) </p> 
                     <p class='any-items'>$any_items</p>
@@ -121,22 +120,17 @@ $stmtDate->execute();
                     <label for='cartQty'>Antal:</label>
                     <input type='number' onkeydown='javascript: return event.keyCode === 8 ||
                     event.keyCode === 46 ? true : !isNaN(Number(event.key))' id='cartQty' name='cartQty' class='cartQty' min='1' max='$quantity' value='1'>
-                     <button class='cart-btn product_card-btn'>Lägg i varukorg</button>";
-                  }
-                echo "</div>";
+                     <button class='cart-btn product_card-btn'>Lägg i varukorg</button>
+                     </div>";
 
             } else {
-                if ($quantity == "0") {
-                  echo "";
-              }else{
-                echo
+      
+              $productHTML .=
               "<div class='product_card'>
               <a href= '../product/product_info.php? id=$productid' 
-                class='product_title'>$title</a>";
-                if(!empty($productimg) && $productimg[0] !== ""){
-                  echo "<img src='../images/$productimg[0]' class='product_img'>";
-                  }
-                echo "<p class='product_price'>Pris: $price kr</p>
+                class='product_title'>$title</a>
+                ". checkImage($productimg) . "
+                <p class='product_price'>Pris: $price kr</p>
                 <p class='any-items'>$any_items</p>
                 <p class='hidden-price' style='display:none;'>$price</p>
                 <p class='hidden-quantity' style='display:none;'>$quantity</p>
@@ -145,11 +139,11 @@ $stmtDate->execute();
                 <label for='cartQty'>Antal:</label>
                 <input type='number' onkeydown='javascript: return event.keyCode === 8 ||
                 event.keyCode === 46 ? true : !isNaN(Number(event.key))' id='cartQty' name='cartQty' class='cartQty' min='1' max='$quantity' value='1'>
-                 <button class='cart-btn product_card-btn'>Lägg i varukorg</button>";
-              }
-            echo "</div>";
+                 <button class='cart-btn product_card-btn'>Lägg i varukorg</button>
+                 </div>";
 
             }
+            echo $productHTML;
     endwhile;
    
     ?>

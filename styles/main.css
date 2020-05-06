@@ -981,8 +981,8 @@ label {
       align-content: space-between;
   text-align: center;
   line-height: 1.5;
-  min-height: 400px;
-  max-width: 300px;
+  min-height: 600px;
+  min-width: 300px;
   border-radius: 8px;
   margin: 2em;
   padding: 1em;
