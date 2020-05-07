@@ -15,7 +15,6 @@
         <a href="index.php">Admin - Hem</a>
         <a href="admin-category.php">Kategorier</a>
         <a href="admin-products.php">Produkter</a>
-        <a href="admin-order.php">Beställningar</a>
         <a href="../index.php" class="sidenav__webshop-link">WEBBSHOPPEN</a>
       </div>
 

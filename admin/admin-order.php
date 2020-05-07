@@ -21,6 +21,8 @@ if ($orderStatusId == 1){
 
 
 ?>
+<h1 class="admin-home__header">Välkommen Admin</h1>
+
 <h2 class="orders-head">Beställningar</h2>
 
 <form id="search-city" action="" class="search-form">
