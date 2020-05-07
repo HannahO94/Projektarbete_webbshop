@@ -3,7 +3,10 @@
 require_once 'header_extern.php';
 require_once 'config/db.php';
 
-$stmt = $db->prepare("SELECT * FROM webshop_categories");
+$stmt = $db->prepare("SELECT * FROM `webshop_categories` 
+                      WHERE `categoryid` 
+                      IN (SELECT categoryid 
+                          FROM webshop_products)");
 $stmt->execute();
 
 ?>

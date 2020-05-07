@@ -1,8 +1,11 @@
 <?php
 require_once "config/db.php";
 
-$stmt = $db->prepare("SELECT `categoryid`, `category`
-                      FROM `webshop_categories`");
+$stmt = $db->prepare("SELECT * FROM `webshop_categories` 
+                      WHERE `categoryid` 
+                      IN (SELECT categoryid 
+                          FROM webshop_products)");
+
 $stmt->execute();
 
 $option_value = "";
@@ -10,6 +13,8 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
   $categoryid = htmlspecialchars($row['categoryid']);
   $category = htmlspecialchars($row['category']);
   $option_value .=  "<a href='/categorypage/categorypage.php?id=" . $categoryid . "'>" . strtoupper($category) . "</a>";
+
+
 }
 ?>
 
