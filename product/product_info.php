@@ -157,7 +157,9 @@ echo "</div>";
 </section>
 
 <?php
-echo "<button class='btn-back back-product-btn' ><a href='../categorypage/categorypage.php?id=" . $categoryid ."'>Tillbaka</a></button>";
+echo "<a href='../categorypage/categorypage.php?id=" . $categoryid ."'>
+        <button class='btn-back back-product-btn' >Tillbaka</button>
+        </a>";
 
 require_once '../footer.php';
 ?>

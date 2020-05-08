@@ -63,5 +63,6 @@
     </form>
 </section>
 
-
-<button class='back_btn'><a href="admin-products.php">Tillbaka</a></button>
+<a href="admin-products.php">
+<button class='back_btn'>Tillbaka</button>
+</a>

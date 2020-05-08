@@ -65,9 +65,9 @@ while ($row = $stmtDate->fetch(PDO::FETCH_ASSOC)) :
 endwhile;
 ?>
 </div>
-
-<button class="btn-back"><a href="../index.php">Tillbaka till startsidan</a></button>
-
+<a href="../index.php">
+  <button class="btn-back">Tillbaka till startsidan</button>
+</a>
 <?php
 require_once "../footer.php"
 ?>
