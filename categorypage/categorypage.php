@@ -151,7 +151,9 @@ $stmtDate->execute();
   </div>
   <br>
   <br>
-  <button class="btn-back"><a href="../index.php">Tillbaka till startsidan</a></button>
+  <a href="../index.php">
+    <button class="btn-back">Tillbaka till startsidan</button>
+  </a>
 </section>
 
 

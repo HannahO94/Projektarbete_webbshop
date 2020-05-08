@@ -133,6 +133,8 @@ if (!$imageold === false){
 }
 ?>
 <br><br>
-<button class="back_btn"><a href="admin-category.php">Tillbaka</a></button>
+<a href="admin-category.php">
+    <button class="back_btn">Tillbaka</button>
+</a>
 <?php  require_once '../footer.php'; ?>
 <!-- <a href='delete-img.php?id=$id' class='btn btn-danger'>Ta bort bild</a> -->

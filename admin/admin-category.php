@@ -15,8 +15,12 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
     $id = htmlspecialchars($row['categoryid']);
     $list .= "<tr class='table_category-row'>
     <td class='table_category-cell'> $category</td>
-    <td class='table_category-cell'><button class='btn_update-category'><a href='admin-update-category.php?id=$id'>Uppdatera</a></button>
-    <button class='btn_delete-category'><a href='admin-delete-category.php?id=$id' onclick='return myFunction()' id='delete'>Ta bort</a></button></td></tr>";
+    <td class='table_category-cell'><a href='admin-update-category.php?id=$id'>
+                                    <button class='btn_update-category'>Uppdatera</button>
+                                    </a>
+                                    <a href='admin-delete-category.php?id=$id' onclick='return myFunction()' id='delete'>
+                                    <button class='btn_delete-category'>Ta bort</button>
+                                    </a></td></tr>";
 
     }
 

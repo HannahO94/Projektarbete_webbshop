@@ -34,8 +34,12 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
     $output .= "<tr class='table_products-row'>
                 <td class='table_products-cell'> $product </td>
                 <td class='table_products-cell'>$category</td>
-                <td><button class='btn_update-product'><a href='admin-update-product.php?id=$productid'>Uppdatera</a></button>
-                <button class='btn_delete-product'><a href='admin-delete-product.php?id=$productid' onclick='return myFunction()' id='delete'>Radera</a></button></td>
+                <td><a href='admin-update-product.php?id=$productid'>
+                    <button class='btn_update-product'>Uppdatera</button>
+                    </a>
+                    <a href='admin-delete-product.php?id=$productid' onclick='return myFunction()' id='delete'>
+                    <button class='btn_delete-product'>Radera</button>
+                    </a></td>
                 </tr> ";
 
 
@@ -62,5 +66,7 @@ echo $output;
 
 </script> 
 
-<button class="btn-add-product"><a href="admin-add-products.php">Lägg till produkt</a></button>
+<a href="admin-add-products.php">
+    <button class="btn-add-product">Lägg till produkt</button>
+</a>
 <?php require_once "../footer.php";?>
