@@ -151,3 +151,16 @@ $msg = "";
 </a>
 <?php  require_once '../footer.php'; ?>
 
+<script>
+
+window.onload = countChar();
+function countChar(e){
+    let textEntered, countRemaining, counter; 
+    textEntered = document.getElementById('description').value; 
+    counter = (1000 - (textEntered.length)); 
+    countRemaining = document.getElementById('text-count');
+    countRemaining.textContent = counter + " tecken kvar";  
+}
+
+</script>
+
