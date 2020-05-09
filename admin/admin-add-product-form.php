@@ -51,8 +51,8 @@
 
     <div class="product_field-description form-container__description">
         <label for="description">Beskrivning: </label><br>
-        <textarea name="description" placeholder="Beskrivning av produkt.." cols="10" rows="8" class="form-container__description-input"></textarea>
-
+        <textarea name="description" placeholder="Beskrivning av produkt(max 1000 tecken)" cols="10" rows="8" maxlength="1000" class="form-container__description-input" id="description" onkeyup="countChar()"; ></textarea>
+        <div id="text-count">1000 tecken kvar</div>
     </div>
 
     <div class="product_field-submit form-container__submit">
@@ -63,5 +63,6 @@
     </form>
 </section>
 
-
-<button class='back_btn'><a href="admin-products.php">Tillbaka</a></button>
+<a href="admin-products.php">
+    <button class='back_btn'>Tillbaka</button>
+</a>

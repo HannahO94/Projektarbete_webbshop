@@ -129,7 +129,8 @@ $msg = "";
             ";
         }
        echo "</div>";
-       echo "<button class='btn_delete-img'><a href='admin-delete-img.php?id=$productid' onclick='return myFunction()' id='delete'>Radera bilder</a></button><br>";
+       echo "<a href='admin-delete-img.php?id=$productid' onclick='return myFunction()' id='delete'>
+            <button class='btn_delete-img'>Radera bilder</button></a><br>";
         
     }
     
@@ -145,7 +146,21 @@ $msg = "";
             }
 </script> 
 
-
-<button class="back_btn"><a href="admin-products.php">Tillbaka</a></button>
+<a href="admin-products.php">
+    <button class="back_btn">Tillbaka</button>
+</a>
 <?php  require_once '../footer.php'; ?>
+
+<script>
+
+window.onload = countChar();
+function countChar(e){
+    let textEntered, countRemaining, counter; 
+    textEntered = document.getElementById('description').value; 
+    counter = (1000 - (textEntered.length)); 
+    countRemaining = document.getElementById('text-count');
+    countRemaining.textContent = counter + " tecken kvar";  
+}
+
+</script>
 

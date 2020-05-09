@@ -80,6 +80,8 @@ endif;
 </section>
 
 <br><br>
-<button class="back_btn"><a href="admin-order.php">Tillbaka</a></button>
+<a href="admin-order.php">
+<button class="back_btn">Tillbaka</button>
+</a>
 <?php require_once '../footer.php'; ?>
 <!-- <a href='delete-img.php?id=$id' class='btn btn-danger'>Ta bort bild</a> -->

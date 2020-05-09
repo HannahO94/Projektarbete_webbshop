@@ -141,9 +141,9 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
      if($status != "Slutförd"){
 
     $table .=   
-                "<button class='btn_update-status'>
-                    <a href='admin-update-status.php?id=$orderid'>Ändra status</a>
-                </button>
+                "<a href='admin-update-status.php?id=$orderid'>
+                <button class='btn_update-status'>Ändra status</button>
+                </a>
             </td>
 
         </tr>";
