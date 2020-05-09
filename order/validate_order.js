@@ -131,15 +131,20 @@ function isValidStreet(street) {
 
 // Validering av postnummer
 function validateZipcode() {
-  let zipcode = document.querySelector("#zip").value;
+  let zipElement = document.querySelector("#zip");
+  let zipcode = zipElement.value;
   let infoText = document.querySelector(".zipcodeValidationText");
+
+  determineMaxLength();
 
   if (zipcode.length === 0) {
     infoText.innerHTML = "OBS! Obligatoriskt fält";
-  } else if (zipcode.length != 5) {
-    infoText.innerHTML = "OBS! Postnumret måste vara 5 siffror långt";
+  } else if (zipcode.length < 5) {
+    infoText.innerHTML = "OBS! Ogiltigt";
   } else if (zipcode.charAt(0) == 0) {
     infoText.innerHTML = "OBS! Postnumret får inte börja på siffran 0";
+  } else if (!isValidZipcode(zipcode) && zipcode.length > 6) {
+    infoText.innerHTML = "OBS! Ogiltigt postnummer";
   } else {
     infoText.innerHTML = "";
     isZipcodeValid = true;
@@ -148,6 +153,19 @@ function validateZipcode() {
   }
   submitBtn.disabled = true;
   isZipcodeValid = false;
+
+  function determineMaxLength() {
+    if (zipcode.includes(" ")) {
+      zipElement.setAttribute("maxlength", "6");
+    } else {
+      zipElement.setAttribute("maxlength", "5");
+    }
+  }
+
+  function isValidZipcode(zipcode) {
+    let re = /^\d{3}\s(?:\d{2})?$/;
+    return re.test(String(zipcode));
+  }
 }
 
 // Validering av ort
