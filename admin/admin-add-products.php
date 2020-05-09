@@ -86,22 +86,28 @@ $errors = "";
             $error[] = "Du måste ange en kategori";
         }
         
+        if(count($_FILES['productimg']['name']) <= 5){
 
-        if(count($error) == 0){
+            $uploadFolder = '../images/';
+            $imageData = array();
+            
+            foreach ($_FILES['productimg']['tmp_name'] as $key => $image) {
+                $imageTmpName = $_FILES['productimg']['tmp_name'][$key];
+                $imageName = $_FILES['productimg']['name'][$key];
+                $result = move_uploaded_file($imageTmpName,$uploadFolder.$imageName);
+                array_push($imageData, $imageName);
+            };
+            
+            $imageUpload = serialize($imageData);
+        }
+        else{
+            $error[] = "Du får endast ladda upp max 5 bilder";
+        }
         
         
-        $uploadFolder = '../images/';
-        $imageData = array();
-
-        foreach ($_FILES['productimg']['tmp_name'] as $key => $image) {
-            $imageTmpName = $_FILES['productimg']['tmp_name'][$key];
-            $imageName = $_FILES['productimg']['name'][$key];
-            $result = move_uploaded_file($imageTmpName,$uploadFolder.$imageName);
-            array_push($imageData, $imageName);
-        };
-
-        $imageUpload = serialize($imageData);
-
+        
+                if(count($error) == 0){
+        
         $sql = "INSERT INTO webshop_products (title, description, categoryid, price, quantity, productimg)
         VALUES (:title, :description, :categoryid, :price, :quantity, :productimg) ";
 

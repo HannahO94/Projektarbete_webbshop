@@ -86,7 +86,9 @@ $msg = "";
     $imgArrayTest = array_filter($image);
     
     if(!empty($imgArrayTest)){
-    
+
+        if(count($_FILES['productimg']['name']) <= 5){
+
             $id = htmlspecialchars($_POST['id']);
             $uploadFolder = '../images/';
             $imageData = array();
@@ -98,7 +100,7 @@ $msg = "";
                 array_push($imageData, $imageName);
             }
             $imageUpload = serialize($imageData);
-
+    
             
         $sql = "UPDATE webshop_products SET productimg = :productimg WHERE productid = :id";
         $stmt = $db->prepare($sql);   
@@ -110,7 +112,9 @@ $msg = "";
         header("Location:admin-products.php");
         }
         else{
-            //$msg = "Ingen bild är uppladdad!";
+            echo $msg = "MAX 5 bilder";
+        }
+    
         }
     
 
