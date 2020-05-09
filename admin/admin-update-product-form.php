@@ -38,7 +38,8 @@
 </div>
 <div class="product_field-description form-container__description">
 <label for="description">Beskrivning: </label><br>
-<textarea name="description" Placeholder="Beskrivning av produkt" class="form-container__description-input" cols="10" rows="8"><?php echo $description; ?></textarea>
+<textarea name="description" Placeholder="Beskrivning av produkt" class="form-container__description-input" cols="10" rows="8" maxlength="1000" id="description" onkeyup="countChar()"; onload='countChar()';><?php echo $description; ?></textarea>
+<div id="text-count">1000 tecken kvar</div>
 </div>
 
 <div class="product_field-submit form-container__submit">

@@ -48,7 +48,7 @@ $errors = "";
                 $description = test_input($_POST['description']);
             }
             else{
-                $error[] = "Beskrivningen får endast innehålla bokstäver och siffror";
+                $error[] = "Beskrivningen får endast innehålla bokstäver och siffror och vara max 1000 tecken";
             }
         }
 
@@ -144,7 +144,23 @@ $errors = "";
 
 
 
+
+
 <?php 
 require_once 'admin-add-product-form.php';
 require_once '../footer.php';?>
+
+<script>
+
+
+function countChar(e){
+    let textEntered, countRemaining, counter; 
+    textEntered = document.getElementById('description').value; 
+    counter = (1000 - (textEntered.length)); 
+    countRemaining = document.getElementById('text-count');
+    countRemaining.textContent = counter + " tecken kvar";  
+}
+
+
+</script>
 
