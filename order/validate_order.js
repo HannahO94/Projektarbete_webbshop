@@ -140,7 +140,7 @@ function validateZipcode() {
   if (zipcode.length === 0) {
     infoText.innerHTML = "OBS! Obligatoriskt fält";
   } else if (zipcode.length < 5) {
-    infoText.innerHTML = "OBS! Ogiltigt";
+    infoText.innerHTML = "OBS! Ogiltigt postnummer";
   } else if (zipcode.charAt(0) == 0) {
     infoText.innerHTML = "OBS! Postnumret får inte börja på siffran 0";
   } else if (!isValidZipcode(zipcode) && zipcode.length > 6) {
