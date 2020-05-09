@@ -29,7 +29,7 @@
 </select>
 </div>
 <div class="product_field-img form-container__image">
-<label for="product-img">Ladda upp en produktbild: </label><br>
+<label for="product-img">Ladda upp produktbild(MAX 5 Bilder): </label><br>
 <input type="file" name="productimg[]" multiple="multiple" class="form-container__image-input">
 <?php 
 // echo $msg; ?>
