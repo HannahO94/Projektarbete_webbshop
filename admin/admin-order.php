@@ -82,6 +82,8 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     $totalprice = htmlspecialchars($row['totalprice']);
     $freight = htmlspecialchars($row['freight']);
 
+    $zipcode = substr_replace($zip, " ", 3, 0 );
+
     $productsspec = "";
     foreach ($products as $key => $value) {
         $pOutlet="";
@@ -128,7 +130,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 $name <br> 
                 $email <br> 
                 $phone <br> 
-                $street, $zip 
+                $street, $zipcode 
             </td>
             <td class='table_orders_admin-cell'> $city </td>
             <td class='table_orders_admin-cell products' style='width: 20%'> $productsspec <br>

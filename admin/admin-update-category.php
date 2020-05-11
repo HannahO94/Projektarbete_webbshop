@@ -48,12 +48,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') :
             $uploadOk = 0;
         }
     }
-    // // Check file size
-    if ($_FILES["image"]["size"] > 1048576) {
-        $msg = "Sorry, your file is too large.";
-        $uploadOk = 0;
-        $image = "";
-    }
+   
     // // Allow certain file formats
     if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
     && $imageFileType != "gif" ) {
@@ -114,7 +109,7 @@ function test_input($data) {
         <p class="error"><?php echo $nameErr;?></p>
     </div>
     <div class="form-container__image update_category-box">
-        <label for="image">Ladda upp en bild: (max 1MB)</label><br>
+        <label for="image">Ladda upp en bild:</label><br>
         <input type="file" name="image" class="form-container__image-input">     
         <?php echo $msg; ?>
     </div>
