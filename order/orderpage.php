@@ -94,7 +94,7 @@ require_once '../config/db.php';
 
       <div class="order_field-postalcode form-container__box">
         <label for="zip">Postnr:</label><br>
-        <input type="text" name="zip" id="zip" onblur="validateZipcode()" placeholder="(ex. 12345)" class="form-container__box-input" required>
+        <input type="text" name="zip" id="zip" oninput="validateZipcode()" placeholder="(ex. 123 45)" class="form-container__box-input" required>
         <br>
         <span class="zipcodeValidationText"></span>
       </div>
