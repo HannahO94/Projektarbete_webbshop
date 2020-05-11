@@ -206,7 +206,7 @@ function calculateFreightFromPrice(productPrice) {
   //Kontrollera om ordervärde överstiger 500kr, sedan om postnummer är ifyllt
   if (productPrice >= 500) {
     outputFreight = 0;
-  } else if (zipCode.value.length == 5) {
+  } else if (zipCode.value.length >= 5) {
     if (zipCode.value.startsWith("1")) {
       outputFreight = 0;
     }
@@ -224,7 +224,9 @@ function calculateFreightFromZip(event) {
   if (zipValue.startsWith("1")) {
     freight = 0;
   } else {
-    freight = 50;
+    if (total < 500) {
+      freight = 50;
+    }
   }
   freightValue.textContent = freight;
   let orderTotal = total + freight;
