@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') :
   if (empty($_POST['zip'])) {
     $error[] =  "Du måste ange gatuadress";
   } else if (isset($_POST['zip'])) {
-    $zip = $_POST['zip'];
+    $zip = str_replace(' ', '', $_POST['zip']);
   }
 
   if (empty($_POST['city'])) {
