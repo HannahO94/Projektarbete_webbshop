@@ -44,15 +44,19 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
         $stmt->bindParam(':image', $image);
 
     endif;
+    echo "<div class='page__backround'>
+    <h1 class='category-head'>Kategorier</h1>";
+    echo $list;
+    require_once "admin-create-category.php";
+
  ?>
  
-<div class="page__backround">
-<h1 class="category-head">Kategorier</h1>
-<?php echo $list;?>
+<!-- <div class="page__backround">
+<h1 class="category-head">Kategorier</h1> -->
+ <?php 
+ //echo $list;?> 
 
 <?php
-require_once "admin-create-category.php";
-
 require_once "../footer.php"?>
  <script>
     function myFunction() {
