@@ -1,6 +1,5 @@
 <?php
 require_once '../config/db.php';
-require_once 'header.php';
 
 $nameErr = "";
 $msg = "";
@@ -63,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') :
         $stmt_c->execute();
 
         // check if name only contains letters and whitespace
-        if (!preg_match("/^[a-ÖA-Ö\s]*$/", $category)) {
+        if (!preg_match("/^([a-öA-Ö0-9.,:!?\s]+)$/", $category)) {
             $nameErr = "Endast bokstäver och mellanslag är tillåtet";
             //if category already exists
         } else if ($stmt_c->rowCount() > 0) {
@@ -76,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') :
             $stmt->bindParam(':category', $category);
             $stmt->bindParam(':image', $image);
             $stmt->execute();
-            header('Location:admin-category.php');
+            echo "<script>window.location.href='admin-category.php';</script>";
         }
     }
 
