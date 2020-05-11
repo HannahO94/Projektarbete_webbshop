@@ -39,6 +39,8 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
   $products = json_decode($row['products'], true);
   $freight = htmlspecialchars($row['freight']);
 
+  $zipcode = substr_replace($zip, " ", 3, 0 );
+
 
   //Hämta värden från produktarrayen för att kunna skriva ut dem i orderbekräftelsen
   $orderedProducts = ""; //fylls på med titel, antal och pris för varje produkt
@@ -82,7 +84,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 $name <br> 
                 <span class='email-style'>$email </span><br> 
                 $phone <br> 
-                $street, $zip $city
+                $street, $zipcode $city
             </td>
             <td class='table_orders-cell conf-cell products'> $orderedProducts </td>
             <td class='table_orders-cell conf-cell'> $totalPrice kr <br>
