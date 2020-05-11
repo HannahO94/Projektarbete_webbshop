@@ -19,13 +19,13 @@
 
     <div class="product_field-name form-container__box">
         <label for="title">Produkt namn: </label><br>
-        <input type="text" name="title" class="form-container__box-input">
+        <input type="text" name="title" class="form-container__box-input" required>
 
     </div>
 
     <div class="product_field-price form-container__box">
         <label for="price">Pris: </label><br>
-        <input type="number" min="0" max="10000" name="price" class="form-container__box-input">
+        <input type="number" min="0" max="10000" name="price" class="form-container__box-input" required>
     </div>
 
     <div class="product_field-quantity form-container__box">
@@ -36,7 +36,7 @@
 
     <div class="product_field-category form-container__box">
         <label for="category">Kategori: </label><br>
-        <select name="category" class="form-container__box-input">
+        <select name="category" class="form-container__box-input" required>
             <option value="">Välj en kategori...</option>
             <?php echo $option_value; ?>
 
