@@ -6,7 +6,8 @@ require_once 'config/db.php';
 $stmt = $db->prepare("SELECT * FROM `webshop_categories` 
                       WHERE `categoryid` 
                       IN (SELECT categoryid 
-                          FROM webshop_products)");
+                          FROM webshop_products
+                          WHERE quantity > 0)");
 $stmt->execute();
 
 ?>
