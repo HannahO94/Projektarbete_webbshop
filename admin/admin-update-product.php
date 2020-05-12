@@ -3,6 +3,7 @@ require_once '../config/db.php';
 require_once 'header.php';
 
 $imageold = "";
+$msg = "";
 
 //Hämtar information från databasen om produkten
 if(isset($_GET['id'])){
@@ -77,10 +78,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') :
     $stmt->bindParam(':id', $id);
     $stmt->execute();
     
-    header('Location:admin-products.php');
-   
+    //header('Location:admin-products.php');
+    
+    $msg = "Din produkt är uppdaterad!";
 
-$msg = "";
+
 
 
     $imgArrayTest = array_filter($image);
@@ -109,10 +111,15 @@ $msg = "";
         $stmt->execute();
     
                 
-        header("Location:admin-products.php");
+        //header("Location:admin-products.php");
         }
-        else{
-            echo $msg = "MAX 5 bilder";
+        else if(count($_FILES['productimg']['name']) > 5){
+            
+           
+
+      $msg = "Du får ladda upp max 5 bilder!";
+           
+           
         }
     
         }
