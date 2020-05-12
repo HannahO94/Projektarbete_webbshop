@@ -3,16 +3,18 @@
 <section class="form_container">
 
 <h1 class="page-title form-container__heading-text">Uppdatera produkt</h1>
+<?php 
+echo $msg; ?>
 <form action="#" method="POST" enctype="multipart/form-data" class="form-container">
 
 <div class="product_field-name form-container__box">
 <label for="title">Produkt namn: </label><br>
-<input type="text" name="title"value='<?php echo $title; ?>' class="form-container__box-input">
+<input type="text" name="title"value='<?php echo $title; ?>' class="form-container__box-input" required>
 </div>
 
 <div class="product_field-price form-container__box">
 <label for="price">Pris: </label><br>
-<input type="text" name="price" value='<?php echo $price; ?>' class="form-container__box-input">
+<input type="text" name="price" value='<?php echo $price; ?>' class="form-container__box-input"required>
 </div>
 
 <div class="product_field-quantity form-container__box">
@@ -31,8 +33,7 @@
 <div class="product_field-img form-container__image">
 <label for="product-img">Ladda upp produktbild(MAX 5 Bilder): </label><br>
 <input type="file" name="productimg[]" multiple="multiple" class="form-container__image-input">
-<?php 
-// echo $msg; ?>
+
 </div>
 
 </div>
