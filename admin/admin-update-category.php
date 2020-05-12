@@ -84,7 +84,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') :
             $stmt->bindParam(':image', $image);
             $stmt->bindParam(':id', $id);
             $stmt->execute();
-            //header('Location:admin-update-category.php');
+            header('Location:admin-update-category.php');
 
         }
     }
@@ -111,7 +111,7 @@ function test_input($data) {
     <div class="form-container__image update_category-box">
         <label for="image">Ladda upp en bild:</label><br>
         <input type="file" name="image" class="form-container__image-input">     
-        <?php echo $msg; ?>
+       
     </div>
     <div class="form-container__submit">
             <input type="submit" value="Uppdatera" class="form-container__submit-button">
